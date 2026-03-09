@@ -1,6 +1,7 @@
 /// The entrypoint for the **server** environment.
 library;
 
+import 'package:jaspr/dom.dart';
 import 'package:jaspr/server.dart';
 
 import 'package:jaspr_content/components/callout.dart';
