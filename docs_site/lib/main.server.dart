@@ -16,7 +16,7 @@ import 'package:jaspr_content/components/header.dart';
 
 import 'main.server.options.dart';
 
-const base = '/skills';
+const base = '';
 
 void main() {
   Jaspr.initializeApp(
@@ -42,7 +42,7 @@ void main() {
         DocsLayout(
           header: Header(
             title: 'Cocode Skills',
-            logo: '$base/images/logo.svg',
+            logo: '/images/logo.svg',
             items: [
               ThemeToggle(),
             ],

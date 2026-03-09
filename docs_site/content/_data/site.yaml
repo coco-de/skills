@@ -1,6 +1,6 @@
 titleBase: Cocode Skills
-favicon: /skills/images/logo.svg
-base: skills
+favicon: /images/logo.svg
+base: ''
 
 social:
   - name: GitHub

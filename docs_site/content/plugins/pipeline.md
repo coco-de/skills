@@ -7,7 +7,7 @@ description: 통합 프로젝트 파이프라인 오케스트레이터 — Disco
 
 ## cc-pipeline
 
-> [상세 페이지 보기 →](/skills/plugins/cc-pipeline/)
+> [상세 페이지 보기 →](/plugins/cc-pipeline/)
 
 **통합 프로젝트 파이프라인 오케스트레이터** — Discovery에서 Launch까지 6단계 프로젝트 라이프사이클을 관리합니다.
 

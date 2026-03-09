@@ -168,7 +168,7 @@ python3 validate_plugins.py
 
 ## Documentation
 
-📖 **문서 사이트**: [coco-de.github.io/skills](https://coco-de.github.io/skills/)
+📖 **문서 사이트**: [skills.cocode.im](https://skills.cocode.im/)
 
 ---
 
