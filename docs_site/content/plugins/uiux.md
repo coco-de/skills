@@ -9,6 +9,8 @@ CoUI 기반 Dart 풀스택에 특화된 7개 UI/UX 전문 플러그인입니다.
 
 ## cc-uiux-design
 
+> [상세 페이지 보기 →](/skills/plugins/cc-uiux-design/)
+
 **UI/UX 디자인** — CoUI 디자인 토큰과 DaisyUI 테마를 활용한 디자인 시스템입니다.
 
 | 항목 | 내용 |
@@ -22,6 +24,8 @@ claude plugins install coco-de/skills/plugins/cc-uiux-design
 ---
 
 ## cc-uiux-accessibility
+
+> [상세 페이지 보기 →](/skills/plugins/cc-uiux-accessibility/)
 
 **접근성** — Flutter Semantics와 Jaspr Web ARIA를 통한 WCAG 2.1 AA/AAA 지원입니다.
 
@@ -38,6 +42,8 @@ claude plugins install coco-de/skills/plugins/cc-uiux-accessibility
 
 ## cc-uiux-frontend
 
+> [상세 페이지 보기 →](/skills/plugins/cc-uiux-frontend/)
+
 **프론트엔드** — Flutter/Dart + CoUI 패턴, BLoC 패턴, Clean Architecture를 적용합니다.
 
 | 항목 | 내용 |
@@ -52,6 +58,8 @@ claude plugins install coco-de/skills/plugins/cc-uiux-frontend
 
 ## cc-uiux-backend
 
+> [상세 페이지 보기 →](/skills/plugins/cc-uiux-backend/)
+
 **백엔드** — Serverpod 전용 API 및 데이터베이스 설계를 지원합니다.
 
 | 항목 | 내용 |
@@ -65,6 +73,8 @@ claude plugins install coco-de/skills/plugins/cc-uiux-backend
 ---
 
 ## cc-uiux-testing
+
+> [상세 페이지 보기 →](/skills/plugins/cc-uiux-testing/)
 
 **테스팅** — Dart/Flutter 테스트 프레임워크를 활용한 전방위 테스트입니다.
 
@@ -81,6 +91,8 @@ claude plugins install coco-de/skills/plugins/cc-uiux-testing
 
 ## cc-uiux-devops
 
+> [상세 페이지 보기 →](/skills/plugins/cc-uiux-devops/)
+
 **DevOps** — GitHub Actions 기반 CI/CD 파이프라인 및 배포를 관리합니다.
 
 | 항목 | 내용 |
@@ -95,6 +107,8 @@ claude plugins install coco-de/skills/plugins/cc-uiux-devops
 ---
 
 ## cc-uiux-security
+
+> [상세 페이지 보기 →](/skills/plugins/cc-uiux-security/)
 
 **보안** — OWASP Mobile/Web Top 10 기준으로 보안을 관리합니다.
 

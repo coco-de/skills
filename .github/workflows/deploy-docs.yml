@@ -5,6 +5,8 @@ on:
     branches: [main]
     paths:
       - 'docs_site/**'
+      - 'plugins/**'
+      - 'generate_docs.py'
       - '.github/workflows/deploy-docs.yml'
   workflow_dispatch:
 
@@ -35,6 +37,9 @@ jobs:
 
       - name: Install dependencies
         run: dart pub get
+
+      - name: Generate plugin docs
+        run: python3 ../generate_docs.py
 
       - name: Build static site
         run: jaspr build

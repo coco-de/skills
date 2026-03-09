@@ -18,6 +18,9 @@
 .svn/
 migrate_working_dir/
 
+# Generated plugin docs (regenerated at build time)
+content/plugins/cc-*/
+
 # IntelliJ related
 *.iml
 *.ipr
