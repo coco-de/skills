@@ -1,9 +1,9 @@
 ---
-title: Pipeline
+title: 파이프라인
 description: 통합 프로젝트 파이프라인 오케스트레이터 — Discovery에서 Launch까지 6단계
 ---
 
-# Pipeline
+# 파이프라인
 
 ## cc-pipeline
 

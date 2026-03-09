@@ -51,38 +51,38 @@ void main() {
             groups: [
               SidebarGroup(
                 links: [
-                  SidebarLink(text: 'Overview', href: '$base/'),
-                  SidebarLink(text: '시작하기', href: '$base/getting-started'),
+                  SidebarLink(text: '📋 개요', href: '$base/'),
+                  SidebarLink(text: '🚀 시작하기', href: '$base/getting-started'),
                 ],
               ),
               SidebarGroup(
-                title: 'Product & Strategy',
+                title: '💡 제품 & 전략',
                 links: [
                   SidebarLink(
-                      text: '방법론 & 워크플로우',
+                      text: '🔄 방법론 & 워크플로우',
                       href: '$base/plugins/methodology'),
                   SidebarLink(
-                      text: 'Product Management',
+                      text: '📊 제품 관리',
                       href: '$base/plugins/product-management'),
                 ],
               ),
               SidebarGroup(
-                title: 'Engineering',
+                title: '⚙️ 엔지니어링',
                 links: [
                   SidebarLink(
-                      text: 'Flutter 개발', href: '$base/plugins/flutter'),
+                      text: '📱 Flutter 개발', href: '$base/plugins/flutter'),
                   SidebarLink(
-                      text: '백엔드 & 분석', href: '$base/plugins/backend'),
+                      text: '🗄️ 백엔드 & 분석', href: '$base/plugins/backend'),
                   SidebarLink(
-                      text: 'UI/UX 엔지니어링', href: '$base/plugins/uiux'),
+                      text: '🎨 UI/UX 엔지니어링', href: '$base/plugins/uiux'),
                   SidebarLink(
-                      text: 'Pipeline', href: '$base/plugins/pipeline'),
+                      text: '🔧 파이프라인', href: '$base/plugins/pipeline'),
                 ],
               ),
               SidebarGroup(
-                title: 'Community',
+                title: '🤝 커뮤니티',
                 links: [
-                  SidebarLink(text: '기여 가이드', href: '$base/contributing'),
+                  SidebarLink(text: '📝 기여 가이드', href: '$base/contributing'),
                 ],
               ),
             ],

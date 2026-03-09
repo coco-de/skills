@@ -1,9 +1,9 @@
 ---
-title: Product Management
+title: 제품 관리
 description: 제품 발견, 전략, 데이터 분석, Go-to-Market 플러그인
 ---
 
-# Product Management
+# 제품 관리
 
 4개의 PM 플러그인이 제품 라이프사이클 전체를 커버합니다.
 
