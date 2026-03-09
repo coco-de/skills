@@ -7,6 +7,7 @@
   "plugins": [
     {
       "name": "cc-bmad",
+      "source": "./plugins/cc-bmad",
       "version": "1.0.0",
       "description": "BMAD 방법론 (Business Method Agile Delivery)",
       "category": "methodology",
@@ -14,6 +15,7 @@
     },
     {
       "name": "cc-coui",
+      "source": "./plugins/cc-coui",
       "version": "1.0.0",
       "description": "CoUI 컴포넌트 라이브러리 (26개 크로스플랫폼 컴포넌트)",
       "category": "ui-components",
@@ -21,6 +23,7 @@
     },
     {
       "name": "cc-flutter-dev",
+      "source": "./plugins/cc-flutter-dev",
       "version": "1.0.0",
       "description": "Flutter 개발 핵심 (UI, Feature, BLoC, Test)",
       "category": "development",
@@ -28,6 +31,7 @@
     },
     {
       "name": "cc-flutter-inspector",
+      "source": "./plugins/cc-flutter-inspector",
       "version": "1.0.0",
       "description": "Flutter Inspector 디버깅 (Master + 9 전문 Inspectors)",
       "category": "debugging",
@@ -35,6 +39,7 @@
     },
     {
       "name": "cc-serverpod",
+      "source": "./plugins/cc-serverpod",
       "version": "1.0.0",
       "description": "Serverpod 백엔드 (Model, Endpoint, Migrations)",
       "category": "backend",
@@ -42,6 +47,7 @@
     },
     {
       "name": "cc-workflow",
+      "source": "./plugins/cc-workflow",
       "version": "1.0.0",
       "description": "개발 워크플로우 (Issue Cycle, Bug Cycle, Session, ZenHub)",
       "category": "workflow",
@@ -49,6 +55,7 @@
     },
     {
       "name": "cc-code-quality",
+      "source": "./plugins/cc-code-quality",
       "version": "1.0.0",
       "description": "코드 품질 (코드리뷰, 체크리스트, 버그리포트)",
       "category": "quality",
@@ -56,6 +63,7 @@
     },
     {
       "name": "cc-i18n",
+      "source": "./plugins/cc-i18n",
       "version": "1.0.0",
       "description": "국제화 (Slang 기반 i18n)",
       "category": "i18n",
@@ -63,6 +71,7 @@
     },
     {
       "name": "cc-clickhouse",
+      "source": "./plugins/cc-clickhouse",
       "version": "1.0.0",
       "description": "ClickHouse BI 분석",
       "category": "analytics",
@@ -70,6 +79,7 @@
     },
     {
       "name": "cc-pm-discovery",
+      "source": "./plugins/cc-pm-discovery",
       "version": "1.0.0",
       "description": "제품 발견 (인터뷰, 실험, 가정 테스트)",
       "category": "product-management",
@@ -77,6 +87,7 @@
     },
     {
       "name": "cc-pm-strategy",
+      "source": "./plugins/cc-pm-strategy",
       "version": "1.0.0",
       "description": "제품 전략 (비전, 비즈니스 모델, 경쟁 분석)",
       "category": "product-management",
@@ -84,6 +95,7 @@
     },
     {
       "name": "cc-pm-analytics",
+      "source": "./plugins/cc-pm-analytics",
       "version": "1.0.0",
       "description": "데이터 분석 (SQL, 코호트, A/B 테스트)",
       "category": "product-management",
@@ -91,6 +103,7 @@
     },
     {
       "name": "cc-pm-gtm",
+      "source": "./plugins/cc-pm-gtm",
       "version": "1.0.0",
       "description": "Go-to-Market (ICP, 메시징, GTM 모션)",
       "category": "product-management",
@@ -98,6 +111,7 @@
     },
     {
       "name": "cc-uiux-design",
+      "source": "./plugins/cc-uiux-design",
       "version": "1.0.0",
       "description": "UI/UX 디자인 (CoUI 디자인 토큰, DaisyUI 테마)",
       "category": "uiux",
@@ -105,6 +119,7 @@
     },
     {
       "name": "cc-uiux-accessibility",
+      "source": "./plugins/cc-uiux-accessibility",
       "version": "1.0.0",
       "description": "접근성 (Flutter + Jaspr Web)",
       "category": "uiux",
@@ -112,6 +127,7 @@
     },
     {
       "name": "cc-uiux-frontend",
+      "source": "./plugins/cc-uiux-frontend",
       "version": "1.0.0",
       "description": "프론트엔드 (CoUI + Flutter/Dart 전용)",
       "category": "uiux",
@@ -119,6 +135,7 @@
     },
     {
       "name": "cc-uiux-backend",
+      "source": "./plugins/cc-uiux-backend",
       "version": "1.0.0",
       "description": "백엔드 (Serverpod 전용)",
       "category": "uiux",
@@ -126,6 +143,7 @@
     },
     {
       "name": "cc-uiux-testing",
+      "source": "./plugins/cc-uiux-testing",
       "version": "1.0.0",
       "description": "테스팅 (Dart/Flutter 테스트 프레임워크)",
       "category": "uiux",
@@ -133,6 +151,7 @@
     },
     {
       "name": "cc-uiux-devops",
+      "source": "./plugins/cc-uiux-devops",
       "version": "1.0.0",
       "description": "DevOps (Flutter Web/App + Serverpod 배포)",
       "category": "uiux",
@@ -140,6 +159,7 @@
     },
     {
       "name": "cc-uiux-security",
+      "source": "./plugins/cc-uiux-security",
       "version": "1.0.0",
       "description": "보안 (Serverpod API + Flutter 앱)",
       "category": "uiux",
@@ -147,6 +167,7 @@
     },
     {
       "name": "cc-pipeline",
+      "source": "./plugins/cc-pipeline",
       "version": "1.0.0",
       "description": "통합 프로젝트 파이프라인 오케스트레이터 (Discovery → Launch 6단계)",
       "category": "pipeline",

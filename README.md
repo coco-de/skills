@@ -18,8 +18,8 @@ claude plugins install coco-de/skills
 ### 개별 플러그인 설치
 
 ```bash
-claude plugins install coco-de/skills/cc-bmad
-claude plugins install coco-de/skills/cc-flutter-dev
+claude plugins install coco-de/skills/plugins/cc-bmad
+claude plugins install coco-de/skills/plugins/cc-flutter-dev
 # ...
 ```
 

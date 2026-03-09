@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Optional
 
 REPO_ROOT = Path(__file__).parent
+PLUGINS_DIR = REPO_ROOT / "plugins"
 PLUGIN_PREFIX = "cc-"
 REQUIRED_FILES = ["plugin.json"]
 VALID_DIRS = {"skills", "commands", "agents", "rules", "references", "config",
@@ -143,7 +144,7 @@ class PluginValidator:
             data = json.load(f)
 
         registered = {p["name"] for p in data.get("plugins", [])}
-        actual = {d.name for d in REPO_ROOT.iterdir()
+        actual = {d.name for d in PLUGINS_DIR.iterdir()
                   if d.is_dir() and d.name.startswith(PLUGIN_PREFIX)}
 
         for name in actual - registered:
@@ -158,7 +159,7 @@ class PluginValidator:
         self.validate_marketplace()
 
         plugin_dirs = sorted([
-            d for d in REPO_ROOT.iterdir()
+            d for d in PLUGINS_DIR.iterdir()
             if d.is_dir() and d.name.startswith(PLUGIN_PREFIX)
         ])
 
