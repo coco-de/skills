@@ -40,13 +40,22 @@ void main() {
       ],
       layouts: [
         DocsLayout(
-          header: Header(
-            title: 'Cocode Skills',
-            logo: '/images/logo.svg',
-            items: [
-              ThemeToggle(),
-            ],
-          ),
+          header: Component.fragment([
+            Document.head(children: [
+              Style(styles: [
+                css('[data-theme="dark"] .header-title img').styles(
+                  raw: {'filter': 'brightness(0) invert(1)'},
+                ),
+              ]),
+            ]),
+            Header(
+              title: 'Cocode Skills',
+              logo: '/images/logo.svg',
+              items: [
+                ThemeToggle(),
+              ],
+            ),
+          ]),
           sidebar: Sidebar(
             groups: [
               SidebarGroup(
