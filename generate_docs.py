@@ -276,7 +276,7 @@ def process_md_file(md_path: Path, plugin_name: str, section: str, plugin_dir: P
         "title": title,
         "description": description,
         "section": section,
-        "href": f"/skills/plugins/{rel_href}",
+        "href": f"/plugins/{rel_href}",
         "output_path": output_path,
     }
 
