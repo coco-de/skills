@@ -22,55 +22,55 @@ await Company.db.deleteRow(session, company);
 
 ## 필터 API
 
-`where` 콜백에서 테이블 디스크립터 `t`를 사용한 Fluent API:
+`where` 콜백에서 테이블 디스크립터 `table`을 사용한 Fluent API:
 
 ```dart
 var activeCompanies = await Company.db.find(session,
-  where: (t) => t.name.ilike('a%') & (t.foundedDate > DateTime(2020)));
+  where: (table) => table.name.ilike('a%') & (table.foundedDate > DateTime(2020)));
 ```
 
 ### 연산자
 
 | 연산 | 예시 |
 |------|------|
-| 동등 | `t.column.equals(value)`, `t.column.notEquals(value)` |
+| 동등 | `table.column.equals(value)`, `table.column.notEquals(value)` |
 | 비교 | `>`, `>=`, `<`, `<=` (int/double/Duration/DateTime) |
-| 범위 | `t.column.between(a, b)`, `notBetween` |
-| 집합 | `t.column.inSet(set)`, `notInSet` |
-| 문자열 | `t.column.like('A%')` (대소문자 구분), `ilike` (무시) |
+| 범위 | `table.column.between(a, b)`, `notBetween` |
+| 집합 | `table.column.inSet(set)`, `notInSet` |
+| 문자열 | `table.column.like('A%')` (대소문자 구분), `ilike` (무시) |
 | 조합 | `&` (AND), `\|` (OR), `~` (NOT) |
 
 ### 관계 필터
 
 ```dart
 // 1:1 관계 필터
-where: (t) => t.address.street.like('%road%')
+where: (table) => table.address.street.like('%road%')
 
 // 1:N 관계 필터
-where: (t) => t.orders.count() > 3
-where: (t) => t.orders.count((o) => o.itemType.equals('book')) > 3
-where: (t) => t.orders.none()
-where: (t) => t.orders.any()
-where: (t) => t.orders.any((o) => o.status.equals('active'))
-where: (t) => t.orders.every((o) => o.isPaid.equals(true))
+where: (table) => table.orders.count() > 3
+where: (table) => table.orders.count((o) => o.itemType.equals('book')) > 3
+where: (table) => table.orders.none()
+where: (table) => table.orders.any()
+where: (table) => table.orders.any((o) => o.status.equals('active'))
+where: (table) => table.orders.every((o) => o.isPaid.equals(true))
 ```
 
 ## 정렬 & 페이지네이션
 
 ```dart
 // 단일 정렬
-orderBy: (t) => t.column
+orderBy: (table) => table.column
 orderDescending: true
 
 // 복합 정렬
-orderByList: (t) => [
-  Order(column: t.name, orderDescending: true),
-  Order(column: t.id),
+orderByList: (table) => [
+  Order(column: table.name, orderDescending: true),
+  Order(column: table.id),
 ]
 
 // 관계 기준 정렬
-orderBy: (t) => t.ceo.name
-orderBy: (t) => t.employees.count()
+orderBy: (table) => table.ceo.name
+orderBy: (table) => table.employees.count()
 ```
 
 ### 페이지네이션 전략
@@ -80,8 +80,8 @@ orderBy: (t) => t.employees.count()
 limit: pageSize, offset: page * pageSize
 
 // Cursor 기반 (대규모 데이터셋에 적합)
-where: (t) => t.id > lastId
-orderBy: (t) => t.id
+where: (table) => table.id > lastId
+orderBy: (table) => table.id
 limit: pageSize
 ```
 
@@ -96,8 +96,8 @@ var employee = await Employee.db.findById(session, id,
 var company = await Company.db.findById(session, id,
   include: Company.include(
     employees: Employee.includeList(
-      where: (t) => t.name.ilike('a%'),
-      orderBy: (t) => t.name,
+      where: (table) => table.name.ilike('a%'),
+      orderBy: (table) => table.name,
       limit: 10,
       includes: Employee.include(address: Address.include()),
     ),
@@ -133,7 +133,7 @@ await session.transaction((tx) async {
 await session.transaction((tx) async {
   // 배타적 잠금
   var rows = await Company.db.find(session,
-    where: (t) => t.id.equals(companyId),
+    where: (table) => table.id.equals(companyId),
     lockMode: LockMode.forUpdate,
     transaction: tx,
   );
