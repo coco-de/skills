@@ -5,7 +5,6 @@ import 'package:jaspr/server.dart';
 
 import 'package:jaspr_content/components/callout.dart';
 
-import 'package:jaspr_content/components/github_button.dart';
 import 'package:jaspr_content/components/header.dart';
 import 'package:jaspr_content/components/image.dart';
 import 'package:jaspr_content/components/sidebar.dart';
@@ -43,7 +42,6 @@ void main() {
             logo: '$base/images/logo.svg',
             items: [
               ThemeToggle(),
-              GitHubButton(repo: 'coco-de/skills'),
             ],
           ),
           sidebar: Sidebar(
@@ -51,19 +49,19 @@ void main() {
               SidebarGroup(
                 links: [
                   SidebarLink(text: 'Overview', href: '$base/'),
-                  SidebarLink(text: '시작하기', href: '$base/getting-started'),
+                  SidebarLink(text: 'Getting Started', href: '$base/getting-started'),
                 ],
               ),
               SidebarGroup(
                 title: 'Plugins',
                 links: [
                   SidebarLink(
-                      text: '방법론 & 워크플로우',
+                      text: 'Methodology & Workflow',
                       href: '$base/plugins/methodology'),
                   SidebarLink(
-                      text: 'Flutter 개발', href: '$base/plugins/flutter'),
+                      text: 'Flutter Development', href: '$base/plugins/flutter'),
                   SidebarLink(
-                      text: '백엔드 & 분석', href: '$base/plugins/backend'),
+                      text: 'Backend & Analytics', href: '$base/plugins/backend'),
                   SidebarLink(
                       text: 'Product Management',
                       href: '$base/plugins/product-management'),
@@ -75,7 +73,7 @@ void main() {
               SidebarGroup(
                 title: 'Community',
                 links: [
-                  SidebarLink(text: '기여 가이드', href: '$base/contributing'),
+                  SidebarLink(text: 'Contributing', href: '$base/contributing'),
                 ],
               ),
             ],
