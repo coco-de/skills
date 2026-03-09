@@ -7,7 +7,8 @@ description: 제품 발견, 전략, 데이터 분석, Go-to-Market 플러그인
 
 4개의 PM 플러그인이 제품 라이프사이클 전체를 커버합니다.
 
-## cc-pm-discovery
+<Tabs>
+  <TabItem label="cc-pm-discovery">
 
 > [상세 페이지 보기 →](/skills/plugins/cc-pm-discovery/)
 
@@ -23,9 +24,8 @@ description: 제품 발견, 전략, 데이터 분석, Go-to-Market 플러그인
 claude plugins install coco-de/skills/plugins/cc-pm-discovery
 ```
 
----
-
-## cc-pm-strategy
+  </TabItem>
+  <TabItem label="cc-pm-strategy">
 
 > [상세 페이지 보기 →](/skills/plugins/cc-pm-strategy/)
 
@@ -41,9 +41,8 @@ claude plugins install coco-de/skills/plugins/cc-pm-discovery
 claude plugins install coco-de/skills/plugins/cc-pm-strategy
 ```
 
----
-
-## cc-pm-analytics
+  </TabItem>
+  <TabItem label="cc-pm-analytics">
 
 > [상세 페이지 보기 →](/skills/plugins/cc-pm-analytics/)
 
@@ -59,9 +58,8 @@ claude plugins install coco-de/skills/plugins/cc-pm-strategy
 claude plugins install coco-de/skills/plugins/cc-pm-analytics
 ```
 
----
-
-## cc-pm-gtm
+  </TabItem>
+  <TabItem label="cc-pm-gtm">
 
 > [상세 페이지 보기 →](/skills/plugins/cc-pm-gtm/)
 
@@ -76,3 +74,6 @@ claude plugins install coco-de/skills/plugins/cc-pm-analytics
 ```bash
 claude plugins install coco-de/skills/plugins/cc-pm-gtm
 ```
+
+  </TabItem>
+</Tabs>

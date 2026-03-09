@@ -6,10 +6,10 @@
 
 import 'package:jaspr/client.dart';
 
+import 'package:jaspr_content/components/_internal/tab_bar.dart'
+    deferred as _tab_bar;
 import 'package:jaspr_content/components/_internal/zoomable_image.dart'
     deferred as _zoomable_image;
-import 'package:jaspr_content/components/github_button.dart'
-    deferred as _github_button;
 import 'package:jaspr_content/components/sidebar_toggle_button.dart'
     deferred as _sidebar_toggle_button;
 import 'package:jaspr_content/components/theme_toggle.dart'
@@ -33,6 +33,13 @@ import 'package:jaspr_content/components/theme_toggle.dart'
 /// ```
 ClientOptions get defaultClientOptions => ClientOptions(
   clients: {
+    'jaspr_content:tab_bar': ClientLoader(
+      (p) => _tab_bar.TabBar(
+        initialValue: p['initialValue'] as String,
+        items: (p['items'] as Map<String, Object?>).cast<String, String>(),
+      ),
+      loader: _tab_bar.loadLibrary,
+    ),
     'jaspr_content:zoomable_image': ClientLoader(
       (p) => _zoomable_image.ZoomableImage(
         src: p['src'] as String,
@@ -40,10 +47,6 @@ ClientOptions get defaultClientOptions => ClientOptions(
         caption: p['caption'] as String?,
       ),
       loader: _zoomable_image.loadLibrary,
-    ),
-    'jaspr_content:github_button': ClientLoader(
-      (p) => _github_button.GitHubButton(repo: p['repo'] as String),
-      loader: _github_button.loadLibrary,
     ),
     'jaspr_content:sidebar_toggle_button': ClientLoader(
       (p) => _sidebar_toggle_button.SidebarToggleButton(),

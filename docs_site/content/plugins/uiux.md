@@ -1,13 +1,14 @@
 ---
-title: UI/UX
+title: UI/UX 엔지니어링
 description: 디자인, 접근성, 프론트엔드, 백엔드, 테스팅, DevOps, 보안 — 7개 전문 플러그인
 ---
 
-# UI/UX
+# UI/UX 엔지니어링
 
 CoUI 기반 Dart 풀스택에 특화된 7개 UI/UX 전문 플러그인입니다.
 
-## cc-uiux-design
+<Tabs>
+  <TabItem label="cc-uiux-design">
 
 > [상세 페이지 보기 →](/skills/plugins/cc-uiux-design/)
 
@@ -21,9 +22,8 @@ CoUI 기반 Dart 풀스택에 특화된 7개 UI/UX 전문 플러그인입니다.
 claude plugins install coco-de/skills/plugins/cc-uiux-design
 ```
 
----
-
-## cc-uiux-accessibility
+  </TabItem>
+  <TabItem label="cc-uiux-accessibility">
 
 > [상세 페이지 보기 →](/skills/plugins/cc-uiux-accessibility/)
 
@@ -38,9 +38,8 @@ claude plugins install coco-de/skills/plugins/cc-uiux-design
 claude plugins install coco-de/skills/plugins/cc-uiux-accessibility
 ```
 
----
-
-## cc-uiux-frontend
+  </TabItem>
+  <TabItem label="cc-uiux-frontend">
 
 > [상세 페이지 보기 →](/skills/plugins/cc-uiux-frontend/)
 
@@ -54,9 +53,8 @@ claude plugins install coco-de/skills/plugins/cc-uiux-accessibility
 claude plugins install coco-de/skills/plugins/cc-uiux-frontend
 ```
 
----
-
-## cc-uiux-backend
+  </TabItem>
+  <TabItem label="cc-uiux-backend">
 
 > [상세 페이지 보기 →](/skills/plugins/cc-uiux-backend/)
 
@@ -70,9 +68,8 @@ claude plugins install coco-de/skills/plugins/cc-uiux-frontend
 claude plugins install coco-de/skills/plugins/cc-uiux-backend
 ```
 
----
-
-## cc-uiux-testing
+  </TabItem>
+  <TabItem label="cc-uiux-testing">
 
 > [상세 페이지 보기 →](/skills/plugins/cc-uiux-testing/)
 
@@ -87,9 +84,8 @@ claude plugins install coco-de/skills/plugins/cc-uiux-backend
 claude plugins install coco-de/skills/plugins/cc-uiux-testing
 ```
 
----
-
-## cc-uiux-devops
+  </TabItem>
+  <TabItem label="cc-uiux-devops">
 
 > [상세 페이지 보기 →](/skills/plugins/cc-uiux-devops/)
 
@@ -104,9 +100,8 @@ claude plugins install coco-de/skills/plugins/cc-uiux-testing
 claude plugins install coco-de/skills/plugins/cc-uiux-devops
 ```
 
----
-
-## cc-uiux-security
+  </TabItem>
+  <TabItem label="cc-uiux-security">
 
 > [상세 페이지 보기 →](/skills/plugins/cc-uiux-security/)
 
@@ -120,3 +115,6 @@ claude plugins install coco-de/skills/plugins/cc-uiux-devops
 ```bash
 claude plugins install coco-de/skills/plugins/cc-uiux-security
 ```
+
+  </TabItem>
+</Tabs>

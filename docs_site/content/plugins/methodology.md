@@ -5,7 +5,8 @@ description: BMAD 방법론, 개발 워크플로우, 코드 품질 관리 플러
 
 # 방법론 & 워크플로우
 
-## cc-bmad
+<Tabs>
+  <TabItem label="cc-bmad">
 
 > [상세 페이지 보기 →](/skills/plugins/cc-bmad/)
 
@@ -36,9 +37,8 @@ description: BMAD 방법론, 개발 워크플로우, 코드 품질 관리 플러
 claude plugins install coco-de/skills/plugins/cc-bmad
 ```
 
----
-
-## cc-workflow
+  </TabItem>
+  <TabItem label="cc-workflow">
 
 > [상세 페이지 보기 →](/skills/plugins/cc-workflow/)
 
@@ -56,9 +56,8 @@ claude plugins install coco-de/skills/plugins/cc-bmad
 claude plugins install coco-de/skills/plugins/cc-workflow
 ```
 
----
-
-## cc-code-quality
+  </TabItem>
+  <TabItem label="cc-code-quality">
 
 > [상세 페이지 보기 →](/skills/plugins/cc-code-quality/)
 
@@ -74,3 +73,6 @@ claude plugins install coco-de/skills/plugins/cc-workflow
 ```bash
 claude plugins install coco-de/skills/plugins/cc-code-quality
 ```
+
+  </TabItem>
+</Tabs>
