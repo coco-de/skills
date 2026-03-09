@@ -1,121 +1,121 @@
 methodology:
   - name: cc-bmad
-    description: BMAD methodology (Business Method Agile Delivery)
+    description: BMAD 방법론 (Business Method Agile Delivery)
     skills: 10
     commands: 18
     tags: bmad, agile, product-management
   - name: cc-workflow
-    description: Development workflow (Issue Cycle, Bug Cycle, Session, ZenHub)
+    description: 개발 워크플로우 (Issue Cycle, Bug Cycle, Session, ZenHub)
     skills: 2
     commands: 8
     tags: workflow, zenhub, session
   - name: cc-code-quality
-    description: Code quality (code review, checklist, bug report)
+    description: 코드 품질 (코드리뷰, 체크리스트, 버그리포트)
     skills: 3
     commands: 3
     tags: code-review, checklist, bug-report
 
 flutter:
   - name: cc-coui
-    description: CoUI component library (26 cross-platform components)
+    description: CoUI 컴포넌트 라이브러리 (26개 크로스플랫폼 컴포넌트)
     skills: 26
     commands: 0
     tags: coui, flutter, jaspr, components
   - name: cc-flutter-dev
-    description: Flutter core development (UI, Feature, BLoC, Test)
+    description: Flutter 개발 핵심 (UI, Feature, BLoC, Test)
     skills: 2
     commands: 10
     tags: flutter, dart, bloc, clean-architecture
   - name: cc-flutter-inspector
-    description: Flutter Inspector debugging (Master + 9 specialized Inspectors)
+    description: Flutter Inspector 디버깅 (Master + 9 전문 Inspectors)
     skills: 1
     commands: 9
     tags: flutter, inspector, debugging
   - name: cc-i18n
-    description: Internationalization (Slang-based i18n)
+    description: 국제화 (Slang 기반 i18n)
     skills: 1
     commands: 1
     tags: i18n, slang, localization
 
 backend:
   - name: cc-serverpod
-    description: Serverpod backend (Model, Endpoint, Migrations)
+    description: Serverpod 백엔드 (Model, Endpoint, Migrations)
     skills: 1
     commands: 3
     tags: serverpod, dart, backend, api
   - name: cc-backend
-    description: Advanced Serverpod backend (ORM, Auth, Caching, TDD, API Design, Architecture)
+    description: Serverpod 백엔드 심화 (ORM, Auth, Caching, TDD, API Design, Architecture)
     skills: 7
     commands: 0
     tags: serverpod, orm, auth, caching, tdd, architecture
   - name: cc-clickhouse
-    description: ClickHouse BI analytics
+    description: ClickHouse BI 분석
     skills: 1
     commands: 0
     tags: clickhouse, analytics, bi
 
 pm:
   - name: cc-pm-discovery
-    description: Product discovery (interviews, experiments, assumption testing)
+    description: 제품 발견 (인터뷰, 실험, 가정 테스트)
     skills: 3
     commands: 0
     tags: pm, discovery, user-research
   - name: cc-pm-strategy
-    description: Product strategy (vision, business model, competitive analysis)
+    description: 제품 전략 (비전, 비즈니스 모델, 경쟁 분석)
     skills: 3
     commands: 0
     tags: pm, strategy, business-model
   - name: cc-pm-analytics
-    description: Data analytics (SQL, cohort, A/B testing)
+    description: 데이터 분석 (SQL, 코호트, A/B 테스트)
     skills: 3
     commands: 0
     tags: pm, analytics, sql, ab-testing
   - name: cc-pm-gtm
-    description: Go-to-Market (ICP, messaging, GTM motions)
+    description: Go-to-Market (ICP, 메시징, GTM 모션)
     skills: 3
     commands: 0
     tags: pm, gtm, go-to-market
 
 uiux:
   - name: cc-uiux-design
-    description: UI/UX design (CoUI design tokens, DaisyUI themes)
+    description: UI/UX 디자인 (CoUI 디자인 토큰, DaisyUI 테마)
     skills: 2
     commands: 0
     tags: design, tokens, theme
   - name: cc-uiux-accessibility
-    description: Accessibility (Flutter + Jaspr Web, WCAG 2.1)
+    description: 접근성 (Flutter + Jaspr Web, WCAG 2.1)
     skills: 2
     commands: 0
     tags: accessibility, a11y, wcag
   - name: cc-uiux-frontend
-    description: Frontend (CoUI + Flutter/Dart)
+    description: 프론트엔드 (CoUI + Flutter/Dart 전용)
     skills: 3
     commands: 0
     tags: frontend, flutter, dart
   - name: cc-uiux-backend
-    description: Backend (Serverpod)
+    description: 백엔드 (Serverpod 전용)
     skills: 2
     commands: 0
     tags: backend, serverpod, api
   - name: cc-uiux-testing
-    description: Testing (Dart/Flutter test frameworks)
+    description: 테스팅 (Dart/Flutter 테스트 프레임워크)
     skills: 4
     commands: 0
     tags: testing, tdd, flutter-test
   - name: cc-uiux-devops
-    description: DevOps (Flutter Web/App + Serverpod deployment)
+    description: DevOps (Flutter Web/App + Serverpod 배포)
     skills: 3
     commands: 0
     tags: devops, cicd, deployment
   - name: cc-uiux-security
-    description: Security (Serverpod API + Flutter app)
+    description: 보안 (Serverpod API + Flutter 앱)
     skills: 3
     commands: 0
     tags: security, api-security, app-security
 
 pipeline:
   - name: cc-pipeline
-    description: Integrated project pipeline orchestrator (6 stages)
+    description: 통합 프로젝트 파이프라인 오케스트레이터 (6단계)
     skills: 1
     commands: 7
     tags: pipeline, orchestration, project-lifecycle

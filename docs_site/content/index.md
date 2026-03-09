@@ -1,41 +1,41 @@
 ---
 title: Cocode Skills
-description: Cocode team integrated skill repository — Claude Code plugins for Dart full-stack development
+description: Cocode 팀 통합 스킬 레포지토리 — Dart 풀스택 개발을 위한 Claude Code 플러그인 모음
 ---
 
 # Cocode Skills
 
-Integrated skill repository for the Cocode team. Provides **22 plugins** optimized for **Dart full-stack** development.
+Cocode 팀 통합 스킬 레포지토리입니다. **Dart 풀스택** 개발 환경에 최적화된 **22개 플러그인**을 제공합니다.
 
-## Tech Stack
+## 기술 스택
 
-| Area | Technology |
-|------|-----------|
+| 영역 | 기술 |
+|------|------|
 | **Frontend** | Flutter (Mobile/Desktop) + Jaspr (Web) |
 | **Backend** | Serverpod |
-| **UI Library** | CoUI (cross-platform components) |
-| **Architecture** | Clean Architecture + BLoC pattern |
+| **UI Library** | CoUI (크로스플랫폼 컴포넌트) |
+| **Architecture** | Clean Architecture + BLoC 패턴 |
 
-## Plugin Categories
+## 플러그인 카테고리
 
-| Category | Count | Description |
-|----------|:-----:|-------------|
-| [Methodology & Workflow](/skills/plugins/methodology) | 3 | BMAD, workflow, code quality |
-| [Flutter Development](/skills/plugins/flutter) | 4 | CoUI, core dev, Inspector, i18n |
-| [Backend & Analytics](/skills/plugins/backend) | 3 | Serverpod, backend patterns, ClickHouse |
+| 카테고리 | 플러그인 수 | 설명 |
+|----------|:---------:|------|
+| [방법론 & 워크플로우](/skills/plugins/methodology) | 3 | BMAD, 워크플로우, 코드 품질 |
+| [Flutter 개발](/skills/plugins/flutter) | 4 | CoUI, 핵심 개발, Inspector, i18n |
+| [백엔드 & 분석](/skills/plugins/backend) | 3 | Serverpod, 백엔드 심화, ClickHouse |
 | [Product Management](/skills/plugins/product-management) | 4 | Discovery, Strategy, Analytics, GTM |
-| [UI/UX](/skills/plugins/uiux) | 7 | Design, accessibility, frontend, backend, testing, DevOps, security |
-| [Pipeline](/skills/plugins/pipeline) | 1 | Integrated orchestrator |
+| [UI/UX](/skills/plugins/uiux) | 7 | 디자인, 접근성, 프론트엔드, 백엔드, 테스팅, DevOps, 보안 |
+| [Pipeline](/skills/plugins/pipeline) | 1 | 통합 오케스트레이터 |
 
-## Quick Start
+## 빠른 시작
 
-Install all plugins:
+전체 설치:
 
 ```bash
 claude plugins install coco-de/skills
 ```
 
-Install individual plugins:
+개별 플러그인 설치:
 
 ```bash
 claude plugins install coco-de/skills/plugins/cc-flutter-dev
@@ -43,5 +43,5 @@ claude plugins install coco-de/skills/plugins/cc-bmad
 ```
 
 <Info>
-  See the [Getting Started](/skills/getting-started) page for detailed setup instructions.
+  자세한 설치 방법은 [시작하기](/skills/getting-started) 페이지를 참고하세요.
 </Info>

@@ -1,28 +1,28 @@
 ---
-title: Backend & Analytics
-description: Serverpod backend, advanced backend patterns, and ClickHouse BI analytics plugins
+title: 백엔드 & 분석
+description: Serverpod 백엔드, 백엔드 심화, ClickHouse BI 분석 플러그인
 ---
 
-# Backend & Analytics
+# 백엔드 & 분석
 
 ## cc-serverpod
 
-**Serverpod Backend** — Supports Model, Endpoint, and Migration generation for the Dart-based Serverpod framework.
+**Serverpod 백엔드** — Dart 기반 서버 프레임워크 Serverpod의 Model, Endpoint, Migration을 지원합니다.
 
-| Item | Count |
-|------|-------|
-| Skills | 1 (serverpod) |
-| Commands | 3 (endpoint, model, merge-migrations) |
+| 항목 | 내용 |
+|------|------|
+| Skills | 1개 (serverpod) |
+| Commands | 3개 (endpoint, model, merge-migrations) |
 
-### Key Commands
+### 주요 커맨드
 
 ```bash
-/serverpod:endpoint          # Generate endpoint
-/serverpod:model             # Generate .spy.yaml model
-/serverpod:merge-migrations  # Merge migrations
+/serverpod:endpoint          # Endpoint 생성
+/serverpod:model             # .spy.yaml 모델 파일 생성
+/serverpod:merge-migrations  # Migration 병합
 ```
 
-### Install
+### 설치
 
 ```bash
 claude plugins install coco-de/skills/plugins/cc-serverpod
@@ -32,27 +32,27 @@ claude plugins install coco-de/skills/plugins/cc-serverpod
 
 ## cc-backend
 
-**Advanced Serverpod Backend** — Deep patterns for ORM, Auth, Caching, Testing, API Design, and Architecture. Complements cc-serverpod with architectural guidance.
+**Serverpod 백엔드 심화** — ORM, 인증, 캐싱, 테스팅, API 설계, 아키텍처 패턴을 다룹니다. cc-serverpod가 모델/엔드포인트/마이그레이션 생성을 담당한다면, cc-backend는 심화 패턴과 아키텍처를 제공합니다.
 
-| Item | Count |
-|------|-------|
-| Skills | 7 (database, auth, caching, testing, logging, api-design, architecture) |
-| Agents | 2 (backend-architect, tdd-orchestrator) |
-| Rules | 1 (backend-conventions) |
+| 항목 | 내용 |
+|------|------|
+| Skills | 7개 (database, auth, caching, testing, logging, api-design, architecture) |
+| Agents | 2개 (backend-architect, tdd-orchestrator) |
+| Rules | 1개 (backend-conventions) |
 
-### Skills Overview
+### 스킬 상세
 
-| Skill | Description |
-|-------|-------------|
-| database | Serverpod ORM deep dive — filters, relations, transactions, row locking |
-| auth | Auth module — IDP, JWT, server-side sessions, Flutter UI |
-| caching | Caching — Local, Redis, CacheMissHandler |
-| testing | Testing & TDD — withServerpod, rollback, streams |
-| logging | Logging & session lifecycle |
-| api-design | API design principles — REST, pagination, error handling |
-| architecture | Architecture patterns — Clean Architecture, DDD for Serverpod |
+| 스킬 | 설명 |
+|------|------|
+| database | Serverpod ORM 심화 — 필터, 관계, 트랜잭션, Row 잠금 |
+| auth | 인증 모듈 — IDP, JWT, 서버사이드 세션, Flutter UI |
+| caching | 캐싱 — Local, Redis, CacheMissHandler |
+| testing | 테스팅 & TDD — withServerpod, 롤백, 스트림 |
+| logging | 로깅 & 세션 생명주기 |
+| api-design | API 설계 원칙 — REST, 페이지네이션, 에러 처리 |
+| architecture | 아키텍처 패턴 — Clean Architecture, DDD for Serverpod |
 
-### Install
+### 설치
 
 ```bash
 claude plugins install coco-de/skills/plugins/cc-backend
@@ -62,13 +62,14 @@ claude plugins install coco-de/skills/plugins/cc-backend
 
 ## cc-clickhouse
 
-**ClickHouse BI Analytics** — Supports query writing, table design, and analytics dashboards.
+**ClickHouse BI 분석** — 쿼리 작성, 테이블 설계, 분석 대시보드를 지원합니다.
 
-| Item | Count |
-|------|-------|
-| Skills | 1 (clickhouse) |
+| 항목 | 내용 |
+|------|------|
+| Skills | 1개 (clickhouse) |
+| 기능 | 쿼리 작성, 테이블 설계, 분석 대시보드 |
 
-### Install
+### 설치
 
 ```bash
 claude plugins install coco-de/skills/plugins/cc-clickhouse

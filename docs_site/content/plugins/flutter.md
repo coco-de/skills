@@ -1,18 +1,18 @@
 ---
-title: Flutter Development
-description: CoUI components, Flutter core development, Inspector, and i18n plugins
+title: Flutter 개발
+description: CoUI 컴포넌트, Flutter 핵심 개발, Inspector, 국제화 플러그인
 ---
 
-# Flutter Development
+# Flutter 개발
 
 ## cc-coui
 
-**CoUI Component Library** — Provides **26 cross-platform components** that work on both Flutter and Jaspr Web.
+**CoUI 컴포넌트 라이브러리** — Flutter와 Jaspr Web 모두에서 동작하는 **26개 크로스플랫폼 컴포넌트**를 제공합니다.
 
-### Components
+### 컴포넌트 목록
 
-| Category | Components |
-|----------|-----------|
+| 카테고리 | 컴포넌트 |
+|----------|----------|
 | **Input** (8) | Button, Checkbox, DatePicker, Form, Input, Select, Slider, Toggle |
 | **Display** (6) | Avatar, Badge, Card, Progress, Table, Text |
 | **Navigation** (3) | Menu, Navigation, Tabs |
@@ -20,7 +20,7 @@ description: CoUI components, Flutter core development, Inspector, and i18n plug
 | **Layout** (2) | Accordion, Calendar |
 | **Theme** (1) | Theme |
 
-### Install
+### 설치
 
 ```bash
 claude plugins install coco-de/skills/plugins/cc-coui
@@ -30,25 +30,25 @@ claude plugins install coco-de/skills/plugins/cc-coui
 
 ## cc-flutter-dev
 
-**Flutter Core Development** — Supports UI generation, Feature scaffolding, BLoC patterns, and test automation.
+**Flutter 개발 핵심** — UI 생성, Feature 스캐폴딩, BLoC 패턴, 테스트 자동화를 지원합니다.
 
-| Item | Count |
-|------|-------|
-| Skills | 2 (workflow, flutter-ui) |
-| Agents | 6 (bloc, feature, flutter-ui, flutter-image-optimizer, test, console-feature) |
-| Rules | 10 (coui-flutter, dcm-*, data-mapper, bdd-test-patterns, etc.) |
+| 항목 | 내용 |
+|------|------|
+| Skills | 2개 (workflow, flutter-ui) |
+| Agents | 6개 (bloc, feature, flutter-ui, flutter-image-optimizer, test, console-feature) |
+| Rules | 10개 (coui-flutter, dcm-*, data-mapper, bdd-test-patterns 등) |
 
-### Key Commands
+### 주요 커맨드
 
 ```bash
-/bloc                        # Generate BLoC
-/flutter-ui                  # Generate Flutter UI
-/feature:create              # Feature scaffolding
-/bdd:generate                # Generate BDD scenarios
-/figma:analyze               # Analyze Figma design
+/bloc                        # BLoC 생성
+/flutter-ui                  # Flutter UI 생성
+/feature:create              # Feature 스캐폴딩
+/bdd:generate                # BDD 시나리오 생성
+/figma:analyze               # Figma 디자인 분석
 ```
 
-### Install
+### 설치
 
 ```bash
 claude plugins install coco-de/skills/plugins/cc-flutter-dev
@@ -58,24 +58,24 @@ claude plugins install coco-de/skills/plugins/cc-flutter-dev
 
 ## cc-flutter-inspector
 
-**Flutter Inspector Debugging** — Systematic debugging with a Master Inspector and 9 specialized Inspectors.
+**Flutter Inspector 디버깅** — Master Inspector와 9개 전문 Inspector로 체계적인 디버깅을 수행합니다.
 
-### Inspectors
+### Inspector 목록
 
-| Inspector | Role |
+| Inspector | 역할 |
 |-----------|------|
-| **Master** | Overall coordination and analysis |
-| auth | Authentication debugging |
-| bloc | BLoC state management debugging |
-| config | Configuration debugging |
-| form | Form debugging |
-| image | Image debugging |
-| log | Log analysis |
-| nav | Navigation debugging |
-| network | Network debugging |
-| ui | UI debugging |
+| **Master** | 전체 조율 및 분석 |
+| auth | 인증 관련 디버깅 |
+| bloc | BLoC 상태관리 디버깅 |
+| config | 설정 관련 디버깅 |
+| form | 폼 관련 디버깅 |
+| image | 이미지 관련 디버깅 |
+| log | 로그 분석 |
+| nav | 네비게이션 디버깅 |
+| network | 네트워크 디버깅 |
+| ui | UI 관련 디버깅 |
 
-### Install
+### 설치
 
 ```bash
 claude plugins install coco-de/skills/plugins/cc-flutter-inspector
@@ -85,9 +85,9 @@ claude plugins install coco-de/skills/plugins/cc-flutter-inspector
 
 ## cc-i18n
 
-**Internationalization** — Multi-language support using the Slang-based i18n framework.
+**국제화** — Slang 기반 i18n 프레임워크를 활용한 다국어 지원입니다.
 
-### Install
+### 설치
 
 ```bash
 claude plugins install coco-de/skills/plugins/cc-i18n
