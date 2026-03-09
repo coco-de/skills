@@ -31,7 +31,10 @@ class TabHeader extends StatelessComponent {
   @override
   Component build(BuildContext context) {
     return Component.fragment([
-      Document.head(children: [Style(styles: _styles)]),
+      Document.head(children: [
+        Style(styles: _styles),
+        link(rel: 'icon', type: 'image/svg+xml', href: logo),
+      ]),
       header(classes: 'tab-header', [
         div(classes: 'tab-header-top', [
           SidebarToggleButton(),
