@@ -172,6 +172,14 @@
       "description": "통합 프로젝트 파이프라인 오케스트레이터 (Discovery → Launch 6단계)",
       "category": "pipeline",
       "tags": ["pipeline", "orchestration", "project-lifecycle", "bmad", "workflow"]
+    },
+    {
+      "name": "cc-backend",
+      "source": "./plugins/cc-backend",
+      "version": "1.0.0",
+      "description": "Serverpod 백엔드 심화 (ORM, Auth, Caching, Testing, API Design, Architecture)",
+      "category": "backend",
+      "tags": ["serverpod", "orm", "auth", "caching", "tdd", "api-design", "architecture"]
     }
   ]
 }

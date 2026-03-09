@@ -1,0 +1,10 @@
+{
+  "name": "cc-backend",
+  "version": "1.0.0",
+  "description": "Serverpod 백엔드 심화 (ORM, Auth, Caching, Testing, API Design, Architecture)",
+  "includes": [
+    "skills/**",
+    "agents/**",
+    "rules/**"
+  ]
+}
