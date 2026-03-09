@@ -1,6 +1,6 @@
 ---
 title: 기여 가이드
-description: CoCode Skills 플러그인 기여 방법
+description: Cocode Skills 플러그인 기여 방법
 ---
 
 # 기여 가이드

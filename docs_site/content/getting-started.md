@@ -1,6 +1,6 @@
 ---
 title: 시작하기
-description: CoCode Skills 설치 및 설정 가이드
+description: Cocode Skills 설치 및 설정 가이드
 ---
 
 # 시작하기

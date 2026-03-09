@@ -39,7 +39,7 @@ void main() {
       layouts: [
         DocsLayout(
           header: Header(
-            title: 'CoCode Skills',
+            title: 'Cocode Skills',
             logo: '$base/images/logo.svg',
             items: [
               ThemeToggle(),
