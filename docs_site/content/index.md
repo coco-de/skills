@@ -29,9 +29,17 @@ Cocode 팀 통합 스킬 레포지토리입니다. **Dart 풀스택** 개발 환
 
 ## 빠른 시작
 
+<Warning>
+  Private 레포입니다. 설치 전에 `gh auth login`으로 GitHub 인증이 필요합니다.
+</Warning>
+
 전체 설치:
 
 ```bash
+# GitHub CLI 인증 (최초 1회)
+gh auth login
+
+# 전체 플러그인 설치
 claude plugins install coco-de/skills
 ```
 
