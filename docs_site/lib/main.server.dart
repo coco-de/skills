@@ -5,7 +5,6 @@ import 'package:jaspr/server.dart';
 
 import 'package:jaspr_content/components/callout.dart';
 
-import 'package:jaspr_content/components/header.dart';
 import 'package:jaspr_content/components/image.dart';
 import 'package:jaspr_content/components/tabs.dart';
 import 'package:jaspr_content/components/sidebar.dart';
@@ -13,6 +12,7 @@ import 'package:jaspr_content/components/theme_toggle.dart';
 import 'package:jaspr_content/jaspr_content.dart';
 import 'package:jaspr_content/theme.dart';
 
+import 'components/tab_header.dart';
 import 'main.server.options.dart';
 
 const base = '/skills';
@@ -39,9 +39,15 @@ void main() {
       ],
       layouts: [
         DocsLayout(
-          header: Header(
+          header: TabHeader(
             title: 'Cocode Skills',
             logo: '$base/images/logo.svg',
+            tabs: [
+              TabLink(text: 'Overview', href: '$base/'),
+              TabLink(text: '시작하기', href: '$base/getting-started'),
+              TabLink(text: 'Plugins', href: '$base/plugins/methodology'),
+              TabLink(text: '기여', href: '$base/contributing'),
+            ],
             items: [
               ThemeToggle(),
             ],
