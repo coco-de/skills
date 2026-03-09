@@ -61,6 +61,17 @@ void main() {
                 ],
               ),
               SidebarGroup(
+                title: 'Product & Strategy',
+                links: [
+                  SidebarLink(
+                      text: '방법론 & 워크플로우',
+                      href: '$base/plugins/methodology'),
+                  SidebarLink(
+                      text: 'Product Management',
+                      href: '$base/plugins/product-management'),
+                ],
+              ),
+              SidebarGroup(
                 title: 'Engineering',
                 links: [
                   SidebarLink(
@@ -71,17 +82,6 @@ void main() {
                       text: 'UI/UX 엔지니어링', href: '$base/plugins/uiux'),
                   SidebarLink(
                       text: 'Pipeline', href: '$base/plugins/pipeline'),
-                ],
-              ),
-              SidebarGroup(
-                title: 'Product & Strategy',
-                links: [
-                  SidebarLink(
-                      text: '방법론 & 워크플로우',
-                      href: '$base/plugins/methodology'),
-                  SidebarLink(
-                      text: 'Product Management',
-                      href: '$base/plugins/product-management'),
                 ],
               ),
               SidebarGroup(
