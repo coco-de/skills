@@ -8,8 +8,6 @@ description: BMAD 방법론, 개발 워크플로우, 코드 품질 관리 플러
 <Tabs>
   <TabItem label="cc-bmad">
 
-> [상세 페이지 보기 →](/plugins/cc-bmad/)
-
 **BMAD 방법론** (Business Method Agile Delivery) — 제품 개발 전 과정을 체계적으로 관리하는 방법론입니다.
 
 | 항목 | 내용 |
@@ -37,10 +35,10 @@ description: BMAD 방법론, 개발 워크플로우, 코드 품질 관리 플러
 claude plugins install coco-de/skills/plugins/cc-bmad
 ```
 
+> [상세 페이지 보기 →](/plugins/cc-bmad/)
+
   </TabItem>
   <TabItem label="cc-workflow">
-
-> [상세 페이지 보기 →](/plugins/cc-workflow/)
 
 **개발 워크플로우** — Issue Cycle, Bug Cycle, Session 관리, ZenHub 연동을 포함합니다.
 
@@ -56,10 +54,10 @@ claude plugins install coco-de/skills/plugins/cc-bmad
 claude plugins install coco-de/skills/plugins/cc-workflow
 ```
 
+> [상세 페이지 보기 →](/plugins/cc-workflow/)
+
   </TabItem>
   <TabItem label="cc-code-quality">
-
-> [상세 페이지 보기 →](/plugins/cc-code-quality/)
 
 **코드 품질** — 코드리뷰, 체크리스트, 버그리포트를 체계화합니다.
 
@@ -73,6 +71,8 @@ claude plugins install coco-de/skills/plugins/cc-workflow
 ```bash
 claude plugins install coco-de/skills/plugins/cc-code-quality
 ```
+
+> [상세 페이지 보기 →](/plugins/cc-code-quality/)
 
   </TabItem>
 </Tabs>
