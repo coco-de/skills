@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0",
+  "name": "coco-de/skills",
+  "description": "CoCode 팀 통합 스킬 레포지토리 - Dart 풀스택 (Flutter + Jaspr Web + Serverpod)",
+  "author": "CoCode Team",
+  "license": "MIT",
+  "plugins": [
+    {
+      "name": "cc-bmad",
+      "version": "1.0.0",
+      "description": "BMAD 방법론 (Business Method Agile Delivery)",
+      "category": "methodology",
+      "tags": ["bmad", "agile", "product-management", "workflow"]
+    },
+    {
+      "name": "cc-coui",
+      "version": "1.0.0",
+      "description": "CoUI 컴포넌트 라이브러리 (26개 크로스플랫폼 컴포넌트)",
+      "category": "ui-components",
+      "tags": ["coui", "flutter", "jaspr", "components"]
+    },
+    {
+      "name": "cc-flutter-dev",
+      "version": "1.0.0",
+      "description": "Flutter 개발 핵심 (UI, Feature, BLoC, Test)",
+      "category": "development",
+      "tags": ["flutter", "dart", "bloc", "clean-architecture"]
+    },
+    {
+      "name": "cc-flutter-inspector",
+      "version": "1.0.0",
+      "description": "Flutter Inspector 디버깅 (Master + 9 전문 Inspectors)",
+      "category": "debugging",
+      "tags": ["flutter", "inspector", "debugging"]
+    },
+    {
+      "name": "cc-serverpod",
+      "version": "1.0.0",
+      "description": "Serverpod 백엔드 (Model, Endpoint, Migrations)",
+      "category": "backend",
+      "tags": ["serverpod", "dart", "backend", "api"]
+    },
+    {
+      "name": "cc-workflow",
+      "version": "1.0.0",
+      "description": "개발 워크플로우 (Issue Cycle, Bug Cycle, Session, ZenHub)",
+      "category": "workflow",
+      "tags": ["workflow", "zenhub", "session", "issue-tracking"]
+    },
+    {
+      "name": "cc-code-quality",
+      "version": "1.0.0",
+      "description": "코드 품질 (코드리뷰, 체크리스트, 버그리포트)",
+      "category": "quality",
+      "tags": ["code-review", "checklist", "bug-report"]
+    },
+    {
+      "name": "cc-i18n",
+      "version": "1.0.0",
+      "description": "국제화 (Slang 기반 i18n)",
+      "category": "i18n",
+      "tags": ["i18n", "slang", "localization"]
+    },
+    {
+      "name": "cc-clickhouse",
+      "version": "1.0.0",
+      "description": "ClickHouse BI 분석",
+      "category": "analytics",
+      "tags": ["clickhouse", "analytics", "bi"]
+    },
+    {
+      "name": "cc-pm-discovery",
+      "version": "1.0.0",
+      "description": "제품 발견 (인터뷰, 실험, 가정 테스트)",
+      "category": "product-management",
+      "tags": ["pm", "discovery", "user-research"]
+    },
+    {
+      "name": "cc-pm-strategy",
+      "version": "1.0.0",
+      "description": "제품 전략 (비전, 비즈니스 모델, 경쟁 분석)",
+      "category": "product-management",
+      "tags": ["pm", "strategy", "business-model"]
+    },
+    {
+      "name": "cc-pm-analytics",
+      "version": "1.0.0",
+      "description": "데이터 분석 (SQL, 코호트, A/B 테스트)",
+      "category": "product-management",
+      "tags": ["pm", "analytics", "sql", "ab-testing"]
+    },
+    {
+      "name": "cc-pm-gtm",
+      "version": "1.0.0",
+      "description": "Go-to-Market (ICP, 메시징, GTM 모션)",
+      "category": "product-management",
+      "tags": ["pm", "gtm", "go-to-market"]
+    },
+    {
+      "name": "cc-uiux-design",
+      "version": "1.0.0",
+      "description": "UI/UX 디자인 (CoUI 디자인 토큰, DaisyUI 테마)",
+      "category": "uiux",
+      "tags": ["design", "tokens", "theme"]
+    },
+    {
+      "name": "cc-uiux-accessibility",
+      "version": "1.0.0",
+      "description": "접근성 (Flutter + Jaspr Web)",
+      "category": "uiux",
+      "tags": ["accessibility", "a11y", "wcag"]
+    },
+    {
+      "name": "cc-uiux-frontend",
+      "version": "1.0.0",
+      "description": "프론트엔드 (CoUI + Flutter/Dart 전용)",
+      "category": "uiux",
+      "tags": ["frontend", "flutter", "dart", "coui"]
+    },
+    {
+      "name": "cc-uiux-backend",
+      "version": "1.0.0",
+      "description": "백엔드 (Serverpod 전용)",
+      "category": "uiux",
+      "tags": ["backend", "serverpod", "api"]
+    },
+    {
+      "name": "cc-uiux-testing",
+      "version": "1.0.0",
+      "description": "테스팅 (Dart/Flutter 테스트 프레임워크)",
+      "category": "uiux",
+      "tags": ["testing", "tdd", "flutter-test"]
+    },
+    {
+      "name": "cc-uiux-devops",
+      "version": "1.0.0",
+      "description": "DevOps (Flutter Web/App + Serverpod 배포)",
+      "category": "uiux",
+      "tags": ["devops", "cicd", "deployment"]
+    },
+    {
+      "name": "cc-uiux-security",
+      "version": "1.0.0",
+      "description": "보안 (Serverpod API + Flutter 앱)",
+      "category": "uiux",
+      "tags": ["security", "api-security", "app-security"]
+    }
+  ]
+}

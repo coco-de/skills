@@ -1,0 +1,135 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "bmad-config-schema",
+  "title": "BMAD Configuration Schema",
+  "description": "BMAD 프레임워크 설정 스키마",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "설정 파일 버전"
+    },
+    "description": {
+      "type": "string",
+      "description": "설정 파일 설명"
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "BMAD 기능 활성화 여부",
+      "default": true
+    },
+    "defaultMode": {
+      "type": "string",
+      "enum": ["optional", "mandatory", "disabled"],
+      "description": "기본 BMAD 모드",
+      "default": "optional"
+    },
+    "gates": {
+      "type": "object",
+      "description": "페이즈 게이트 설정",
+      "properties": {
+        "analysis": { "$ref": "#/definitions/gateConfig" },
+        "planning": { "$ref": "#/definitions/gateConfig" },
+        "solutioning": { "$ref": "#/definitions/solutioningGateConfig" },
+        "implementation": { "$ref": "#/definitions/implementationGateConfig" }
+      }
+    },
+    "personas": {
+      "type": "object",
+      "description": "페르소나 설정",
+      "additionalProperties": { "$ref": "#/definitions/personaConfig" }
+    },
+    "emergency": {
+      "type": "object",
+      "description": "긴급 모드 설정",
+      "properties": {
+        "allowBypass": { "type": "boolean", "default": true },
+        "requireApproval": { "type": "boolean", "default": true },
+        "bypassableGates": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": ["analysis", "planning"]
+        },
+        "mandatoryGates": {
+          "type": "array",
+          "items": { "type": "string" },
+          "default": ["implementation"]
+        },
+        "postReviewHours": { "type": "integer", "default": 48, "description": "긴급 모드 후 사후 리뷰 필수 시간" }
+      }
+    },
+    "parallelExecution": {
+      "type": "object",
+      "description": "병렬 실행 설정",
+      "properties": {
+        "enabled": { "type": "boolean", "default": true },
+        "maxConcurrency": { "type": "integer", "minimum": 1, "default": 2 },
+        "defaultPattern": { "type": "string", "enum": ["fan-out", "sequential"], "default": "fan-out" }
+      }
+    },
+    "feedback": {
+      "type": "object",
+      "description": "피드백 설정",
+      "properties": {
+        "maxRetries": { "type": "integer", "minimum": 1, "default": 3, "description": "최대 재시도 횟수 (무한 루프 방지)" },
+        "autoFix": {
+          "type": "object",
+          "properties": {
+            "enabled": { "type": "boolean", "default": true },
+            "categories": {
+              "type": "array",
+              "items": { "type": "string" },
+              "default": ["type_safety", "code_style", "lint_rules"]
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "gateConfig": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean", "default": true },
+        "mandatory": { "type": "boolean", "default": true },
+        "persona": { "type": "string" },
+        "checks": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "solutioningGateConfig": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "mandatory": { "type": "boolean" },
+        "parallelPersonas": { "type": "array", "items": { "type": "string" } },
+        "checks": { "type": "object" }
+      }
+    },
+    "implementationGateConfig": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "mandatory": { "type": "boolean" },
+        "personas": { "type": "array", "items": { "type": "string" } },
+        "subGates": { "type": "object" }
+      }
+    },
+    "personaConfig": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean", "default": true },
+        "phase": { "type": "string" },
+        "linkedAgents": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "연결된 에이전트 또는 스킬 경로 (agents/, commands/agents/, skills/ 디렉토리)"
+        },
+        "mcpTools": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "연결된 MCP 도구 이름 (mcp__서버명__도구명 형식)"
+        }
+      }
+    }
+  }
+}

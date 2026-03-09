@@ -1,0 +1,134 @@
+{
+  "$schema": "./bmad-schema.json",
+  "version": "1.0.0",
+  "description": "BMAD 프레임워크 설정 파일",
+
+  "enabled": true,
+  "defaultMode": "optional",
+
+  "gates": {
+    "analysis": {
+      "enabled": true,
+      "mandatory": true,
+      "persona": "analyst",
+      "checks": [
+        "requirement_clarity",
+        "scope_appropriateness",
+        "ac_testability"
+      ]
+    },
+    "planning": {
+      "enabled": true,
+      "mandatory": true,
+      "persona": "product-manager",
+      "checks": [
+        "epic_story_structure",
+        "story_point",
+        "labeling",
+        "dependencies"
+      ]
+    },
+    "solutioning": {
+      "enabled": true,
+      "mandatory": true,
+      "parallelPersonas": ["architect", "ux-designer"],
+      "checks": {
+        "architect": [
+          "clean_architecture",
+          "di_structure",
+          "api_design",
+          "security"
+        ],
+        "ux-designer": [
+          "coui_compliance",
+          "layout",
+          "interaction",
+          "accessibility"
+        ]
+      }
+    },
+    "implementation": {
+      "enabled": true,
+      "mandatory": true,
+      "personas": ["flutter-developer", "backend-developer", "scrum-master"],
+      "subGates": {
+        "step_4_branch": {
+          "pattern": "^(feature|fix|refactor|chore)/[0-9]+-[a-z0-9-]+$",
+          "description": "브랜치명은 반드시 이슈 번호와 슬러그를 포함해야 함 (예: feature/1810-author-list)"
+        },
+        "step_8_5_lint": {
+          "commands": ["dart analyze", "dcm analyze"]
+        },
+        "step_9_pr": {
+          "checks": ["branch_format", "issue_linked", "commits_exist", "lint_passed"]
+        }
+      }
+    }
+  },
+
+  "personas": {
+    "analyst": {
+      "enabled": true,
+      "phase": "analysis",
+      "linkedAgents": ["commands/agents/figma-analyzer-agent", "commands/agents/bdd-scenario-agent"]
+    },
+    "product-manager": {
+      "enabled": true,
+      "phase": "planning",
+      "linkedAgents": ["commands/agents/zenhub-integration-agent"]
+    },
+    "architect": {
+      "enabled": true,
+      "phase": "solutioning",
+      "linkedAgents": ["skills/code-review"]
+    },
+    "ux-designer": {
+      "enabled": true,
+      "phase": "solutioning",
+      "linkedAgents": ["agents/flutter-ui", "commands/agents/shared/widgetbook-agent"]
+    },
+    "flutter-developer": {
+      "enabled": true,
+      "phase": "implementation",
+      "linkedAgents": ["commands/agents/feature-orchestrator-agent", "commands/agents/app/presentation-layer-agent"],
+      "mcpTools": ["mcp__coui-flutter__search_components", "mcp__coui-flutter__generate_component", "mcp__coui-flutter__validate_component"]
+    },
+    "backend-developer": {
+      "enabled": true,
+      "phase": "implementation",
+      "linkedAgents": ["commands/agents/app/data-layer-agent"]
+    },
+    "scrum-master": {
+      "enabled": true,
+      "phase": "implementation",
+      "linkedAgents": ["agents/sequential-workflow", "commands/agents/workflow/issue-state-agent"]
+    }
+  },
+
+  "emergency": {
+    "allowBypass": true,
+    "requireApproval": true,
+    "bypassableGates": ["analysis", "planning"],
+    "mandatoryGates": ["implementation"]
+  },
+
+  "parallelExecution": {
+    "enabled": true,
+    "maxConcurrency": 2,
+    "defaultPattern": "fan-out"
+  },
+
+  "feedback": {
+    "maxRetries": 3,
+    "autoFix": {
+      "enabled": true,
+      "categories": [
+        "type_safety",
+        "code_style",
+        "lint_rules",
+        "duplicate_removal",
+        "naming"
+      ]
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "name": "cc-pm-analytics",
+  "version": "1.0.0",
+  "description": "데이터 분석 (SQL, 코호트, A/B 테스트)"
+}

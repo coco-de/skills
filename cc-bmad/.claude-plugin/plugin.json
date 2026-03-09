@@ -1,0 +1,10 @@
+{
+  "name": "cc-bmad",
+  "version": "1.0.0",
+  "description": "BMAD 방법론 (Business Method Agile Delivery) - 10 skills, 18 commands",
+  "skills": ["skills/"],
+  "commands": ["commands/"],
+  "config": ["config/"],
+  "orchestrators": ["orchestrators/"],
+  "personas": ["personas/"]
+}

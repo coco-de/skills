@@ -1,0 +1,6 @@
+{
+  "name": "cc-clickhouse",
+  "version": "1.0.0",
+  "description": "ClickHouse BI 분석",
+  "skills": ["skills/"]
+}
