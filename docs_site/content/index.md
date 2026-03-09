@@ -20,12 +20,12 @@ CoCode 팀 통합 스킬 레포지토리입니다. **Dart 풀스택** 개발 환
 
 | 카테고리 | 플러그인 수 | 설명 |
 |----------|:---------:|------|
-| [방법론 & 워크플로우](/plugins/methodology) | 3 | BMAD, 워크플로우, 코드 품질 |
-| [Flutter 개발](/plugins/flutter) | 4 | CoUI, 핵심 개발, Inspector, i18n |
-| [백엔드 & 분석](/plugins/backend) | 2 | Serverpod, ClickHouse |
-| [Product Management](/plugins/product-management) | 4 | Discovery, Strategy, Analytics, GTM |
-| [UI/UX](/plugins/uiux) | 7 | 디자인, 접근성, 프론트엔드, 백엔드, 테스팅, DevOps, 보안 |
-| [Pipeline](/plugins/pipeline) | 1 | 통합 오케스트레이터 |
+| [방법론 & 워크플로우](plugins/methodology) | 3 | BMAD, 워크플로우, 코드 품질 |
+| [Flutter 개발](plugins/flutter) | 4 | CoUI, 핵심 개발, Inspector, i18n |
+| [백엔드 & 분석](plugins/backend) | 2 | Serverpod, ClickHouse |
+| [Product Management](plugins/product-management) | 4 | Discovery, Strategy, Analytics, GTM |
+| [UI/UX](plugins/uiux) | 7 | 디자인, 접근성, 프론트엔드, 백엔드, 테스팅, DevOps, 보안 |
+| [Pipeline](plugins/pipeline) | 1 | 통합 오케스트레이터 |
 
 ## 빠른 시작
 
@@ -43,5 +43,5 @@ claude plugins install coco-de/skills/plugins/cc-bmad
 ```
 
 <Info>
-  자세한 설치 방법은 [시작하기](/getting-started) 페이지를 참고하세요.
+  자세한 설치 방법은 [시작하기](getting-started) 페이지를 참고하세요.
 </Info>

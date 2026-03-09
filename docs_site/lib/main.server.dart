@@ -38,7 +38,7 @@ void main() {
         DocsLayout(
           header: Header(
             title: 'CoCode Skills',
-            logo: '/images/logo.svg',
+            logo: 'images/logo.svg',
             items: [
               ThemeToggle(),
               GitHubButton(repo: 'coco-de/skills'),
@@ -48,8 +48,8 @@ void main() {
             groups: [
               SidebarGroup(
                 links: [
-                  SidebarLink(text: 'Overview', href: '/'),
-                  SidebarLink(text: '시작하기', href: '/getting-started'),
+                  SidebarLink(text: 'Overview', href: '.'),
+                  SidebarLink(text: '시작하기', href: 'getting-started'),
                 ],
               ),
               SidebarGroup(
@@ -57,23 +57,23 @@ void main() {
                 links: [
                   SidebarLink(
                       text: '방법론 & 워크플로우',
-                      href: '/plugins/methodology'),
+                      href: 'plugins/methodology'),
                   SidebarLink(
-                      text: 'Flutter 개발', href: '/plugins/flutter'),
+                      text: 'Flutter 개발', href: 'plugins/flutter'),
                   SidebarLink(
-                      text: '백엔드 & 분석', href: '/plugins/backend'),
+                      text: '백엔드 & 분석', href: 'plugins/backend'),
                   SidebarLink(
                       text: 'Product Management',
-                      href: '/plugins/product-management'),
-                  SidebarLink(text: 'UI/UX', href: '/plugins/uiux'),
+                      href: 'plugins/product-management'),
+                  SidebarLink(text: 'UI/UX', href: 'plugins/uiux'),
                   SidebarLink(
-                      text: 'Pipeline', href: '/plugins/pipeline'),
+                      text: 'Pipeline', href: 'plugins/pipeline'),
                 ],
               ),
               SidebarGroup(
                 title: 'Community',
                 links: [
-                  SidebarLink(text: '기여 가이드', href: '/contributing'),
+                  SidebarLink(text: '기여 가이드', href: 'contributing'),
                 ],
               ),
             ],
