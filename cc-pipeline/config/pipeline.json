@@ -1,0 +1,146 @@
+{
+  "version": "1.0.0",
+  "description": "파이프라인 스테이지 정의 및 스킵 규칙",
+
+  "stages": {
+    "discovery": {
+      "order": 1,
+      "name": "Discovery",
+      "label": "분석",
+      "command": "/project:discover",
+      "gate": null,
+      "skip": {
+        "levels": [0, 1],
+        "conditions": ["existing_product_minor_feature", "bug_fix"]
+      },
+      "artifacts": ["docs/discovery-{slug}.md"]
+    },
+    "planning": {
+      "order": 2,
+      "name": "Planning",
+      "label": "기획",
+      "command": "/project:plan",
+      "gate": "analysis",
+      "skip": {
+        "levels": [],
+        "conditions": []
+      },
+      "artifacts": [
+        "docs/prd-{slug}.md",
+        "docs/tech-spec-{slug}.md",
+        "docs/bdd-{slug}.md"
+      ]
+    },
+    "design": {
+      "order": 3,
+      "name": "Design",
+      "label": "설계",
+      "command": "/project:design",
+      "gate": "solutioning",
+      "skip": {
+        "levels": [0],
+        "conditions": ["simple_bug_fix"]
+      },
+      "artifacts": [
+        "docs/architecture-{slug}.md",
+        "docs/ux-spec-{slug}.md"
+      ]
+    },
+    "epic": {
+      "order": 4,
+      "name": "Epic Creation",
+      "label": "생성",
+      "command": "/project:epic",
+      "gate": "planning",
+      "skip": {
+        "levels": [0],
+        "conditions": ["single_issue"]
+      },
+      "artifacts": []
+    },
+    "development": {
+      "order": 5,
+      "name": "Development",
+      "label": "개발",
+      "command": "/project:develop",
+      "gate": "implementation",
+      "skip": {
+        "levels": [],
+        "conditions": []
+      },
+      "artifacts": []
+    },
+    "launch": {
+      "order": 6,
+      "name": "Launch",
+      "label": "출시",
+      "command": "/project:launch",
+      "gate": null,
+      "skip": {
+        "levels": [0, 1],
+        "conditions": ["internal_feature", "minor_improvement", "infrastructure"]
+      },
+      "artifacts": [
+        "docs/gtm-{slug}.md",
+        "docs/analytics-plan-{slug}.md"
+      ]
+    }
+  },
+
+  "levels": {
+    "0": {
+      "name": "Hotfix",
+      "description": "단순 버그 수정",
+      "defaultSkip": ["discovery", "design", "epic", "launch"]
+    },
+    "1": {
+      "name": "Minor Feature",
+      "description": "소규모 기능 추가",
+      "defaultSkip": ["discovery", "launch"]
+    },
+    "2": {
+      "name": "Feature",
+      "description": "중규모 기능",
+      "defaultSkip": []
+    },
+    "3": {
+      "name": "Major Feature",
+      "description": "대규모 기능 / 새 모듈",
+      "defaultSkip": []
+    },
+    "4": {
+      "name": "New Project",
+      "description": "신규 프로젝트",
+      "defaultSkip": []
+    }
+  },
+
+  "gates": {
+    "analysis": {
+      "source": "cc-bmad",
+      "checks": ["requirement_clarity", "scope_appropriateness", "ac_testability"]
+    },
+    "solutioning": {
+      "source": "cc-bmad",
+      "parallelReview": ["architect", "ux-designer"],
+      "checks": {
+        "architect": ["clean_architecture", "di_structure", "api_design", "security"],
+        "ux-designer": ["coui_compliance", "layout", "interaction", "accessibility"]
+      }
+    },
+    "planning": {
+      "source": "cc-bmad",
+      "checks": ["epic_story_structure", "story_point", "labeling", "dependencies"]
+    },
+    "implementation": {
+      "source": "cc-bmad",
+      "checks": ["lint_pass", "test_pass", "code_review", "branch_naming"]
+    }
+  },
+
+  "stateFile": {
+    "directory": ".pipeline",
+    "format": "yaml",
+    "pattern": ".pipeline/{slug}.yaml"
+  }
+}

@@ -1,0 +1,155 @@
+# 스테이지별 소스 플러그인 → 스킬/커맨드 매핑
+# 각 스테이지에서 호출하는 소스 플러그인과 커맨드를 정의합니다.
+
+discovery:
+  sources:
+    - plugin: cc-pm-discovery
+      skills:
+        - name: user-interview
+          role: 사용자 인터뷰
+          phase: 1
+        - name: assumption-testing
+          role: 가정 검증
+          phase: 1
+        - name: experiment-design
+          role: 실험 설계
+          phase: 1
+
+    - plugin: cc-pm-strategy
+      skills:
+        - name: competitive-analysis
+          role: 경쟁 분석
+          phase: 2
+        - name: product-vision
+          role: 비전 수립
+          phase: 2
+
+    - plugin: cc-bmad
+      commands:
+        - name: /bmad:research
+          role: 시장/기술 리서치
+          phase: 3
+        - name: /bmad:brainstorm
+          role: 아이디에이션
+          phase: 3
+
+planning:
+  sources:
+    - plugin: cc-bmad
+      commands:
+        - name: /bmad:product-brief
+          role: 제품 브리프
+          phase: 1
+        - name: /bmad:prd
+          role: PRD 작성
+          phase: 2
+          alt: /bmad:tech-spec
+        - name: /bmad:tech-spec
+          role: 기술 사양
+          phase: 2
+          alt: /bmad:prd
+      personas:
+        - name: analyst
+          role: 요구사항 분석, BDD AC
+          phase: 3
+
+    - plugin: cc-pm-strategy
+      skills:
+        - name: business-model
+          role: 비즈니스 모델
+          phase: 2
+
+  gate: analysis
+
+design:
+  sources:
+    - plugin: cc-bmad
+      commands:
+        - name: /bmad:architecture
+          role: 아키텍처 설계
+          phase: 1
+        - name: /bmad:create-ux-design
+          role: UX 설계
+          phase: 2
+      personas:
+        - name: architect
+          role: 아키텍처 리뷰
+          phase: 3
+          parallel: true
+        - name: ux-designer
+          role: UX 리뷰
+          phase: 3
+          parallel: true
+
+  gate: solutioning
+
+epic:
+  sources:
+    - plugin: cc-workflow
+      commands:
+        - name: /zenhub:create-epic
+          role: ZenHub Epic/Story 생성
+          phase: 1
+
+    - plugin: cc-bmad
+      commands:
+        - name: /bmad:create-story
+          role: 개별 스토리 작성
+          phase: 2
+        - name: /bmad:sprint-planning
+          role: 스프린트 계획
+          phase: 2
+      personas:
+        - name: product-manager
+          role: 스토리 포인트, 라벨링
+          phase: 3
+
+  gate: planning
+
+development:
+  sources:
+    - plugin: cc-workflow
+      commands:
+        - name: /workflow
+          role: 13단계 개발 사이클
+          phase: 1
+          args: "{issue_number}"
+
+    - plugin: cc-bmad
+      commands:
+        - name: /bmad:dev-story
+          role: 스토리 구현
+          phase: 1
+      personas:
+        - name: flutter-developer
+          role: Flutter 구현 리뷰
+          phase: 2
+        - name: backend-developer
+          role: Backend 구현 리뷰
+          phase: 2
+
+  gate: implementation
+  mode: iterative  # Epic 내 Stories를 순회
+
+launch:
+  sources:
+    - plugin: cc-pm-gtm
+      skills:
+        - name: gtm-motion
+          role: GTM 전략
+          phase: 1
+        - name: icp-definition
+          role: ICP 정의
+          phase: 1
+        - name: messaging-framework
+          role: 메시징 프레임워크
+          phase: 1
+
+    - plugin: cc-pm-analytics
+      skills:
+        - name: ab-testing
+          role: A/B 테스트 설계
+          phase: 2
+        - name: cohort-analysis
+          role: 코호트 분석
+          phase: 2

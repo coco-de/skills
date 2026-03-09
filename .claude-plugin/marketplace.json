@@ -144,6 +144,13 @@
       "description": "보안 (Serverpod API + Flutter 앱)",
       "category": "uiux",
       "tags": ["security", "api-security", "app-security"]
+    },
+    {
+      "name": "cc-pipeline",
+      "version": "1.0.0",
+      "description": "통합 프로젝트 파이프라인 오케스트레이터 (Discovery → Launch 6단계)",
+      "category": "pipeline",
+      "tags": ["pipeline", "orchestration", "project-lifecycle", "bmad", "workflow"]
     }
   ]
 }
