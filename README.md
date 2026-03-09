@@ -22,10 +22,10 @@
 
 ```
 coco-de/skills
-├── 21 Plugins
-├── 20 Agents
-├── 47 Commands
-└── 80 Skills
+├── 22 Plugins
+├── 22 Agents
+├── 100 Commands
+└── 87 Skills
 ```
 
 Flutter + Serverpod + CoUI 기반의 Dart 풀스택 프로젝트를 위한 Claude Code 플러그인 컬렉션입니다. 방법론, 개발, 테스트, 배포까지 전체 개발 라이프사이클을 커버합니다.
@@ -85,6 +85,7 @@ claude plugins install coco-de/skills/plugins/cc-serverpod
 | 플러그인 | 설명 | Skills | Commands | Agents |
 |---------|------|--------|----------|--------|
 | `cc-serverpod` | Serverpod 백엔드 | 1 | 2 | 1 |
+| `cc-backend` | Serverpod 백엔드 심화 (ORM, Auth, Caching, TDD, API Design) | 7 | — | 2 |
 | `cc-clickhouse` | ClickHouse BI 분석 | 1 | — | — |
 
 ### PM (Product Management)
