@@ -82,10 +82,59 @@ mixin FeatureServerpodMixin implements IFeatureRepository {
 }
 ```
 
-### BLoC 연동
+### BLoC 연동: emit.forEach + restartable() (권장)
 
 ```dart
+import 'package:bloc_concurrency/bloc_concurrency.dart';
+
 // ❌ @injectable 사용 금지
+class FeatureBloc extends Bloc<FeatureEvent, FeatureState> {
+  FeatureBloc({
+    GetEntityStreamUseCase? getEntityStream,
+  }) : _getEntityStream = getEntityStream ?? const GetEntityStreamUseCase(),
+       super(const FeatureState()) {
+    on<FeatureLoad>(
+      _onLoad,
+      transformer: restartable(),  // 파라미터 변경 시 이전 스트림 자동 취소
+    );
+  }
+
+  final GetEntityStreamUseCase _getEntityStream;
+
+  Future<void> _onLoad(FeatureLoad event, Emitter<FeatureState> emit) async {
+    if (state.entity == null) {
+      emit(state.copyWith(status: LoadingStatus.loading));
+    }
+
+    await emit.forEach<SWRResult<Entity>>(
+      _getEntityStream(GetEntityParams(id: event.id)),
+      onData: (result) => state.copyWith(
+        status: LoadingStatus.loaded,
+        entity: result.data,
+        fromCache: result.fromCache,
+        isRefreshing: result.isRefreshing,
+      ),
+    );
+  }
+}
+```
+
+#### restartable() 동작 원리
+
+```
+1. add(FeatureLoad(id: 1))  → 스트림A 구독 (캐시 → 서버 순차 yield)
+2. add(FeatureLoad(id: 2))  → restartable()가 핸들러1 취소 → 스트림A 해제
+                               → 핸들러2 시작 → 스트림B 구독
+```
+
+`emit.forEach`는 내부적으로 `stream.listen()`을 호출하며, `restartable()`가 핸들러를 취소하면 구독도 자동 정리됩니다. `close()` 오버라이드와 `StreamSubscription` 관리가 불필요합니다.
+
+#### 레거시: 수동 StreamSubscription (비권장)
+
+<details>
+<summary>수동 StreamSubscription 패턴 (기존 코드 참조용)</summary>
+
+```dart
 class FeatureBloc extends Bloc<FeatureEvent, FeatureState> {
   FeatureBloc() : super(FeatureInitial()) {
     on<FeatureLoad>(_onLoad);
@@ -96,24 +145,13 @@ class FeatureBloc extends Bloc<FeatureEvent, FeatureState> {
 
   Future<void> _onLoad(FeatureLoad event, Emitter<FeatureState> emit) async {
     emit(FeatureLoading());
-
     await _subscription?.cancel();
-    // ✅ UseCase 직접 인스턴스화하여 호출
     _subscription = const GetEntityStreamUseCase().call(
       GetEntityParams(id: event.id),
     ).listen(
       (result) => add(_FeatureUpdated(result)),
       onError: (error) => add(_FeatureError(error)),
     );
-  }
-
-  void _onUpdated(_FeatureUpdated event, Emitter<FeatureState> emit) {
-    final result = event.result;
-    emit(FeatureLoaded(
-      entity: result.data,
-      fromCache: result.fromCache,
-      isRefreshing: result.isRefreshing,
-    ));
   }
 
   @override
@@ -123,6 +161,8 @@ class FeatureBloc extends Bloc<FeatureEvent, FeatureState> {
   }
 }
 ```
+
+</details>
 
 ---
 
@@ -254,8 +294,8 @@ class EntityDao extends DatabaseAccessor<AppDatabase> with _$EntityDaoMixin {
 - [ ] Repository Interface에 Stream 메서드 정의
 - [ ] Mixin에서 캐싱 로직 구현
 - [ ] Drift DAO 구현 (로컬 캐시)
-- [ ] BLoC에서 Stream 구독
-- [ ] close()에서 StreamSubscription 정리
+- [ ] BLoC에서 `emit.forEach` + `restartable()` 사용
+- [ ] 파라미터 변경 시 이전 스트림 자동 취소 확인
 - [ ] UI에서 fromCache/isRefreshing 상태 표시
 
 ---
