@@ -137,46 +137,24 @@ final class UserUpdate extends UserEvent {
 
 ---
 
-## BLoC 구현
+## UseCase 통합 패턴
 
-> ⚠️ **중요**: BLoC에 `@injectable` 사용 금지! Provider를 통해 의존성 주입 및 접근 관리
+BLoC에서 UseCase를 사용하는 두 가지 패턴입니다.
+
+### 패턴 A: 직접 인스턴스화 (Direct Instantiation)
 
 ```dart
-// {feature}_bloc.dart
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-// ❌ 금지: @injectable 사용
-// ❌ 금지: 생성자를 통한 UseCase 주입
-
+// BLoC에서 UseCase를 직접 생성하여 호출
 class UserBloc extends Bloc<UserEvent, UserState> {
   UserBloc() : super(const UserInitial()) {
     on<UserLoad>(_onLoad);
-    on<UserRefresh>(_onRefresh);
   }
 
   Future<void> _onLoad(UserLoad event, Emitter<UserState> emit) async {
     emit(const UserLoading());
 
-    // ✅ UseCase 직접 인스턴스화하여 호출
-    final result = await GetUserUseCase().call(
+    final result = await const GetUserUseCase().call(
       GetUserParams(id: event.userId),
-    );
-
-    if (isClosed) return; // await 후 체크 필수!
-
-    result.fold(
-      (failure) => emit(UserError(failure: failure)),
-      (user) => emit(UserLoaded(user: user)),
-    );
-  }
-
-  Future<void> _onRefresh(UserRefresh event, Emitter<UserState> emit) async {
-    final currentState = state;
-    if (currentState is! UserLoaded) return;
-
-    // ✅ UseCase 직접 인스턴스화하여 호출
-    final result = await GetUserUseCase().call(
-      GetUserParams(id: currentState.user.id),
     );
 
     if (isClosed) return;
@@ -189,32 +167,175 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 }
 ```
 
+### 패턴 B: DI 디커플링 (Optional Constructor Injection) ✅ 테스트 용이
+
+테스트 시 mock UseCase를 직접 주입할 수 있어, GetIt 모킹 없이 순수 단위테스트가 가능합니다.
+
+```dart
+class UserBloc extends Bloc<UserEvent, UserState> {
+  UserBloc({
+    GetUserUseCase? getUserUseCase,       // Optional: 테스트 시 mock 주입
+    UpdateUserUseCase? updateUserUseCase,
+  }) : _getUserUseCase = getUserUseCase ?? const GetUserUseCase(),
+       _updateUserUseCase = updateUserUseCase ?? const UpdateUserUseCase(),
+       super(const UserInitial()) {
+    on<UserLoad>(_onLoad);
+    on<UserUpdate>(_onUpdate);
+  }
+
+  final GetUserUseCase _getUserUseCase;
+  final UpdateUserUseCase _updateUserUseCase;
+
+  Future<void> _onLoad(UserLoad event, Emitter<UserState> emit) async {
+    emit(const UserLoading());
+
+    final result = await _getUserUseCase(
+      GetUserParams(id: event.userId),
+    );
+
+    if (isClosed) return;
+
+    result.fold(
+      (failure) => emit(UserError(failure: failure)),
+      (user) => emit(UserLoaded(user: user)),
+    );
+  }
+}
+```
+
+**UseCase 8개 이상일 때: Bundle 패턴**
+
+```dart
+class DashboardUseCases {
+  const DashboardUseCases({
+    GetStatsUseCase? getStats,
+    GetChartDataUseCase? getChartData,
+    GetRecentItemsUseCase? getRecentItems,
+    // ... 8+ UseCases
+  }) : getStats = getStats ?? const GetStatsUseCase(),
+       getChartData = getChartData ?? const GetChartDataUseCase(),
+       getRecentItems = getRecentItems ?? const GetRecentItemsUseCase();
+
+  final GetStatsUseCase getStats;
+  final GetChartDataUseCase getChartData;
+  final GetRecentItemsUseCase getRecentItems;
+}
+
+class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
+  DashboardBloc({DashboardUseCases? useCases})
+      : _useCases = useCases ?? const DashboardUseCases(),
+        super(const DashboardState()) {
+    on<_Load>(_onLoad);
+  }
+
+  final DashboardUseCases _useCases;
+}
+```
+
+### 테스트 비교
+
+| 항목 | 직접 인스턴스화 | DI 디커플링 |
+|------|----------------|------------|
+| Mock 대상 | GetIt에 Mock Repository 등록 | Mock UseCase를 생성자에 주입 |
+| 격리 수준 | Repository 레벨 | UseCase 레벨 (더 정밀) |
+| 설정 코드 | `getIt.registerSingleton(...)` | `UserBloc(getUserUseCase: mockUseCase)` |
+| tearDown | `getIt.reset()` 필수 | 불필요 |
+| 병렬 테스트 | GetIt 전역 상태로 주의 필요 | 완전 격리, 안전 |
+
 ---
 
 ## Stream 연동 (SWR/Cache-First)
+
+### 패턴 A: emit.forEach + restartable() ✅ 권장
+
+`emit.forEach`를 사용하면 수동 `StreamSubscription` 관리가 불필요합니다.
+`restartable()` 트랜스포머로 파라미터 변경 시 이전 스트림이 자동 취소됩니다.
+
+```dart
+import 'package:bloc_concurrency/bloc_concurrency.dart';
+
+class HomeBloc extends Bloc<HomeEvent, HomeState> {
+  HomeBloc({
+    GetItemsStreamUseCase? getItemsStream,
+  }) : _getItemsStream = getItemsStream ?? const GetItemsStreamUseCase(),
+       super(const HomeState()) {
+    on<HomeLoad>(
+      _onLoad,
+      transformer: restartable(),  // 새 이벤트 시 이전 스트림 자동 취소
+    );
+  }
+
+  final GetItemsStreamUseCase _getItemsStream;
+
+  Future<void> _onLoad(HomeLoad event, Emitter<HomeState> emit) async {
+    // 캐시가 없을 때만 로딩 상태 표시
+    if (state.items.isEmpty) {
+      emit(state.copyWith(status: LoadingStatus.loading));
+    }
+
+    // emit.forEach가 스트림을 구독하고 자동으로 정리
+    await emit.forEach<Either<Failure, List<Item>>>(
+      _getItemsStream(GetItemsParams(categoryId: event.categoryId)),
+      onData: (result) => result.fold(
+        (failure) => state.copyWith(
+          status: LoadingStatus.error,
+          failure: failure,
+        ),
+        (items) => state.copyWith(
+          status: LoadingStatus.loaded,
+          items: items,
+          lastUpdated: DateTime.now(),
+        ),
+      ),
+    );
+  }
+  // close() 오버라이드 불필요! emit.forEach가 자동 정리
+}
+```
+
+#### restartable() 동작 원리
+
+```
+1. add(HomeLoad(categoryId: 1))  → 스트림A 구독 시작 (캐시 → 서버 순차 yield)
+2. add(HomeLoad(categoryId: 2))  → restartable()가 핸들러1 취소 → 스트림A 해제
+                                 → 핸들러2 시작 → 스트림B 구독 시작
+```
+
+| 트랜스포머 | 동작 | 사용 시점 |
+|-----------|------|----------|
+| **`restartable()`** | 이전 핸들러 취소, 새 핸들러 시작 | **파라미터 변경 시 (권장)** |
+| `droppable()` | 이전 핸들러 완료까지 새 이벤트 무시 | 중복 호출 방지 |
+| `sequential()` | 순차 처리 (큐) | 순서 보장 필요 시 |
+| `concurrent()` | 병렬 처리 | 독립적인 이벤트 |
+
+### 패턴 B: 수동 StreamSubscription (레거시)
+
+`emit.forEach`를 사용할 수 없는 특수한 경우에만 사용합니다.
 
 ```dart
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(const HomeState()) {
     on<HomeLoad>(_onLoad);
+    on<_HomeItemsUpdated>(_onUpdated);
   }
 
-  StreamSubscription<SWRResult<List<Item>>>? _subscription;
+  StreamSubscription<Either<Failure, List<Item>>>? _subscription;
 
   Future<void> _onLoad(HomeLoad event, Emitter<HomeState> emit) async {
     emit(state.copyWith(status: LoadingStatus.loading));
 
     await _subscription?.cancel();
-    // ✅ UseCase 직접 인스턴스화하여 호출
-    _subscription = GetItemsStreamUseCase().call(NoParams()).listen(
-      (result) => add(HomeItemsUpdated(result)),
-      onError: (error) => add(HomeError(error)),
+    _subscription = const GetItemsStreamUseCase().call(
+      GetItemsParams(categoryId: event.categoryId),
+    ).listen(
+      (result) => add(_HomeItemsUpdated(result)),
+      onError: (error) => add(_HomeError(error)),
     );
   }
 
   @override
   Future<void> close() {
-    _subscription?.cancel();
+    _subscription?.cancel();  // 수동 정리 필수!
     return super.close();
   }
 }
@@ -236,7 +357,6 @@ class UserPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      // ✅ BLoC 직접 생성 (getIt 사용 금지)
       create: (_) => UserBloc()
         ..add(UserLoad(userId: userId)),
       child: const UserView(),
@@ -293,7 +413,6 @@ BlocListener<UserBloc, UserState>(
 ## Cubit (단순한 경우)
 
 ```dart
-// ❌ @injectable 사용 금지
 class CounterCubit extends Cubit<int> {
   CounterCubit() : super(0);
 
@@ -305,12 +424,111 @@ class CounterCubit extends Cubit<int> {
 
 ---
 
+## 테스트
+
+### DI 디커플링 패턴 테스트 ✅ 권장
+
+```dart
+import 'package:bloc_test/bloc_test.dart';
+import 'package:mocktail/mocktail.dart';
+
+class MockGetUserUseCase extends Mock implements GetUserUseCase {}
+
+void main() {
+  late MockGetUserUseCase mockGetUser;
+
+  setUp(() {
+    mockGetUser = MockGetUserUseCase();
+  });
+
+  blocTest<UserBloc, UserState>(
+    'emits [loading, loaded] when load succeeds',
+    setUp: () {
+      when(() => mockGetUser(any()))
+          .thenAnswer((_) async => right(testUser));
+    },
+    build: () => UserBloc(getUserUseCase: mockGetUser),  // mock 주입
+    act: (bloc) => bloc.add(const UserLoad(userId: 1)),
+    expect: () => [
+      const UserLoading(),
+      UserLoaded(user: testUser),
+    ],
+  );
+}
+```
+
+### Stream (emit.forEach) 테스트
+
+```dart
+class MockGetItemsStreamUseCase extends Mock implements GetItemsStreamUseCase {}
+
+blocTest<HomeBloc, HomeState>(
+  'emits cached then fresh data via SWR stream',
+  setUp: () {
+    when(() => mockGetItemsStream(any())).thenAnswer(
+      (_) => Stream.fromIterable([
+        right(cachedItems),   // 캐시 데이터
+        right(freshItems),    // 서버 데이터
+      ]),
+    );
+  },
+  build: () => HomeBloc(getItemsStream: mockGetItemsStream),
+  act: (bloc) => bloc.add(const HomeLoad(categoryId: 1)),
+  expect: () => [
+    HomeState(status: LoadingStatus.loading),
+    HomeState(status: LoadingStatus.loaded, items: cachedItems),
+    HomeState(status: LoadingStatus.loaded, items: freshItems),
+  ],
+);
+```
+
+### 직접 인스턴스화 테스트 (GetIt 모킹)
+
+```dart
+class MockUserRepository extends Mock implements IUserRepository {}
+
+void main() {
+  late MockUserRepository mockRepository;
+
+  setUp(() {
+    mockRepository = MockUserRepository();
+    getIt.registerSingleton<IUserRepository>(mockRepository);
+  });
+
+  tearDown(() {
+    getIt.reset();
+  });
+
+  blocTest<UserBloc, UserState>(
+    'emits [loading, loaded] when load succeeds',
+    setUp: () {
+      when(() => mockRepository.getUser(any()))
+          .thenAnswer((_) async => right(testUser));
+    },
+    build: UserBloc.new,
+    act: (bloc) => bloc.add(const UserLoad(userId: 1)),
+    expect: () => [
+      const UserLoading(),
+      UserLoaded(user: testUser),
+    ],
+  );
+}
+```
+
+---
+
 ## 선택 가이드
 
 ```
 상태 분리 명확? ─Yes→ Freezed Union (권장)
                └No→ 코드생성 회피? ─Yes→ Sealed Class
                                   └No→ Single State
+
+UseCase 주입? ─테스트 중요→ DI 디커플링 (Optional Constructor Injection)
+             └단순한 경우→ 직접 인스턴스화
+
+Stream 연동? ─Yes→ emit.forEach + restartable() (권장)
+            └특수한 경우→ 수동 StreamSubscription
 ```
 
 ---
@@ -319,13 +537,12 @@ class CounterCubit extends Cubit<int> {
 
 - [ ] State 정의 (Freezed union / sealed class / single)
 - [ ] Event 정의 (Freezed / sealed class)
-- [ ] BLoC 구현 (`@injectable` 사용 금지!)
-- [ ] UseCase 직접 인스턴스화 (`UseCase().call()` 패턴)
+- [ ] BLoC 구현 (UseCase 통합 패턴 선택)
+- [ ] UseCase 호출 패턴 적용 (직접 인스턴스화 또는 DI 디커플링)
 - [ ] `isClosed` 체크 (await 후 필수)
-- [ ] BlocProvider로 BLoC 직접 생성 (getIt 사용 금지)
+- [ ] Stream 연동 시 `emit.forEach` + `restartable()` 사용
 - [ ] buildWhen/listenWhen 최적화
-- [ ] 메모리 관리 (close 시 StreamSubscription 정리)
-- [ ] 테스트 작성
+- [ ] 테스트 작성 (mock UseCase 주입 또는 GetIt 모킹)
 
 ---
 
