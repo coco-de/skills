@@ -23,6 +23,7 @@ Deep Link, Universal Links, App Links 설정 및 관리 플러그인
 
 - Universal Links / App Links 초기 설정
 - AASA paths에서 서버 전용 경로 제외 (OAuth 콜백 등)
+- **Firebase Hosting 환경에서 커스텀 AASA 배포** (Firebase 자동 생성 AASA 오버라이드)
 - 신규 딥링크 경로 추가
 - 딥링크 디버깅 및 검증
 - **도메인 마이그레이션** (old → new 도메인 전환, 멀티 도메인 지원, 하위 호환)

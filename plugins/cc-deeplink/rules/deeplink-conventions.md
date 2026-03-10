@@ -53,12 +53,42 @@ Android는 `intent-filter`에 포함할 경로만 명시하므로, 서버 콜백
 
 ## 동적 + 정적 동기화
 
-| 파일 | 용도 | 수정 시 |
-|------|------|--------|
-| `well_known_route.dart` | 동적 AASA (환경별 Bundle ID) | 서버 코드 수정 |
-| `web/.well-known/apple-app-site-association` | 정적 폴백 | 파일 수정 |
+| 파일 | 용도 | 서빙 위치 | 수정 시 |
+|------|------|----------|--------|
+| `well_known_route.dart` | 동적 AASA (환경별 Bundle ID) | 백엔드 직접 접근 도메인 | 서버 코드 수정 |
+| `web/.well-known/apple-app-site-association` | 정적 AASA | Firebase Hosting 도메인 | 파일 수정 + 웹 배포 |
 
 **두 파일의 paths 설정은 반드시 동일해야 합니다.**
+
+## Firebase Hosting 환경 규칙
+
+Firebase Hosting을 CDN/리버스 프록시로 사용하는 경우:
+
+### AASA 서빙 우선순위
+
+```
+1순위: public 디렉토리 정적 파일 (커스텀 AASA)
+2순위: Firebase 자동 생성 AASA (커스텀 NOT 규칙 없음!)
+3순위: rewrites → 백엔드 서버 (도달 안 됨)
+```
+
+### 필수 설정
+
+1. **`firebase.json`의 `ignore`에서 `"**/.*"` 제거** — `.well-known` 디렉토리가 배포에 포함되어야 함
+2. **Content-Type 헤더 명시** — `/.well-known/apple-app-site-association`에 `application/json`
+3. **빌드 스크립트에 `.well-known` 복사 추가** — `flutter build web`이 `web/.well-known`을 포함하지 않음
+
+### Firebase 자동 AASA에 포함되는 NOT 규칙
+
+Firebase는 자동 AASA에 다음만 포함합니다 (커스텀 규칙 미포함):
+
+```json
+"NOT /__/auth/action/"
+"NOT /__/auth/handler/"
+"NOT /_/*"
+```
+
+커스텀 정적 AASA에는 위 규칙 + 프로젝트 NOT 규칙을 **모두 포함**해야 합니다.
 
 ## URL 생성 규칙
 

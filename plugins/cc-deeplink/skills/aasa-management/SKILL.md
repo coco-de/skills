@@ -168,6 +168,128 @@ curl -s https://yourdomain.com/.well-known/apple-app-site-association | jq .
 curl -s https://app-site-association.cdn-apple.com/a/v1/yourdomain.com | jq .
 ```
 
+## Firebase Hosting AASA 가로채기
+
+### 문제: Firebase Hosting이 AASA를 자동 생성
+
+Firebase Hosting을 리버스 프록시/CDN으로 사용하는 경우, `.well-known/apple-app-site-association` 요청이 **백엔드 서버에 도달하지 않습니다**.
+
+```
+iOS 기기 → DNS → Firebase Hosting CDN → 백엔드 서버 (Serverpod 등)
+                       ↑
+                 여기서 AASA 가로챔
+```
+
+Firebase는 프로젝트에 iOS 앱이 등록되어 있으면 **자동으로 AASA를 생성**하여 반환합니다. 이 자동 생성 AASA에는 Firebase 내부 경로(`/__/auth/*`, `/_/*`)만 NOT prefix로 제외되고, 커스텀 NOT 규칙(예: `NOT /auth/*`)은 **포함되지 않습니다**.
+
+### 결과
+
+- 백엔드 서버의 `WellKnownRoute`가 아무리 올바르게 설정되어 있어도, Firebase가 먼저 응답
+- OAuth 콜백(`/auth/naver/callback` 등)이 Universal Link로 매칭되어 앱이 열림
+- 서버 토큰 교환 미완료 → 로그인 실패
+
+### 해결: 커스텀 정적 AASA 파일 배포
+
+Firebase Hosting의 `public` 디렉토리에 정적 AASA 파일을 배포하면, Firebase 자동 생성 AASA보다 **높은 우선순위**로 서빙됩니다.
+
+```
+우선순위:
+1순위: public 디렉토리의 정적 파일 ← 커스텀 AASA
+2순위: Firebase 자동 생성 AASA
+3순위: rewrites 규칙 (백엔드 프록시)
+```
+
+#### 1단계: 정적 AASA 파일 생성
+
+```
+web/.well-known/apple-app-site-association
+```
+
+```json
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "TEAM_ID.BUNDLE_ID",
+        "paths": [
+          "NOT /auth/*",
+          "NOT /internal/*",
+          "NOT /api/*",
+          "NOT /__/auth/action/",
+          "NOT /__/auth/handler/",
+          "NOT /_/*",
+          "/*"
+        ]
+      }
+    ]
+  }
+}
+```
+
+> **중요**: Firebase 기본 NOT 규칙(`/__/auth/*`, `/_/*`)도 함께 포함해야 합니다.
+
+#### 2단계: firebase.json 설정
+
+```json
+{
+  "hosting": {
+    "public": "build/web",
+    "ignore": ["firebase.json", "**/node_modules/**"],
+    "headers": [
+      {
+        "source": "/.well-known/apple-app-site-association",
+        "headers": [
+          { "key": "Content-Type", "value": "application/json" }
+        ]
+      }
+    ]
+  }
+}
+```
+
+**주의사항**:
+- `ignore` 배열에서 `"**/.*"` 제거 필수 (`.well-known` 디렉토리가 무시되지 않도록)
+- Content-Type 헤더 명시 (Firebase가 자동 감지하지 못할 수 있음)
+
+#### 3단계: 빌드 스크립트에서 .well-known 복사
+
+`flutter build web` 후 `.well-known` 디렉토리가 빌드 출력에 포함되지 않으므로, 수동 복사가 필요합니다.
+
+```bash
+# deploy_web.sh 또는 CI 스크립트
+flutter build web --release
+
+# .well-known 디렉토리 복사
+if [ -d "web/.well-known" ]; then
+  cp -r "web/.well-known" "build/web/.well-known"
+fi
+
+# Firebase 배포
+firebase deploy --only hosting
+```
+
+#### 4단계: 배포 후 검증
+
+```bash
+# Firebase Hosting이 커스텀 AASA를 서빙하는지 확인
+curl -s https://yourdomain.com/.well-known/apple-app-site-association | jq .
+
+# NOT /auth/* 규칙 포함 여부 확인
+curl -s https://yourdomain.com/.well-known/apple-app-site-association | jq '.applinks.details[0].paths'
+```
+
+### 동적 AASA와 정적 AASA 동기화
+
+Firebase Hosting 환경에서는 **두 곳의 AASA가 모두 동기화**되어야 합니다:
+
+| 파일 | 서빙 도메인 | 용도 |
+|------|-----------|------|
+| `web/.well-known/apple-app-site-association` | Firebase Hosting 도메인 (예: `www.example.com`) | Firebase가 가로채는 AASA 대체 |
+| `well_known_route.dart` (동적) | 백엔드 직접 접근 도메인 (예: `api.example.com`) | 백엔드 서버가 직접 서빙 |
+
+**두 파일의 `paths` 설정은 반드시 동일해야 합니다.**
+
 ## 트러블슈팅
 
 ### Universal Links가 동작하지 않을 때
@@ -180,14 +302,25 @@ curl -s https://app-site-association.cdn-apple.com/a/v1/yourdomain.com | jq .
 ### OAuth 콜백이 앱으로 열릴 때
 
 1. AASA paths에 `NOT /auth/*` 추가
-2. 서버 재배포
-3. Apple CDN 캐시 갱신 대기 (또는 앱 재설치)
-4. Safari에서 콜백 URL 직접 접근하여 웹에서 처리되는지 확인
+2. **Firebase Hosting 사용 시**: 커스텀 정적 AASA 파일 배포 (서버 배포만으로는 부족)
+3. 서버 재배포 + Firebase Hosting 재배포
+4. Apple CDN 캐시 갱신 대기 (또는 앱 재설치)
+5. Safari에서 콜백 URL 직접 접근하여 웹에서 처리되는지 확인
+
+### Firebase Hosting 배포 후에도 AASA가 안 바뀔 때
+
+1. `firebase.json`의 `ignore`에서 `"**/.*"` 제거했는지 확인
+2. 빌드 스크립트에서 `web/.well-known` → `build/web/.well-known` 복사 확인
+3. Firebase CDN 캐시 (15분) 대기
+4. `curl -H "Cache-Control: no-cache"` 로 캐시 우회 확인
 
 ## 체크리스트
 
 - [ ] 서버 전용 경로에 NOT prefix 적용
 - [ ] 동적 AASA와 정적 AASA 폴백 모두 동일한 paths 설정
 - [ ] 새 OAuth 프로바이더 추가 시 `/auth/*` 패턴으로 자동 커버 확인
+- [ ] **Firebase Hosting 사용 시**: 커스텀 정적 AASA 파일 배포
+- [ ] **Firebase Hosting 사용 시**: `firebase.json`에서 `**/.*` ignore 제거
+- [ ] **Firebase Hosting 사용 시**: 빌드 스크립트에 `.well-known` 복사 추가
 - [ ] 배포 후 `curl`로 AASA 응답 검증
 - [ ] Apple CDN 캐시 갱신 후 iOS 기기에서 테스트
