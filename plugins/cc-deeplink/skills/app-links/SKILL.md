@@ -93,6 +93,40 @@ Android App Links를 설정하여 웹 URL을 앱에서 직접 열 수 있도록 
 
 Android는 intent-filter에 **포함할 경로만 지정**하므로, `/auth/*` 같은 서버 콜백은 자동으로 제외됩니다.
 
+### 멀티 도메인 지원 (마이그레이션 시)
+
+도메인 변경 시 **기존 intent-filter를 유지**하고 새 도메인용 intent-filter를 추가합니다.
+
+```xml
+<!-- 새 도메인 -->
+<intent-filter android:autoVerify="true">
+    <action android:name="android.intent.action.VIEW" />
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+    <data android:scheme="https" android:host="@string/www_host" />
+</intent-filter>
+
+<!-- 기존 도메인 (하위 호환) -->
+<intent-filter android:autoVerify="true">
+    <action android:name="android.intent.action.VIEW" />
+    <category android:name="android.intent.category.DEFAULT" />
+    <category android:name="android.intent.category.BROWSABLE" />
+    <data android:scheme="https" android:host="@string/old_host" />
+</intent-filter>
+```
+
+**Flavor별 strings.xml**에서 호스트명을 관리합니다:
+
+```xml
+<!-- values/strings.xml (production) -->
+<string name="www_host">www.example.com</string>
+
+<!-- values-staging/strings.xml -->
+<string name="www_host">stg.example.com</string>
+```
+
+> `assetlinks.json`은 도메인 독립적이므로 수정 불필요. 단, 새 도메인에서도 서빙되어야 합니다.
+
 ## SHA-256 인증서 지문 확인
 
 ```bash
@@ -135,3 +169,6 @@ adb shell am start -a android.intent.action.VIEW \
 - [ ] 릴리즈 + 디버그 SHA-256 지문 모두 포함
 - [ ] `AndroidManifest.xml`에 `android:autoVerify="true"` 설정
 - [ ] intent-filter에 필요한 경로만 포함 (서버 콜백 자동 제외)
+- [ ] 멀티 도메인 시: 새 도메인 intent-filter 추가 + 기존 유지
+- [ ] 멀티 도메인 시: 모든 flavor의 strings.xml에 호스트 추가
+- [ ] 멀티 도메인 시: 새 도메인에서 assetlinks.json 서빙 확인

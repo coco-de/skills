@@ -1,7 +1,7 @@
 ---
 name: deeplink-conventions
 description: 딥링크 설정 컨벤션 및 보안 규칙
-globs: ["**/.well-known/*", "**/well_known_route*", "**/AndroidManifest.xml", "**/*.entitlements"]
+globs: ["**/.well-known/*", "**/well_known_route*", "**/AndroidManifest.xml", "**/*.entitlements", "**/deep_link*", "**/deeplink*", "**/env_config*", "**/invite_link*", "**/coupon_link*"]
 ---
 
 # 딥링크 컨벤션
@@ -59,6 +59,56 @@ Android는 `intent-filter`에 포함할 경로만 명시하므로, 서버 콜백
 | `web/.well-known/apple-app-site-association` | 정적 폴백 | 파일 수정 |
 
 **두 파일의 paths 설정은 반드시 동일해야 합니다.**
+
+## URL 생성 규칙
+
+### 중앙 설정 사용 (필수)
+
+딥링크 URL 생성 시 **반드시** 중앙 설정(`EnvConfig.deeplinkBaseUrl`)을 사용합니다.
+
+```dart
+// ✅ CORRECT: 중앙 설정 사용
+final url = '${EnvConfig.deeplinkBaseUrl}/store/book/$bookId';
+
+// ❌ WRONG: 도메인 직접 조합
+final url = 'https://$scheme.$domain/store/book/$bookId';
+
+// ❌ WRONG: 하드코딩 도메인
+final url = 'https://unibook.laputa.im/store/book/$bookId';
+```
+
+### 도메인 추출
+
+```dart
+// ✅ CORRECT: URI 파싱으로 도메인 추출
+final domain = Uri.parse(EnvConfig.deeplinkBaseUrl).host;
+
+// ❌ WRONG: 문자열 조합 (구분자 누락 위험)
+final domain = '${EnvConfig.deepLinkScheme}${EnvConfig.domain}';
+```
+
+## 도메인 마이그레이션 규칙
+
+### 하위 호환 필수
+
+도메인 변경 시 기존 도메인을 즉시 제거하지 않습니다.
+
+| 설정 | 새 도메인 | 기존 도메인 |
+|------|----------|-----------|
+| iOS entitlements | 추가 | **유지** |
+| Android intent-filter | 추가 | **유지** |
+| URL 생성 코드 | 새 도메인 사용 | - |
+
+### 전수 조사 대상
+
+도메인 변경 시 아래 영역을 모두 검색합니다:
+
+- 공유 링크 생성 (채팅 초대, 도서 공유)
+- 쿠폰/프로모션 딥링크
+- 관리자 콘솔 URL 생성
+- 푸시 알림 페이로드
+- 테스트 코드 assertion
+- 주석/문서의 예시 URL
 
 ## 보안 규칙
 

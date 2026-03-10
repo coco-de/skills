@@ -86,6 +86,26 @@ webcredentials:yourdomain.com
 </array>
 ```
 
+### 멀티 도메인 지원 (마이그레이션 시)
+
+도메인 변경 시 **기존 도메인을 제거하지 않고** 새 도메인을 추가합니다.
+
+```xml
+<key>com.apple.developer.associated-domains</key>
+<array>
+  <!-- 새 도메인 (우선 배치) -->
+  <string>applinks:www.example.com</string>
+  <string>webcredentials:www.example.com</string>
+  <string>applinks:example.com</string>
+  <string>webcredentials:example.com</string>
+  <!-- 기존 도메인 (하위 호환) -->
+  <string>applinks:old.example.com</string>
+  <string>webcredentials:old.example.com</string>
+</array>
+```
+
+> **모든 앱 타겟**(메인 앱, 콘솔 앱 등)에 동일하게 적용해야 합니다.
+
 ## Flutter 연동 (GoRouter)
 
 ```dart
@@ -120,3 +140,5 @@ curl -s https://app-site-association.cdn-apple.com/a/v1/yourdomain.com | jq .
 - [ ] Team ID + Bundle ID 정확히 설정
 - [ ] Xcode Associated Domains 추가
 - [ ] 서버 전용 경로 NOT prefix로 제외 (OAuth 콜백 등)
+- [ ] 멀티 도메인 시: 모든 도메인에서 AASA 서빙 확인
+- [ ] 멀티 도메인 시: 모든 앱 타겟의 entitlements 동기화

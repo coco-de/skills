@@ -11,6 +11,7 @@ Deep Link, Universal Links, App Links 설정 및 관리 플러그인
 | `universal-links` | iOS Universal Links 설정 (AASA, Entitlements, Xcode) |
 | `app-links` | Android App Links 설정 (assetlinks.json, AndroidManifest, intent-filter) |
 | `aasa-management` | AASA 동적/정적 서빙 및 경로 제어 (NOT prefix, 서버 콜백 제외) |
+| `domain-migration` | 딥링크 도메인 마이그레이션 (멀티 도메인, 하위 호환, URL 생성 중앙화) |
 
 ## Rules
 
@@ -24,3 +25,5 @@ Deep Link, Universal Links, App Links 설정 및 관리 플러그인
 - AASA paths에서 서버 전용 경로 제외 (OAuth 콜백 등)
 - 신규 딥링크 경로 추가
 - 딥링크 디버깅 및 검증
+- **도메인 마이그레이션** (old → new 도메인 전환, 멀티 도메인 지원, 하위 호환)
+- 딥링크 URL 생성 로직 중앙화 (레거시 하드코딩 제거)
