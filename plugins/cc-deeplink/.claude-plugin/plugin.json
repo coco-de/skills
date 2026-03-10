@@ -1,0 +1,9 @@
+{
+  "name": "cc-deeplink",
+  "version": "1.1.0",
+  "description": "Deep Link & Universal Links 설정 관리 (AASA, assetlinks.json, GoRouter 연동, 도메인 마이그레이션)",
+  "includes": [
+    "skills/**",
+    "rules/**"
+  ]
+}
