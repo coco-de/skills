@@ -5,7 +5,7 @@ import 'package:jaspr/dom.dart';
 import 'package:jaspr/server.dart';
 
 import 'package:jaspr_content/components/callout.dart';
-
+import 'package:jaspr_content/components/code_block.dart';
 import 'package:jaspr_content/components/image.dart';
 import 'package:jaspr_content/components/tabs.dart';
 import 'package:jaspr_content/components/sidebar.dart';
@@ -36,6 +36,7 @@ void main() {
       ],
       components: [
         Callout(),
+        CodeBlock(),
         Image(zoom: true),
         Tabs(),
       ],
