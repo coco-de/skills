@@ -1,0 +1,9 @@
+{
+  "name": "cc-aws-infrastructure",
+  "version": "1.0.0",
+  "description": "AWS 인프라 관리 (Terraform, Route53, RDS, Lambda, CloudFront, CodeDeploy) - Serverpod 백엔드 인프라 운영",
+  "includes": [
+    "skills/**",
+    "rules/**"
+  ]
+}
