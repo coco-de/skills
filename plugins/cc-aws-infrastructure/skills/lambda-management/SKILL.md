@@ -74,7 +74,7 @@ for zip_file in \
   lambda/dart/sqs_to_sns/build/x86_64/sqs_to_sns.zip \
   lambda/go/fcm_topic_manager/build/x86_64/fcm_topic_manager.zip; do
   mkdir -p "$(dirname "$zip_file")"
-  echo "placeholder" | zip > "$zip_file" 2>/dev/null
+  echo "placeholder" > /tmp/_placeholder && zip -j "$zip_file" /tmp/_placeholder 2>/dev/null
 done
 ```
 

@@ -108,7 +108,7 @@ resource "aws_route53_record" "new_service_secondary" {
   name            = var.new_subdomain
   type            = "CNAME"
   ttl             = "60"
-  records         = ["${var.subdomain_config.web}.${var.secondary_domain}"]
+  records         = ["${var.new_subdomain}.${var.secondary_domain}"]
   allow_overwrite = true
 }
 ```
@@ -154,7 +154,7 @@ dig <subdomain>.unibook.co.kr A +short
 
 # Route53 직접 조회
 aws route53 list-resource-record-sets \
-  --hosted-zone-id Z0775776240YOL7IYBNYH \
+  --hosted-zone-id <hosted-zone-id> \
   --query "ResourceRecordSets[?contains(Name, '<keyword>')]" \
   --output table
 ```

@@ -47,11 +47,4 @@ AWS 인프라 관리 및 Terraform 운영 플러그인
 └──────────────────────────────────────────────────┘
 ```
 
-## 주요 사용 사례
 
-- Terraform plan/apply로 인프라 변경 적용
-- Route53 DNS 레코드 추가/수정 (딥링크, Firebase Hosting 등)
-- RDS storage-full 장애 대응 및 스토리지 확장
-- Lambda 함수 배포 및 환경 변수 관리
-- CloudFront 캐시 무효화
-- CodeDeploy 배포 상태 확인 및 ASG 정리
