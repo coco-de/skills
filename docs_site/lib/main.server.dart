@@ -50,7 +50,7 @@ void main() {
               ]),
             ]),
             Header(
-              title: 'Cocode Skills',
+              title: 'Skills',
               logo: '/images/logo.svg',
               items: [
                 ThemeToggle(),
