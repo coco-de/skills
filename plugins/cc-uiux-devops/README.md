@@ -1,6 +1,6 @@
 # cc-uiux-devops
 
-CoCode 팀을 위한 DevOps 플러그인입니다.
+Cocode 팀을 위한 DevOps 플러그인입니다.
 
 ## 개요
 

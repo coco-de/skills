@@ -42,4 +42,4 @@
 - Serverpod의 데이터 모델이 PostgreSQL 기반이므로, 분석용 ClickHouse로의 데이터 파이프라인 고려
 - Serverpod ORM 모델과 분석 테이블 간의 매핑 관계 파악 필요
 - Flutter/Jaspr 클라이언트에서 발생하는 이벤트 로깅 구조를 고려한 쿼리 설계
-- CoCode 팀의 기존 ClickHouse 인프라와 호환되는 쿼리 작성
+- Cocode 팀의 기존 ClickHouse 인프라와 호환되는 쿼리 작성

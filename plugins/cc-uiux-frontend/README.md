@@ -1,6 +1,6 @@
 # cc-uiux-frontend
 
-CoCode 팀을 위한 프론트엔드 개발 플러그인입니다.
+Cocode 팀을 위한 프론트엔드 개발 플러그인입니다.
 
 ## 개요
 

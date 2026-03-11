@@ -84,7 +84,7 @@ void handleItemSelected() { }
 - 의존성 주입 등록 코드
 
 ## 참고
-- CoCode 프로젝트는 feature-first 폴더 구조를 사용한다 (`lib/features/{feature_name}/`)
+- Cocode 프로젝트는 feature-first 폴더 구조를 사용한다 (`lib/features/{feature_name}/`)
 - BLoC에서 비즈니스 로직은 UseCase를 통해 호출하며, BLoC이 직접 Repository를 참조하지 않는다
 - `coui_flutter` 컴포넌트는 `coui_core`의 abstract interface class를 implements한다
 - Serverpod 클라이언트와의 통신은 Data 레이어의 DataSource에서 처리한다

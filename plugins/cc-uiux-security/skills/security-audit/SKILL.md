@@ -34,7 +34,7 @@
 
 ## 참고
 - `dart pub audit`는 pub.dev의 보안 권고를 기반으로 의존성을 검사한다
-- CoCode 프로젝트는 Serverpod, Flutter, Jaspr 모두의 의존성을 주기적으로 스캔해야 한다
+- Cocode 프로젝트는 Serverpod, Flutter, Jaspr 모두의 의존성을 주기적으로 스캔해야 한다
 - Clean Architecture 덕분에 보안 관련 로직이 특정 레이어에 집중되어 감사 범위를 명확히 할 수 있다
 - 보안 감사 결과는 팀 내 공유하고, Critical/High 항목은 즉시 수정 일정을 잡는다
 - CI/CD 파이프라인에 `dart pub audit`를 포함하여 매 빌드 시 자동 스캔한다

@@ -30,7 +30,7 @@
 - 후속 액션 아이템 목록
 
 ## 참고
-- CoCode 팀은 Dart 풀스택 (Flutter + Jaspr Web + Serverpod)을 사용하므로, 기술적 제약 관련 질문도 포함 가능
+- Cocode 팀은 Dart 풀스택 (Flutter + Jaspr Web + Serverpod)을 사용하므로, 기술적 제약 관련 질문도 포함 가능
 - Flutter 앱과 Jaspr 웹 양쪽의 사용자 경험 차이를 탐색하는 질문 설계 고려
 - Serverpod 백엔드 성능 관련 사용자 체감 질문 포함 가능
 - 인터뷰 결과는 BMAD의 PRD가 아닌, 발견 단계의 원시 인사이트로 활용

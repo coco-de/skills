@@ -33,7 +33,7 @@
 - 롤백 절차서
 
 ## 참고
-- CoCode 프로젝트는 환경(dev, staging, prod)별로 Serverpod 설정 파일(`config/`)을 분리하여 관리한다
+- Cocode 프로젝트는 환경(dev, staging, prod)별로 Serverpod 설정 파일(`config/`)을 분리하여 관리한다
 - Flutter 앱 배포 시 `--dart-define`으로 환경별 설정을 주입한다
 - Serverpod 마이그레이션은 서버 시작 시 자동 실행하거나 별도 스크립트로 수동 실행할 수 있다
 - 프로덕션 배포 전 스테이징 환경에서 충분한 검증을 거친다

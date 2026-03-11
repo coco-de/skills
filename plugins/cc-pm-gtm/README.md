@@ -16,7 +16,7 @@ ICP(Ideal Customer Profile) 정의, 메시징 프레임워크, GTM 모션 계획
 
 ## 대상 팀
 
-CoCode 팀 (Dart 풀스택: Flutter + Jaspr Web + Serverpod)
+Cocode 팀 (Dart 풀스택: Flutter + Jaspr Web + Serverpod)
 
 ## 설치
 

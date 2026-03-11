@@ -1,6 +1,6 @@
 # cc-uiux-security
 
-CoCode 팀을 위한 보안 플러그인입니다.
+Cocode 팀을 위한 보안 플러그인입니다.
 
 ## 개요
 

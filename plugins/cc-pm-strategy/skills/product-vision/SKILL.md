@@ -35,7 +35,7 @@
 - 비전 → 로드맵 테마 매핑
 
 ## 참고
-- CoCode의 Dart 풀스택 (Flutter + Jaspr + Serverpod)은 단일 언어로 모바일/웹/서버를 커버하는 것이 핵심 차별점
+- Cocode의 Dart 풀스택 (Flutter + Jaspr + Serverpod)은 단일 언어로 모바일/웹/서버를 커버하는 것이 핵심 차별점
 - 노스스타 메트릭은 Flutter 앱과 Jaspr 웹 양쪽의 사용자 가치를 포괄해야 함
 - Serverpod 기반의 확장성 및 실시간 기능이 비전에 반영될 수 있음
 - BMAD의 PRD/기술 명세와 별개로, 상위 전략 수준의 방향성 정의에 집중

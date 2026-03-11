@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0",
   "name": "coco-de/skills",
-  "description": "CoCode 팀 통합 스킬 레포지토리 - Dart 풀스택 (Flutter + Jaspr Web + Serverpod)",
-  "author": "CoCode Team",
+  "description": "Cocode 팀 통합 스킬 레포지토리 - Dart 풀스택 (Flutter + Jaspr Web + Serverpod)",
+  "author": "Cocode Team",
   "license": "MIT",
   "plugins": [
     {

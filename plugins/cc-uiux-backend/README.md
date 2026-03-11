@@ -1,6 +1,6 @@
 # cc-uiux-backend
 
-CoCode 팀을 위한 백엔드 개발 플러그인입니다.
+Cocode 팀을 위한 백엔드 개발 플러그인입니다.
 
 ## 개요
 

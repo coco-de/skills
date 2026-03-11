@@ -30,7 +30,7 @@
 - 테스트 커버리지 보고서 가이드
 
 ## 참고
-- CoCode 프로젝트는 Mocktail을 기본 모킹 라이브러리로 사용한다 (Mockito 대비 코드 생성 불필요)
+- Cocode 프로젝트는 Mocktail을 기본 모킹 라이브러리로 사용한다 (Mockito 대비 코드 생성 불필요)
 - BLoC 테스트 시 `bloc_test` 패키지의 `blocTest()`를 사용하여 `act`, `expect`, `verify`를 선언적으로 작성한다
 - Clean Architecture 덕분에 각 레이어를 독립적으로 테스트할 수 있다 (UseCase는 Repository 모킹, BLoC은 UseCase 모킹)
 - Freezed로 생성된 State/Event 클래스는 `==` 연산자가 자동 구현되어 테스트 비교가 용이하다

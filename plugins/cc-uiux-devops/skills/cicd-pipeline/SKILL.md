@@ -30,7 +30,7 @@
 - 파이프라인 실행 결과 알림 설정
 
 ## 참고
-- CoCode 프로젝트는 모노레포 구조로, Flutter 앱/Jaspr Web/Serverpod 서버가 하나의 저장소에 존재한다
+- Cocode 프로젝트는 모노레포 구조로, Flutter 앱/Jaspr Web/Serverpod 서버가 하나의 저장소에 존재한다
 - `serverpod generate`는 CI에서도 실행하여 생성 코드의 최신 상태를 검증한다
 - Flutter 빌드 캐시(`pub cache`, 빌드 아티팩트)를 GitHub Actions 캐시로 관리하여 빌드 시간을 단축한다
 - 프로덕션 배포 전 스테이징 환경에서 자동 E2E 테스트를 실행한다

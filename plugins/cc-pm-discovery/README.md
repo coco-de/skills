@@ -16,7 +16,7 @@
 
 ## 대상 팀
 
-CoCode 팀 (Dart 풀스택: Flutter + Jaspr Web + Serverpod)
+Cocode 팀 (Dart 풀스택: Flutter + Jaspr Web + Serverpod)
 
 ## 설치
 
