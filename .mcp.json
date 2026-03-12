@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "zenhub": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://api.zenhub.com/mcp",
+        "--header",
+        "Authorization:${ZENHUB_API_TOKEN}",
+        "--header",
+        "X-zh-workspace:69ae742925c359000f5acf14"
+      ]
+    }
+  }
+}
