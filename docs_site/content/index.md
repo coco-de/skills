@@ -1,11 +1,11 @@
 ---
-title: Cocode Skills
+title: Skills
 description: Cocode 팀 통합 스킬 레포지토리 — Dart 풀스택 개발을 위한 Claude Code 플러그인 모음
 ---
 
-# Cocode Skills
+# Skills
 
-Cocode 팀 통합 스킬 레포지토리입니다. **Dart 풀스택** 개발 환경에 최적화된 **22개 플러그인**을 제공합니다.
+Cocode 팀 통합 스킬 레포지토리입니다. **Dart 풀스택** 개발 환경에 최적화된 **24개 플러그인**을 제공합니다.
 
 ## 기술 스택
 
