@@ -1,10 +1,5 @@
 {
   "name": "cc-i18n",
   "version": "1.0.0",
-  "description": "국제화 (Slang 기반 i18n)",
-  "includes": [
-    "skills/**",
-    "commands/**",
-    "agents/**"
-  ]
+  "description": "국제화 (Slang 기반 i18n)"
 }

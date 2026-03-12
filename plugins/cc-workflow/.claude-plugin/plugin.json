@@ -1,11 +1,5 @@
 {
   "name": "cc-workflow",
   "version": "1.0.0",
-  "description": "개발 워크플로우 (Issue Cycle, Bug Cycle, Session, ZenHub)",
-  "includes": [
-    "skills/**",
-    "commands/**",
-    "agents/**",
-    "rules/**"
-  ]
+  "description": "개발 워크플로우 (Issue Cycle, Bug Cycle, Session, ZenHub)"
 }

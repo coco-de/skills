@@ -1,10 +1,5 @@
 {
   "name": "cc-serverpod",
   "version": "1.0.0",
-  "description": "Serverpod 백엔드 (Model, Endpoint, Migrations)",
-  "includes": [
-    "skills/**",
-    "commands/**",
-    "agents/**"
-  ]
+  "description": "Serverpod 백엔드 (Model, Endpoint, Migrations)"
 }

@@ -1,10 +1,5 @@
 {
   "name": "cc-flutter-inspector",
   "version": "1.0.0",
-  "description": "Flutter Inspector 디버깅 (Master + 9 전문 Inspectors)",
-  "includes": [
-    "skills/**",
-    "commands/**",
-    "agents/**"
-  ]
+  "description": "Flutter Inspector 디버깅 (Master + 9 전문 Inspectors)"
 }
