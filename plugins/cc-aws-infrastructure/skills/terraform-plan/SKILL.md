@@ -1,3 +1,8 @@
+---
+name: terraform-plan
+description: Terraform Plan 실행 및 변경사항 분석
+---
+
 # Terraform Plan 실행 및 분석
 
 Terraform plan을 실행하여 인프라 변경사항을 미리 확인합니다. Lambda ZIP 파일 누락 문제를 자동으로 해결합니다.

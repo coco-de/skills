@@ -11,7 +11,7 @@
       "name": "cc-bmad",
       "source": "./plugins/cc-bmad",
       "version": "1.0.0",
-      "description": "BMAD 방법론 (Business Method Agile Delivery)",
+      "description": "BMAD 방법론 (Business Method Agile Delivery) - 10 skills, 18 commands",
       "category": "methodology",
       "keywords": ["bmad", "agile", "product-management", "workflow"]
     },
@@ -27,7 +27,7 @@
       "name": "cc-flutter-dev",
       "source": "./plugins/cc-flutter-dev",
       "version": "1.0.0",
-      "description": "Flutter 개발 핵심 (UI, Feature, BLoC, Test)",
+      "description": "Flutter 개발 핵심 (UI 패턴, Feature 생성, BLoC, 테스트)",
       "category": "development",
       "keywords": ["flutter", "dart", "bloc", "clean-architecture"]
     },
@@ -43,7 +43,7 @@
       "name": "cc-serverpod",
       "source": "./plugins/cc-serverpod",
       "version": "1.0.0",
-      "description": "Serverpod 백엔드 (Model, Endpoint, Migrations)",
+      "description": "Serverpod 기초 — 모델·엔드포인트 생성, 마이그레이션",
       "category": "backend",
       "keywords": ["serverpod", "dart", "backend", "api"]
     },
@@ -131,16 +131,16 @@
       "name": "cc-uiux-frontend",
       "source": "./plugins/cc-uiux-frontend",
       "version": "1.0.0",
-      "description": "프론트엔드 (CoUI + Flutter/Dart 전용)",
-      "category": "uiux",
+      "description": "프론트엔드 개발 (CoUI + Flutter/Dart 전용)",
+      "category": "development",
       "keywords": ["frontend", "flutter", "dart", "coui"]
     },
     {
       "name": "cc-uiux-backend",
       "source": "./plugins/cc-uiux-backend",
       "version": "1.0.0",
-      "description": "백엔드 (Serverpod 전용)",
-      "category": "uiux",
+      "description": "Serverpod API·DB 설계 템플릿 — 엔드포인트 패턴, 스키마 설계",
+      "category": "backend",
       "keywords": ["backend", "serverpod", "api"]
     },
     {
@@ -148,7 +148,7 @@
       "source": "./plugins/cc-uiux-testing",
       "version": "1.0.0",
       "description": "테스팅 (Dart/Flutter 테스트 프레임워크)",
-      "category": "uiux",
+      "category": "testing",
       "keywords": ["testing", "tdd", "flutter-test"]
     },
     {
@@ -156,7 +156,7 @@
       "source": "./plugins/cc-uiux-devops",
       "version": "1.0.0",
       "description": "DevOps (Flutter Web/App + Serverpod 배포)",
-      "category": "uiux",
+      "category": "devops",
       "keywords": ["devops", "cicd", "deployment"]
     },
     {
@@ -164,14 +164,14 @@
       "source": "./plugins/cc-uiux-security",
       "version": "1.0.0",
       "description": "보안 (Serverpod API + Flutter 앱)",
-      "category": "uiux",
+      "category": "security",
       "keywords": ["security", "api-security", "app-security"]
     },
     {
       "name": "cc-pipeline",
       "source": "./plugins/cc-pipeline",
       "version": "1.0.0",
-      "description": "통합 프로젝트 파이프라인 오케스트레이터 (Discovery → Launch 6단계)",
+      "description": "통합 프로젝트 파이프라인 오케스트레이터 (Discovery → Planning → Design → Epic → Development → Launch)",
       "category": "pipeline",
       "keywords": ["pipeline", "orchestration", "project-lifecycle", "bmad", "workflow"]
     },
@@ -187,9 +187,17 @@
       "name": "cc-deeplink",
       "source": "./plugins/cc-deeplink",
       "version": "1.2.0",
-      "description": "Deep Link & Universal Links 설정 관리 (AASA, assetlinks.json, GoRouter 연동)",
+      "description": "Deep Link & Universal Links 설정 관리 (AASA, assetlinks.json, GoRouter 연동, 도메인 마이그레이션)",
       "category": "development",
       "keywords": ["deeplink", "universal-links", "aasa", "gorouter"]
+    },
+    {
+      "name": "cc-aws-infrastructure",
+      "source": "./plugins/cc-aws-infrastructure",
+      "version": "1.0.0",
+      "description": "AWS 인프라 관리 (Terraform, Route53, RDS, Lambda, CloudFront, CodeDeploy) - Serverpod 백엔드 인프라 운영",
+      "category": "infrastructure",
+      "keywords": ["aws", "terraform", "infrastructure", "devops"]
     }
   ]
 }

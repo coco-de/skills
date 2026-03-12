@@ -1,3 +1,8 @@
+---
+name: flutter-a11y
+description: Flutter 접근성 구현 가이드
+---
+
 # Flutter Accessibility (Flutter 접근성)
 
 ## 트리거

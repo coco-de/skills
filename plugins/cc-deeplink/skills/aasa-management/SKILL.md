@@ -1,3 +1,8 @@
+---
+name: aasa-management
+description: AASA 동적/정적 서빙 및 경로 제어
+---
+
 # AASA 동적/정적 서빙 및 경로 제어
 
 서버에서 AASA(Apple App Site Association)를 동적으로 생성하고, 특정 경로를 Universal Links에서 제외하는 방법을 다룹니다.

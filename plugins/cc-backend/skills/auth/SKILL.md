@@ -1,3 +1,8 @@
+---
+name: auth
+description: Serverpod 인증 모듈 구현
+---
+
 # Serverpod 인증 모듈
 
 serverpod_auth_idp 기반 인증 설정. Token Manager, Identity Provider, Flutter UI 통합을 다룹니다.

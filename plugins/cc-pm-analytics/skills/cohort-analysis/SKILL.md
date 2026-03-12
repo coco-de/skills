@@ -1,3 +1,8 @@
+---
+name: cohort-analysis
+description: 코호트 분석 설계 및 실행
+---
+
 # Cohort Analysis (코호트 분석)
 
 ## 트리거

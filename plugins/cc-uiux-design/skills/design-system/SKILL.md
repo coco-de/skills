@@ -1,3 +1,8 @@
+---
+name: design-system
+description: CoUI 디자인 시스템 토큰 및 테마
+---
+
 # Design System (CoUI 디자인 시스템)
 
 ## 트리거

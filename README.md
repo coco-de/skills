@@ -22,7 +22,7 @@
 
 ```
 coco-de/skills
-├── 22 Plugins
+├── 24 Plugins
 ├── 22 Agents
 ├── 100 Commands
 └── 87 Skills
@@ -66,27 +66,30 @@ claude plugins install coco-de/skills/plugins/cc-serverpod
 
 | 플러그인 | 설명 | Skills | Commands | Agents |
 |---------|------|--------|----------|--------|
-| `cc-bmad` | BMAD 방법론 | 11 | 22 | — |
+| `cc-bmad` | BMAD 방법론 (10 skills, 18 commands) | 11 | 22 | — |
 | `cc-workflow` | 개발 워크플로우 (Issue/Bug Cycle, Session, ZenHub) | 2 | 7 | 2 |
 | `cc-code-quality` | 코드리뷰, 체크리스트, 버그리포트 | 3 | 3 | — |
 | `cc-pipeline` | 6단계 파이프라인 오케스트레이터 | 1 | 3 | — |
 
-### Flutter 개발
+### Flutter & 프론트엔드
 
 | 플러그인 | 설명 | Skills | Commands | Agents |
 |---------|------|--------|----------|--------|
 | `cc-coui` | CoUI 컴포넌트 라이브러리 (26개 컴포넌트) | 26 | — | — |
-| `cc-flutter-dev` | Flutter 개발 핵심 (UI, Feature, BLoC, Test) | 2 | 7 | 6 |
+| `cc-flutter-dev` | Flutter 개발 핵심 (UI 패턴, Feature 생성, BLoC, 테스트) | 2 | 7 | 6 |
 | `cc-flutter-inspector` | Flutter Inspector 디버깅 (Master + 9 전문) | 1 | 2 | 10 |
 | `cc-i18n` | 국제화 (Slang 기반) | 1 | 1 | 1 |
+| `cc-deeplink` | Deep Link & Universal Links (AASA, GoRouter, 도메인 마이그레이션) | 4 | — | — |
+| `cc-uiux-frontend` | 프론트엔드 패턴 가이드 (Clean Architecture, Jaspr Web, 반응형) | 3 | — | — |
 
-### 백엔드 & 분석
+### 백엔드 & 인프라
 
 | 플러그인 | 설명 | Skills | Commands | Agents |
 |---------|------|--------|----------|--------|
-| `cc-serverpod` | Serverpod 백엔드 | 1 | 2 | 1 |
-| `cc-backend` | Serverpod 백엔드 심화 (ORM, Auth, Caching, TDD, API Design) | 7 | — | 2 |
-| `cc-clickhouse` | ClickHouse BI 분석 | 1 | — | — |
+| `cc-serverpod` | Serverpod 기초 — 모델·엔드포인트 생성, 마이그레이션 | 1 | 2 | 1 |
+| `cc-backend` | Serverpod 심화 패턴 (ORM, Auth, Caching, TDD, API Design) | 7 | — | 2 |
+| `cc-uiux-backend` | Serverpod API·DB 설계 템플릿 | 2 | — | — |
+| `cc-aws-infrastructure` | AWS 인프라 관리 (Terraform, Route53, RDS, Lambda, CloudFront) | 5 | — | — |
 
 ### PM (Product Management)
 
@@ -97,17 +100,21 @@ claude plugins install coco-de/skills/plugins/cc-serverpod
 | `cc-pm-analytics` | 데이터 분석 (SQL, 코호트, A/B 테스트) | 3 | — | — |
 | `cc-pm-gtm` | Go-to-Market | 3 | — | — |
 
-### UI/UX
+### 품질 & 운영
 
 | 플러그인 | 설명 | Skills | Commands | Agents |
 |---------|------|--------|----------|--------|
 | `cc-uiux-design` | UI/UX 디자인 (CoUI 토큰, DaisyUI 테마) | 2 | — | — |
 | `cc-uiux-accessibility` | 접근성 (Flutter + Jaspr Web) | 2 | — | — |
-| `cc-uiux-frontend` | 프론트엔드 (Flutter/Dart + CoUI) | 3 | — | — |
-| `cc-uiux-backend` | 백엔드 (Serverpod 전용) | 2 | — | — |
 | `cc-uiux-testing` | 테스팅 (Dart/Flutter) | 4 | — | — |
-| `cc-uiux-devops` | DevOps (배포 파이프라인) | 3 | — | — |
 | `cc-uiux-security` | 보안 (API + 앱) | 3 | — | — |
+| `cc-uiux-devops` | DevOps (배포 파이프라인) | 3 | — | — |
+
+### 분석
+
+| 플러그인 | 설명 | Skills | Commands | Agents |
+|---------|------|--------|----------|--------|
+| `cc-clickhouse` | ClickHouse BI 분석 | 1 | — | — |
 
 ---
 
@@ -119,6 +126,7 @@ claude plugins install coco-de/skills/plugins/cc-serverpod
 | **Backend** | Serverpod |
 | **UI Library** | CoUI (크로스플랫폼 컴포넌트) |
 | **Architecture** | Clean Architecture + BLoC 패턴 |
+| **Infrastructure** | AWS (Terraform, Route53, RDS, Lambda) |
 | **BI/Analytics** | ClickHouse |
 | **Methodology** | BMAD |
 
@@ -136,9 +144,12 @@ skills/
 │   ├── cc-flutter-dev/    # Flutter 개발
 │   ├── cc-flutter-inspector/ # Flutter 디버깅
 │   ├── cc-i18n/           # 국제화
+│   ├── cc-deeplink/       # Deep Link & Universal Links
 │   ├── cc-pipeline/       # 파이프라인 오케스트레이터
 │   ├── cc-pm-*/           # PM 플러그인 (4개)
 │   ├── cc-serverpod/      # Serverpod 백엔드
+│   ├── cc-backend/        # Serverpod 백엔드 심화
+│   ├── cc-aws-infrastructure/ # AWS 인프라 관리
 │   ├── cc-uiux-*/         # UI/UX 플러그인 (7개)
 │   └── cc-workflow/       # 워크플로우
 ├── docs_site/             # 문서 사이트 (Jaspr)

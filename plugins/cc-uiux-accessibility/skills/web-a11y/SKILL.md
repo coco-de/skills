@@ -1,3 +1,8 @@
+---
+name: web-a11y
+description: Jaspr 웹 접근성 구현 가이드
+---
+
 # Jaspr Web Accessibility (Jaspr 웹 접근성)
 
 ## 트리거

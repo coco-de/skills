@@ -20,12 +20,12 @@ Cocode 팀 통합 스킬 레포지토리입니다. **Dart 풀스택** 개발 환
 
 | 카테고리 | 플러그인 수 | 설명 |
 |----------|:---------:|------|
-| [방법론 & 워크플로우](/plugins/methodology) | 3 | BMAD, 워크플로우, 코드 품질 |
+| [방법론 & 워크플로우](/plugins/methodology) | 4 | BMAD, 워크플로우, 코드 품질, 파이프라인 |
+| [Flutter & 프론트엔드](/plugins/flutter) | 6 | CoUI, 핵심 개발, Inspector, i18n, Deep Link, 프론트엔드 패턴 |
+| [백엔드 & 인프라](/plugins/backend) | 4 | Serverpod 기초/심화, API·DB 설계, AWS 인프라 |
 | [제품 관리](/plugins/product-management) | 4 | Discovery, Strategy, Analytics, GTM |
-| [Flutter 개발](/plugins/flutter) | 4 | CoUI, 핵심 개발, Inspector, i18n |
-| [백엔드 & 분석](/plugins/backend) | 3 | Serverpod, 백엔드 심화, ClickHouse |
-| [UI/UX 엔지니어링](/plugins/uiux) | 7 | 디자인, 접근성, 프론트엔드, 백엔드, 테스팅, DevOps, 보안 |
-| [파이프라인](/plugins/pipeline) | 1 | 통합 오케스트레이터 |
+| [품질 & 운영](/plugins/uiux) | 5 | 디자인, 접근성, 테스팅, 보안, DevOps |
+| [분석](/plugins/backend) | 1 | ClickHouse BI |
 
 ## 빠른 시작
 

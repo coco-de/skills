@@ -1,3 +1,8 @@
+---
+name: sql-analysis
+description: SQL 기반 제품 데이터 분석
+---
+
 # SQL Analysis (SQL 기반 제품 분석)
 
 ## 트리거

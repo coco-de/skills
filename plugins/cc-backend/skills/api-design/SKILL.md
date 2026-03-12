@@ -1,3 +1,8 @@
+---
+name: api-design
+description: Serverpod REST API 설계 원칙 및 패턴
+---
+
 # API 설계 원칙
 
 Serverpod 엔드포인트를 위한 REST API 설계 원칙. 리소스 설계, HTTP 시맨틱, 버전관리, 에러 처리, 페이지네이션을 다룹니다.

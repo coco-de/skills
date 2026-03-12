@@ -1,3 +1,8 @@
+---
+name: gtm-motion
+description: Go-to-Market 모션 계획 수립
+---
+
 # GTM Motion (Go-to-Market 모션 계획)
 
 ## 트리거

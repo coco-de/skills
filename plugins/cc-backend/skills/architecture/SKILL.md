@@ -1,3 +1,8 @@
+---
+name: architecture
+description: Serverpod 아키텍처 패턴 및 구조 설계
+---
+
 # 아키텍처 패턴
 
 Serverpod 백엔드를 위한 Clean Architecture와 Domain-Driven Design 패턴을 다룹니다.

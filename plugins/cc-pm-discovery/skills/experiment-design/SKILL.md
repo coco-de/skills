@@ -1,3 +1,8 @@
+---
+name: experiment-design
+description: 제품 실험 설계 및 실행 계획
+---
+
 # Experiment Design (실험 설계)
 
 ## 트리거

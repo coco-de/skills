@@ -1,3 +1,8 @@
+---
+name: database
+description: Serverpod Database 심화 — ORM, 쿼리, 마이그레이션
+---
+
 # Serverpod Database 심화
 
 Serverpod ORM과 PostgreSQL을 활용한 심화 데이터베이스 패턴. 필터, 관계, 트랜잭션, 잠금, 마이그레이션 전략을 다룹니다.

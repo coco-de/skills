@@ -1,3 +1,8 @@
+---
+name: caching
+description: Serverpod 캐싱 전략 및 구현
+---
+
 # Serverpod 캐싱
 
 session.caches를 활용한 캐싱 전략. Local, Redis, CacheMissHandler 패턴을 다룹니다.

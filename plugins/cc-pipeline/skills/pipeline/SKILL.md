@@ -1,3 +1,8 @@
+---
+name: pipeline
+description: 프로젝트 파이프라인 오케스트레이션 (Discovery → Launch 6단계)
+---
+
 # Pipeline Orchestrator (프로젝트 파이프라인 오케스트레이터)
 
 ## 트리거

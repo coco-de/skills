@@ -1,3 +1,8 @@
+---
+name: deployment
+description: Flutter Web/App + Serverpod 배포 전략
+---
+
 # Deployment Strategies (배포 전략)
 
 ## 트리거

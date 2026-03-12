@@ -1,3 +1,8 @@
+---
+name: api-design
+description: Serverpod API 설계 패턴 및 템플릿
+---
+
 # Serverpod API Design (Serverpod API 설계)
 
 ## 트리거

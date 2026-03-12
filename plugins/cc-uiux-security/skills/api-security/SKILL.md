@@ -1,3 +1,8 @@
+---
+name: api-security
+description: Serverpod API 보안 구현
+---
+
 # Serverpod API Security (Serverpod API 보안)
 
 ## 트리거

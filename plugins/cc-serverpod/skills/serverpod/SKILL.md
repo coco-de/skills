@@ -1,3 +1,8 @@
+---
+name: serverpod
+description: Serverpod 모델·엔드포인트 생성 및 마이그레이션
+---
+
 # Serverpod Skills
 
 Serverpod 백엔드 관련 스킬 모음입니다.

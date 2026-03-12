@@ -1,5 +1,5 @@
 {
   "name": "cc-flutter-dev",
   "version": "1.0.0",
-  "description": "Flutter 개발 핵심 (UI, Feature, BLoC, Test)"
+  "description": "Flutter 개발 핵심 (UI 패턴, Feature 생성, BLoC, 테스트)"
 }

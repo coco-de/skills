@@ -1,3 +1,8 @@
+---
+name: responsive-design
+description: 반응형/적응형 디자인 구현
+---
+
 # Responsive & Adaptive Design (반응형/적응형 디자인)
 
 ## 트리거

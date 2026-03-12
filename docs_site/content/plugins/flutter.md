@@ -1,12 +1,11 @@
 ---
-title: Flutter 개발
-description: CoUI 컴포넌트, Flutter 핵심 개발, Inspector, 국제화 플러그인
+title: Flutter & 프론트엔드
+description: CoUI, Flutter 개발, Inspector, 국제화, Deep Link, 프론트엔드 패턴 플러그인
 ---
 
-# Flutter 개발
+# Flutter & 프론트엔드
 
-<Tabs>
-  <TabItem label="cc-coui">
+## cc-coui
 
 **CoUI 컴포넌트 라이브러리** — Flutter와 Jaspr Web 모두에서 동작하는 **26개 크로스플랫폼 컴포넌트**를 제공합니다.
 
@@ -29,8 +28,9 @@ claude plugins install coco-de/skills/plugins/cc-coui
 
 > [상세 페이지 보기 →](/plugins/cc-coui/)
 
-  </TabItem>
-  <TabItem label="cc-flutter-dev">
+---
+
+## cc-flutter-dev
 
 **Flutter 개발 핵심** — UI 생성, Feature 스캐폴딩, BLoC 패턴, 테스트 자동화를 지원합니다.
 
@@ -58,8 +58,9 @@ claude plugins install coco-de/skills/plugins/cc-flutter-dev
 
 > [상세 페이지 보기 →](/plugins/cc-flutter-dev/)
 
-  </TabItem>
-  <TabItem label="cc-flutter-inspector">
+---
+
+## cc-flutter-inspector
 
 **Flutter Inspector 디버깅** — Master Inspector와 9개 전문 Inspector로 체계적인 디버깅을 수행합니다.
 
@@ -86,8 +87,9 @@ claude plugins install coco-de/skills/plugins/cc-flutter-inspector
 
 > [상세 페이지 보기 →](/plugins/cc-flutter-inspector/)
 
-  </TabItem>
-  <TabItem label="cc-i18n">
+---
+
+## cc-i18n
 
 **국제화** — Slang 기반 i18n 프레임워크를 활용한 다국어 지원입니다.
 
@@ -99,5 +101,47 @@ claude plugins install coco-de/skills/plugins/cc-i18n
 
 > [상세 페이지 보기 →](/plugins/cc-i18n/)
 
-  </TabItem>
-</Tabs>
+---
+
+## cc-deeplink
+
+**Deep Link & Universal Links** — AASA, assetlinks.json, GoRouter 연동, 도메인 마이그레이션을 지원합니다.
+
+| 항목 | 내용 |
+|------|------|
+| Skills | 4개 (aasa-management, app-links, universal-links, domain-migration) |
+
+### 주요 커맨드
+
+```bash
+/deeplink:aasa               # Apple AASA 파일 관리
+/deeplink:app-links           # Android App Links 설정
+/deeplink:universal-links     # Universal Links 설정
+/deeplink:domain-migration    # 도메인 마이그레이션
+```
+
+### 설치
+
+```bash
+claude plugins install coco-de/skills/plugins/cc-deeplink
+```
+
+> [상세 페이지 보기 →](/plugins/cc-deeplink/)
+
+---
+
+## cc-uiux-frontend
+
+**프론트엔드 패턴 가이드** — Flutter/Dart + CoUI 패턴, BLoC 패턴, Clean Architecture를 적용합니다.
+
+| 항목 | 내용 |
+|------|------|
+| Skills | 3개 (flutter-patterns, jaspr-patterns, responsive-design) |
+
+### 설치
+
+```bash
+claude plugins install coco-de/skills/plugins/cc-uiux-frontend
+```
+
+> [상세 페이지 보기 →](/plugins/cc-uiux-frontend/)

@@ -1,3 +1,8 @@
+---
+name: business-model
+description: 비즈니스 모델 분석 및 설계
+---
+
 # Business Model (비즈니스 모델 분석)
 
 ## 트리거

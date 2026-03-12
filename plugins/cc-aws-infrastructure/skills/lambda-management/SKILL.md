@@ -1,3 +1,8 @@
+---
+name: lambda-management
+description: AWS Lambda 함수 배포 및 관리
+---
+
 # Lambda 함수 관리
 
 Lambda 함수 배포, 환경 변수 관리, Step Functions 연동을 다룹니다.

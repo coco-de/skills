@@ -1,3 +1,8 @@
+---
+name: icp-definition
+description: 이상적 고객 프로필(ICP) 정의
+---
+
 # ICP Definition (이상적 고객 프로필 정의)
 
 ## 트리거

@@ -1,3 +1,8 @@
+---
+name: flutter-patterns
+description: Flutter Clean Architecture 개발 패턴
+---
+
 # Flutter Development Patterns (Flutter 개발 패턴)
 
 ## 트리거

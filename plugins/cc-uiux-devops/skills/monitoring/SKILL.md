@@ -1,3 +1,8 @@
+---
+name: monitoring
+description: 서비스 모니터링 및 알림 설정
+---
+
 # Monitoring (모니터링)
 
 ## 트리거

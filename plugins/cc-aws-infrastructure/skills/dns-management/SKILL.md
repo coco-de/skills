@@ -1,3 +1,8 @@
+---
+name: dns-management
+description: Route53 DNS 레코드 생성, 수정, 삭제 관리
+---
+
 # Route53 DNS 레코드 관리
 
 Route53 DNS 레코드를 Terraform으로 관리합니다. Multi-domain 지원 (primary + secondary domain).

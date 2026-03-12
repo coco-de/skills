@@ -1,3 +1,8 @@
+---
+name: database-design
+description: Serverpod 데이터베이스 스키마 설계
+---
+
 # Serverpod Database Design (Serverpod 데이터베이스 설계)
 
 ## 트리거

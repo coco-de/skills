@@ -1,3 +1,8 @@
+---
+name: widget-testing
+description: Flutter 위젯 테스트 작성
+---
+
 # Flutter Widget Testing (Flutter 위젯 테스트)
 
 ## 트리거

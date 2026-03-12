@@ -1,3 +1,8 @@
+---
+name: assumption-testing
+description: 제품 가정 테스트 설계 및 검증
+---
+
 # Assumption Testing (가정 테스트)
 
 ## 트리거

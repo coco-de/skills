@@ -1,3 +1,8 @@
+---
+name: ab-testing
+description: A/B 테스트 설계 및 분석
+---
+
 # A/B Testing (A/B 테스트)
 
 ## 트리거

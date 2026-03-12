@@ -1,3 +1,8 @@
+---
+name: testing
+description: Serverpod 테스팅 및 TDD 패턴
+---
+
 # Serverpod 테스팅 & TDD
 
 withServerpod 기반 통합 테스트와 TDD Red-Green-Refactor 패턴을 다룹니다.

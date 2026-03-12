@@ -1,3 +1,8 @@
+---
+name: competitive-analysis
+description: 경쟁사 분석 및 포지셔닝
+---
+
 # Competitive Analysis (경쟁 분석)
 
 ## 트리거

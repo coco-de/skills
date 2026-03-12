@@ -1,3 +1,8 @@
+---
+name: universal-links
+description: iOS Universal Links 설정 및 검증
+---
+
 # iOS Universal Links 설정
 
 Apple Universal Links를 설정하여 웹 URL을 앱에서 직접 열 수 있도록 합니다.

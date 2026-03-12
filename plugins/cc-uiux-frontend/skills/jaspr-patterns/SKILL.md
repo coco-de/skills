@@ -1,3 +1,8 @@
+---
+name: jaspr-patterns
+description: Jaspr 웹 개발 패턴
+---
+
 # Jaspr Web Development Patterns (Jaspr 웹 개발 패턴)
 
 ## 트리거

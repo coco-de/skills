@@ -1,5 +1,5 @@
 {
   "name": "cc-serverpod",
   "version": "1.0.0",
-  "description": "Serverpod 백엔드 (Model, Endpoint, Migrations)"
+  "description": "Serverpod 기초 — 모델·엔드포인트 생성, 마이그레이션"
 }

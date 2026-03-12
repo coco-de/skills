@@ -1,3 +1,8 @@
+---
+name: design-review
+description: 디자인 리뷰 체크리스트 및 프로세스
+---
+
 # Design Review (디자인 리뷰)
 
 ## 트리거

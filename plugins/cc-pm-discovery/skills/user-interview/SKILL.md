@@ -1,3 +1,8 @@
+---
+name: user-interview
+description: 사용자 인터뷰 설계 및 인사이트 도출
+---
+
 # User Interview (사용자 인터뷰)
 
 ## 트리거

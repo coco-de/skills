@@ -1,3 +1,8 @@
+---
+name: integration-testing
+description: Dart/Flutter 통합 테스트 작성
+---
+
 # Integration Testing (통합 테스트)
 
 ## 트리거

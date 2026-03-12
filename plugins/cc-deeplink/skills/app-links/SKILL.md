@@ -1,3 +1,8 @@
+---
+name: app-links
+description: Android App Links (assetlinks.json) 설정
+---
+
 # Android App Links 설정
 
 Android App Links를 설정하여 웹 URL을 앱에서 직접 열 수 있도록 합니다.

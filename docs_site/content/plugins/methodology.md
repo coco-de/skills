@@ -1,12 +1,11 @@
 ---
 title: 방법론 & 워크플로우
-description: BMAD 방법론, 개발 워크플로우, 코드 품질 관리 플러그인
+description: BMAD 방법론, 개발 워크플로우, 코드 품질, 파이프라인 오케스트레이터 플러그인
 ---
 
 # 방법론 & 워크플로우
 
-<Tabs>
-  <TabItem label="cc-bmad">
+## cc-bmad
 
 **BMAD 방법론** (Business Method Agile Delivery) — 제품 개발 전 과정을 체계적으로 관리하는 방법론입니다.
 
@@ -37,8 +36,9 @@ claude plugins install coco-de/skills/plugins/cc-bmad
 
 > [상세 페이지 보기 →](/plugins/cc-bmad/)
 
-  </TabItem>
-  <TabItem label="cc-workflow">
+---
+
+## cc-workflow
 
 **개발 워크플로우** — Issue Cycle, Bug Cycle, Session 관리, ZenHub 연동을 포함합니다.
 
@@ -56,8 +56,9 @@ claude plugins install coco-de/skills/plugins/cc-workflow
 
 > [상세 페이지 보기 →](/plugins/cc-workflow/)
 
-  </TabItem>
-  <TabItem label="cc-code-quality">
+---
+
+## cc-code-quality
 
 **코드 품질** — 코드리뷰, 체크리스트, 버그리포트를 체계화합니다.
 
@@ -74,5 +75,25 @@ claude plugins install coco-de/skills/plugins/cc-code-quality
 
 > [상세 페이지 보기 →](/plugins/cc-code-quality/)
 
-  </TabItem>
-</Tabs>
+---
+
+## cc-pipeline
+
+**통합 프로젝트 파이프라인 오케스트레이터** — Discovery에서 Launch까지 6단계 프로젝트 라이프사이클을 관리합니다.
+
+| 단계 | 커맨드 | 설명 |
+|------|--------|------|
+| 1. Discovery | `/project:discover` | 시장 조사, 사용자 리서치, 문제 정의 |
+| 2. Planning | `/project:plan` | PRD 작성, 기술 요구사항, 로드맵 |
+| 3. Design | `/project:design` | 아키텍처 설계, UI/UX 디자인 |
+| 4. Epic | `/project:epic` | 에픽/스토리 분해, 스프린트 계획 |
+| 5. Development | `/project:develop` | 구현, 코드리뷰, 테스트 |
+| 6. Launch | `/project:launch` | 배포, 모니터링, 릴리스 |
+
+### 설치
+
+```bash
+claude plugins install coco-de/skills/plugins/cc-pipeline
+```
+
+> [상세 페이지 보기 →](/plugins/cc-pipeline/)

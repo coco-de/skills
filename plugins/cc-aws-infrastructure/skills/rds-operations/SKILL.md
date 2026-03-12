@@ -1,3 +1,8 @@
+---
+name: rds-operations
+description: RDS 장애 대응 및 운영 관리
+---
+
 # RDS 장애 대응 및 운영
 
 RDS PostgreSQL 장애 진단, 스토리지 확장, replication slot 관리를 다룹니다.

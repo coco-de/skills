@@ -1,3 +1,8 @@
+---
+name: terraform-apply
+description: Terraform Apply 실행 및 인프라 변경 적용
+---
+
 # Terraform Apply 실행
 
 Terraform apply를 `-target` 옵션으로 안전하게 실행하여 인프라 변경을 적용합니다.

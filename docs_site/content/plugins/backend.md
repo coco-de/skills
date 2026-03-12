@@ -1,14 +1,13 @@
 ---
-title: 백엔드 & 분석
-description: Serverpod 백엔드, 백엔드 심화, ClickHouse BI 분석 플러그인
+title: 백엔드 & 인프라
+description: Serverpod 기초/심화, API·DB 설계, AWS 인프라, ClickHouse BI 분석 플러그인
 ---
 
-# 백엔드 & 분석
+# 백엔드 & 인프라
 
-<Tabs>
-  <TabItem label="cc-serverpod">
+## cc-serverpod
 
-**Serverpod 백엔드** — Dart 기반 서버 프레임워크 Serverpod의 Model, Endpoint, Migration을 지원합니다.
+**Serverpod 기초** — 모델·엔드포인트 생성, 마이그레이션을 지원합니다.
 
 | 항목 | 내용 |
 |------|------|
@@ -31,8 +30,9 @@ claude plugins install coco-de/skills/plugins/cc-serverpod
 
 > [상세 페이지 보기 →](/plugins/cc-serverpod/)
 
-  </TabItem>
-  <TabItem label="cc-backend">
+---
+
+## cc-backend
 
 **Serverpod 백엔드 심화** — ORM, 인증, 캐싱, 테스팅, API 설계, 아키텍처 패턴을 다룹니다. cc-serverpod가 모델/엔드포인트/마이그레이션 생성을 담당한다면, cc-backend는 심화 패턴과 아키텍처를 제공합니다.
 
@@ -62,8 +62,55 @@ claude plugins install coco-de/skills/plugins/cc-backend
 
 > [상세 페이지 보기 →](/plugins/cc-backend/)
 
-  </TabItem>
-  <TabItem label="cc-clickhouse">
+---
+
+## cc-uiux-backend
+
+**Serverpod API·DB 설계 템플릿** — Serverpod 전용 API 및 데이터베이스 설계를 지원합니다.
+
+| 항목 | 내용 |
+|------|------|
+| Skills | 2개 (api-design, database-design) |
+
+### 설치
+
+```bash
+claude plugins install coco-de/skills/plugins/cc-uiux-backend
+```
+
+> [상세 페이지 보기 →](/plugins/cc-uiux-backend/)
+
+---
+
+## cc-aws-infrastructure
+
+**AWS 인프라 관리** — Terraform, Route53, RDS, Lambda, CloudFront, CodeDeploy를 활용한 Serverpod 백엔드 인프라 운영을 지원합니다.
+
+| 항목 | 내용 |
+|------|------|
+| Skills | 5개 (terraform-plan, terraform-apply, dns-management, rds-operations, lambda-management) |
+
+### 주요 커맨드
+
+```bash
+/terraform:plan              # Terraform Plan 실행
+/terraform:apply             # Terraform Apply 실행
+/dns:manage                  # Route53 DNS 관리
+/rds:operate                 # RDS 운영
+/lambda:manage               # Lambda 관리
+```
+
+### 설치
+
+```bash
+claude plugins install coco-de/skills/plugins/cc-aws-infrastructure
+```
+
+> [상세 페이지 보기 →](/plugins/cc-aws-infrastructure/)
+
+---
+
+## cc-clickhouse
 
 **ClickHouse BI 분석** — 쿼리 작성, 테이블 설계, 분석 대시보드를 지원합니다.
 
@@ -79,6 +126,3 @@ claude plugins install coco-de/skills/plugins/cc-clickhouse
 ```
 
 > [상세 페이지 보기 →](/plugins/cc-clickhouse/)
-
-  </TabItem>
-</Tabs>

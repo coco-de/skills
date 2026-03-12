@@ -1,3 +1,8 @@
+---
+name: messaging-framework
+description: 제품 메시징 및 포지셔닝 프레임워크
+---
+
 # Messaging Framework (제품 메시징 및 포지셔닝)
 
 ## 트리거

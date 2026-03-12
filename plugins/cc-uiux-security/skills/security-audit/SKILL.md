@@ -1,3 +1,8 @@
+---
+name: security-audit
+description: 보안 감사 체크리스트 및 프로세스
+---
+
 # Security Audit Checklist (보안 감사 체크리스트)
 
 ## 트리거

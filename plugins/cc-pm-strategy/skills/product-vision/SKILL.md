@@ -1,3 +1,8 @@
+---
+name: product-vision
+description: 제품 비전 수립 및 로드맵
+---
+
 # Product Vision (제품 비전 수립)
 
 ## 트리거

@@ -1,3 +1,8 @@
+---
+name: logging
+description: Serverpod 로깅 설정 및 모니터링
+---
+
 # Serverpod 로깅
 
 session.log 기반 로깅, 보존 정책, Serverpod Insights를 다룹니다.

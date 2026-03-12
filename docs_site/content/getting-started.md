@@ -121,7 +121,7 @@ claude plugins list
 설치가 성공하면 플러그인 이름과 버전이 표시됩니다:
 
 ```
-cc-flutter-dev  1.0.0  Flutter 개발 핵심 (UI, Feature, BLoC, Test)
+cc-flutter-dev  1.0.0  Flutter 개발 핵심 (UI 패턴, Feature 생성, BLoC, 테스트)
 cc-bmad         1.0.0  BMAD 방법론 (Business Method Agile Delivery)
 cc-coui         1.0.0  CoUI 컴포넌트 라이브러리 (26개 크로스플랫폼 컴포넌트)
 ...

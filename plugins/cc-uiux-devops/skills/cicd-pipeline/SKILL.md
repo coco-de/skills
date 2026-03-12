@@ -1,3 +1,8 @@
+---
+name: cicd-pipeline
+description: CI/CD 파이프라인 구성 및 자동화
+---
+
 # CI/CD Pipeline (CI/CD 파이프라인)
 
 ## 트리거
