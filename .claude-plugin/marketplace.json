@@ -48,12 +48,12 @@
       "keywords": ["serverpod", "dart", "backend", "api"]
     },
     {
-      "name": "cc-workflow",
-      "source": "./plugins/cc-workflow",
+      "name": "cc-dev-cycle",
+      "source": "./plugins/cc-dev-cycle",
       "version": "1.1.0",
-      "description": "개발 워크플로우 (Issue Cycle, Bug Cycle, Session, ZenHub)",
-      "category": "workflow",
-      "keywords": ["workflow", "zenhub", "session", "issue-tracking"]
+      "description": "개발 사이클 자동화 (Issue Cycle, Bug Cycle, Session, ZenHub)",
+      "category": "dev-cycle",
+      "keywords": ["dev-cycle", "zenhub", "session", "issue-tracking"]
     },
     {
       "name": "cc-code-quality",

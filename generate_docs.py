@@ -28,7 +28,7 @@ CONTENT_DIRS = [
 
 # 카테고리 → 플러그인 매핑 (기존 카테고리 페이지 기준)
 CATEGORY_MAP = {
-    "methodology": ["cc-bmad", "cc-workflow", "cc-code-quality"],
+    "methodology": ["cc-bmad", "cc-dev-cycle", "cc-code-quality"],
     "flutter": ["cc-coui", "cc-flutter-dev", "cc-flutter-inspector", "cc-i18n"],
     "backend": ["cc-serverpod", "cc-backend", "cc-clickhouse"],
     "product-management": ["cc-pm-discovery", "cc-pm-strategy", "cc-pm-analytics", "cc-pm-gtm"],

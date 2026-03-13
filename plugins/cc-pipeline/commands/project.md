@@ -102,7 +102,7 @@ complexity: high
 → /project:epic
 ```
 
-- cc-workflow: /zenhub:create-epic
+- cc-dev-cycle: /zenhub:create-epic
 - cc-bmad: /bmad:create-story, /bmad:sprint-planning
 - cc-bmad PM: 스토리 포인트, 라벨링
 - **게이트**: BMAD Planning Gate
@@ -114,7 +114,7 @@ complexity: high
 → /project:develop --epic {epic_number}
 ```
 
-- Epic 내 Stories 순회, 각각 cc-workflow 13단계 실행
+- Epic 내 Stories 순회, 각각 cc-dev-cycle 13단계 실행
 - cc-bmad: /bmad:dev-story
 - cc-bmad Flutter/Backend Dev: 구현 리뷰
 - **게이트**: BMAD Implementation Gate

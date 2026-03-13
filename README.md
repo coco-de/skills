@@ -74,7 +74,7 @@ claude plugins update cc-workflow@cocode-skills
 | 플러그인 | 설명 | Skills | Commands | Agents |
 |---------|------|--------|----------|--------|
 | `cc-bmad` | BMAD 방법론 (10 skills, 18 commands) | 11 | 22 | — |
-| `cc-workflow` | 개발 워크플로우 (Issue/Bug Cycle, Session, ZenHub) | 2 | 7 | 2 |
+| `cc-dev-cycle` | 개발 사이클 (Issue/Bug Cycle, Session, ZenHub) | 2 | 7 | 2 |
 | `cc-code-quality` | 코드리뷰, 체크리스트, 버그리포트 | 3 | 3 | — |
 | `cc-pipeline` | 6단계 파이프라인 오케스트레이터 | 1 | 3 | — |
 
@@ -158,7 +158,7 @@ skills/
 │   ├── cc-backend/        # Serverpod 백엔드 심화
 │   ├── cc-aws-infrastructure/ # AWS 인프라 관리
 │   ├── cc-uiux-*/         # UI/UX 플러그인 (7개)
-│   └── cc-workflow/       # 워크플로우
+│   └── cc-dev-cycle/       # 개발 사이클
 ├── docs_site/             # 문서 사이트 (Jaspr)
 └── validate_plugins.py    # 플러그인 검증 스크립트
 ```

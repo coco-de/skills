@@ -239,7 +239,7 @@ claude plugins install cc-flutter-dev@cocode-skills
 claude plugins install cc-serverpod@cocode-skills
 claude plugins install cc-backend@cocode-skills
 claude plugins install cc-coui@cocode-skills
-claude plugins install cc-workflow@cocode-skills
+claude plugins install cc-dev-cycle@cocode-skills
 ```
 
 ### PM + 개발 통합

@@ -27,7 +27,7 @@
  │  /project:   │     │  /project:   │     │  /project:   │
  │   epic       │     │   develop    │     │   launch     │
  │              │     │              │     │              │
- │ cc-workflow  │     │ cc-workflow  │     │ cc-pm-gtm    │
+ │ cc-dev-cycle  │     │ cc-dev-cycle  │     │ cc-pm-gtm    │
  │ cc-bmad      │     │ cc-bmad      │     │ cc-pm-anal.  │
  └──────┬───────┘     └──────┬───────┘     └──────────────┘
         │                     │               스킵: L0-1
