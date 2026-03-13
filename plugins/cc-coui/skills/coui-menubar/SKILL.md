@@ -1,6 +1,6 @@
 ---
 name: coui-menubar
-description: Activate when creating desktop-style horizontal menu bars, application menu systems, or top-level menu navigation with nested dropdowns using CouiMenubar, Menubar, MenubarItem, MenubarMenu, or MenubarSeparator in CoUI Flutter or CoUI Web.
+description: Activate when creating desktop-style horizontal menu bars, application menu systems, or top-level menu navigation with nested dropdowns using Menubar, Menubar, MenubarItem, MenubarMenu, or MenubarSeparator in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Menubar
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Menubar
 
 ```dart
-CouiMenubar(
+Menubar(
   onSelect: (value) {
     switch (value) {
       case 'new': createNewFile();
@@ -54,7 +54,7 @@ CouiMenubar(
 ### With Keyboard Shortcuts
 
 ```dart
-CouiMenubar(
+Menubar(
   onSelect: handleMenubarSelect,
   items: [
     MenubarItem(
@@ -91,7 +91,7 @@ CouiMenubar(
 
 ### Key Classes
 
-#### CouiMenubar
+#### Menubar
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -123,7 +123,7 @@ Divider between menu items. No additional properties.
 ```dart
 Column(
   children: [
-    CouiMenubar(
+    Menubar(
       onSelect: handleMenuAction,
       items: [
         MenubarItem(label: 'File', menu: [
@@ -161,7 +161,7 @@ import 'package:coui_web/coui_web.dart';
 ### Basic Menubar
 
 ```dart
-CouiMenubar(
+Menubar(
   onSelect: handleMenubarSelect,
   items: [
     MenubarItem(

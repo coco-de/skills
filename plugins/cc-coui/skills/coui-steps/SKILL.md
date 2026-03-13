@@ -1,6 +1,6 @@
 ---
 name: coui-steps
-description: Activate when creating read-only step progress indicators, delivery tracking displays, or stage completion visuals using CouiSteps, Steps, StepsVariant, or StepsSize in CoUI Flutter or CoUI Web.
+description: Activate when creating read-only step progress indicators, delivery tracking displays, or stage completion visuals using Steps, Steps, StepsVariant, or StepsSize in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Steps
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Number Variant (Default)
 
 ```dart
-CouiSteps(
+Steps(
   steps: ['Order Placed', 'Payment Done', 'Preparing', 'Shipping', 'Delivered'],
   current: 2,
   variant: StepsVariant.number,
@@ -30,7 +30,7 @@ CouiSteps(
 ### Dot Variant
 
 ```dart
-CouiSteps(
+Steps(
   steps: ['Step 1', 'Step 2', 'Step 3'],
   current: 1,
   variant: StepsVariant.dot,
@@ -41,7 +41,7 @@ CouiSteps(
 ### Simple Variant
 
 ```dart
-CouiSteps(
+Steps(
   steps: ['Request', 'Review', 'Approval'],
   current: 0,
   variant: StepsVariant.simple,
@@ -50,7 +50,7 @@ CouiSteps(
 
 ### Key Classes
 
-#### CouiSteps
+#### Steps
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -83,7 +83,7 @@ Card(
     children: [
       Text('Order #12345', style: TextStyle(fontWeight: FontWeight.bold)),
       Gap.v(16),
-      CouiSteps(
+      Steps(
         steps: ['Ordered', 'Confirmed', 'Shipped', 'Delivered'],
         current: 2,
         variant: StepsVariant.number,

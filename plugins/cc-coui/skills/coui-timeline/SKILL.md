@@ -1,6 +1,6 @@
 ---
 name: coui-timeline
-description: Activate when creating chronological event displays, activity logs, history views, or time-sequential layouts using CouiTimeline, Timeline, TimelineItem, or TimelineVariant in CoUI Flutter or CoUI Web.
+description: Activate when creating chronological event displays, activity logs, history views, or time-sequential layouts using Timeline, Timeline, TimelineItem, or TimelineVariant in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Timeline
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Timeline
 
 ```dart
-CouiTimeline(
+Timeline(
   items: [
     TimelineItem(
       title: 'Project Started',
@@ -44,7 +44,7 @@ CouiTimeline(
 ### Alternate Alignment
 
 ```dart
-CouiTimeline(
+Timeline(
   items: companyHistory,
   variant: TimelineVariant.alternate,
   lineColor: Colors.indigo,
@@ -55,7 +55,7 @@ CouiTimeline(
 ### Right Alignment
 
 ```dart
-CouiTimeline(
+Timeline(
   items: notifications,
   variant: TimelineVariant.right,
 )
@@ -63,7 +63,7 @@ CouiTimeline(
 
 ### Key Classes
 
-#### CouiTimeline
+#### Timeline
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -91,7 +91,7 @@ CouiTimeline(
 ### Activity Log Pattern
 
 ```dart
-CouiTimeline(
+Timeline(
   items: [
     TimelineItem(
       title: 'File uploaded',

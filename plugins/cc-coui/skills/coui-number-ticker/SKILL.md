@@ -1,6 +1,6 @@
 ---
 name: coui-number-ticker
-description: Activate when creating animated number displays, rolling counters, statistic animations, or numeric value transitions using CouiNumberTicker (Flutter) or NumberTicker (Web) in CoUI Flutter or CoUI Web.
+description: Activate when creating animated number displays, rolling counters, statistic animations, or numeric value transitions using NumberTicker (Flutter) or NumberTicker (Web) in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI NumberTicker
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Usage
 
 ```dart
-CouiNumberTicker(value: 1234)
+NumberTicker(value: 1234)
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ CouiNumberTicker(value: 1234)
 ### Styled with Duration
 
 ```dart
-CouiNumberTicker(
+NumberTicker(
   value: 99999,
   duration: Duration(milliseconds: 800),
   style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
@@ -49,7 +49,7 @@ CouiNumberTicker(
 ### Currency Display
 
 ```dart
-CouiNumberTicker(
+NumberTicker(
   value: 12450000,
   prefix: '₩',
   suffix: '원',
@@ -60,7 +60,7 @@ CouiNumberTicker(
 ### Decimal Values
 
 ```dart
-CouiNumberTicker(
+NumberTicker(
   value: 3.14159,
   decimalPlaces: 2,
 )
@@ -101,7 +101,7 @@ Same parameter structure as Flutter with identical property names.
 
 | Aspect | Flutter | Web |
 |--------|---------|-----|
-| Widget name | `CouiNumberTicker` | `NumberTicker` |
+| Widget name | `NumberTicker` | `NumberTicker` |
 | API | Identical parameters | Identical parameters |
 
 ### When to Use

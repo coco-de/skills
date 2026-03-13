@@ -1,6 +1,6 @@
 ---
 name: coui-code-snippet
-description: Activate when creating code displays, syntax-highlighted code blocks, or copyable code examples using CouiCodeSnippet/CodeSnippetTheme (Flutter) or CodeSnippet (Web) in CoUI Flutter or CoUI Web.
+description: Activate when creating code displays, syntax-highlighted code blocks, or copyable code examples using CodeSnippet/CodeSnippetTheme (Flutter) or CodeSnippet (Web) in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI CodeSnippet
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Usage
 
 ```dart
-CouiCodeSnippet(
+CodeSnippet(
   code: 'void main() { print("Hello, CoUI!"); }',
   language: 'dart',
   showLineNumbers: true,
@@ -43,7 +43,7 @@ CouiCodeSnippet(
 ### Dark Theme
 
 ```dart
-CouiCodeSnippet(
+CodeSnippet(
   code: 'const x = 42;',
   language: 'javascript',
   theme: CodeSnippetTheme.dark,
@@ -54,7 +54,7 @@ CouiCodeSnippet(
 ### With Max Height
 
 ```dart
-CouiCodeSnippet(
+CodeSnippet(
   code: longCodeString,
   language: 'dart',
   maxHeight: 300,
@@ -103,7 +103,7 @@ Dart, JavaScript, TypeScript, Python, Kotlin, Swift, HTML, CSS, JSON, YAML, Bash
 
 | Aspect | Flutter | Web |
 |--------|---------|-----|
-| Widget name | `CouiCodeSnippet` | `CodeSnippet` |
+| Widget name | `CodeSnippet` | `CodeSnippet` |
 | API | Identical parameters | Identical parameters |
 
 ### When to Use

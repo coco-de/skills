@@ -1,6 +1,6 @@
 ---
 name: coui-swiper
-description: Activate when creating swipe-to-dismiss items, swipeable cards, or gesture-based navigation using CouiSwiper, Swiper, SwipeDirection, or onDismiss in CoUI Flutter or CoUI Web.
+description: Activate when creating swipe-to-dismiss items, swipeable cards, or gesture-based navigation using Swiper, Swiper, SwipeDirection, or onDismiss in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Swiper
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Swiper
 
 ```dart
-CouiSwiper(
+Swiper(
   onDismiss: () {
     // Handle item dismissed
   },
@@ -34,7 +34,7 @@ CouiSwiper(
 ### Horizontal Swipe
 
 ```dart
-CouiSwiper(
+Swiper(
   direction: SwipeDirection.horizontal,
   threshold: 0.4,
   onSwipe: (direction) {
@@ -52,7 +52,7 @@ CouiSwiper(
 ### Vertical Swipe
 
 ```dart
-CouiSwiper(
+Swiper(
   direction: SwipeDirection.vertical,
   onDismiss: () {
     // Handle dismissed
@@ -64,7 +64,7 @@ CouiSwiper(
 ### Omnidirectional Swipe
 
 ```dart
-CouiSwiper(
+Swiper(
   direction: SwipeDirection.any,
   onSwipe: (direction) {
     // Handle any direction
@@ -78,7 +78,7 @@ CouiSwiper(
 
 ### Key Classes
 
-#### CouiSwiper
+#### Swiper
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|

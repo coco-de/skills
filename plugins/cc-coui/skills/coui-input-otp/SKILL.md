@@ -1,13 +1,13 @@
 ---
 name: coui-input-otp
-description: Activate when creating OTP inputs, PIN code fields, verification code inputs, or one-time password fields using CouiInputOtp, InputOtp in CoUI Flutter or CoUI Web.
+description: Activate when creating OTP inputs, PIN code fields, verification code inputs, or one-time password fields using InputOtp, InputOtp in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI InputOtp
 
 ## Overview
 
-The InputOtp is a separated input field component for entering OTP authentication codes or PIN numbers character-by-character. It supports configurable length, obscured text for PINs, and auto-focus behavior. Flutter uses `CouiInputOtp` while Web uses `InputOtp`.
+The InputOtp is a separated input field component for entering OTP authentication codes or PIN numbers character-by-character. It supports configurable length, obscured text for PINs, and auto-focus behavior. Flutter uses `InputOtp` while Web uses `InputOtp`.
 
 ## Flutter (coui_flutter)
 
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic OTP Input (6 digits)
 
 ```dart
-CouiInputOtp(
+InputOtp(
   length: 6,
   onCompleted: handleOtpCompleted,
 )
@@ -29,7 +29,7 @@ CouiInputOtp(
 ### PIN Format (4 digits)
 
 ```dart
-CouiInputOtp(
+InputOtp(
   length: 4,
   obscureText: true,
   autofocus: true,
@@ -41,7 +41,7 @@ CouiInputOtp(
 ### With Completion Callback
 
 ```dart
-CouiInputOtp(
+InputOtp(
   length: 6,
   autofocus: true,
   onCompleted: (otp) {
@@ -101,5 +101,5 @@ InputOtp(
 
 | Concept | Flutter | Web |
 |---------|---------|-----|
-| Component | `CouiInputOtp` | `InputOtp` |
+| Component | `InputOtp` | `InputOtp` |
 | API structure | Identical | Identical |

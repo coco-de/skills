@@ -1,6 +1,6 @@
 ---
 name: coui-chat
-description: Activate when creating chat interfaces, message lists, chat bubbles, or messaging UIs using CouiChat/CouiChatBubble/CouiChatInput/ChatMessage/ChatSender (Flutter) or Chat/ChatBubble (Web) in CoUI Flutter or CoUI Web.
+description: Activate when creating chat interfaces, message lists, chat bubbles, or messaging UIs using Chat/ChatBubble/ChatInput/ChatMessage/ChatSender (Flutter) or Chat/ChatBubble (Web) in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Chat
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Usage
 
 ```dart
-CouiChat(
+Chat(
   messages: [
     ChatMessage(
       id: '1',
@@ -34,7 +34,7 @@ CouiChat(
 )
 ```
 
-### CouiChat Parameters
+### Chat Parameters
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -57,17 +57,17 @@ CouiChat(
 ### Loading State
 
 ```dart
-CouiChat(
+Chat(
   messages: messages,
   onSend: handleSendMessage,
   isLoading: true,
 )
 ```
 
-### CouiChatBubble (Subcomponent)
+### ChatBubble (Subcomponent)
 
 ```dart
-CouiChatBubble(
+ChatBubble(
   message: 'Hello!',
   sender: ChatSender.me,
   timestamp: DateTime.now(),
@@ -119,9 +119,9 @@ Alternate between `ChatSender.me` and `ChatSender.other` to show conversation fl
 
 | Aspect | Flutter | Web |
 |--------|---------|-----|
-| Main widget | `CouiChat` | `Chat` |
-| Bubble widget | `CouiChatBubble` | `ChatBubble` |
-| Input widget | `CouiChatInput` | Built into `Chat` |
+| Main widget | `Chat` | `Chat` |
+| Bubble widget | `ChatBubble` | `ChatBubble` |
+| Input widget | `ChatInput` | Built into `Chat` |
 | Loading state | `isLoading` param | `isLoading` param |
 | Max input lines | `maxInputLines` param | Not available |
 

@@ -1,6 +1,6 @@
 ---
 name: coui-status
-description: Activate when creating status indicators, online/offline dots, user presence indicators, or system state displays using CouiStatus/StatusVariant/StatusSize (Flutter) or Status (Web) in CoUI Flutter or CoUI Web.
+description: Activate when creating status indicators, online/offline dots, user presence indicators, or system state displays using Status/StatusVariant/StatusSize (Flutter) or Status (Web) in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Status
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Usage
 
 ```dart
-CouiStatus(
+Status(
   variant: StatusVariant.online,
   label: '온라인',
 )
@@ -38,7 +38,7 @@ CouiStatus(
 ### Dot-Only Display
 
 ```dart
-CouiStatus(
+Status(
   variant: StatusVariant.busy,
   showDot: true,
 )
@@ -47,7 +47,7 @@ CouiStatus(
 ### Large Away Status
 
 ```dart
-CouiStatus(
+Status(
   variant: StatusVariant.away,
   label: '자리 비움',
   size: StatusSize.large,
@@ -93,7 +93,7 @@ Status(variant: StatusVariant.offline, label: '오프라인')
 
 | Aspect | Flutter | Web |
 |--------|---------|-----|
-| Widget name | `CouiStatus` | `Status` |
+| Widget name | `Status` | `Status` |
 | Size support | `StatusSize` enum | `StatusSize` enum |
 
 ### When to Use

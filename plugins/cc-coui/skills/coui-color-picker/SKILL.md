@@ -1,13 +1,13 @@
 ---
 name: coui-color-picker
-description: Activate when creating color pickers, color selectors, hex/rgb/hsl color inputs, or color swatches using CouiColorPicker, ColorPicker, ColorFormat in CoUI Flutter or CoUI Web.
+description: Activate when creating color pickers, color selectors, hex/rgb/hsl color inputs, or color swatches using ColorPicker, ColorPicker, ColorFormat in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI ColorPicker
 
 ## Overview
 
-The ColorPicker is a color selection component that allows selecting and editing colors in various formats (HEX, RGB, HSL). It supports alpha channel, preset colors, and color code input fields. Flutter uses `CouiColorPicker` while Web uses `ColorPicker`.
+The ColorPicker is a color selection component that allows selecting and editing colors in various formats (HEX, RGB, HSL). It supports alpha channel, preset colors, and color code input fields. Flutter uses `ColorPicker` while Web uses `ColorPicker`.
 
 ## Flutter (coui_flutter)
 
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Color Picker
 
 ```dart
-CouiColorPicker(
+ColorPicker(
   value: selectedColor,
   onChanged: handleColorChanged,
 )
@@ -29,7 +29,7 @@ CouiColorPicker(
 ### With Alpha Channel and Input
 
 ```dart
-CouiColorPicker(
+ColorPicker(
   value: selectedColor,
   onChanged: handleColorChanged,
   showAlpha: true,
@@ -41,7 +41,7 @@ CouiColorPicker(
 ### With Preset Colors
 
 ```dart
-CouiColorPicker(
+ColorPicker(
   value: selectedColor,
   onChanged: handleColorChanged,
   presetColors: [
@@ -57,7 +57,7 @@ CouiColorPicker(
 ### HEX Format
 
 ```dart
-CouiColorPicker(
+ColorPicker(
   value: brandColor,
   onChanged: handleBrandColorChanged,
   format: ColorFormat.hex,
@@ -68,7 +68,7 @@ CouiColorPicker(
 ### RGB Format
 
 ```dart
-CouiColorPicker(
+ColorPicker(
   value: fillColor,
   onChanged: handleFillColorChanged,
   format: ColorFormat.rgb,
@@ -79,7 +79,7 @@ CouiColorPicker(
 ### HSL Format
 
 ```dart
-CouiColorPicker(
+ColorPicker(
   value: themeColor,
   onChanged: handleThemeColorChanged,
   format: ColorFormat.hsl,
@@ -141,7 +141,7 @@ ColorPicker(
 
 | Concept | Flutter | Web |
 |---------|---------|-----|
-| Component | `CouiColorPicker` | `ColorPicker` |
+| Component | `ColorPicker` | `ColorPicker` |
 | Color type | `Color` object | `Color` or hex string |
 | Format enum | `ColorFormat.hex` | `'hex'` (string) |
 | Preset colors | `List<Color>` | `List<String>` (hex strings) |

@@ -26,7 +26,7 @@ Column(
     const Gap.md(),
     const Text('Content'),
     const Gap.lg(),
-    CouiButton(
+    Button(
       onPressed: () {},
       child: const Text('Submit'),
     ),
@@ -44,7 +44,7 @@ Row(
     const Text('Username'),
     const Spacer(),
     const Gap.sm(),
-    CouiButton(
+    Button(
       onPressed: () {},
       child: const Text('Edit'),
     ),
@@ -100,7 +100,7 @@ Column(
     const Gap.xs(),
     TextField(placeholder: Text('Enter your email')),
     const Gap.lg(),
-    CouiButton(
+    Button(
       onPressed: () {},
       child: const Text('Submit'),
     ),

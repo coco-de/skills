@@ -1,6 +1,6 @@
 ---
 name: coui-context-menu
-description: Activate when creating right-click menus, long-press context actions, or contextual action lists using CouiContextMenu, ContextMenu, ContextMenuItem, or ContextMenuDivider in CoUI Flutter or CoUI Web.
+description: Activate when creating right-click menus, long-press context actions, or contextual action lists using ContextMenu, ContextMenu, ContextMenuItem, or ContextMenuDivider in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI ContextMenu
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic ContextMenu
 
 ```dart
-CouiContextMenu(
+ContextMenu(
   onSelect: (value) {
     // Handle selected action
   },
@@ -47,7 +47,7 @@ CouiContextMenu(
 
 ### Key Classes
 
-#### CouiContextMenu
+#### ContextMenu
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -72,7 +72,7 @@ Separator between menu items. No additional properties.
 ### File Manager Pattern
 
 ```dart
-CouiContextMenu(
+ContextMenu(
   onSelect: (value) {
     switch (value) {
       case 'open': openFile(file);

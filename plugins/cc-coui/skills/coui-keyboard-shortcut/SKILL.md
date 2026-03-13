@@ -1,6 +1,6 @@
 ---
 name: coui-keyboard-shortcut
-description: Activate when creating keyboard shortcut displays with labels, shortcut lists for settings/help screens, or platform-aware key combination indicators using CouiKeyboardShortcut/ShortcutPlatform (Flutter) or KeyboardShortcut (Web) in CoUI Flutter or CoUI Web.
+description: Activate when creating keyboard shortcut displays with labels, shortcut lists for settings/help screens, or platform-aware key combination indicators using KeyboardShortcut/ShortcutPlatform (Flutter) or KeyboardShortcut (Web) in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI KeyboardShortcut
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Usage
 
 ```dart
-CouiKeyboardShortcut(
+KeyboardShortcut(
   shortcut: ['Ctrl', 'S'],
   label: '저장',
 )
@@ -37,7 +37,7 @@ CouiKeyboardShortcut(
 ### With Platform Detection
 
 ```dart
-CouiKeyboardShortcut(
+KeyboardShortcut(
   shortcut: ['Cmd', 'K'],
   label: '검색 열기',
   platform: ShortcutPlatform.auto,
@@ -49,9 +49,9 @@ CouiKeyboardShortcut(
 ```dart
 Column(
   children: [
-    CouiKeyboardShortcut(shortcut: ['Ctrl', 'Z'], label: '실행 취소'),
-    CouiKeyboardShortcut(shortcut: ['Ctrl', 'Y'], label: '다시 실행'),
-    CouiKeyboardShortcut(shortcut: ['Ctrl', 'C'], label: '복사'),
+    KeyboardShortcut(shortcut: ['Ctrl', 'Z'], label: '실행 취소'),
+    KeyboardShortcut(shortcut: ['Ctrl', 'Y'], label: '다시 실행'),
+    KeyboardShortcut(shortcut: ['Ctrl', 'C'], label: '복사'),
   ],
 )
 ```
@@ -92,7 +92,7 @@ Same parameter structure as Flutter with identical property names.
 
 | Aspect | Flutter | Web |
 |--------|---------|-----|
-| Widget name | `CouiKeyboardShortcut` | `KeyboardShortcut` |
+| Widget name | `KeyboardShortcut` | `KeyboardShortcut` |
 | API | Identical parameters | Identical parameters |
 
 ### When to Use

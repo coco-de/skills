@@ -1,6 +1,6 @@
 ---
 name: coui-skeleton
-description: Activate when creating loading placeholders, skeleton screens, content shimmer effects, or placeholder layouts using CouiSkeleton/SkeletonVariant (Flutter) or Skeleton (Web) in CoUI Flutter or CoUI Web.
+description: Activate when creating loading placeholders, skeleton screens, content shimmer effects, or placeholder layouts using Skeleton/SkeletonVariant (Flutter) or Skeleton (Web) in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Skeleton
@@ -20,14 +20,14 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Rectangular Skeleton
 
 ```dart
-CouiSkeleton(width: 200, height: 20)
+Skeleton(width: 200, height: 20)
 ```
 
 ### Constructors
 
-- `CouiSkeleton()` - Default rectangular shape
-- `CouiSkeleton.circle()` - Circular elements (avatars)
-- `CouiSkeleton.text()` - Multi-line text placeholders
+- `Skeleton()` - Default rectangular shape
+- `Skeleton.circle()` - Circular elements (avatars)
+- `Skeleton.text()` - Multi-line text placeholders
 
 ### Default Parameters
 
@@ -41,7 +41,7 @@ CouiSkeleton(width: 200, height: 20)
 ### Circle Constructor
 
 ```dart
-CouiSkeleton.circle(size: 48)
+Skeleton.circle(size: 48)
 ```
 
 | Parameter | Type | Description |
@@ -51,7 +51,7 @@ CouiSkeleton.circle(size: 48)
 ### Text Constructor
 
 ```dart
-CouiSkeleton.text(lines: 3)
+Skeleton.text(lines: 3)
 ```
 
 | Parameter | Type | Default | Description |
@@ -66,11 +66,11 @@ CouiSkeleton.text(lines: 3)
 Column(
   crossAxisAlignment: CrossAxisAlignment.start,
   children: [
-    CouiSkeleton(width: double.infinity, height: 200, borderRadius: 12),
+    Skeleton(width: double.infinity, height: 200, borderRadius: 12),
     SizedBox(height: 12),
-    CouiSkeleton.text(lines: 2),
+    Skeleton.text(lines: 2),
     SizedBox(height: 8),
-    CouiSkeleton(width: 100, height: 16),
+    Skeleton(width: 100, height: 16),
   ],
 )
 ```
@@ -110,7 +110,7 @@ Column(
 
 | Variant | Constructor | Use Case |
 |---------|-------------|----------|
-| Rectangular | `CouiSkeleton()` / `Skeleton()` | Images, cards, buttons |
+| Rectangular | `Skeleton()` / `Skeleton()` | Images, cards, buttons |
 | Circular | `.circle(size:)` | Avatars, icons |
 | Text | `.text(lines:)` | Paragraphs, descriptions |
 
@@ -118,7 +118,7 @@ Column(
 
 | Aspect | Flutter | Web |
 |--------|---------|-----|
-| Widget name | `CouiSkeleton` | `Skeleton` |
+| Widget name | `Skeleton` | `Skeleton` |
 | API | Identical constructors | Identical constructors |
 
 ### When to Use

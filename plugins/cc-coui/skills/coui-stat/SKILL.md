@@ -1,6 +1,6 @@
 ---
 name: coui-stat
-description: Activate when creating statistic displays, dashboard metrics, KPI cards, or trend indicators using CouiStat/StatTrend (Flutter) or Stat (Web) in CoUI Flutter or CoUI Web.
+description: Activate when creating statistic displays, dashboard metrics, KPI cards, or trend indicators using Stat/StatTrend (Flutter) or Stat (Web) in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Stat
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Usage
 
 ```dart
-CouiStat(
+Stat(
   label: '총 사용자',
   value: '128,450',
 )
@@ -39,7 +39,7 @@ CouiStat(
 ### With Upward Trend
 
 ```dart
-CouiStat(
+Stat(
   label: '이번 달 매출',
   value: '₩12,450,000',
   helpText: '지난 달 대비',
@@ -51,7 +51,7 @@ CouiStat(
 ### With Downward Trend
 
 ```dart
-CouiStat(
+Stat(
   label: '이탈률',
   value: '3.2%',
   trend: StatTrend.down,
@@ -65,9 +65,9 @@ CouiStat(
 GridView.count(
   crossAxisCount: 3,
   children: [
-    CouiStat(label: '사용자', value: '12,450', trend: StatTrend.up, trendValue: '+5%'),
-    CouiStat(label: '매출', value: '₩8.2M', trend: StatTrend.up, trendValue: '+12%'),
-    CouiStat(label: '이탈률', value: '2.1%', trend: StatTrend.down, trendValue: '-0.3%'),
+    Stat(label: '사용자', value: '12,450', trend: StatTrend.up, trendValue: '+5%'),
+    Stat(label: '매출', value: '₩8.2M', trend: StatTrend.up, trendValue: '+12%'),
+    Stat(label: '이탈률', value: '2.1%', trend: StatTrend.down, trendValue: '-0.3%'),
   ],
 )
 ```
@@ -115,7 +115,7 @@ Stat(
 
 | Aspect | Flutter | Web |
 |--------|---------|-----|
-| Widget name | `CouiStat` | `Stat` |
+| Widget name | `Stat` | `Stat` |
 | API | Identical parameters | Identical parameters |
 
 ### When to Use

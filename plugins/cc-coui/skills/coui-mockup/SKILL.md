@@ -1,6 +1,6 @@
 ---
 name: coui-mockup
-description: Activate when creating device frame mockups, browser window frames, phone previews, code editor frames, or desktop window simulations using CouiMockupBrowser/CouiMockupPhone/CouiMockupCode/CouiMockupWindow (Flutter) or MockupBrowser/MockupPhone/MockupCode/MockupWindow (Web) in CoUI Flutter or CoUI Web.
+description: Activate when creating device frame mockups, browser window frames, phone previews, code editor frames, or desktop window simulations using MockupBrowser/MockupPhone/MockupCode/MockupWindow (Flutter) or MockupBrowser/MockupPhone/MockupCode/MockupWindow (Web) in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Mockup
@@ -19,15 +19,15 @@ import 'package:coui_flutter/coui_flutter.dart';
 
 ### Available Widgets
 
-- `CouiMockupBrowser` - Browser window frame
-- `CouiMockupPhone` - Mobile device frame
-- `CouiMockupCode` - Code editor frame
-- `CouiMockupWindow` - Desktop application window
+- `MockupBrowser` - Browser window frame
+- `MockupPhone` - Mobile device frame
+- `MockupCode` - Code editor frame
+- `MockupWindow` - Desktop application window
 
 ### Browser Mockup
 
 ```dart
-CouiMockupBrowser(
+MockupBrowser(
   url: 'https://coui.cocode.im',
   title: 'CoUI Design System',
   child: Image.asset('assets/screenshots/dashboard.png'),
@@ -45,7 +45,7 @@ CouiMockupBrowser(
 ### Phone Mockup
 
 ```dart
-CouiMockupPhone(
+MockupPhone(
   child: Scaffold(
     appBar: AppBar(title: Text('App Screen')),
     body: Center(child: Text('Content')),
@@ -56,7 +56,7 @@ CouiMockupPhone(
 ### Code Editor Mockup
 
 ```dart
-CouiMockupCode(
+MockupCode(
   child: Text('void main() { runApp(const MyApp()); }'),
 )
 ```
@@ -64,7 +64,7 @@ CouiMockupCode(
 ### Desktop Window Mockup
 
 ```dart
-CouiMockupWindow(
+MockupWindow(
   title: 'My App',
   child: Container(padding: EdgeInsets.all(16)),
 )
@@ -126,10 +126,10 @@ MockupWindow(
 
 | Aspect | Flutter | Web |
 |--------|---------|-----|
-| Browser | `CouiMockupBrowser` | `MockupBrowser` |
-| Phone | `CouiMockupPhone` | `MockupPhone` |
-| Code | `CouiMockupCode` | `MockupCode` |
-| Window | `CouiMockupWindow` | `MockupWindow` |
+| Browser | `MockupBrowser` | `MockupBrowser` |
+| Phone | `MockupPhone` | `MockupPhone` |
+| Code | `MockupCode` | `MockupCode` |
+| Window | `MockupWindow` | `MockupWindow` |
 
 ### When to Use
 

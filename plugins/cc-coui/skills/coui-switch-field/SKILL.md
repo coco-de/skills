@@ -1,13 +1,13 @@
 ---
 name: coui-switch-field
-description: Activate when creating switch fields, labeled toggles, settings toggles, or on/off switches with descriptions using CouiSwitchField, SwitchField, SwitchSize in CoUI Flutter or CoUI Web.
+description: Activate when creating switch fields, labeled toggles, settings toggles, or on/off switches with descriptions using SwitchField, SwitchField, SwitchSize in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI SwitchField
 
 ## Overview
 
-The SwitchField is a form-friendly switch component with integrated label and optional secondary description. It combines toggle functionality with form field semantics. Flutter uses `CouiSwitchField` while Web uses `SwitchField`.
+The SwitchField is a form-friendly switch component with integrated label and optional secondary description. It combines toggle functionality with form field semantics. Flutter uses `SwitchField` while Web uses `SwitchField`.
 
 ## Flutter (coui_flutter)
 
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Usage
 
 ```dart
-CouiSwitchField(
+SwitchField(
   value: isNotificationEnabled,
   onChanged: handleNotificationToggled,
   label: '알림 수신',
@@ -30,7 +30,7 @@ CouiSwitchField(
 ### With Description
 
 ```dart
-CouiSwitchField(
+SwitchField(
   value: isDarkMode,
   onChanged: handleDarkModeToggled,
   label: '다크 모드',
@@ -42,7 +42,7 @@ CouiSwitchField(
 ### Large Size
 
 ```dart
-CouiSwitchField(
+SwitchField(
   value: isAutoSave,
   onChanged: handleAutoSaveToggled,
   label: '자동 저장',
@@ -56,12 +56,12 @@ CouiSwitchField(
 ```dart
 Column(
   children: [
-    CouiSwitchField(
+    SwitchField(
       value: emailMarketing,
       onChanged: handleEmailMarketingToggled,
       label: '마케팅 이메일 수신',
     ),
-    CouiSwitchField(
+    SwitchField(
       value: biometricLogin,
       onChanged: handleBiometricToggled,
       label: '생체 인증 로그인',
@@ -146,7 +146,7 @@ Card(
 
 | Concept | Flutter | Web |
 |---------|---------|-----|
-| Component | `CouiSwitchField` | `SwitchField` |
+| Component | `SwitchField` | `SwitchField` |
 | State prop | `value` | `checked` |
 | Sizes | `SwitchSize.sm/md/lg` | Not specified |
 | Active color | `activeColor` | Not supported |

@@ -1,6 +1,6 @@
 ---
 name: coui-navigation-bar
-description: Activate when creating bottom navigation bars, tab bars, or primary section navigation using CouiNavigationBar, NavigationBarItem, or NavigationBarVariant in CoUI Flutter or CoUI Web.
+description: Activate when creating bottom navigation bars, tab bars, or primary section navigation using NavigationBar, NavigationBarItem, or NavigationBarVariant in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI NavigationBar
@@ -22,7 +22,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ```dart
 int _selectedIndex = 0;
 
-CouiNavigationBar(
+NavigationBar(
   currentIndex: _selectedIndex,
   onTap: (index) {
     setState(() => _selectedIndex = index);
@@ -50,7 +50,7 @@ CouiNavigationBar(
 ### Outlined Variant (No Labels)
 
 ```dart
-CouiNavigationBar(
+NavigationBar(
   currentIndex: _selectedIndex,
   onTap: (index) {
     setState(() => _selectedIndex = index);
@@ -67,7 +67,7 @@ CouiNavigationBar(
 
 ### Key Classes
 
-#### CouiNavigationBar
+#### NavigationBar
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -90,7 +90,7 @@ CouiNavigationBar(
 ```dart
 Scaffold(
   body: pages[_selectedIndex],
-  bottomNavigationBar: CouiNavigationBar(
+  bottomNavigationBar: NavigationBar(
     currentIndex: _selectedIndex,
     onTap: (i) => setState(() => _selectedIndex = i),
     items: [

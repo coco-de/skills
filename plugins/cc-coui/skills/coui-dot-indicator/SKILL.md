@@ -1,6 +1,6 @@
 ---
 name: coui-dot-indicator
-description: Activate when creating dot indicators, page indicators, carousel position dots, or pagination dots using CouiDotIndicator (Flutter) or DotIndicator (Web) in CoUI Flutter or CoUI Web.
+description: Activate when creating dot indicators, page indicators, carousel position dots, or pagination dots using DotIndicator (Flutter) or DotIndicator (Web) in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI DotIndicator
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Usage
 
 ```dart
-CouiDotIndicator(count: 5, activeIndex: currentPage)
+DotIndicator(count: 5, activeIndex: currentPage)
 ```
 
 ### Parameters
@@ -39,7 +39,7 @@ CouiDotIndicator(count: 5, activeIndex: currentPage)
 ### Custom Colors
 
 ```dart
-CouiDotIndicator(
+DotIndicator(
   count: 3,
   activeIndex: currentPage,
   activeColor: Colors.blue,
@@ -54,13 +54,13 @@ PageView(
   onPageChanged: (index) => setState(() => currentPage = index),
   children: pages,
 ),
-CouiDotIndicator(count: pages.length, activeIndex: currentPage)
+DotIndicator(count: pages.length, activeIndex: currentPage)
 ```
 
 ### Size-Emphasized Variant
 
 ```dart
-CouiDotIndicator(
+DotIndicator(
   count: 4,
   activeIndex: 0,
   size: 8,
@@ -99,7 +99,7 @@ DotIndicator(
 
 | Aspect | Flutter | Web |
 |--------|---------|-----|
-| Widget name | `CouiDotIndicator` | `DotIndicator` |
+| Widget name | `DotIndicator` | `DotIndicator` |
 | API | Identical parameters | Identical parameters |
 
 ### When to Use

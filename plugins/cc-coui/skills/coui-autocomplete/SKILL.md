@@ -1,13 +1,13 @@
 ---
 name: coui-autocomplete
-description: Activate when creating autocomplete inputs, search suggestions, async search fields, or typeahead components using CouiAutoComplete, AutoComplete in CoUI Flutter or CoUI Web.
+description: Activate when creating autocomplete inputs, search suggestions, async search fields, or typeahead components using AutoComplete, AutoComplete in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI AutoComplete
 
 ## Overview
 
-The AutoComplete component displays suggestion lists based on user input, supporting both static suggestion lists and async search functions with debounce. Flutter uses `CouiAutoComplete` while Web uses `AutoComplete`.
+The AutoComplete component displays suggestion lists based on user input, supporting both static suggestion lists and async search functions with debounce. Flutter uses `AutoComplete` while Web uses `AutoComplete`.
 
 ## Flutter (coui_flutter)
 
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic AutoComplete
 
 ```dart
-CouiAutoComplete(
+AutoComplete(
   suggestions: ['Apple', 'Banana', 'Cherry', 'Grape'],
   onSelected: handleFruitSelected,
   labelText: '과일 검색',
@@ -30,7 +30,7 @@ CouiAutoComplete(
 ### Async Search
 
 ```dart
-CouiAutoComplete(
+AutoComplete(
   asyncSearch: (query) async {
     final results = await searchApi.search(query);
     return results.map((r) => r.name).toList();
@@ -44,7 +44,7 @@ CouiAutoComplete(
 ### Custom Filter
 
 ```dart
-CouiAutoComplete(
+AutoComplete(
   suggestions: cityList,
   filter: (item, query) => item.toLowerCase().startsWith(query.toLowerCase()),
   onSelected: handleCitySelected,
@@ -55,7 +55,7 @@ CouiAutoComplete(
 ### Static List with Max Suggestions
 
 ```dart
-CouiAutoComplete(
+AutoComplete(
   suggestions: countries,
   onSelected: handleCountrySelected,
   labelText: '국가 선택',
@@ -119,5 +119,5 @@ AutoComplete(
 
 | Concept | Flutter | Web |
 |---------|---------|-----|
-| Component | `CouiAutoComplete` | `AutoComplete` |
+| Component | `AutoComplete` | `AutoComplete` |
 | Label prop | `labelText` | `label` |

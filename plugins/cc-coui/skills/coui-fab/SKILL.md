@@ -1,13 +1,13 @@
 ---
 name: coui-fab
-description: Activate when creating floating action buttons, FABs, extended FABs, or primary action buttons using CouiFab, Fab, FabVariant, FabSize in CoUI Flutter or CoUI Web.
+description: Activate when creating floating action buttons, FABs, extended FABs, or primary action buttons using Fab, Fab, FabVariant, FabSize in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI FAB
 
 ## Overview
 
-The FAB (Floating Action Button) is a component that emphasizes key actions on the screen, supporting multiple size and style variations. Flutter uses `CouiFab` while Web uses `Fab`, both sharing the same API structure for variants and sizes.
+The FAB (Floating Action Button) is a component that emphasizes key actions on the screen, supporting multiple size and style variations. Flutter uses `Fab` while Web uses `Fab`, both sharing the same API structure for variants and sizes.
 
 ## Flutter (coui_flutter)
 
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic FAB
 
 ```dart
-CouiFab(
+Fab(
   onPressed: handleCreate,
   icon: Icon(Icons.add),
 )
@@ -29,7 +29,7 @@ CouiFab(
 ### Extended FAB with Label
 
 ```dart
-CouiFab(
+Fab(
   onPressed: handleCreate,
   icon: Icon(Icons.add),
   label: '새 항목',
@@ -40,7 +40,7 @@ CouiFab(
 ### Secondary Variant
 
 ```dart
-CouiFab(
+Fab(
   onPressed: handleEdit,
   icon: Icon(Icons.edit),
   variant: FabVariant.secondary,
@@ -50,7 +50,7 @@ CouiFab(
 ### Small Size FAB
 
 ```dart
-CouiFab(
+Fab(
   onPressed: handleShare,
   icon: Icon(Icons.share),
   size: FabSize.small,
@@ -129,5 +129,5 @@ Fab(
 
 | Concept | Flutter | Web |
 |---------|---------|-----|
-| Component | `CouiFab` | `Fab` |
+| Component | `Fab` | `Fab` |
 | Click handler | `onPressed` | `onClick` |

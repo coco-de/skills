@@ -1,6 +1,6 @@
 ---
 name: coui-breadcrumb
-description: Activate when creating breadcrumb navigation trails, hierarchical page paths, or location indicators using CouiBreadcrumb, Breadcrumb, or BreadcrumbItem in CoUI Flutter or CoUI Web.
+description: Activate when creating breadcrumb navigation trails, hierarchical page paths, or location indicators using Breadcrumb, Breadcrumb, or BreadcrumbItem in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Breadcrumb
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Breadcrumb
 
 ```dart
-CouiBreadcrumb(
+Breadcrumb(
   items: [
     BreadcrumbItem(label: 'Home', onTap: () => navigateTo('/')),
     BreadcrumbItem(label: 'Category', onTap: () => navigateTo('/category')),
@@ -33,7 +33,7 @@ CouiBreadcrumb(
 ### Custom Separator
 
 ```dart
-CouiBreadcrumb(
+Breadcrumb(
   items: [
     BreadcrumbItem(label: 'Settings', onTap: () => navigateTo('/settings')),
     BreadcrumbItem(label: 'Account', onTap: () => navigateTo('/account')),
@@ -48,7 +48,7 @@ CouiBreadcrumb(
 For deep navigation paths, limit visible items with ellipsis for omitted ones:
 
 ```dart
-CouiBreadcrumb(
+Breadcrumb(
   items: deepNavigationPath,
   maxItems: 3,
   onItemTap: handleBreadcrumbNavigation,
@@ -57,7 +57,7 @@ CouiBreadcrumb(
 
 ### Key Classes
 
-#### CouiBreadcrumb
+#### Breadcrumb
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|

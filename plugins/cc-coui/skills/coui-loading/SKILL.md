@@ -1,6 +1,6 @@
 ---
 name: coui-loading
-description: Activate when creating loading indicators, spinners, dot loaders, progress bars, or pulse animations using CouiLoading/LoadingVariant/LoadingSize (Flutter) or Loading (Web) in CoUI Flutter or CoUI Web.
+description: Activate when creating loading indicators, spinners, dot loaders, progress bars, or pulse animations using Loading/LoadingVariant/LoadingSize (Flutter) or Loading (Web) in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Loading
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Usage
 
 ```dart
-CouiLoading()
+Loading()
 ```
 
 ### Parameters
@@ -35,13 +35,13 @@ CouiLoading()
 ### With Variant
 
 ```dart
-CouiLoading(variant: LoadingVariant.dots)
+Loading(variant: LoadingVariant.dots)
 ```
 
 ### Customized
 
 ```dart
-CouiLoading(
+Loading(
   variant: LoadingVariant.spinner,
   size: LoadingSize.large,
   color: Colors.blue,
@@ -51,7 +51,7 @@ CouiLoading(
 ### With Label
 
 ```dart
-CouiLoading(
+Loading(
   variant: LoadingVariant.spinner,
   label: '데이터를 불러오는 중...',
 )
@@ -60,7 +60,7 @@ CouiLoading(
 ### Bar Variant
 
 ```dart
-CouiLoading(
+Loading(
   variant: LoadingVariant.bar,
   size: LoadingSize.small,
 )
@@ -116,7 +116,7 @@ Loading(
 
 | Aspect | Flutter | Web |
 |--------|---------|-----|
-| Widget name | `CouiLoading` | `Loading` |
+| Widget name | `Loading` | `Loading` |
 | API | Identical parameters | Identical parameters |
 
 ### When to Use

@@ -1,13 +1,13 @@
 ---
 name: coui-command
-description: Activate when creating command palettes, keyboard-centric navigation, search commands, or action menus using CouiCommand, Command, CommandInput, CommandList, CommandGroup, CommandItem in CoUI Flutter or CoUI Web.
+description: Activate when creating command palettes, keyboard-centric navigation, search commands, or action menus using Command, Command, CommandInput, CommandList, CommandGroup, CommandItem in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Command
 
 ## Overview
 
-The Command component is a keyboard-centric command palette for fast navigation, search, and action execution. It comprises `CommandInput`, `CommandList`, `CommandGroup`, and `CommandItem` subcomponents. Flutter uses `CouiCommand` while Web uses `Command`.
+The Command component is a keyboard-centric command palette for fast navigation, search, and action execution. It comprises `CommandInput`, `CommandList`, `CommandGroup`, and `CommandItem` subcomponents. Flutter uses `Command` while Web uses `Command`.
 
 ## Flutter (coui_flutter)
 
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Command Palette
 
 ```dart
-CouiCommand(
+Command(
   placeholder: '명령어를 입력하세요...',
   emptyMessage: '결과가 없습니다.',
   commands: [
@@ -57,7 +57,7 @@ CouiCommand(
 )
 ```
 
-### CouiCommand Parameters
+### Command Parameters
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -125,7 +125,7 @@ Command(
 
 ### Subcomponents
 
-- **CommandInput**: Search input field (auto-included in CouiCommand/Command)
+- **CommandInput**: Search input field (auto-included in Command/Command)
 - **CommandList**: Filtered results display area
 - **CommandGroup**: Groups related items with headings
 - **CommandItem**: Individual selectable command item
@@ -134,5 +134,5 @@ Command(
 
 | Concept | Flutter | Web |
 |---------|---------|-----|
-| Component | `CouiCommand` | `Command` |
+| Component | `Command` | `Command` |
 | API structure | Identical | Identical |
