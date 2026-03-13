@@ -32,6 +32,29 @@ mcp-servers: [serena, context7]
 | `--focus` | ❌ | 집중 카테고리 | `security`, `performance` |
 | `--quick` | ❌ | 빠른 리뷰 모드 | |
 | `--verbose` | ❌ | 상세 리뷰 모드 | |
+| `--no-suppress` | ❌ | suppression 비활성화 | |
+| `--gate-mode` | ❌ | Review Gate 모드 (Critical/Informational 분리 출력) | |
+
+## Suppression List
+
+리뷰 시 false positive를 줄이기 위해 suppression 규칙을 자동 적용합니다.
+
+### 로딩 순서
+1. 플러그인 기본: `cc-code-quality/rules/suppression.md`
+2. 프로젝트 커스텀: 프로젝트 루트 `.code-review-suppress.md` (있을 경우)
+
+### 적용 방식
+- 각 리뷰 지적 항목을 suppression 목록과 대조
+- 매칭 시 해당 항목을 리뷰 결과에서 제외
+- `--no-suppress` 옵션으로 비활성화 가능
+
+### 결과 표시
+```
+## Suppressed (3건 제외)
+- [가독성] Freezed generated 코드 패턴 (suppression: 코드 생성 관련)
+- [성능] const 미적용 (suppression: 스타일/컨벤션 관련)
+- [아키텍처] melos import 경로 (suppression: 프로젝트 구조 관련)
+```
 
 ## Review Categories
 
@@ -129,6 +152,38 @@ mcp-servers: [serena, context7]
 
 1. **[가독성]** 변수명 개선 제안
    - `data` → `userProfile`
+
+### Suppressed (N건 제외)
+> suppression 규칙에 의해 제외된 항목입니다. `--no-suppress`로 전체 확인 가능합니다.
+```
+
+## Gate Mode Output (--gate-mode)
+
+`/code-review --gate-mode` 실행 시 워크플로우 게이트용 구조화된 출력:
+
+```markdown
+## Code Review Gate Result
+
+**Status**: ✅ PASS / ❌ BLOCKED
+
+### Critical Issues (Pass 1) 🔴
+> PR 생성을 차단하는 이슈
+
+| # | 카테고리 | 이슈 | 파일 | 자동수정 |
+|---|---------|------|------|---------|
+| 1 | 보안 | API 키 하드코딩 | config.dart:15 | ✅ 가능 |
+
+### Informational (Pass 2) 📋
+> PR body에 포함될 개선 제안
+
+| # | 카테고리 | 이슈 | 파일 |
+|---|---------|------|------|
+| 1 | 성능 | 이미지 캐시 미지정 | product_card.dart:42 |
+
+### Summary
+- Critical: 0건 → ✅ Gate 통과
+- Informational: 3건 → PR body에 포함
+- Suppressed: 2건 → 제외됨
 ```
 
 ## Automation Commands

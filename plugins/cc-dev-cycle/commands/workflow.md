@@ -110,9 +110,10 @@ mcp-servers: [zenhub]
 | 7.5 | Backend 코드 생성 | Step 7 완료, Backend 변경 시 | 생성 성공 |
 | 8 | 테스트 작성/실행 | Step 7 완료 | 테스트 통과 |
 | **8.5** | **Pre-push 검증** | Step 8 완료 | format, analyze 통과 |
-| 9 | PR 생성 | Step 8.5 완료 | PR URL 존재 |
+| **8.7** | **Code Review Gate** | Step 8.5 완료 | Critical 이슈 0건 |
+| 9 | PR 생성 | Step 8.7 완료 | PR URL 존재 |
 | 10 | Review/QA 이동 | Step 9 완료 | pipeline 확인 |
-| 11 | 코드 리뷰 진행 | Step 10 완료 | 리뷰 완료 |
+| 11 | 추가 리뷰 피드백 반영 | Step 10 완료 | 리뷰 완료 |
 | 12 | 머지 승인 대기 | Step 11 완료 | 사용자 승인 |
 
 ```
@@ -179,6 +180,17 @@ mcp-servers: [zenhub]
 │  ├── dcm analyze .                                              │
 │  └── 검증 실패 시 Step 9 진행 불가                                │
 │                                                                 │
+│  Step 8.7: Code Review Gate ⚠️ (gstack 패턴)                    │
+│  ├── /code-review --quick 자동 실행                              │
+│  ├── 2-pass 분석:                                               │
+│  │   ├── Pass 1: Critical (차단) - 보안, 데이터 안전성, 레이스컨디션 │
+│  │   └── Pass 2: Informational (PR body 포함)                   │
+│  ├── Critical 발견 시:                                          │
+│  │   ├── 자동 수정 시도 (최대 2회)                                │
+│  │   └── 수정 불가 시 PR 생성 차단                                │
+│  ├── Informational 항목 → PR description에 자동 포함             │
+│  └── --skip-review 시 경고 메시지와 함께 스킵                     │
+│                                                                 │
 │  Step 9: PR 생성 (검증 게이트 통과 후)                            │
 │  ├── ⚠️ 브랜치 형식 검증 필수                                    │
 │  ├── gh pr create                                               │
@@ -189,9 +201,9 @@ mcp-servers: [zenhub]
 │  ├── mcp__zenhub__moveIssueToPipeline                           │
 │  └── Pipeline: Review/QA                                        │
 │                                                                 │
-│  Step 11: 코드 리뷰 진행                                         │
-│  ├── /code-review 자동 실행                                      │
-│  ├── 리뷰 피드백 자동 반영                                        │
+│  Step 11: 추가 리뷰 피드백 반영                                   │
+│  ├── Step 8.7에서 자동 코드 리뷰 완료됨                           │
+│  ├── PR 리뷰 코멘트 확인 및 추가 피드백 반영                      │
 │  ├── 재검토 필요 시 반복                                         │
 │  └── /checklist:feature-complete 실행                           │
 │                                                                 │
@@ -440,6 +452,43 @@ if (!options.skipTests) {
 }
 ```
 
+### Step 8.7: Code Review Gate (gstack 패턴)
+
+```typescript
+if (!options.skipReview) {
+  // Pass 1: Critical 이슈 검사
+  const reviewResult = await Skill({
+    skill: "code-review",
+    args: "--quick --gate-mode",
+  });
+
+  const criticalIssues = reviewResult.issues.filter(i => i.severity === "critical");
+  const informationalIssues = reviewResult.issues.filter(i => i.severity !== "critical");
+
+  if (criticalIssues.length > 0) {
+    // 자동 수정 시도 (최대 2회)
+    for (let attempt = 0; attempt < 2; attempt++) {
+      await autoFixCriticalIssues(criticalIssues);
+      const recheck = await Skill({ skill: "code-review", args: "--quick --gate-mode" });
+      if (recheck.criticalCount === 0) break;
+    }
+
+    // 재검증 후에도 Critical 남아있으면 차단
+    if (finalCheck.criticalCount > 0) {
+      console.error(`❌ Code Review Gate 실패: ${finalCheck.criticalCount}건의 Critical 이슈`);
+      console.error("   --skip-review 옵션으로 우회하거나, 수동 수정 후 재시도하세요");
+      throw new Error("Code Review Gate blocked");
+    }
+  }
+
+  // Pass 2: Informational 항목은 PR body에 포함할 데이터로 저장
+  prBodyExtras.reviewFindings = informationalIssues;
+} else {
+  console.warn("⚠️ Code Review Gate를 건너뜁니다 (--skip-review)");
+  console.warn("   프로덕션 배포 전 반드시 /code-review를 실행하세요");
+}
+```
+
 ### Step 9-10: PR 생성 & Review/QA 이동
 
 ```typescript
@@ -460,6 +509,10 @@ ${analysis.requiresBdd ? '- [ ] BDD 시나리오 통과' : ''}
 
 Closes #${issue.number}
 
+${prBodyExtras.reviewFindings?.length > 0 ? `
+## Review Findings (Informational)
+${prBodyExtras.reviewFindings.map(f => `- **[${f.category}]** ${f.message} (${f.file}:${f.line})`).join('\n')}
+` : ''}
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
 EOF
 )"
@@ -472,11 +525,13 @@ await mcp__zenhub__moveIssueToPipeline({
 });
 ```
 
-### Step 11: 코드 리뷰 진행
+### Step 11: 추가 리뷰 피드백 반영
 
 ```typescript
+// Step 8.7에서 자동 코드 리뷰 완료됨
+// Step 11은 PR 생성 후 추가 리뷰 피드백 반영 단계
 if (!options.skipReview) {
-  // /code-review 실행
+  // PR 리뷰 코멘트 확인 및 추가 피드백 반영
   await Skill({ skill: "code-review" });
 
   // 피드백 반영 (자동 가능한 것만)
@@ -596,6 +651,7 @@ TodoWrite([
   { content: "Step 7.5: Backend 코드 생성", status: "pending", activeForm: "Backend 생성 대기" },
   { content: "Step 8: 테스트 작성 및 검증 (필수 게이트)", status: "pending", activeForm: "테스트 대기" },
   { content: "Step 8.5: Pre-push 검증", status: "pending", activeForm: "검증 대기" },
+  { content: "Step 8.7: Code Review Gate", status: "pending", activeForm: "리뷰 게이트 대기" },
   { content: "Step 9: PR 생성", status: "pending", activeForm: "PR 생성 대기" },
   { content: "Step 10-12: 리뷰/머지", status: "pending", activeForm: "리뷰 대기" },
 ]);
@@ -670,6 +726,7 @@ TodoWrite([
 | BDD 시나리오 | 브랜치 존재 | `--skip-bdd` 또는 수동 작성 |
 | 구현 작업 | 브랜치 존재 | 이어서 작업 |
 | 테스트 | 코드 완성 | `--skip-tests` 또는 수동 수정 |
+| Code Review Gate | 코드 완성 | `--skip-review` 또는 수동 수정 |
 | PR 생성 | 코드 완성 | `gh pr create` 수동 실행 |
 | 코드 리뷰 | PR 존재 | `--skip-review` 또는 수동 반영 |
 | 머지 | PR 존재 | CI 통과 대기 후 수동 머지 |
