@@ -314,7 +314,7 @@ border: Border.all(color: context.appColors.neutral80),
 
 ### ColorScheme base 시리즈
 
-CoUI의 DaisyUI 기반 색상 체계입니다.
+CoUI의 색상 체계입니다.
 
 | 색상 | 용도 |
 |------|------|

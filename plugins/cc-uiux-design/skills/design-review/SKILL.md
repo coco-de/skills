@@ -41,7 +41,7 @@ description: 디자인 리뷰 체크리스트 및 프로세스
 - [ ] 컴포넌트 인자 순서: DCM `arguments-ordering` 규칙 준수
 
 ### 디자인 시스템
-- [ ] `DesignSystem` enum에 맞는 토큰 레이어 사용 (DaisyUI/M3E/LG)
+- [ ] `DesignSystem` enum에 맞는 토큰 레이어 사용 (CoUI/M3E/LG)
 - [ ] 다크 모드 대응: `CoreBrightness` 기반 분기
 - [ ] `CornerStyle` 일관성 (rounded/squircle/glassRounded)
 

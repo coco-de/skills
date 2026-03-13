@@ -28,6 +28,6 @@ description: Jaspr 웹 접근성 구현 가이드
 
 ## 참고
 - Jaspr Web은 Dart로 작성된 서버 사이드 렌더링 프레임워크로, HTML/CSS 출력에 직접 ARIA 속성을 삽입한다
-- CoUI 웹 컴포넌트는 DaisyUI 기반이며, 기본 접근성 속성을 포함해야 한다
+- CoUI 웹 컴포넌트는 독립적인 디자인 시스템이며, 기본 접근성 속성을 포함해야 한다
 - Jaspr의 `DomComponent`에서 `attributes` 맵을 통해 ARIA 속성을 설정한다
 - 서버 사이드 렌더링 특성상 초기 HTML에 접근성 속성이 포함되어 SEO와 접근성 모두에 유리하다

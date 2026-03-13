@@ -18,7 +18,7 @@ description: 반응형/적응형 디자인 구현
    - 데스크톱/웹: > 1024dp
 2. Flutter에서 `LayoutBuilder`, `MediaQuery`를 활용한 반응형 레이아웃을 구성한다
 3. 플랫폼 감지(`Platform`, `kIsWeb`)를 통해 적응형 UI를 분기한다
-4. Jaspr Web에서는 DaisyUI/Tailwind 반응형 유틸리티를 활용한다
+4. Jaspr Web에서는 CoUI/Tailwind 반응형 유틸리티를 활용한다
 5. CoUI 컴포넌트의 반응형 변형(variant)을 적용한다
 
 ## 출력

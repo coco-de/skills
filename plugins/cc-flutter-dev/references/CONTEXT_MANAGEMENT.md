@@ -41,7 +41,7 @@
 ```json
 {
   "enabledMcpjsonServers": [
-    "figma-daisyui",
+    "figma",
     "flutter-inspector",
     "flutter-inspector-console",
     "coui-flutter",

@@ -7,7 +7,7 @@ description: Use when creating context menus, dropdown menus, menu bars, navigat
 
 ## Overview
 
-Menu components provide context menus, dropdown menus, menu bars, and navigation menus across Flutter and Web platforms. Flutter uses widget-based composition (MenuButton, MenuGroup, Menubar), while Web offers both DaisyUI-style navigation menus (Menu, MenuItem, MenuSubmenu) and shadcn-style interactive menus (DropdownMenu, ContextMenu).
+Menu components provide context menus, dropdown menus, menu bars, and navigation menus across Flutter and Web platforms. Flutter uses widget-based composition (MenuButton, MenuGroup, Menubar), while Web offers both CoUI navigation menus (Menu, MenuItem, MenuSubmenu) and interactive menus (DropdownMenu, ContextMenu).
 
 ## Flutter (coui_flutter)
 
@@ -252,9 +252,9 @@ DropdownMenu(
 import 'package:coui_web/coui_web.dart';
 ```
 
-### Menu (DaisyUI-style)
+### Menu
 
-A container for navigation links using DaisyUI's menu classes.
+A container for navigation links using CoUI's menu classes.
 
 #### Basic Vertical Menu
 
@@ -475,5 +475,5 @@ div(
 
 - **Callback signatures**: Flutter `onPressed` receives `BuildContext`; Web `onSelect`/`onClick` varies by component.
 - **Item composition**: Flutter uses widget children (`leading`, `trailing`, `child`); Web uses string `label` or component children.
-- **Styling**: Flutter uses `MenuTheme`; Web uses DaisyUI size/style classes (`Menu.sm`, `Menu.horizontal`).
+- **Styling**: Flutter uses `MenuTheme`; Web uses CoUI size/style classes (`Menu.sm`, `Menu.horizontal`).
 - **Navigation**: Web `MenuItem` supports `href` for routing; Flutter uses callback-based navigation.

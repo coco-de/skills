@@ -7,10 +7,10 @@ description: CoUI 디자인 시스템 토큰 및 테마
 
 ## 트리거
 - 새로운 디자인 토큰(색상, 타이포그래피, 간격, 모션)을 정의하거나 수정할 때
-- DaisyUI 테마를 커스터마이징할 때
+- CoUI 테마를 커스터마이징할 때
 - CoUI 컴포넌트의 테마를 설정하거나 변경할 때
 - 디자인 시스템 문서를 생성하거나 업데이트할 때
-- 3개 디자인 시스템(DaisyUI, M3 Expressive, Liquid Glass) 간 전환 또는 비교할 때
+- 3개 디자인 시스템(CoUI, M3 Expressive, Liquid Glass) 간 전환 또는 비교할 때
 
 ## 동작
 1. `coui_core` 패키지의 기존 디자인 토큰 파일을 분석한다
@@ -29,7 +29,7 @@ import 'package:coui_core/coui_core.dart';
 final theme = CoreThemeData(
   colorScheme: CoreColorScheme(...),   // 필수 — 36개 색상 토큰
   brightness: CoreBrightness.light,    // 필수 — light | dark
-  designSystem: DesignSystem.daisyUI,  // 필수 — daisyUI | m3Expressive | liquidGlass
+  designSystem: DesignSystem.coui,  // 필수 — coui | m3Expressive | liquidGlass
   typography: CoreTypographyScale.material3, // 선택 — 30개 텍스트 스타일
   cornerStyle: CornerStyle.rounded,    // 선택 — rounded | squircle | glassRounded
   defaultMotion: CoreSpringConfig.standard,  // 선택 — 애니메이션 기본값
@@ -42,7 +42,7 @@ final theme = CoreThemeData(
 
 ### CoreColorScheme (36개 색상 토큰)
 
-**DaisyUI Core (20개, 필수)**:
+**CoUI Core (20개, 필수)**:
 - `primary`, `primaryContent`
 - `secondary`, `secondaryContent`
 - `accent`, `accentContent`
@@ -141,10 +141,10 @@ CoreSurfaceToken.glass(opacity: 0.3, blur: 20, material: CoreGlassMaterial(...))
 ### DesignSystem enum
 
 ```dart
-enum DesignSystem { daisyUI, m3Expressive, liquidGlass }
+enum DesignSystem { coui, m3Expressive, liquidGlass }
 ```
 
-| 차원 | DaisyUI | M3 Expressive | Liquid Glass |
+| 차원 | CoUI | M3 Expressive | Liquid Glass |
 |------|---------|---------------|--------------|
 | 색상 | 20 시맨틱 토큰 | +12 surface/outline | +4 glass 토큰 |
 | 모양 | rounded | squircle | glassRounded |
@@ -153,14 +153,14 @@ enum DesignSystem { daisyUI, m3Expressive, liquidGlass }
 
 ## 출력
 - `CoreThemeData` 기반 테마 설정 코드
-- `CoreColorScheme` 정의 (DaisyUI/M3E/LG 레이어)
-- DaisyUI `@plugin` CSS 테마 설정
+- `CoreColorScheme` 정의 (CoUI/M3E/LG 레이어)
+- CoUI CSS 테마 설정
 - Flutter/Web 크로스 플랫폼 일관성 검증 결과
 
 ## 참고
 - CoUI는 `coui_core` (토큰+컨트랙트), `coui_flutter` (Flutter 구현), `coui_web` (Jaspr Web 구현) 3개 패키지로 구성된다
 - `coui_core`의 디자인 토큰은 플랫폼 무관하게 공유되는 순수 Dart 객체이다
-- DaisyUI 테마는 Jaspr Web 측에서 `@plugin "daisyui"` CSS로 적용되며 35+ 빌트인 테마를 제공한다
+- CoUI 테마는 Jaspr Web 측에서 CSS로 적용되며 다양한 빌트인 테마를 제공한다
 - Flutter 측 테마는 `CoreThemeData`에서 직접 토큰을 읽어 위젯에 적용한다
 - `CoreColorScheme.fromMap()`과 `toMap()`으로 JSON 직렬화/역직렬화가 가능하다
 - `CoreThemeData.copyWith()`로 다크 모드 등 테마 변형을 생성한다

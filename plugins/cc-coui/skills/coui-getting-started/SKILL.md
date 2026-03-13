@@ -266,9 +266,9 @@ Components use two child patterns:
 
 Never provide both `child` and `children` to the same component.
 
-#### Styling with DaisyUI/Tailwind
+#### Styling with Tailwind
 
-CoUI Web components use Tailwind CSS utility classes and DaisyUI component classes internally. Add custom classes via the `classes` parameter:
+CoUI Web components use Tailwind CSS utility classes and CoUI component classes internally. Add custom classes via the `classes` parameter:
 
 ```dart
 Button.primary(

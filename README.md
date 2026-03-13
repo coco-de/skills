@@ -104,7 +104,7 @@ claude plugins install coco-de/skills/plugins/cc-serverpod
 
 | 플러그인 | 설명 | Skills | Commands | Agents |
 |---------|------|--------|----------|--------|
-| `cc-uiux-design` | UI/UX 디자인 (CoUI 토큰, DaisyUI 테마) | 2 | — | — |
+| `cc-uiux-design` | UI/UX 디자인 (CoUI 디자인 토큰, 테마 시스템) | 2 | — | — |
 | `cc-uiux-accessibility` | 접근성 (Flutter + Jaspr Web) | 2 | — | — |
 | `cc-uiux-testing` | 테스팅 (Dart/Flutter) | 4 | — | — |
 | `cc-uiux-security` | 보안 (API + 앱) | 3 | — | — |

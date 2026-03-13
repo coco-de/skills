@@ -6,7 +6,7 @@ aliases: ["/figma:design", "/design:analyze"]
 tools: Read, Edit, Write, Glob, Grep
 model: inherit
 skills: figma
-mcp-servers: [figma-daisyui]
+mcp-servers: [figma]
 ---
 
 # Figma Analyzer Agent
@@ -24,7 +24,7 @@ mcp-servers: [figma-daisyui]
 ## 실행 조건
 
 - `/figma:analyze` 커맨드 호출 시 활성화
-- figma-daisyui MCP 서버 활성화 필수
+- figma MCP 서버 활성화 필수
 
 ---
 
@@ -50,7 +50,7 @@ Phase 1: 피그마 노드 수집
     ↓
 Phase 2: UI 분석
   - 컴포넌트 식별 (FRAME/TEXT/COMPONENT)
-  - DaisyUI 매핑 (get_by_daisyui)
+  - CoUI 매핑 (get_by_coui)
   - 텍스트 노드 스캔 (scan_text_nodes)
   - 디자인 토큰 추출 (extract_design_tokens)
     ↓
@@ -70,7 +70,7 @@ Phase 5: ZenHub Story 생성
 
 ---
 
-## figma-daisyui MCP 주요 기능
+## figma MCP 주요 기능
 
 | 기능 | MCP 도구 |
 |------|----------|
@@ -78,7 +78,7 @@ Phase 5: ZenHub Story 생성
 | 노드 상세 정보 | `get_node_info` |
 | 이미지 내보내기 | `export_node_as_image` |
 | 노드 검색 | `search` |
-| DaisyUI 매핑 | `get_by_daisyui` |
+| CoUI 매핑 | `get_by_coui` |
 | 텍스트 스캔 | `scan_text_nodes` |
 | 디자인 토큰 | `extract_design_tokens` |
 
@@ -114,13 +114,13 @@ claudedocs/{feature_name}/
 ## 체크리스트
 
 **Phase 1: 노드 수집**
-- [ ] figma-daisyui MCP 활성화 확인
+- [ ] figma MCP 활성화 확인
 - [ ] 노드 정보 가져오기 성공
 - [ ] 스크린샷 캡처 완료
 
 **Phase 2: UI 분석**
 - [ ] 컴포넌트 식별 완료
-- [ ] DaisyUI 매핑 완료
+- [ ] CoUI 매핑 완료
 - [ ] 텍스트/필드 추출 완료
 
 **Phase 3: 요구사항**
