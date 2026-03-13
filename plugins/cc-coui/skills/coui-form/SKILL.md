@@ -223,13 +223,130 @@ Form(
 )
 ```
 
+### FormController
+
+Programmatic form state management:
+
+```dart
+final controller = FormController();
+
+// Access values
+final name = controller.getValue(nameKey);
+final allValues = controller.values;
+
+// Check errors
+final errors = controller.errors;
+final nameError = controller.getSyncError(nameKey);
+
+// Revalidate
+controller.revalidate(context, FormValidationMode.submitted);
+```
+
+### Cross-Field Validation
+
+```dart
+FormField<String>(
+  key: confirmPasswordKey,
+  label: const Text('Confirm Password'),
+  validator: CompareWith(
+    passwordKey,
+    compare: (confirm, password) => confirm == password,
+    message: 'Passwords do not match',
+  ),
+  child: const TextField(
+    placeholder: Text('Confirm password'),
+    obscureText: true,
+  ),
+)
+```
+
+### Built-in Validators (Complete List)
+
+- `NotEmptyValidator` / `RequiredValidator<String>` - non-empty check
+- `EmailValidator` - email format
+- `MinLengthValidator(n)` - minimum length
+- `SafePasswordValidator` - strong password rules
+- `CompareWith<T>` - cross-field comparison
+- `ConditionalValidator<T>` - custom conditions
+
 ## Web (coui_web)
 
-> **Not yet implemented.** Form validation is currently Flutter-only. Web implementation is planned.
+### Import
+
+```dart
+import 'package:coui_web/coui_web.dart';
+```
+
+### CoForm
+
+Web forms use `CoForm`, an HTML `<form>` wrapper:
+
+```dart
+CoForm(
+  onSubmit: handleSubmit,
+  children: [
+    div(
+      [
+        Component.element(
+          tag: 'label',
+          classes: 'text-sm font-medium',
+          children: [Component.text('Name')],
+        ),
+        Input(placeholder: 'Enter name', required: true, name: 'name'),
+      ],
+      classes: 'space-y-2',
+    ),
+    div(
+      [
+        Component.element(
+          tag: 'label',
+          classes: 'text-sm font-medium',
+          children: [Component.text('Email')],
+        ),
+        Input(type: 'email', placeholder: 'Enter email', required: true, name: 'email'),
+      ],
+      classes: 'space-y-2',
+    ),
+    Button.primary(
+      htmlType: ButtonHtmlType.submit,
+      child: Component.text('Submit'),
+    ),
+  ],
+)
+```
+
+### Web Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `onSubmit` | `VoidCallback?` | `null` | Form submission callback |
+| `action` | `String?` | `null` | HTML form action URL |
+| `method` | `String?` | `null` | HTTP method (GET/POST) |
+| `novalidate` | `bool` | `false` | Disable HTML validation |
+| `autocomplete` | `String?` | `null` | Autocomplete behavior |
+
+### Web Validation
+
+Web uses HTML5 native validation attributes: `required`, `pattern`, `minLength`, `maxLength`, `min`, `max`.
 
 ## Common Patterns
 
-- Combine validators with `&` (AND) and `|` (OR) operators.
-- Use `FormValidationMode` to control validation timing.
-- Return `null` from validators to indicate valid input.
-- Use async validators for server-side checks (e.g., unique email).
+### Platform Differences
+
+| Item | Flutter | Web |
+|------|---------|-----|
+| Class name | `Form` + `FormController` | `CoForm` (HTML `<form>` wrapper) |
+| State management | `FormController` centralized | HTML form event-based |
+| Value access | `controller.getValue(key)` | HTML form data |
+| Field wrapper | `FormField<T>`, `FormInline<T>` | No separate wrapper |
+| Async validation | `FutureOr<ValidationResult?>` supported | Basic validators only |
+| Cross-field validation | `CompareWith`, `shouldRevalidate` | Pattern validators only |
+| Validator combination | Operators (`&`, `|`, `~`) | Basic combination |
+| HTML attributes | None | `action`, `method`, `novalidate`, `autocomplete` |
+
+### Shared Concepts
+
+- Combine validators with `&` (AND) and `|` (OR) operators (Flutter).
+- Use `FormValidationMode` to control validation timing (Flutter).
+- Return `null` from validators to indicate valid input (Flutter).
+- Use async validators for server-side checks (e.g., unique email) (Flutter).

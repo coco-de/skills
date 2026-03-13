@@ -161,6 +161,22 @@ MenuGroup(
 )
 ```
 
+### MenuCheckItem
+
+Toggleable checkbox menu item:
+
+```dart
+MenuCheckItem(
+  checked: isDarkMode,
+  onChanged: (checked) {
+    setState(() => isDarkMode = checked);
+  },
+  child: const Text('Dark Mode'),
+)
+```
+
+Menu auto-close is disabled for check items, allowing multiple toggles without re-opening the menu.
+
 ### MenuShortcut
 
 Display keyboard shortcut hint:
@@ -184,6 +200,17 @@ MenuButton(
 const MenuTheme(
   itemPadding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
   subMenuOffset: Offset(8, -4),
+)
+```
+
+### Surface Effects
+
+Glassmorphism backdrop for menu popups:
+
+```dart
+MenuPopupTheme(
+  surfaceBlur: 10.0,
+  surfaceOpacity: 0.8,
 )
 ```
 

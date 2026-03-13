@@ -120,6 +120,24 @@ controller.addListener(() {
 });
 ```
 
+### CheckboxGroup
+
+Group of checkboxes for multi-selection:
+
+```dart
+CheckboxGroup(
+  values: selectedItems,
+  items: [
+    CheckboxItem(value: 'option1', label: 'Option 1'),
+    CheckboxItem(value: 'option2', label: 'Option 2'),
+    CheckboxItem(value: 'option3', label: 'Option 3'),
+  ],
+  onChanged: (values) {
+    setState(() => selectedItems = values);
+  },
+)
+```
+
 ### Tri-State Checkbox
 
 ```dart

@@ -111,11 +111,12 @@ typedef DrawerBuilder = Widget Function(
 
 ### Features
 
-- **Swipe to dismiss**: Drag the drawer to close it
-- **Drag handle**: Optional visual handle for dragging
+- **Swipe to dismiss**: Drag the drawer to close it (50% or greater drag threshold closes; under 50% restores panel)
+- **Drag handle**: Visual handle at drawer edge (6x100px for vertical, 100x6px for horizontal). Disable with `showDragHandle: false`
 - **Stacked drawers**: Multiple drawers can layer on top
 - **Barrier**: Configurable backdrop behind drawer
-- **Animation**: Smooth slide-in/out transitions (350ms default)
+- **Animation**: Smooth slide-in/out transitions (350ms duration, `Curves.easeOut` open, `Curves.easeOutCubic` close)
+- **Backdrop scale**: Opened content scales to 0.95 ratio via `transformBackdrop`
 - **Safe area**: Respects device safe areas
 
 ### Settings Drawer Pattern (Flutter)

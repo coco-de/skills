@@ -95,6 +95,44 @@ const CalendarTheme(
 )
 ```
 
+### Selection Modes
+
+```dart
+CalendarSelectionMode.none    // Display-only
+CalendarSelectionMode.single  // Single date selection
+CalendarSelectionMode.range   // Start-to-end range
+CalendarSelectionMode.multi   // Toggle selection on each click
+```
+
+### Multi-Date Selection
+
+```dart
+Calendar(
+  value: CalendarValue.multi([
+    DateTime(2024, 3, 5),
+    DateTime(2024, 3, 15),
+    DateTime(2024, 3, 20),
+  ]),
+  onChanged: (value) {
+    // handle multi-date selection
+  },
+)
+```
+
+### Date State Validation
+
+```dart
+Calendar(
+  value: selectedValue,
+  stateBuilder: (date) {
+    if (date.isBefore(DateTime.now())) return DateState.disabled;
+    if (holidays.contains(date)) return DateState.disabled;
+    return DateState.enabled;
+  },
+  onChanged: (value) {},
+)
+```
+
 ### Key Parameters (Flutter)
 
 | Parameter | Type | Description |
@@ -103,6 +141,7 @@ const CalendarTheme(
 | `onChanged` | `ValueChanged<CalendarValue>?` | Selection callback |
 | `initialView` | `CalendarView?` | Starting view |
 | `viewType` | `CalendarViewType?` | Layout type |
+| `stateBuilder` | `DateStateBuilder?` | Date state validation callback |
 
 ### Calendar Value Types
 

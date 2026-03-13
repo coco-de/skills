@@ -81,6 +81,26 @@ Wrap(
 )
 ```
 
+### Attached Badge (Count on Icon)
+
+```dart
+Row(
+  children: [
+    Stack(
+      clipBehavior: Clip.none,
+      children: [
+        const Icon(Icons.notifications),
+        Positioned(
+          top: -4,
+          right: -4,
+          child: PrimaryBadge(child: const Text('3')),
+        ),
+      ],
+    ),
+  ],
+)
+```
+
 ### Table Status Cell Pattern
 
 ```dart

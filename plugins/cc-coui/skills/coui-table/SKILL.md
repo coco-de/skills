@@ -341,6 +341,53 @@ Each web table component accepts:
 | Avatar | `Avatar(initials: ...)` | `Avatar.initials(..., size: AvatarSize.sm)` |
 | Ghost button | `IconButton.ghost(...)` | `Button.ghost(size: CoButtonSize.sm, ...)` |
 
+### Advanced Features (Flutter)
+
+#### Selectable Rows
+
+```dart
+Table(
+  header: headerRow,
+  children: users.map((user) => TableRow(
+    selected: selectedUsers.contains(user),
+    children: [/* cells */],
+  )).toList(),
+)
+```
+
+Selected rows change background color for visual feedback.
+
+#### Frozen Cells
+
+```dart
+Table(
+  header: headerRow,
+  children: rows,
+  frozenCells: FrozenTableData(
+    frozenRows: [TableRef(0)],     // Header frozen
+    frozenColumns: [TableRef(0)],  // First column frozen
+  ),
+)
+```
+
+Header and first column remain visible during scrolling.
+
+#### Cell Merging
+
+```dart
+TableCell(
+  columnSpan: 2,  // 2-column merge
+  rowSpan: 3,     // 3-row merge
+  child: Text('Merged cell'),
+)
+```
+
+#### Sizing Options
+
+- `FlexTableSize` - flexible sizing
+- `FixedTableSize` - fixed pixel sizing
+- `IntrinsicTableSize` - content-based sizing
+
 ### Shared Patterns
 
 - Both use `TableRow` with a `children` list of cells.

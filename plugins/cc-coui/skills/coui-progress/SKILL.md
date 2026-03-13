@@ -112,6 +112,29 @@ isLoading
     : MyContent()
 ```
 
+### RadialProgress (Flutter)
+
+```dart
+RadialProgress(
+  value: 0.75,
+  child: const Text('75%'),
+)
+```
+
+Custom painter renders background circle + progress arc, starting at 12 o'clock. Default size: 80px, stroke: 8px.
+
+### Multi-Segment Progress (Flutter)
+
+```dart
+Progress.multi(
+  segments: [
+    ProgressSegment(value: 0.3, color: Colors.green),
+    ProgressSegment(value: 0.2, color: Colors.orange),
+    ProgressSegment(value: 0.1, color: Colors.red),
+  ],
+)
+```
+
 ### Multi-Step Progress Pattern
 
 ```dart

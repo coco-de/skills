@@ -160,12 +160,107 @@ Column(
 )
 ```
 
+### Hint Value
+
+```dart
+Slider(
+  value: SliderValue.single(volume),
+  hintValue: recommendedVolume,
+  onChanged: (v) => setState(() => volume = v.value),
+)
+```
+
+Provides a visual preview of a recommended value on the track.
+
+### Keyboard Navigation
+
+Configure arrow key step size:
+
+```dart
+Slider(
+  value: SliderValue.single(50),
+  min: 0,
+  max: 100,
+  increaseStep: 5,
+  decreaseStep: 5,
+  onChanged: (v) => setState(() => currentValue = v.value),
+)
+```
+
 ## Web (coui_web)
 
-> **Not yet implemented.** Slider is currently Flutter-only. Web implementation is planned.
+### Import
+
+```dart
+import 'package:coui_web/coui_web.dart';
+```
+
+### Basic Slider
+
+Uses native HTML `<input type="range">` with custom visual overlay:
+
+```dart
+Slider(
+  value: volume,
+  onChange: (value) => handleVolumeChange(value),
+  min: 0,
+  max: 100,
+)
+```
+
+### With Step
+
+```dart
+Slider(
+  value: rating,
+  onChange: (value) => handleRating(value),
+  min: 0,
+  max: 5,
+  step: 1,
+)
+```
+
+### Show Value Label
+
+```dart
+Slider(
+  value: temperature,
+  onChange: (value) => handleTemp(value),
+  min: 16,
+  max: 30,
+  showValue: true,
+)
+```
+
+### Web Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `value` | `double` | required | Current value |
+| `onChange` | `ValueChanged<double>?` | `null` | Value change callback |
+| `min` | `double` | `0` | Minimum value |
+| `max` | `double` | `100` | Maximum value |
+| `step` | `double?` | `null` | Step size |
+| `showValue` | `bool` | `false` | Display current value label |
 
 ## Common Patterns
 
-- Use `SliderValue.single()` for single values, `SliderValue.ranged()` for ranges.
-- Set `divisions` for discrete step values.
-- Use `SliderController` for programmatic control and value listening.
+### Platform Differences
+
+| Feature | Flutter | Web |
+|---------|---------|-----|
+| Value model | `SliderValue` (single/ranged) | `double` single only |
+| Controller | `SliderController` (ValueNotifier) | None |
+| Range slider | `SliderValue.ranged()` | Not supported |
+| Divisions | `divisions` + tick marks | `step` attribute |
+| Hint value | `hintValue` visual preview | Not supported |
+| Track rendering | Custom `GestureDetector` + painting | `<input type="range">` + CSS overlay |
+| Keyboard | `increaseStep`/`decreaseStep` custom | Browser native |
+| Value display | Via external widget | `showValue: true` |
+| Theme | `SliderTheme` (trackHeight, thumbSize) | Tailwind CSS |
+
+### Shared Concepts
+
+- Use `SliderValue.single()` for single values, `SliderValue.ranged()` for ranges (Flutter).
+- Set `divisions` (Flutter) or `step` (Web) for discrete step values.
+- Use `SliderController` for programmatic control and value listening (Flutter only).

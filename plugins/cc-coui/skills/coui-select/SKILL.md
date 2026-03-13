@@ -121,6 +121,37 @@ const SelectTheme(
 )
 ```
 
+### SelectController
+
+Programmatic control for single selection:
+
+```dart
+final controller = SelectController<String>();
+
+// Open/close dropdown programmatically
+controller.open();
+controller.close();
+
+// Set value
+controller.value = 'apple';
+```
+
+### MultiSelectController
+
+State management for multi-selection:
+
+```dart
+final controller = MultiSelectController<String>();
+
+Select<String>.multiple(
+  controller: controller,
+  onChanged: (values) {
+    print('Selected: $values');
+  },
+  items: items,
+)
+```
+
 ### Flutter Key Parameters
 
 | Parameter | Type | Description |

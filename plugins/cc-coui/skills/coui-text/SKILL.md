@@ -157,11 +157,93 @@ Column(
 
 ## Web (coui_web)
 
-> **Not yet implemented.** Text styling extensions are currently Flutter-only. Web implementation is planned.
+### Import
+
+```dart
+import 'package:coui_web/coui_web.dart';
+```
+
+### StyledText
+
+Renders a `<span>` with Tailwind CSS classes:
+
+```dart
+StyledText('Hello')
+StyledText.h1('Page Title')
+StyledText.h2('Section Heading')
+StyledText.h3('Subheading')
+StyledText.h4('Minor Heading')
+StyledText.body('Body text')
+StyledText.muted('Secondary text')
+StyledText.inlineCode('flutter run')
+StyledText.blockQuote('A quote')
+```
+
+### StyledText CSS Classes
+
+| Variant | CSS Classes |
+|---------|-------------|
+| `h1` | `text-4xl font-extrabold tracking-tight lg:text-5xl` |
+| `h2` | `text-3xl font-semibold tracking-tight` |
+| `h3` | `text-2xl font-semibold tracking-tight` |
+| `h4` | `text-xl font-semibold tracking-tight` |
+| `body` | `leading-7` |
+| `muted` | `text-sm text-muted-foreground` |
+| `inlineCode` | `rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm` |
+
+### TextBlock
+
+Renders semantic HTML tags (`<p>`, `<h1>`-`<h6>`, `<blockquote>`):
+
+```dart
+TextBlock.h1('Page Title')   // <h1>
+TextBlock.p('Body text')     // <p>
+```
+
+### Link Component
+
+```dart
+Link(
+  href: 'https://example.com',
+  onTap: handleTap,
+  underline: true,
+  child: Text('Link text'),
+)
+```
+
+Default styling: primary color + underline. Customizable via `LinkTheme`.
+
+### Web Example
+
+```dart
+div(
+  [
+    StyledText.h1('Page Title'),
+    StyledText.muted('Last updated 3 hours ago'),
+    StyledText.body('Main content text here.'),
+    StyledText.inlineCode('flutter run'),
+  ],
+  classes: 'space-y-4',
+)
+```
 
 ## Common Patterns
 
-- Chain order: size -> weight -> color (e.g., `.x2Large.bold.primary`).
-- Use `.base200` for muted/secondary text.
-- Use `.mono` for code snippets.
-- Use `.destructive` for error messages.
+### Platform Differences
+
+| Item | Flutter | Web |
+|------|---------|-----|
+| Text component | `Text` + extensions | `StyledText` + `TextBlock` |
+| Size system | `.xs`, `.sm`, `.lg` extensions | Tailwind CSS (`text-sm`, `text-4xl`) |
+| Semantics | Flutter Semantics | HTML `<h1>`-`<h6>`, `<p>` |
+| Font modifiers | `.sans`, `.mono` extensions | CSS `font-mono`, `font-sans` |
+| Links | `Link` widget (href, onTap) | `<a>` HTML tag |
+| Inline code | `.mono.sm` extensions | `StyledText.inlineCode` CSS |
+| Selectable text | `SelectableText` widget | Browser native selection |
+
+### Shared Concepts
+
+- Chain order: size -> weight -> color (e.g., `.x2Large.bold.primary`) in Flutter.
+- Use `.base200` (Flutter) or `StyledText.muted` (Web) for muted/secondary text.
+- Use `.mono` (Flutter) or `StyledText.inlineCode` (Web) for code snippets.
+- Use `.destructive` for error messages (Flutter).

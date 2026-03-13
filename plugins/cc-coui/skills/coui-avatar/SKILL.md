@@ -52,6 +52,52 @@ Avatar(child: const Icon(Icons.person))
 | `initials` | `String?` | Fallback initials (e.g., "JS") |
 | `child` | `Widget?` | Custom widget (icon) |
 | `backgroundColor` | `Color?` | Background color |
+| `size` | `AvatarSize?` | Size preset |
+| `shape` | `AvatarShape?` | Border shape |
+| `status` | `AvatarStatus?` | Online status indicator |
+
+### AvatarSize
+
+```dart
+enum AvatarSize {
+  xs,  // 24px
+  sm,  // 32px
+  md,  // 40px (default)
+  lg,  // 56px
+  xl,  // 72px
+}
+```
+
+### AvatarShape
+
+```dart
+enum AvatarShape {
+  circle,   // Fully round (default)
+  rounded,  // Rounded corners
+  square,   // Square corners
+}
+```
+
+### AvatarStatus
+
+```dart
+enum AvatarStatus {
+  online,
+  offline,
+  busy,
+  away,
+}
+```
+
+### With Status
+
+```dart
+Avatar(
+  provider: NetworkImage(user.photoUrl),
+  initials: Avatar.getInitials(user.name),
+  status: AvatarStatus.online,
+)
+```
 
 ### AvatarGroup
 
@@ -301,8 +347,9 @@ Avatar.getInitials('Bob Smith')    // 'BS'
 | Image source | `provider: NetworkImage(url)` | `src: url` or `Avatar.network(url)` |
 | Initials | `initials: 'JD'` | `fallback: 'JD'` or `Avatar.initials('JD')` |
 | Placeholder | `child: Icon(Icons.person)` | `Avatar.placeholder()` |
-| Badge/Status | `badge: AvatarBadge(color: ...)` | Not available |
-| Size presets | Not available | `size: AvatarSize.md` |
+| Badge/Status | `badge: AvatarBadge(...)` or `status: AvatarStatus.online` | Not available |
+| Size presets | `size: AvatarSize.md` | `size: AvatarSize.md` |
+| Shape | `shape: AvatarShape.circle` | Not available |
 | Ring border | Not available | `ring: true` |
 | Group max | Not available | `max: 3` |
 | Group direction | Not available | `direction: AvatarGroupDirection.toLeft` |

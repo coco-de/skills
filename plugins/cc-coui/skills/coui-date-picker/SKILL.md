@@ -187,12 +187,91 @@ Column(
 )
 ```
 
+### DatePickerController
+
+```dart
+final controller = DatePickerController();
+controller.value = DateTime(2024, 3, 15);
+print(controller.value); // 2024-03-15
+```
+
+Based on `ValueNotifier`, integrates with `ComponentController` mixin for forms.
+
+### Date State Validation
+
+```dart
+DatePicker(
+  value: selectedDate,
+  stateBuilder: (date) {
+    if (date.isBefore(DateTime.now())) return DateState.disabled;
+    if (holidays.contains(date)) return DateState.disabled;
+    return DateState.enabled;
+  },
+  onChanged: (date) => setState(() => selectedDate = date),
+)
+```
+
+### View Switching
+
+- `initialViewType`: starting view (date/month/year)
+- `initialView`: starting month (e.g., `CalendarView(2024, 3)`)
+- Header click transitions date -> month -> year views
+
 ## Web (coui_web)
 
-> **Not yet implemented.** DatePicker is currently Flutter-only. Web implementation is planned.
+### Import
+
+```dart
+import 'package:coui_web/coui_web.dart';
+```
+
+### Basic Usage
+
+Uses native HTML `<input type="date">`:
+
+```dart
+DatePicker(
+  value: selectedDate,
+  onChange: (value) => handleDateChange(value),
+)
+```
+
+### With Min/Max
+
+```dart
+DatePicker(
+  value: selectedDate,
+  onChange: (value) => handleDateChange(value),
+  min: '2024-01-01',
+  max: '2024-12-31',
+)
+```
+
+### Web Limitations
+
+- Uses browser's native date picker UI
+- Values passed as ISO 8601 strings (YYYY-MM-DD)
+- Range selection not supported
+- No custom calendar view or view switching
+- Validation limited to `min`/`max` attributes
 
 ## Common Patterns
 
-- Use `DatePicker` for single date selection, `DateRangePicker` for ranges.
+### Platform Differences
+
+| Feature | Flutter | Web |
+|---------|---------|-----|
+| Calendar UI | Custom DatePickerDialog | Native `<input type="date">` |
+| Value type | `DateTime?` | `String` (ISO 8601) |
+| Display mode | `PromptMode` (dialog/popover) | Browser native |
+| Range selection | `DateRangePicker` + `DateTimeRange` | Not supported |
+| Validation | `DateStateBuilder` callback | `min`/`max` attributes only |
+| View switching | 3-step (date->month->year) | Browser default |
+| Controller | `DatePickerController` (ValueNotifier) | None |
+| Responsive | Dual calendar (>=500px) | Browser default |
+
+### Shared Concepts
+
+- Use `DatePicker` for single date selection, `DateRangePicker` for ranges (Flutter only).
 - Wrap with `FormField` for form validation integration.
-- Choose `PromptMode.popover` for inline forms, `PromptMode.dialog` for mobile.
+- Choose `PromptMode.popover` for inline forms, `PromptMode.dialog` for mobile (Flutter).

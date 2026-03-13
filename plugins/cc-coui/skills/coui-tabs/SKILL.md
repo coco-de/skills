@@ -71,6 +71,60 @@ TabPane(
 )
 ```
 
+### Tab Variants
+
+```dart
+enum TabVariant {
+  line,    // Underline style with active indicator beneath selected tab
+  boxed,   // Bordered tab appearance with distinct container styling
+  filled,  // Solid background color on active tab
+}
+```
+
+```dart
+Tabs(
+  variant: TabVariant.boxed,
+  index: selectedIndex,
+  onChanged: (i) => setState(() => selectedIndex = i),
+  tabs: [const Text('Tab 1'), const Text('Tab 2')],
+  children: [content1, content2],
+)
+```
+
+### TabPane Drag-and-Drop Reordering
+
+TabPane supports drag-and-drop tab reordering:
+
+```dart
+TabPane(
+  index: selectedIndex,
+  onSorted: (newOrder) {
+    setState(() {
+      // Handle reordered tabs
+    });
+  },
+  children: tabContents,
+)
+```
+
+### Tab Bar Controls
+
+Add leading/trailing widgets to the tab bar:
+
+```dart
+TabList(
+  index: selectedIndex,
+  onChanged: (i) => setState(() => selectedIndex = i),
+  leading: const Icon(Icons.menu),
+  trailing: IconButton.ghost(
+    icon: const Icon(Icons.add),
+    onPressed: () {},
+    density: ButtonDensity.icon,
+  ),
+  children: tabItems,
+)
+```
+
 ### TabsTheme
 
 Theme-level customization:
@@ -311,3 +365,6 @@ onChanged: (i) => setState(() => currentTab = i),
 | Theme support | `TabsTheme` | CSS-based styling |
 | Full-width mode | `expand: true` on `TabList` | N/A |
 | Value-based tabs | N/A | `TabsTrigger` + `TabsContent` |
+| Variants | `TabVariant` (line/boxed/filled) | N/A |
+| Drag reorder | `TabPane` with `onSorted` | N/A |
+| Leading/trailing | Widget slots on `TabList` | N/A |

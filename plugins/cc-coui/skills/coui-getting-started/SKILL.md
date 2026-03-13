@@ -17,8 +17,14 @@ Add to `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  coui_flutter: ^0.1.0
+  coui_flutter: ^0.0.1
 ```
+
+### Minimum Requirements
+
+- Flutter 3.41.0 or later
+- Dart 3.11.0 or later
+- Material Design enabled (`uses-material-design: true`)
 
 ### Single Import
 
@@ -64,6 +70,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
+        extensions: [
+          ComponentThemeData(),
+        ],
       ),
       home: const MyHomePage(),
     );
@@ -126,16 +135,15 @@ Omit `onPressed` or pass `null`:
 const PrimaryButton(child: Text('Disabled'))
 ```
 
-### Flutter Component Categories
+### Flutter Component Categories (85 components)
 
-- **Control**: PrimaryButton, SecondaryButton, GhostButton, IconButton
-- **Display**: Avatar, Badge, Card, Divider, Gap, Calendar, Progress
-- **Form**: TextField, Input, TextArea, Checkbox, Toggle, Select, Slider, DatePicker
-- **Layout**: Accordion, Card, Table, Alert
+- **Control**: PrimaryButton, SecondaryButton, GhostButton, IconButton, Fab, Command, Toggle
+- **Form**: TextField, Input, TextArea, Checkbox, Select, Slider, DatePicker, TimePicker, ColorPicker, Autocomplete, InputOtp, RadioGroup, StarRating, PhoneInput, ChipInput, SwitchField, Sortable, Fieldset, FileInput, Form
+- **Display**: Avatar, Badge, Card, Icon, Progress, Table, Calendar, Text, Banner, Carousel, Chat, Chip, CodeSnippet, Divider, DotIndicator, EmptyState, Kbd, NumberTicker, Skeleton, Stat, Status, Countdown, Loading, HoverGallery, ValidationBadge, KeyboardShortcut, Tracker, Link, Mockup
+- **Navigation**: Menu, Navigation, Tabs, NavigationBar, Breadcrumb, Pagination, Switcher
+- **Overlay**: Dialog, Drawer, Popover, Toast, Tooltip, HoverCard, Swiper, RefreshTrigger
+- **Layout**: Accordion, Alert, Collapsible, Stepper, Steps, Timeline, Tree, Resizable, Separator, Join, Gap, Swap
 - **Menu**: ContextMenu, DropdownMenu, Menubar
-- **Navigation**: NavigationBar, NavigationRail, Tabs, Pagination
-- **Overlay**: Dialog, Toast, Tooltip, Drawer, Popover
-- **Text**: Text extensions (.bold, .large, .base200)
 
 ## Web (coui_web)
 
@@ -145,9 +153,21 @@ Add to `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  coui_web:
-    path: ../coui_web  # or published version
-  jaspr: ^0.x.x
+  coui_web: ^0.0.1
+```
+
+### Minimum Requirements
+
+- Dart 3.11.0 or later
+- Jaspr 0.22.3 or later
+
+### Tailwind CSS Configuration
+
+CoUI Web relies on Tailwind CSS utility classes:
+
+```bash
+npm install -D tailwindcss
+npx tailwindcss init
 ```
 
 ### Single Import

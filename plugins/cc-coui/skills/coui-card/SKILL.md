@@ -80,6 +80,33 @@ SurfaceCard adds:
 | `surfaceOpacity` | `double?` | Background opacity |
 | `surfaceBlur` | `double?` | Blur intensity |
 
+### CardImage
+
+Image card with optional hover scale animation:
+
+```dart
+CardImage(
+  onPressed: () => handleTap(),
+  hoverScale: 1.05,
+  image: Image.network('https://example.com/image.jpg'),
+  title: const Text('Card Title'),
+)
+```
+
+### Clickable Card
+
+```dart
+Card.clickable(
+  onTap: () => handleCardTap(),
+  child: Column(
+    children: [
+      const Text('Click me').bold,
+      const Text('This entire card is clickable'),
+    ],
+  ),
+)
+```
+
 ### Project Card Pattern
 
 ```dart

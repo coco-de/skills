@@ -234,11 +234,106 @@ Column(
 
 ## Web (coui_web)
 
-> **Not yet implemented.** Toggle is currently Flutter-only. Web implementation is planned.
+### Import
+
+```dart
+import 'package:coui_web/coui_web.dart';
+```
+
+### Basic Toggle
+
+```dart
+Toggle(
+  checked: isDarkMode,
+  onChanged: (checked) => setState(() => isDarkMode = checked),
+)
+```
+
+### With Label
+
+```dart
+Toggle(
+  checked: isNotificationEnabled,
+  onChanged: (checked) => handleNotificationToggle(checked),
+  label: 'Notifications',
+)
+```
+
+### Sizes
+
+```dart
+Toggle(checked: value, onChanged: handler, size: ToggleSize.sm)
+Toggle(checked: value, onChanged: handler, size: ToggleSize.md)  // default
+Toggle(checked: value, onChanged: handler, size: ToggleSize.lg)
+```
+
+### Disabled
+
+```dart
+Toggle(
+  checked: true,
+  disabled: true,
+)
+```
+
+### Web Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `checked` | `bool` | required | Current state |
+| `onChanged` | `ToggleCallback?` | `null` | State change callback |
+| `label` | `String?` | `null` | Label text |
+| `size` | `ToggleSize` | `md` | Toggle size (sm/md/lg) |
+| `disabled` | `bool` | `false` | Disable toggle |
+
+### Accessibility
+
+Toggle renders as a `<button>` with `role="switch"` and `aria-checked` attributes. Focus indicator uses `focus-visible:ring-2` CSS.
+
+### Settings List (Web)
+
+```dart
+Card(
+  children: [
+    CardHeader(
+      child: CardTitle(titleChild: Component.text('Settings')),
+    ),
+    CardContent(
+      children: [
+        SwitchField(
+          label: 'Dark mode',
+          checked: isDarkMode,
+          onChanged: (v) => setState(() => isDarkMode = v),
+        ),
+        SwitchField(
+          label: 'Push notifications',
+          description: 'Receive push notifications on your device.',
+          checked: pushEnabled,
+          onChanged: (v) => setState(() => pushEnabled = v),
+        ),
+      ],
+    ),
+  ],
+)
+```
 
 ## Common Patterns
 
-- Use `Toggle` for basic on/off, `ControlledToggle` for self-managed state.
-- `Switch` is an alias for `Toggle` — use whichever reads better.
-- Use `ToggleController` for programmatic control and listening.
-- Always provide a label via `leading` or `trailing` for accessibility.
+### Platform Differences
+
+| Aspect | Flutter | Web |
+|--------|---------|-----|
+| State property | `value: bool` | `checked: bool` |
+| Disabled property | `enabled: bool` | `disabled: bool` |
+| Callback type | `ValueChanged<bool>?` | `ToggleCallback` |
+| State management | `ToggleController` | Props-based |
+| Animation | 100ms easeInOut | CSS transition |
+| ARIA support | Flutter semantics | `role="switch"` |
+| Form integration | `FormValueSupplier` mixin | `SwitchField` component |
+
+### Shared Concepts
+
+- Use `Toggle` for basic on/off, `ControlledToggle` for self-managed state (Flutter).
+- `Switch` is an alias for `Toggle` in Flutter — use whichever reads better.
+- Use `ToggleController` for programmatic control and listening (Flutter only).
+- Always provide a label for accessibility on both platforms.

@@ -200,11 +200,74 @@ class _InfoPopoverState extends State<InfoPopover> {
 
 ## Web (coui_web)
 
-> **Not yet implemented.** Popover is currently Flutter-only. Web implementation is planned.
+### Import
+
+```dart
+import 'package:coui_web/coui_web.dart';
+```
+
+### Basic Usage
+
+```dart
+Popover(
+  trigger: Button(onClick: null, child: Component.text('Info')),
+  child: Column(
+    children: [
+      Component.text('Popover Title'),
+      Component.text('Popover content here.'),
+    ],
+  ),
+)
+```
+
+### Placement
+
+```dart
+Popover(
+  placement: PopoverPlacement.top,
+  trigger: Icon(Icons.info),
+  child: Component.text('Above the trigger'),
+)
+```
+
+Available placements: `top`, `bottom`, `left`, `right`, `topStart`, `bottomEnd`.
+
+### Hover Trigger
+
+Web popovers use CSS `group-hover:block` for hover-based display.
+
+### Web Parameters
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `trigger` | `Component` | required | Widget that opens the popover |
+| `child` | `Component` | required | Popover content |
+| `placement` | `PopoverPlacement` | `bottom` | Display position |
+
+### Web Limitations
+
+- Static positioning (no anchor tracking)
+- No auto-invert when exceeding viewport
+- Fixed width (`w-72`)
+- No modal mode
 
 ## Common Patterns
 
-- Always dispose `PopoverController` in `dispose()`.
-- Use `unawaited()` when calling `_controller.show()` from sync functions.
-- Choose `PopoverConstraint.anchorFixedSize` for dropdowns that match trigger width.
-- Use `HoverCard` for desktop hover interactions.
+### Platform Differences
+
+| Feature | Flutter | Web |
+|---------|---------|-----|
+| Trigger mode | `PopoverController.show()` imperative | CSS `group-hover:block` hover-based |
+| Position | `alignment` + `anchorAlignment` with viewport auto-calculation | CSS absolute + `PopoverPlacement` |
+| Auto-invert | Supported via `allowInvertHorizontal/Vertical` | Not supported |
+| Anchor tracking | Real-time tracking with `follow: true` | Static positioning |
+| Animation | Scale(0.9->1.0) + Fade transition | Immediate display |
+| Size constraints | 5 `PopoverConstraint` modes | Fixed width (w-72) |
+| Modal mode | `modal: true` creates barrier | Not supported |
+
+### Shared Concepts
+
+- Always dispose `PopoverController` in `dispose()` (Flutter).
+- Use `unawaited()` when calling `_controller.show()` from sync functions (Flutter).
+- Choose `PopoverConstraint.anchorFixedSize` for dropdowns that match trigger width (Flutter).
+- Use `HoverCard` for desktop hover interactions (Flutter).

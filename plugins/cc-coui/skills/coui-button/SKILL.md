@@ -99,7 +99,36 @@ All button variants share these parameters:
 | `onPressed` | `VoidCallback?` | Tap handler. `null` = disabled |
 | `leading` | `Widget?` | Widget before text (icon) |
 | `trailing` | `Widget?` | Widget after text (icon) |
+| `isLoading` | `bool` | Shows spinner and disables clicks (default: false) |
+| `enabled` | `bool` | Enable/disable button |
+| `density` | `ButtonDensity?` | Size density variant |
 | `style` | `ButtonStyle?` | Custom styling |
+
+### ButtonDensity
+
+Controls the button's height and padding:
+
+```dart
+enum ButtonDensity {
+  normal,      // Default size
+  comfortable, // Slightly larger
+  dense,       // Reduced padding
+  compact,     // Minimal padding
+  icon,        // Square icon-only size
+}
+```
+
+### Loading State
+
+```dart
+PrimaryButton(
+  isLoading: true,
+  onPressed: () {},
+  child: const Text('Saving...'),
+)
+```
+
+When `isLoading` is true, the button displays a spinner and ignores click events.
 
 ### Icons with Buttons
 
@@ -165,6 +194,14 @@ PrimaryButton(
 ### Full Width Button
 
 ```dart
+// Using expanded parameter
+PrimaryButton(
+  expanded: true,
+  onPressed: () {},
+  child: const Text('Full Width'),
+)
+
+// Or using SizedBox
 SizedBox(
   width: double.infinity,
   child: PrimaryButton(

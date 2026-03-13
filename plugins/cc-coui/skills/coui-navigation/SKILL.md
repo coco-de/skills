@@ -151,6 +151,34 @@ enum NavigationContainerType {
 }
 ```
 
+### Label Display Modes
+
+```dart
+NavigationBar(labelType: NavigationLabelType.all, ...)       // All show labels
+NavigationBar(labelType: NavigationLabelType.selected, ...)  // Only selected shows label
+NavigationRail(labelType: NavigationLabelType.tooltip, ...)  // Tooltip on hover
+NavigationSidebar(labelType: NavigationLabelType.expanded, ...) // Labels when expanded
+```
+
+### Item Components
+
+- `NavigationItem` - Selectable item (icon + label)
+- `NavigationButton` - Non-selectable, click action only
+- `NavigationLabel` - Section label (non-selectable)
+- `NavigationDivider` - Visual separator
+- `NavigationGap` - Spacing element
+
+### Surface Effects
+
+```dart
+NavigationBar(
+  surfaceBlur: 10.0,
+  surfaceOpacity: 0.8,
+  backgroundColor: Colors.white.withOpacity(0.5),
+  children: items,
+)
+```
+
 ### NavigationBarTheme
 
 ```dart
@@ -431,3 +459,31 @@ div(
 - Both platforms provide Pagination with `page` and `totalPages` parameters.
 - Flutter uses widget composition (`Icon`, `Text` widgets); Web uses data classes (`label` strings, optional `icon` components).
 - NavigationRail and NavigationSidebar are Flutter-only; Breadcrumb is Web-only.
+
+### Responsive Navigation Pattern (Flutter)
+
+```dart
+LayoutBuilder(
+  builder: (context, constraints) {
+    final isDesktop = constraints.maxWidth >= 1024;
+    final isTablet = constraints.maxWidth >= 768;
+
+    return Row(children: [
+      if (isDesktop)
+        NavigationSidebar(
+          expanded: true,
+          index: selectedIndex,
+          onChanged: handleNavSelect,
+          children: navItems,
+        )
+      else if (isTablet)
+        NavigationRail(
+          index: selectedIndex,
+          onChanged: handleNavSelect,
+          children: navItems,
+        ),
+      Expanded(child: pageContent),
+    ]);
+  },
+)
+```

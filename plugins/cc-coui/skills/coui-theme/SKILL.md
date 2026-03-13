@@ -149,13 +149,18 @@ AnimatedTheme(
 
 ### ComponentTheme
 
-Apply component-level theme overrides:
+Apply component-level theme overrides using the `styleValue()` three-tier priority system (direct widget properties > ComponentTheme values > built-in defaults):
 
 ```dart
 Theme(
   data: ThemeData(
     componentTheme: ComponentThemeData(
-      // Override specific component themes
+      button: ButtonTheme(
+        borderRadius: BorderRadius.circular(12),
+      ),
+      badge: BadgeTheme(
+        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+      ),
     ),
   ),
   child: MyApp(),

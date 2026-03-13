@@ -111,6 +111,25 @@ const ToastTheme(
 
 Multiple toasts stack vertically. Older toasts collapse behind newer ones. Configure with `maxStackedEntries`.
 
+#### Expand Modes
+
+Control how stacked toasts behave:
+
+```dart
+const ToastTheme(
+  expandMode: ToastExpandMode.expandOnHover,  // Unfolds all toasts on mouse hover (default)
+  // expandMode: ToastExpandMode.expandAlways,  // Permanently displays all toasts expanded
+  // expandMode: ToastExpandMode.expandNever,   // Shows only topmost toast
+  maxStackedEntries: 3,
+  collapsedScale: 0.9,       // Overlapped toast size ratio
+  collapsedOpacity: 0.8,     // Overlapped toast transparency
+)
+```
+
+#### Gesture Dismissal
+
+Swipe gesture with 50% or greater movement threshold triggers close.
+
 ### Auto-Dismiss
 
 Toasts auto-dismiss after 5 seconds by default. Override with `duration`:

@@ -168,13 +168,23 @@ Accordion(
 )
 ```
 
+### AccordionTheme
+
+```dart
+AccordionTheme(
+  duration: Duration(milliseconds: 300),
+  curve: Curves.easeInOut,
+)
+```
+
 ### Flutter Features
 
-- **Single expansion**: Only one item open at a time
-- **Smooth animation**: Configurable expand/collapse animations
+- **Single expansion**: Only one item open at a time (default behavior)
+- **Multiple expansion**: Use the `allowMultiple` parameter for multiple items to be open simultaneously
+- **Smooth animation**: Configurable expand/collapse animations via `AccordionTheme`
 - **Visual dividers**: Automatic separators between items
-- **Keyboard navigation**: Full accessibility support
-- **Theming**: Via AccordionTheme
+- **Keyboard navigation**: Enter/Space to toggle, Tab to navigate between headers
+- **Theming**: Via `AccordionTheme` (duration, curve, arrowIcon)
 
 ## Web (coui_web)
 

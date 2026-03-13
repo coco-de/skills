@@ -154,6 +154,22 @@ const ModalBackdropTheme(
 )
 ```
 
+### Focus Trapping
+
+Dialog uses `FocusTrap` to confine keyboard focus within the dialog:
+
+- First focusable element receives automatic focus on open
+- Tab/Shift+Tab cycles through focusable elements within the dialog only
+- Previous focus element is restored when dialog closes
+- Escape key dismisses the dialog (if `barrierDismissible` is `true`)
+
+### Animation
+
+Dialog transitions use scale and fade transformations:
+
+- Default transition duration: ~300ms
+- Customizable via `DialogRoute` transition parameters
+
 ### Full-Screen Dialog
 
 ```dart
