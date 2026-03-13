@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/coco-de/skills/main/docs_site/web/images/logo.svg" alt="Cocode Skills" width="120" />
+  <img src="https://raw.githubusercontent.com/coco-de/skills/main/docs_site/web/images/logo.svg" alt="Skills" width="120" />
 </p>
 
-<h1 align="center">Cocode Skills</h1>
+<h1 align="center">Skills</h1>
 
 <p align="center">
   Dart 풀스택 개발을 위한 Claude Code 스킬, 에이전트, 커맨드 모음
