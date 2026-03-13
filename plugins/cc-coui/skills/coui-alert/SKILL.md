@@ -1,6 +1,6 @@
 ---
 name: coui-alert
-description: Activate when creating alert messages, notification banners, status indicators, or dismissible info/success/warning/error alerts using CouiAlert, Alert, or AlertVariant in CoUI Flutter or CoUI Web.
+description: Activate when creating alert messages, notification banners, status indicators, or dismissible info/success/warning/error alerts using Alert, Alert, or AlertVariant in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Alert
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Info Alert
 
 ```dart
-CouiAlert(
+Alert(
   title: 'Notice',
   description: 'A new update is available.',
   variant: AlertVariant.info,
@@ -30,7 +30,7 @@ CouiAlert(
 ### Success Alert (Dismissible)
 
 ```dart
-CouiAlert(
+Alert(
   title: 'Save Complete',
   description: 'Your changes have been saved successfully.',
   variant: AlertVariant.success,
@@ -44,7 +44,7 @@ CouiAlert(
 ### Warning Alert
 
 ```dart
-CouiAlert(
+Alert(
   description: 'Storage space is running low.',
   variant: AlertVariant.warning,
 )
@@ -53,7 +53,7 @@ CouiAlert(
 ### Error Alert with Custom Icon
 
 ```dart
-CouiAlert(
+Alert(
   title: 'Error Occurred',
   description: 'There was a problem processing your request. Please try again.',
   variant: AlertVariant.error,
@@ -63,7 +63,7 @@ CouiAlert(
 
 ### Key Classes
 
-#### CouiAlert
+#### Alert
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|

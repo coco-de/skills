@@ -1,6 +1,6 @@
 ---
 name: coui-dropdown-menu
-description: Activate when creating dropdown action menus, trigger-based option lists, or button-triggered menu popups using CouiDropdownMenu, DropdownMenu, DropdownMenuItem, or DropdownPlacement in CoUI Flutter or CoUI Web.
+description: Activate when creating dropdown action menus, trigger-based option lists, or button-triggered menu popups using DropdownMenu, DropdownMenu, DropdownMenuItem, or DropdownPlacement in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI DropdownMenu
@@ -20,8 +20,8 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic DropdownMenu
 
 ```dart
-CouiDropdownMenu(
-  trigger: CouiButton(
+DropdownMenu(
+  trigger: Button(
     onPressed: null,
     child: Row(
       children: [Text('Options'), Icon(Icons.arrow_drop_down)],
@@ -42,7 +42,7 @@ CouiDropdownMenu(
 ### With Icons and Destructive Action
 
 ```dart
-CouiDropdownMenu(
+DropdownMenu(
   trigger: IconButton(
     onPressed: null,
     icon: Icon(Icons.more_vert),
@@ -66,7 +66,7 @@ CouiDropdownMenu(
 
 ### Key Classes
 
-#### CouiDropdownMenu
+#### DropdownMenu
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -102,8 +102,8 @@ Separator between menu items. No additional properties.
 ### User Actions Pattern
 
 ```dart
-CouiDropdownMenu(
-  trigger: CouiButton(
+DropdownMenu(
+  trigger: Button(
     onPressed: null,
     child: Text('More'),
   ),

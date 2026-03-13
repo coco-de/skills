@@ -1,6 +1,6 @@
 ---
 name: coui-banner
-description: Activate when creating notification banners, alert bars, info/success/warning/error messages at top of page using CouiBanner (Flutter) or Banner (Web) with BannerVariant in CoUI Flutter or CoUI Web.
+description: Activate when creating notification banners, alert bars, info/success/warning/error messages at top of page using Banner (Flutter) or Banner (Web) with BannerVariant in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Banner
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Usage
 
 ```dart
-CouiBanner(
+Banner(
   message: '시스템 점검이 예정되어 있습니다.',
   variant: BannerVariant.info,
 )
@@ -39,7 +39,7 @@ CouiBanner(
 ### Success Banner with Dismiss
 
 ```dart
-CouiBanner(
+Banner(
   message: '저장이 완료되었습니다.',
   variant: BannerVariant.success,
   onDismiss: handleDismiss,
@@ -49,11 +49,11 @@ CouiBanner(
 ### Warning Banner with Action
 
 ```dart
-CouiBanner(
+Banner(
   message: '세션이 곧 만료됩니다.',
   variant: BannerVariant.warning,
   icon: Icon(Icons.warning_amber),
-  action: CouiButton.ghost(
+  action: Button.ghost(
     onPressed: handleExtendSession,
     child: Text('연장하기'),
   ),
@@ -64,7 +64,7 @@ CouiBanner(
 ### Error Banner
 
 ```dart
-CouiBanner(
+Banner(
   message: '요청을 처리하는 중 오류가 발생했습니다.',
   variant: BannerVariant.error,
   onDismiss: handleDismiss,
@@ -127,6 +127,6 @@ Banner(
 
 | Aspect | Flutter | Web |
 |--------|---------|-----|
-| Widget name | `CouiBanner` | `Banner` |
-| Action button | `CouiButton.ghost()` | `Button.ghost()` |
+| Widget name | `Banner` | `Banner` |
+| Action button | `Button.ghost()` | `Button.ghost()` |
 | Child type | `Widget` | `Component` |

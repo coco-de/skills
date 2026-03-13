@@ -1,6 +1,6 @@
 ---
 name: coui-hover-gallery
-description: Activate when creating hover image galleries, product image previews, or sequential image transition displays on hover using CouiHoverGallery (Flutter) or HoverGallery (Web) in CoUI Flutter or CoUI Web.
+description: Activate when creating hover image galleries, product image previews, or sequential image transition displays on hover using HoverGallery (Flutter) or HoverGallery (Web) in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI HoverGallery
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Usage
 
 ```dart
-CouiHoverGallery(
+HoverGallery(
   images: [
     'https://example.com/image1.jpg',
     'https://example.com/image2.jpg',
@@ -46,7 +46,7 @@ CouiHoverGallery(
 ### With Rounded Corners
 
 ```dart
-CouiHoverGallery(
+HoverGallery(
   images: productImages,
   width: 240,
   height: 240,
@@ -57,7 +57,7 @@ CouiHoverGallery(
 ### Custom Image Builder
 
 ```dart
-CouiHoverGallery(
+HoverGallery(
   images: productImages,
   width: 320,
   height: 200,
@@ -71,11 +71,11 @@ CouiHoverGallery(
 ### Product Card Integration
 
 ```dart
-CouiCard(
+Card(
   child: Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      CouiHoverGallery(
+      HoverGallery(
         images: product.images,
         width: double.infinity,
         height: 200,
@@ -99,7 +99,7 @@ GridView.builder(
     mainAxisSpacing: 12,
     crossAxisSpacing: 12,
   ),
-  itemBuilder: (context, index) => CouiHoverGallery(
+  itemBuilder: (context, index) => HoverGallery(
     images: portfolioItems[index].screenshots,
     width: 200,
     height: 150,
@@ -147,7 +147,7 @@ HoverGallery(
 
 | Aspect | Flutter | Web |
 |--------|---------|-----|
-| Widget name | `CouiHoverGallery` | `HoverGallery` |
+| Widget name | `HoverGallery` | `HoverGallery` |
 | API | Identical parameters | Identical parameters |
 
 ### When to Use

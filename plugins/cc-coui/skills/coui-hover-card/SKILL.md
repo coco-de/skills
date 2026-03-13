@@ -1,6 +1,6 @@
 ---
 name: coui-hover-card
-description: Activate when creating hover-triggered info cards, user profile previews, or tooltip-like rich content popups using CouiHoverCard, HoverCard, or HoverCardSide in CoUI Flutter or CoUI Web.
+description: Activate when creating hover-triggered info cards, user profile previews, or tooltip-like rich content popups using HoverCard, HoverCard, or HoverCardSide in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI HoverCard
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic HoverCard
 
 ```dart
-CouiHoverCard(
+HoverCard(
   trigger: Text(
     '@username',
     style: TextStyle(color: Colors.blue),
@@ -29,7 +29,7 @@ CouiHoverCard(
     mainAxisSize: MainAxisSize.min,
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      CouiAvatar(name: 'John Doe'),
+      Avatar(name: 'John Doe'),
       SizedBox(height: 8),
       Text('John Doe', style: TextStyle(fontWeight: FontWeight.bold)),
       Text('@johndoe'),
@@ -42,7 +42,7 @@ CouiHoverCard(
 ### Advanced Configuration
 
 ```dart
-CouiHoverCard(
+HoverCard(
   trigger: Icon(Icons.info_outline),
   content: Text('Additional information displayed here.'),
   side: HoverCardSide.top,
@@ -53,7 +53,7 @@ CouiHoverCard(
 
 ### Key Classes
 
-#### CouiHoverCard
+#### HoverCard
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -66,14 +66,14 @@ CouiHoverCard(
 ### User Profile Preview Pattern
 
 ```dart
-CouiHoverCard(
+HoverCard(
   trigger: Text('@contributor'),
   content: Column(
     mainAxisSize: MainAxisSize.min,
     children: [
       Row(
         children: [
-          CouiAvatar(name: 'Jane Smith'),
+          Avatar(name: 'Jane Smith'),
           SizedBox(width: 8),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,6 +1,6 @@
 ---
 name: coui-validation-badge
-description: Activate when creating form validation indicators, password strength checkers, input validation status displays, or valid/invalid state badges using CouiValidationBadge (Flutter) or ValidationBadge (Web) in CoUI Flutter or CoUI Web.
+description: Activate when creating form validation indicators, password strength checkers, input validation status displays, or valid/invalid state badges using ValidationBadge (Flutter) or ValidationBadge (Web) in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI ValidationBadge
@@ -20,12 +20,12 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Usage
 
 ```dart
-CouiValidationBadge(
+ValidationBadge(
   isValid: true,
   label: '사용 가능한 이메일입니다.',
 )
 
-CouiValidationBadge(
+ValidationBadge(
   isValid: false,
   label: '이미 사용 중인 이메일입니다.',
 )
@@ -42,7 +42,7 @@ CouiValidationBadge(
 ### Without Icon
 
 ```dart
-CouiValidationBadge(
+ValidationBadge(
   isValid: true,
   label: '8자 이상',
   showIcon: false,
@@ -55,10 +55,10 @@ CouiValidationBadge(
 Column(
   crossAxisAlignment: CrossAxisAlignment.start,
   children: [
-    CouiValidationBadge(isValid: password.length >= 8, label: '8자 이상'),
-    CouiValidationBadge(isValid: hasUpperCase, label: '대문자 포함'),
-    CouiValidationBadge(isValid: hasNumber, label: '숫자 포함'),
-    CouiValidationBadge(isValid: hasSpecialChar, label: '특수문자 포함'),
+    ValidationBadge(isValid: password.length >= 8, label: '8자 이상'),
+    ValidationBadge(isValid: hasUpperCase, label: '대문자 포함'),
+    ValidationBadge(isValid: hasNumber, label: '숫자 포함'),
+    ValidationBadge(isValid: hasSpecialChar, label: '특수문자 포함'),
   ],
 )
 ```
@@ -104,7 +104,7 @@ Column(
 
 | Aspect | Flutter | Web |
 |--------|---------|-----|
-| Widget name | `CouiValidationBadge` | `ValidationBadge` |
+| Widget name | `ValidationBadge` | `ValidationBadge` |
 | API | Identical parameters | Identical parameters |
 
 ### When to Use

@@ -1,6 +1,6 @@
 ---
 name: coui-switcher
-description: Activate when creating view switchers, segmented controls, tab-style toggles, or filter selectors using CouiSwitcher, SwitcherVariant, or segmented buttons in CoUI Flutter or CoUI Web.
+description: Activate when creating view switchers, segmented controls, tab-style toggles, or filter selectors using Switcher, SwitcherVariant, or segmented buttons in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Switcher
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Tabs Variant (Default)
 
 ```dart
-CouiSwitcher(
+Switcher(
   items: ['All', 'In Progress', 'Completed'],
   selectedIndex: _selectedIndex,
   onChanged: (index) {
@@ -32,7 +32,7 @@ CouiSwitcher(
 ### Buttons Variant
 
 ```dart
-CouiSwitcher(
+Switcher(
   items: ['List', 'Grid', 'Card'],
   selectedIndex: _selectedIndex,
   onChanged: (index) {
@@ -45,7 +45,7 @@ CouiSwitcher(
 ### Pills Variant
 
 ```dart
-CouiSwitcher(
+Switcher(
   items: ['Day', 'Week', 'Month', 'Year'],
   selectedIndex: _selectedIndex,
   onChanged: (index) {
@@ -57,7 +57,7 @@ CouiSwitcher(
 
 ### Key Classes
 
-#### CouiSwitcher
+#### Switcher
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -71,7 +71,7 @@ CouiSwitcher(
 ```dart
 Column(
   children: [
-    CouiSwitcher(
+    Switcher(
       items: ['List', 'Grid'],
       selectedIndex: _viewMode,
       onChanged: (index) => setState(() => _viewMode = index),

@@ -1,13 +1,13 @@
 ---
 name: coui-radio-group
-description: Activate when creating radio button groups, single-select option lists, or radio inputs using CouiRadioGroup, CouiRadio, RadioGroup, RadioItem, RadioOrientation in CoUI Flutter or CoUI Web.
+description: Activate when creating radio button groups, single-select option lists, or radio inputs using RadioGroup, Radio, RadioGroup, RadioItem, RadioOrientation in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI RadioGroup
 
 ## Overview
 
-The RadioGroup is a form component for selecting one option from multiple items, supporting vertical and horizontal layouts. Flutter uses `CouiRadioGroup<T>` with generic typing while Web uses `RadioGroup`.
+The RadioGroup is a form component for selecting one option from multiple items, supporting vertical and horizontal layouts. Flutter uses `RadioGroup<T>` with generic typing while Web uses `RadioGroup`.
 
 ## Flutter (coui_flutter)
 
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Vertical RadioGroup
 
 ```dart
-CouiRadioGroup<String>(
+RadioGroup<String>(
   value: selectedGender,
   onChanged: handleGenderChanged,
   label: '성별',
@@ -35,7 +35,7 @@ CouiRadioGroup<String>(
 ### Horizontal Layout
 
 ```dart
-CouiRadioGroup<String>(
+RadioGroup<String>(
   value: selectedSize,
   onChanged: handleSizeChanged,
   orientation: RadioOrientation.horizontal,
@@ -51,7 +51,7 @@ CouiRadioGroup<String>(
 ### Individual Radio Usage
 
 ```dart
-CouiRadio<String>(
+Radio<String>(
   value: 'option1',
   groupValue: selectedOption,
   onChanged: handleOptionChanged,
@@ -62,7 +62,7 @@ CouiRadio<String>(
 ### Plan Selection
 
 ```dart
-CouiRadioGroup<String>(
+RadioGroup<String>(
   value: selectedPlan,
   onChanged: handlePlanChanged,
   label: '요금제 선택',
@@ -134,7 +134,7 @@ RadioGroup(
 
 | Concept | Flutter | Web |
 |---------|---------|-----|
-| Component | `CouiRadioGroup<T>` | `RadioGroup` |
+| Component | `RadioGroup<T>` | `RadioGroup` |
 | Generic typing | Supports `<T>` | String-based |
 | Orientation | `RadioOrientation.horizontal` | `'horizontal'` (string) |
-| Individual radio | `CouiRadio<T>` | `Radio` |
+| Individual radio | `Radio<T>` | `Radio` |

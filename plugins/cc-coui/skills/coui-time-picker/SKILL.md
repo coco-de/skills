@@ -1,13 +1,13 @@
 ---
 name: coui-time-picker
-description: Activate when creating time pickers, hour/minute selectors, 12-hour or 24-hour time inputs, or time range selectors using CouiTimePicker, TimePicker, TimeFormat in CoUI Flutter or CoUI Web.
+description: Activate when creating time pickers, hour/minute selectors, 12-hour or 24-hour time inputs, or time range selectors using TimePicker, TimePicker, TimeFormat in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI TimePicker
 
 ## Overview
 
-The TimePicker is a time selection component enabling selection of hours and minutes. It supports both 12-hour (AM/PM) and 24-hour formats with configurable minute intervals and time range restrictions. Flutter uses `CouiTimePicker` while Web uses `TimePicker`.
+The TimePicker is a time selection component enabling selection of hours and minutes. It supports both 12-hour (AM/PM) and 24-hour formats with configurable minute intervals and time range restrictions. Flutter uses `TimePicker` while Web uses `TimePicker`.
 
 ## Flutter (coui_flutter)
 
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic 24-Hour TimePicker
 
 ```dart
-CouiTimePicker(
+TimePicker(
   value: selectedTime,
   onChanged: handleTimeChanged,
 )
@@ -29,7 +29,7 @@ CouiTimePicker(
 ### 12-Hour Format with 15-Minute Intervals
 
 ```dart
-CouiTimePicker(
+TimePicker(
   value: appointmentTime,
   onChanged: handleAppointmentTimeChanged,
   format: TimeFormat.h12,
@@ -40,7 +40,7 @@ CouiTimePicker(
 ### Time Range Restriction
 
 ```dart
-CouiTimePicker(
+TimePicker(
   value: businessTime,
   onChanged: handleBusinessTimeChanged,
   minTime: TimeOfDay(hour: 9, minute: 0),
@@ -111,7 +111,7 @@ TimePicker(
 
 | Concept | Flutter | Web |
 |---------|---------|-----|
-| Component | `CouiTimePicker` | `TimePicker` |
+| Component | `TimePicker` | `TimePicker` |
 | Time value | `TimeOfDay` object | `TimeOfDay` or string |
 | Format enum | `TimeFormat.h12` / `TimeFormat.h24` | `'12h'` / `'24h'` (string) |
 | Min/max time | `TimeOfDay(hour: 9, minute: 0)` | `'09:00'` (string) |

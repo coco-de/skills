@@ -1,6 +1,6 @@
 ---
 name: coui-tree
-description: Activate when creating hierarchical tree views, file explorers, organizational charts, or nested category selectors using CouiTree, Tree, TreeNode, showCheckbox, or expandAll in CoUI Flutter or CoUI Web.
+description: Activate when creating hierarchical tree views, file explorers, organizational charts, or nested category selectors using Tree, Tree, TreeNode, showCheckbox, or expandAll in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Tree
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Tree
 
 ```dart
-CouiTree(
+Tree(
   nodes: [
     TreeNode(
       id: 'root',
@@ -46,7 +46,7 @@ CouiTree(
 ### With Checkboxes
 
 ```dart
-CouiTree(
+Tree(
   nodes: categoryTree,
   showCheckbox: true,
   selectable: true,
@@ -59,7 +59,7 @@ CouiTree(
 ### Fully Expanded
 
 ```dart
-CouiTree(
+Tree(
   nodes: fileStructure,
   expandAll: true,
   onNodeTap: handleNodeTapped,
@@ -68,7 +68,7 @@ CouiTree(
 
 ### Key Classes
 
-#### CouiTree
+#### Tree
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -90,7 +90,7 @@ CouiTree(
 ### File Explorer Pattern
 
 ```dart
-CouiTree(
+Tree(
   nodes: [
     TreeNode(id: 'lib', label: 'lib', children: [
       TreeNode(id: 'src', label: 'src', children: [

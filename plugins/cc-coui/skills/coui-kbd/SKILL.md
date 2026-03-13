@@ -1,6 +1,6 @@
 ---
 name: coui-kbd
-description: Activate when creating keyboard key displays, shortcut key indicators, or key combination badges using CouiKbd/KbdSize (Flutter) or Kbd (Web) in CoUI Flutter or CoUI Web.
+description: Activate when creating keyboard key displays, shortcut key indicators, or key combination badges using Kbd/KbdSize (Flutter) or Kbd (Web) in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Kbd
@@ -21,13 +21,13 @@ import 'package:coui_flutter/coui_flutter.dart';
 
 ```dart
 // Single key
-CouiKbd(keys: ['Ctrl'])
+Kbd(keys: ['Ctrl'])
 
 // Key combination
-CouiKbd(keys: ['Ctrl', 'C'])
+Kbd(keys: ['Ctrl', 'C'])
 
 // Complex shortcut
-CouiKbd(keys: ['Ctrl', 'Shift', 'P'])
+Kbd(keys: ['Ctrl', 'Shift', 'P'])
 ```
 
 ### Parameters
@@ -48,7 +48,7 @@ CouiKbd(keys: ['Ctrl', 'Shift', 'P'])
 ### Mac-Style Keys
 
 ```dart
-CouiKbd(keys: ['⌘', 'K'])
+Kbd(keys: ['⌘', 'K'])
 ```
 
 ### Inline with Text
@@ -58,7 +58,7 @@ Text.rich(
   TextSpan(
     children: [
       TextSpan(text: '저장하려면 '),
-      WidgetSpan(child: CouiKbd(keys: ['Ctrl', 'S'])),
+      WidgetSpan(child: Kbd(keys: ['Ctrl', 'S'])),
       TextSpan(text: '를 누르세요.'),
     ],
   ),
@@ -99,7 +99,7 @@ Kbd(keys: ['⌘', 'K'])
 
 | Aspect | Flutter | Web |
 |--------|---------|-----|
-| Widget name | `CouiKbd` | `Kbd` |
+| Widget name | `Kbd` | `Kbd` |
 | Size support | `KbdSize` enum | `KbdSize` enum |
 | Inline usage | `WidgetSpan` wrapping | Inline component |
 

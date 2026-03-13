@@ -1,6 +1,6 @@
 ---
 name: coui-collapsible
-description: Activate when creating collapsible sections, expandable panels, or toggle-to-reveal content areas using CouiCollapsible, Collapsible, isExpanded, or onToggle in CoUI Flutter or CoUI Web.
+description: Activate when creating collapsible sections, expandable panels, or toggle-to-reveal content areas using Collapsible, Collapsible, isExpanded, or onToggle in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Collapsible
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Collapsible
 
 ```dart
-CouiCollapsible(
+Collapsible(
   title: 'Details',
   child: const Text('Detailed content is displayed here.'),
 )
@@ -29,7 +29,7 @@ CouiCollapsible(
 ### Controlled State
 
 ```dart
-CouiCollapsible(
+Collapsible(
   title: 'Terms and Conditions',
   isExpanded: _isTermsExpanded,
   onToggle: () {
@@ -42,7 +42,7 @@ CouiCollapsible(
 ### With Custom Icon
 
 ```dart
-CouiCollapsible(
+Collapsible(
   title: 'Filter Options',
   isExpanded: _isFilterExpanded,
   onToggle: () {
@@ -55,7 +55,7 @@ CouiCollapsible(
 
 ### Key Classes
 
-#### CouiCollapsible
+#### Collapsible
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -70,7 +70,7 @@ CouiCollapsible(
 ```dart
 Column(
   children: [
-    CouiCollapsible(
+    Collapsible(
       title: 'Advanced Settings',
       icon: const Icon(Icons.settings),
       isExpanded: _showAdvanced,

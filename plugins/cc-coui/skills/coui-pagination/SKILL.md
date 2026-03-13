@@ -1,6 +1,6 @@
 ---
 name: coui-pagination
-description: Activate when creating page navigation controls, paginated lists, or multi-page content navigation using CouiPagination, Pagination, or onPageChanged in CoUI Flutter or CoUI Web.
+description: Activate when creating page navigation controls, paginated lists, or multi-page content navigation using Pagination, Pagination, or onPageChanged in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Pagination
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Pagination
 
 ```dart
-CouiPagination(
+Pagination(
   totalPages: 10,
   currentPage: _currentPage,
   onPageChanged: (page) {
@@ -32,7 +32,7 @@ CouiPagination(
 ### Advanced Configuration
 
 ```dart
-CouiPagination(
+Pagination(
   totalPages: 20,
   currentPage: _currentPage,
   onPageChanged: (page) {
@@ -46,7 +46,7 @@ CouiPagination(
 
 ### Key Classes
 
-#### CouiPagination
+#### Pagination
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -71,7 +71,7 @@ Column(
         },
       ),
     ),
-    CouiPagination(
+    Pagination(
       totalPages: (items.length / itemsPerPage).ceil(),
       currentPage: _currentPage,
       onPageChanged: (page) => setState(() => _currentPage = page),

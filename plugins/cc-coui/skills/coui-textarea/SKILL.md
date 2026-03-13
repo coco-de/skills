@@ -1,13 +1,13 @@
 ---
 name: coui-textarea
-description: Activate when creating multi-line text inputs, auto-expanding text areas, or text fields with character limits using CouiTextArea, TextArea, TextAreaResize in CoUI Flutter or CoUI Web.
+description: Activate when creating multi-line text inputs, auto-expanding text areas, or text fields with character limits using TextArea, TextArea, TextAreaResize in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI TextArea
 
 ## Overview
 
-The TextArea is a multi-line text input component that supports auto-height adjustment and character limit features. Flutter uses `CouiTextArea` while Web uses `TextArea`.
+The TextArea is a multi-line text input component that supports auto-height adjustment and character limit features. Flutter uses `TextArea` while Web uses `TextArea`.
 
 ## Flutter (coui_flutter)
 
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic TextArea
 
 ```dart
-CouiTextArea(
+TextArea(
   value: description,
   onChanged: handleDescriptionChanged,
   placeholder: '내용을 입력하세요',
@@ -30,7 +30,7 @@ CouiTextArea(
 ### With Character Limit
 
 ```dart
-CouiTextArea(
+TextArea(
   value: comment,
   onChanged: handleCommentChanged,
   placeholder: '댓글을 입력하세요',
@@ -43,7 +43,7 @@ CouiTextArea(
 ### Auto-Expanding
 
 ```dart
-CouiTextArea(
+TextArea(
   value: note,
   onChanged: handleNoteChanged,
   minLines: 2,
@@ -55,7 +55,7 @@ CouiTextArea(
 ### With Character Counter
 
 ```dart
-CouiTextArea(
+TextArea(
   value: bio,
   onChanged: handleBioChanged,
   placeholder: '자기소개를 입력하세요',
@@ -120,5 +120,5 @@ TextArea(
 
 | Concept | Flutter | Web |
 |---------|---------|-----|
-| Component | `CouiTextArea` | `TextArea` |
+| Component | `TextArea` | `TextArea` |
 | Resize type | `TextAreaResize.vertical` | `'vertical'` (string) |

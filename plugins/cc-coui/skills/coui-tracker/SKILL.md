@@ -1,6 +1,6 @@
 ---
 name: coui-tracker
-description: Activate when creating segmented progress trackers, uptime monitors, habit tracking displays, or streak visualizations using CouiTracker/TrackerSegment/TrackerStatus/TrackerSize/TrackerVariant (Flutter) or Tracker (Web) in CoUI Flutter or CoUI Web.
+description: Activate when creating segmented progress trackers, uptime monitors, habit tracking displays, or streak visualizations using Tracker/TrackerSegment/TrackerStatus/TrackerSize/TrackerVariant (Flutter) or Tracker (Web) in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Tracker
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Usage
 
 ```dart
-CouiTracker(
+Tracker(
   segments: [
     TrackerSegment(status: TrackerStatus.success),
     TrackerSegment(status: TrackerStatus.warning),
@@ -31,7 +31,7 @@ CouiTracker(
 )
 ```
 
-### CouiTracker Parameters
+### Tracker Parameters
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -49,7 +49,7 @@ CouiTracker(
 ### With Tooltips
 
 ```dart
-CouiTracker(
+Tracker(
   segments: [
     TrackerSegment(status: TrackerStatus.success, tooltip: 'Day 1: 100%'),
     TrackerSegment(status: TrackerStatus.success, tooltip: 'Day 2: 99.9%'),
@@ -62,7 +62,7 @@ CouiTracker(
 ### Dynamic Generation
 
 ```dart
-CouiTracker(
+Tracker(
   segments: List.generate(30, (i) => TrackerSegment(
     status: data[i] > 0.95
         ? TrackerStatus.success
@@ -123,7 +123,7 @@ Tracker(
 
 | Aspect | Flutter | Web |
 |--------|---------|-----|
-| Widget name | `CouiTracker` | `Tracker` |
+| Widget name | `Tracker` | `Tracker` |
 | API | Identical parameters | Identical parameters |
 
 ### When to Use

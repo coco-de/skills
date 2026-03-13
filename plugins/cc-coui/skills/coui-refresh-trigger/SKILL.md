@@ -1,6 +1,6 @@
 ---
 name: coui-refresh-trigger
-description: Activate when creating pull-to-refresh interactions, refresh indicators, or scroll-triggered content updates using CouiRefreshTrigger, RefreshTrigger, or onRefresh in CoUI Flutter or CoUI Web.
+description: Activate when creating pull-to-refresh interactions, refresh indicators, or scroll-triggered content updates using RefreshTrigger, RefreshTrigger, or onRefresh in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI RefreshTrigger
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic RefreshTrigger
 
 ```dart
-CouiRefreshTrigger(
+RefreshTrigger(
   onRefresh: () async {
     await fetchLatestData();
   },
@@ -36,7 +36,7 @@ CouiRefreshTrigger(
 ### Custom Displacement and Color
 
 ```dart
-CouiRefreshTrigger(
+RefreshTrigger(
   onRefresh: () async {
     await fetchLatestData();
   },
@@ -52,7 +52,7 @@ CouiRefreshTrigger(
 
 ### Key Classes
 
-#### CouiRefreshTrigger
+#### RefreshTrigger
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -64,7 +64,7 @@ CouiRefreshTrigger(
 ### Feed Refresh Pattern
 
 ```dart
-CouiRefreshTrigger(
+RefreshTrigger(
   onRefresh: () async {
     final newItems = await api.fetchFeed();
     setState(() => _items = newItems);

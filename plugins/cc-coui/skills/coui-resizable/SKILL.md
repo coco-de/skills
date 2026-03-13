@@ -1,6 +1,6 @@
 ---
 name: coui-resizable
-description: Activate when creating resizable split panels, draggable dividers, or adjustable layout panes using CouiResizable, Resizable, initialSizes, or onResize in CoUI Flutter or CoUI Web.
+description: Activate when creating resizable split panels, draggable dividers, or adjustable layout panes using Resizable, Resizable, initialSizes, or onResize in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Resizable
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Horizontal Split
 
 ```dart
-CouiResizable(
+Resizable(
   direction: Axis.horizontal,
   initialSizes: [0.3, 0.7],
   children: [
@@ -33,7 +33,7 @@ CouiResizable(
 ### Vertical Split with Constraints
 
 ```dart
-CouiResizable(
+Resizable(
   direction: Axis.vertical,
   initialSizes: [0.6, 0.4],
   minSize: 100,
@@ -51,7 +51,7 @@ CouiResizable(
 ### Three-Panel Layout
 
 ```dart
-CouiResizable(
+Resizable(
   direction: Axis.horizontal,
   initialSizes: [0.2, 0.6, 0.2],
   children: [
@@ -64,7 +64,7 @@ CouiResizable(
 
 ### Key Classes
 
-#### CouiResizable
+#### Resizable
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -78,13 +78,13 @@ CouiResizable(
 ### IDE Layout Pattern (Nested)
 
 ```dart
-CouiResizable(
+Resizable(
   direction: Axis.horizontal,
   initialSizes: [0.25, 0.75],
   minSize: 150,
   children: [
     const FileExplorerPanel(),
-    CouiResizable(
+    Resizable(
       direction: Axis.vertical,
       initialSizes: [0.7, 0.3],
       children: [

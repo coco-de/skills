@@ -1,13 +1,13 @@
 ---
 name: coui-fieldset
-description: Activate when creating fieldsets, form groups, form sections, or grouped form fields with legends using CouiFieldset, Fieldset in CoUI Flutter or CoUI Web.
+description: Activate when creating fieldsets, form groups, form sections, or grouped form fields with legends using Fieldset, Fieldset in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Fieldset
 
 ## Overview
 
-The Fieldset is a container component that groups related form fields logically and visually, with a legend title and optional description. It can also disable all contained fields at once. Flutter uses `CouiFieldset` while Web uses `Fieldset`.
+The Fieldset is a container component that groups related form fields logically and visually, with a legend title and optional description. It can also disable all contained fields at once. Flutter uses `Fieldset` while Web uses `Fieldset`.
 
 ## Flutter (coui_flutter)
 
@@ -20,11 +20,11 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Fieldset
 
 ```dart
-CouiFieldset(
+Fieldset(
   legend: '기본 정보',
   children: [
-    CouiInput(label: '이름', onChanged: handleNameChanged),
-    CouiInput(label: '이메일', onChanged: handleEmailChanged),
+    Input(label: '이름', onChanged: handleNameChanged),
+    Input(label: '이메일', onChanged: handleEmailChanged),
   ],
 )
 ```
@@ -32,13 +32,13 @@ CouiFieldset(
 ### With Description
 
 ```dart
-CouiFieldset(
+Fieldset(
   legend: '결제 정보',
   description: '안전하게 암호화되어 처리됩니다',
   children: [
-    CouiInput(label: '카드 번호', onChanged: handleCardNumberChanged),
-    CouiInput(label: '유효기간', onChanged: handleExpiryChanged),
-    CouiInput(label: 'CVV', onChanged: handleCvvChanged),
+    Input(label: '카드 번호', onChanged: handleCardNumberChanged),
+    Input(label: '유효기간', onChanged: handleExpiryChanged),
+    Input(label: 'CVV', onChanged: handleCvvChanged),
   ],
 )
 ```
@@ -46,12 +46,12 @@ CouiFieldset(
 ### Disabled Fieldset
 
 ```dart
-CouiFieldset(
+Fieldset(
   legend: '배송 정보',
   disabled: true,
   children: [
-    CouiInput(label: '주소', onChanged: handleAddressChanged),
-    CouiInput(label: '우편번호', onChanged: handleZipCodeChanged),
+    Input(label: '주소', onChanged: handleAddressChanged),
+    Input(label: '우편번호', onChanged: handleZipCodeChanged),
   ],
 )
 ```
@@ -110,6 +110,6 @@ Fieldset(
 
 | Concept | Flutter | Web |
 |---------|---------|-----|
-| Component | `CouiFieldset` | `Fieldset` |
-| Child inputs | `CouiInput` | `Input` |
+| Component | `Fieldset` | `Fieldset` |
+| Child inputs | `Input` | `Input` |
 | API structure | Identical | Identical |

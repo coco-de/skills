@@ -1,13 +1,13 @@
 ---
 name: coui-chip-input
-description: Activate when creating chip inputs, tag inputs, multi-value text inputs, or token fields using CouiChipInput, ChipInput in CoUI Flutter or CoUI Web.
+description: Activate when creating chip inputs, tag inputs, multi-value text inputs, or token fields using ChipInput, ChipInput in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI ChipInput
 
 ## Overview
 
-The ChipInput is a multi-item input component where users type text and press Enter to add items as chips (tags). It supports maximum chip limits, input validation, and individual add/remove callbacks. Flutter uses `CouiChipInput` while Web uses `ChipInput`.
+The ChipInput is a multi-item input component where users type text and press Enter to add items as chips (tags). It supports maximum chip limits, input validation, and individual add/remove callbacks. Flutter uses `ChipInput` while Web uses `ChipInput`.
 
 ## Flutter (coui_flutter)
 
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Chip Input
 
 ```dart
-CouiChipInput(
+ChipInput(
   values: selectedTags,
   onChanged: handleTagsChanged,
   placeholder: '태그 입력 후 Enter',
@@ -30,7 +30,7 @@ CouiChipInput(
 ### With Maximum Chips Limit
 
 ```dart
-CouiChipInput(
+ChipInput(
   values: selectedSkills,
   onChanged: handleSkillsChanged,
   onAdd: handleSkillAdded,
@@ -43,7 +43,7 @@ CouiChipInput(
 ### With Input Validation
 
 ```dart
-CouiChipInput(
+ChipInput(
   values: emailList,
   onChanged: handleEmailListChanged,
   placeholder: '이메일 추가',
@@ -107,5 +107,5 @@ ChipInput(
 
 | Concept | Flutter | Web |
 |---------|---------|-----|
-| Component | `CouiChipInput` | `ChipInput` |
+| Component | `ChipInput` | `ChipInput` |
 | API structure | Identical | Identical |

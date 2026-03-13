@@ -1,13 +1,13 @@
 ---
 name: coui-star-rating
-description: Activate when creating star ratings, review ratings, half-star ratings, or read-only rating displays using CouiStarRating, StarRating in CoUI Flutter or CoUI Web.
+description: Activate when creating star ratings, review ratings, half-star ratings, or read-only rating displays using StarRating, StarRating in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI StarRating
 
 ## Overview
 
-The StarRating component enables users to input or display ratings using star icons. It supports interactive rating input, read-only display mode, half-star increments, and customizable star count and color. Flutter uses `CouiStarRating` while Web uses `StarRating`.
+The StarRating component enables users to input or display ratings using star icons. It supports interactive rating input, read-only display mode, half-star increments, and customizable star count and color. Flutter uses `StarRating` while Web uses `StarRating`.
 
 ## Flutter (coui_flutter)
 
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Rating Input
 
 ```dart
-CouiStarRating(
+StarRating(
   value: userRating,
   onChanged: handleRatingChanged,
 )
@@ -29,7 +29,7 @@ CouiStarRating(
 ### Read-Only Display
 
 ```dart
-CouiStarRating(
+StarRating(
   value: productRating,
   readOnly: true,
   size: 20,
@@ -39,7 +39,7 @@ CouiStarRating(
 ### Half-Star Support
 
 ```dart
-CouiStarRating(
+StarRating(
   value: reviewRating,
   onChanged: handleReviewRatingChanged,
   allowHalf: true,
@@ -110,5 +110,5 @@ StarRating(
 
 | Concept | Flutter | Web |
 |---------|---------|-----|
-| Component | `CouiStarRating` | `StarRating` |
+| Component | `StarRating` | `StarRating` |
 | API structure | Identical | Identical |

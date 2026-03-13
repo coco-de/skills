@@ -1,6 +1,6 @@
 ---
 name: coui-join
-description: Activate when creating joined button groups, input-button combinations, or visually connected element groups using CouiJoin, Join, or shared-border layouts in CoUI Flutter or CoUI Web.
+description: Activate when creating joined button groups, input-button combinations, or visually connected element groups using Join, Join, or shared-border layouts in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Join
@@ -20,12 +20,12 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Horizontal Button Group
 
 ```dart
-CouiJoin(
+Join(
   direction: Axis.horizontal,
   children: [
-    CouiButton(onPressed: () {}, child: const Icon(Icons.format_bold)),
-    CouiButton(onPressed: () {}, child: const Icon(Icons.format_italic)),
-    CouiButton(onPressed: () {}, child: const Icon(Icons.format_underline)),
+    Button(onPressed: () {}, child: const Icon(Icons.format_bold)),
+    Button(onPressed: () {}, child: const Icon(Icons.format_italic)),
+    Button(onPressed: () {}, child: const Icon(Icons.format_underline)),
   ],
 )
 ```
@@ -33,15 +33,15 @@ CouiJoin(
 ### Input with Button
 
 ```dart
-CouiJoin(
+Join(
   children: [
     Expanded(
-      child: CouiInput(
+      child: Input(
         placeholder: 'Search term',
         onChanged: (value) {},
       ),
     ),
-    CouiButton(
+    Button(
       onPressed: () {},
       child: const Icon(Icons.search),
     ),
@@ -52,18 +52,18 @@ CouiJoin(
 ### Vertical Group
 
 ```dart
-CouiJoin(
+Join(
   direction: Axis.vertical,
   children: [
-    CouiButton(onPressed: () {}, child: const Text('Top')),
-    CouiButton(onPressed: () {}, child: const Text('Bottom')),
+    Button(onPressed: () {}, child: const Text('Top')),
+    Button(onPressed: () {}, child: const Text('Bottom')),
   ],
 )
 ```
 
 ### Key Classes
 
-#### CouiJoin
+#### Join
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -74,12 +74,12 @@ CouiJoin(
 ### Toolbar Pattern
 
 ```dart
-CouiJoin(
+Join(
   children: [
-    CouiButton(onPressed: () {}, child: const Icon(Icons.undo)),
-    CouiButton(onPressed: () {}, child: const Icon(Icons.redo)),
-    CouiButton(onPressed: () {}, child: const Icon(Icons.format_bold)),
-    CouiButton(onPressed: () {}, child: const Icon(Icons.format_italic)),
+    Button(onPressed: () {}, child: const Icon(Icons.undo)),
+    Button(onPressed: () {}, child: const Icon(Icons.redo)),
+    Button(onPressed: () {}, child: const Icon(Icons.format_bold)),
+    Button(onPressed: () {}, child: const Icon(Icons.format_italic)),
   ],
 )
 ```

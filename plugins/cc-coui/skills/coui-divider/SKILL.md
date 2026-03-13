@@ -1,6 +1,6 @@
 ---
 name: coui-divider
-description: Activate when creating visual separators, horizontal/vertical dividers, labeled dividers, or content section separators using CouiDivider/DividerOrientation (Flutter) or Divider (Web) in CoUI Flutter or CoUI Web.
+description: Activate when creating visual separators, horizontal/vertical dividers, labeled dividers, or content section separators using Divider/DividerOrientation (Flutter) or Divider (Web) in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Divider
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Usage
 
 ```dart
-CouiDivider()
+Divider()
 ```
 
 ### Parameters
@@ -37,13 +37,13 @@ CouiDivider()
 ### Vertical Divider
 
 ```dart
-CouiDivider(orientation: DividerOrientation.vertical)
+Divider(orientation: DividerOrientation.vertical)
 ```
 
 ### Custom Styling
 
 ```dart
-CouiDivider(
+Divider(
   thickness: 2,
   color: Colors.grey.shade300,
   indent: 16,
@@ -54,7 +54,7 @@ CouiDivider(
 ### With Label
 
 ```dart
-CouiDivider(label: Text('or'))
+Divider(label: Text('or'))
 ```
 
 ## Web (coui_web)
@@ -100,7 +100,7 @@ Divider(label: Component.text('or'))
 
 | Aspect | Flutter | Web |
 |--------|---------|-----|
-| Widget name | `CouiDivider` | `Divider` |
+| Widget name | `Divider` | `Divider` |
 | Label type | `Widget` | `Component` |
 | API | Identical parameters | Identical parameters |
 

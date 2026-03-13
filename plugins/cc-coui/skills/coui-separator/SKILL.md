@@ -1,6 +1,6 @@
 ---
 name: coui-separator
-description: Activate when creating visual dividers, horizontal/vertical lines, labeled separators, or content section breaks using CouiSeparator, Separator, or SeparatorVariant in CoUI Flutter or CoUI Web.
+description: Activate when creating visual dividers, horizontal/vertical lines, labeled separators, or content section breaks using Separator, Separator, or SeparatorVariant in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Separator
@@ -20,13 +20,13 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Separator
 
 ```dart
-CouiSeparator()
+Separator()
 ```
 
 ### With Label
 
 ```dart
-CouiSeparator(
+Separator(
   label: 'OR',
 )
 ```
@@ -34,7 +34,7 @@ CouiSeparator(
 ### Vertical Separator
 
 ```dart
-CouiSeparator(
+Separator(
   orientation: Axis.vertical,
 )
 ```
@@ -42,7 +42,7 @@ CouiSeparator(
 ### Dashed Variant
 
 ```dart
-CouiSeparator(
+Separator(
   label: 'Social Login',
   variant: SeparatorVariant.dashed,
 )
@@ -50,7 +50,7 @@ CouiSeparator(
 
 ### Key Classes
 
-#### CouiSeparator
+#### Separator
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -73,7 +73,7 @@ Column(
   children: [
     EmailLoginForm(),
     Gap.v(16),
-    CouiSeparator(label: 'OR'),
+    Separator(label: 'OR'),
     Gap.v(16),
     SocialLoginButtons(),
   ],

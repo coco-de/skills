@@ -1,6 +1,6 @@
 ---
 name: coui-swap
-description: Activate when creating animated toggle widgets, state-switching icons, or two-state visual toggles with rotation/flip effects using CouiSwap, Swap, onChild, or offChild in CoUI Flutter or CoUI Web.
+description: Activate when creating animated toggle widgets, state-switching icons, or two-state visual toggles with rotation/flip effects using Swap, Swap, onChild, or offChild in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Swap
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Swap (Menu Toggle)
 
 ```dart
-CouiSwap(
+Swap(
   value: _isMenuOpen,
   onChanged: (value) {
     setState(() => _isMenuOpen = value);
@@ -33,7 +33,7 @@ CouiSwap(
 ### With Rotation Animation
 
 ```dart
-CouiSwap(
+Swap(
   value: _isFavorite,
   onChanged: (value) {
     setState(() => _isFavorite = value);
@@ -47,7 +47,7 @@ CouiSwap(
 ### With Flip Animation
 
 ```dart
-CouiSwap(
+Swap(
   value: _isFlipped,
   onChanged: (value) {
     setState(() => _isFlipped = value);
@@ -60,7 +60,7 @@ CouiSwap(
 
 ### Key Classes
 
-#### CouiSwap
+#### Swap
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -74,7 +74,7 @@ CouiSwap(
 ### Theme Toggle Pattern
 
 ```dart
-CouiSwap(
+Swap(
   value: _isDarkMode,
   onChanged: (value) {
     setState(() => _isDarkMode = value);

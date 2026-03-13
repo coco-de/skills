@@ -1,6 +1,6 @@
 ---
 name: coui-empty-state
-description: Activate when creating empty state views, no-data placeholders, empty list indicators, or zero-state screens with icons, titles, descriptions, and action buttons using CouiEmptyState (Flutter) or EmptyState (Web) in CoUI Flutter or CoUI Web.
+description: Activate when creating empty state views, no-data placeholders, empty list indicators, or zero-state screens with icons, titles, descriptions, and action buttons using EmptyState (Flutter) or EmptyState (Web) in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI EmptyState
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Usage
 
 ```dart
-CouiEmptyState(
+EmptyState(
   icon: Icon(Icons.inbox_outlined, size: 48),
   title: 'No messages received',
   description: 'New messages will appear here when they arrive.',
@@ -39,11 +39,11 @@ CouiEmptyState(
 ### With Action Button
 
 ```dart
-CouiEmptyState(
+EmptyState(
   icon: Icon(Icons.folder_open_outlined, size: 48),
   title: 'No files',
   description: 'Upload files or create folders to get started.',
-  action: CouiButton.primary(
+  action: Button.primary(
     onPressed: handleUpload,
     child: Text('Upload File'),
   ),
@@ -88,8 +88,8 @@ EmptyState(
 
 | Aspect | Flutter | Web |
 |--------|---------|-----|
-| Widget name | `CouiEmptyState` | `EmptyState` |
-| Action button | `CouiButton.primary()` | `Button.primary()` |
+| Widget name | `EmptyState` | `EmptyState` |
+| Action button | `Button.primary()` | `Button.primary()` |
 | Child types | `Widget` | `Component` |
 
 ### When to Use

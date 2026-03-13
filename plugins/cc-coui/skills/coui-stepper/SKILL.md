@@ -1,6 +1,6 @@
 ---
 name: coui-stepper
-description: Activate when creating multi-step forms, wizard flows, step-by-step processes, or interactive step navigation using CouiStepper, Stepper, StepItem, or StepperOrientation in CoUI Flutter or CoUI Web.
+description: Activate when creating multi-step forms, wizard flows, step-by-step processes, or interactive step navigation using Stepper, Stepper, StepItem, or StepperOrientation in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Stepper
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Horizontal Stepper
 
 ```dart
-CouiStepper(
+Stepper(
   currentStep: _currentStep,
   onStepTap: (step) {
     setState(() => _currentStep = step);
@@ -37,7 +37,7 @@ CouiStepper(
 ### Vertical Stepper
 
 ```dart
-CouiStepper(
+Stepper(
   currentStep: _currentStep,
   onStepTap: (step) {
     setState(() => _currentStep = step);
@@ -53,7 +53,7 @@ CouiStepper(
 
 ### Key Classes
 
-#### CouiStepper
+#### Stepper
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
@@ -74,7 +74,7 @@ CouiStepper(
 ```dart
 Column(
   children: [
-    CouiStepper(
+    Stepper(
       currentStep: _currentStep,
       onStepTap: (step) => setState(() => _currentStep = step),
       steps: [

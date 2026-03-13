@@ -1,6 +1,6 @@
 ---
 name: coui-link
-description: Activate when creating text links, navigation links, external URL links, or styled hyperlinks using CouiLink/LinkVariant (Flutter) or Link (Web) in CoUI Flutter or CoUI Web.
+description: Activate when creating text links, navigation links, external URL links, or styled hyperlinks using Link/LinkVariant (Flutter) or Link (Web) in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Link
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Usage
 
 ```dart
-CouiLink(
+Link(
   onTap: handleNavigateToProfile,
   child: Text('프로필 보기'),
 )
@@ -39,7 +39,7 @@ CouiLink(
 ### External Link
 
 ```dart
-CouiLink(
+Link(
   href: 'https://coui.cocode.im',
   isExternal: true,
   child: Text('CoUI 문서'),
@@ -88,7 +88,7 @@ Link(
 
 | Aspect | Flutter | Web |
 |--------|---------|-----|
-| Widget name | `CouiLink` | `Link` |
+| Widget name | `Link` | `Link` |
 | Navigation | `onTap` callback or `href` | `href` string |
 | Child type | `Widget` | `Component` |
 

@@ -1,6 +1,6 @@
 ---
 name: coui-icon
-description: Activate when creating icons, vector icon displays, or using CouiIcons preset icons with CouiIcon (Flutter) or Icon (Web) in CoUI Flutter or CoUI Web.
+description: Activate when creating icons, vector icon displays, or using CouiIcons preset icons with Icon (Flutter) or Icon (Web) in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Icon
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Usage
 
 ```dart
-CouiIcon(
+Icon(
   icon: CouiIcons.home,
 )
 ```
@@ -37,7 +37,7 @@ CouiIcon(
 ### With All Parameters
 
 ```dart
-CouiIcon(
+Icon(
   icon: CouiIcons.delete,
   size: 20.0,
   color: Colors.red,
@@ -48,11 +48,11 @@ CouiIcon(
 ### Icon in Button Pattern
 
 ```dart
-CouiButton(
+Button(
   onPressed: handleShare,
   child: Row(
     children: [
-      CouiIcon(icon: CouiIcons.share, size: 20.0),
+      Icon(icon: CouiIcons.share, size: 20.0),
       SizedBox(width: 8),
       Text('공유'),
     ],
@@ -105,7 +105,7 @@ Icon(
 
 | Aspect | Flutter | Web |
 |--------|---------|-----|
-| Widget name | `CouiIcon` | `Icon` |
+| Widget name | `Icon` | `Icon` |
 | Icon set | `CouiIcons` + system `Icons` | `CouiIcons` |
 | Sizing | `size` param or theme default | `size` param |
 | Color | `color` param or theme color | `color` param |

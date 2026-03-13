@@ -1,13 +1,13 @@
 ---
 name: coui-sortable
-description: Activate when creating sortable lists, drag-and-drop reordering, reorderable items, or draggable lists using CouiSortable, Sortable in CoUI Flutter or CoUI Web.
+description: Activate when creating sortable lists, drag-and-drop reordering, reorderable items, or draggable lists using Sortable, Sortable in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Sortable
 
 ## Overview
 
-The Sortable component enables drag-and-drop reordering of list items, supporting both vertical and horizontal orientations with optional drag handles and custom drag feedback. Flutter uses `CouiSortable<T>` with generic typing while Web uses `Sortable`.
+The Sortable component enables drag-and-drop reordering of list items, supporting both vertical and horizontal orientations with optional drag handles and custom drag feedback. Flutter uses `Sortable<T>` with generic typing while Web uses `Sortable`.
 
 ## Flutter (coui_flutter)
 
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Drag Sorting
 
 ```dart
-CouiSortable<String>(
+Sortable<String>(
   items: taskList,
   onReorder: handleTaskReorder,
   itemBuilder: (context, item, index) {
@@ -34,7 +34,7 @@ CouiSortable<String>(
 ### With Drag Handle
 
 ```dart
-CouiSortable<TaskItem>(
+Sortable<TaskItem>(
   items: tasks,
   onReorder: handleTasksReorder,
   handle: const Icon(Icons.drag_handle),
@@ -47,7 +47,7 @@ CouiSortable<TaskItem>(
 ### Horizontal Orientation
 
 ```dart
-CouiSortable<String>(
+Sortable<String>(
   items: categories,
   onReorder: handleCategoriesReorder,
   direction: Axis.horizontal,
@@ -60,7 +60,7 @@ CouiSortable<String>(
 ### With Handle Icon Variant
 
 ```dart
-CouiSortable<MenuItem>(
+Sortable<MenuItem>(
   items: menuItems,
   onReorder: handleMenuReorder,
   handle: const Icon(Icons.drag_indicator),
@@ -122,7 +122,7 @@ Sortable(
 
 | Concept | Flutter | Web |
 |---------|---------|-----|
-| Component | `CouiSortable<T>` | `Sortable` |
+| Component | `Sortable<T>` | `Sortable` |
 | Direction | `Axis.horizontal` | `'horizontal'` (string) |
 | Item builder | `(BuildContext, T, int)` | `(T, int)` |
 | Generic typing | Supports `<T>` | Untyped |

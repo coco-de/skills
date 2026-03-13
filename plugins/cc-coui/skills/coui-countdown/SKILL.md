@@ -1,6 +1,6 @@
 ---
 name: coui-countdown
-description: Activate when creating countdown timers, time-remaining displays, event countdowns, or session timeout indicators using CouiCountdown/CountdownFormat (Flutter) or Countdown (Web) in CoUI Flutter or CoUI Web.
+description: Activate when creating countdown timers, time-remaining displays, event countdowns, or session timeout indicators using Countdown/CountdownFormat (Flutter) or Countdown (Web) in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI Countdown
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Usage
 
 ```dart
-CouiCountdown(
+Countdown(
   targetDate: DateTime(2026, 12, 31, 23, 59, 59),
 )
 ```
@@ -38,7 +38,7 @@ CouiCountdown(
 ### With Completion Callback
 
 ```dart
-CouiCountdown(
+Countdown(
   targetDate: saleEndDate,
   onComplete: handleSaleEnd,
 )
@@ -47,7 +47,7 @@ CouiCountdown(
 ### Seconds-Only Display
 
 ```dart
-CouiCountdown(
+Countdown(
   targetDate: DateTime.now().add(Duration(seconds: 30)),
   format: CountdownFormat.secondsOnly,
   onComplete: handleTimeOut,
@@ -57,7 +57,7 @@ CouiCountdown(
 ### Styled Timer
 
 ```dart
-CouiCountdown(
+Countdown(
   targetDate: launchDate,
   style: TextStyle(
     fontSize: 48,
@@ -109,7 +109,7 @@ Countdown(
 
 | Aspect | Flutter | Web |
 |--------|---------|-----|
-| Widget name | `CouiCountdown` | `Countdown` |
+| Widget name | `Countdown` | `Countdown` |
 | API | Identical parameters | Identical parameters |
 
 ### When to Use

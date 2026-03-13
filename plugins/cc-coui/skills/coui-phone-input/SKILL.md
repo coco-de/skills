@@ -1,13 +1,13 @@
 ---
 name: coui-phone-input
-description: Activate when creating phone number inputs, country code selectors, international phone fields, or dial code inputs using CouiPhoneInput, PhoneInput in CoUI Flutter or CoUI Web.
+description: Activate when creating phone number inputs, country code selectors, international phone fields, or dial code inputs using PhoneInput, PhoneInput in CoUI Flutter or CoUI Web.
 ---
 
 # CoUI PhoneInput
 
 ## Overview
 
-The PhoneInput is a form component for entering phone numbers with country code selection. It automatically applies country-specific formatting based on the selected country. Flutter uses `CouiPhoneInput` while Web uses `PhoneInput`.
+The PhoneInput is a form component for entering phone numbers with country code selection. It automatically applies country-specific formatting based on the selected country. Flutter uses `PhoneInput` while Web uses `PhoneInput`.
 
 ## Flutter (coui_flutter)
 
@@ -20,7 +20,7 @@ import 'package:coui_flutter/coui_flutter.dart';
 ### Basic Phone Number Input
 
 ```dart
-CouiPhoneInput(
+PhoneInput(
   value: phoneNumber,
   onChanged: handlePhoneChanged,
   defaultCountry: 'KR',
@@ -30,7 +30,7 @@ CouiPhoneInput(
 ### With Dial Code Display and Validation
 
 ```dart
-CouiPhoneInput(
+PhoneInput(
   value: phoneNumber,
   onChanged: handlePhoneChanged,
   defaultCountry: 'KR',
@@ -45,7 +45,7 @@ CouiPhoneInput(
 ### With Country Restrictions
 
 ```dart
-CouiPhoneInput(
+PhoneInput(
   value: phoneNumber,
   onChanged: handlePhoneChanged,
   countries: ['KR', 'US', 'JP', 'CN'],
@@ -106,5 +106,5 @@ PhoneInput(
 
 | Concept | Flutter | Web |
 |---------|---------|-----|
-| Component | `CouiPhoneInput` | `PhoneInput` |
+| Component | `PhoneInput` | `PhoneInput` |
 | API structure | Identical | Identical |
