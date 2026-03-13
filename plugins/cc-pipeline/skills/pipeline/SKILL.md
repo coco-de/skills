@@ -24,7 +24,7 @@ description: 프로젝트 파이프라인 오케스트레이션 (Discovery → L
 Discovery → Planning → Design → Epic Creation → Development → Launch
     │           │          │           │              │           │
     ▼           ▼          ▼           ▼              ▼           ▼
-cc-pm-*     cc-bmad    cc-bmad    cc-workflow     cc-workflow  cc-pm-gtm
+cc-pm-*     cc-bmad    cc-bmad    cc-dev-cycle     cc-dev-cycle  cc-pm-gtm
 cc-bmad     cc-pm-*               cc-bmad         cc-bmad      cc-pm-analytics
 ```
 

@@ -2,7 +2,7 @@
 
 ## 개요
 
-cc-pipeline은 Cocode 팀의 프로젝트 라이프사이클을 6단계 파이프라인으로 관리하는 오케스트레이션 플러그인입니다. 기존 플러그인(cc-bmad, cc-pm-*, cc-workflow)을 수정하지 않고 위에서 조율합니다.
+cc-pipeline은 Cocode 팀의 프로젝트 라이프사이클을 6단계 파이프라인으로 관리하는 오케스트레이션 플러그인입니다. 기존 플러그인(cc-bmad, cc-pm-*, cc-dev-cycle)을 수정하지 않고 위에서 조율합니다.
 
 ## 파이프라인 흐름
 
@@ -165,4 +165,4 @@ Discovery를 심층 모드로 실행합니다.
 | cc-pm-strategy | 1-2 | 제품 전략 |
 | cc-pm-gtm | 6 | Go-to-Market |
 | cc-pm-analytics | 6 | 데이터 분석 |
-| cc-workflow | 4-5 | 개발 워크플로우 |
+| cc-dev-cycle | 4-5 | 개발 사이클 |

@@ -38,9 +38,9 @@ claude plugins install coco-de/skills/plugins/cc-bmad
 
 ---
 
-## cc-workflow
+## cc-dev-cycle
 
-**개발 워크플로우** — Issue Cycle, Bug Cycle, Session 관리, ZenHub 연동을 포함합니다.
+**개발 사이클** — Issue Cycle, Bug Cycle, Session 관리, ZenHub 연동을 포함합니다.
 
 | 항목 | 내용 |
 |------|------|
@@ -51,10 +51,10 @@ claude plugins install coco-de/skills/plugins/cc-bmad
 ### 설치
 
 ```
-claude plugins install coco-de/skills/plugins/cc-workflow
+claude plugins install cc-dev-cycle@cocode-skills
 ```
 
-> [상세 페이지 보기 →](/plugins/cc-workflow/)
+> [상세 페이지 보기 →](/plugins/cc-dev-cycle/)
 
 ---
 

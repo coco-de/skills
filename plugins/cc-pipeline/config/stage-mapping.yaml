@@ -85,7 +85,7 @@ design:
 
 epic:
   sources:
-    - plugin: cc-workflow
+    - plugin: cc-dev-cycle
       commands:
         - name: /zenhub:create-epic
           role: ZenHub Epic/Story 생성
@@ -108,7 +108,7 @@ epic:
 
 development:
   sources:
-    - plugin: cc-workflow
+    - plugin: cc-dev-cycle
       commands:
         - name: /workflow
           role: 13단계 개발 사이클
