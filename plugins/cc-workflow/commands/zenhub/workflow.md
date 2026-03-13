@@ -62,9 +62,8 @@ mcp-servers: [zenhub]
 ### 3. 머지 후
 
 ```bash
-# PR 본문의 "Closes #" 키워드로 자동 종료
-# 필요시 수동으로 Done 이동
-/zenhub:workflow move --issue {issue_number} --to "Done"
+# PR 본문의 "Closes #" 키워드로 이슈 자동 Close
+# Done 파이프라인 이동 불필요 — 머지 = 완료
 ```
 
 ## PR 연결 Best Practices
@@ -142,5 +141,5 @@ mcp__zenhub__getWorkspacePipelinesAndRepositories()
 1. **PR 생성 시**: 본문에 `Closes #{issue}` 포함
 2. **작업 시작**: In Progress로 이동
 3. **리뷰 요청**: Review/QA로 이동
-4. **머지 후**: Done으로 자동/수동 이동
+4. **머지 후**: GitHub "Closes #" 키워드로 이슈 자동 Close (Done 파이프라인 무시)
 5. **Epic 구조**: Epic > Story > Sub-task 계층 유지

@@ -76,7 +76,7 @@ foreach issue in epic.children:
 | New Issues | `Z2lkOi8vcmFwdG9yL1BpcGVsaW5lLzM0Mzk2NDM` |
 | In Progress | `Z2lkOi8vcmFwdG9yL1BpcGVsaW5lLzM0Mzk2NDg` |
 | Review/QA | `Z2lkOi8vcmFwdG9yL1BpcGVsaW5lLzM0Mzk2NDk` |
-| Done | `Z2lkOi8vcmFwdG9yL1BpcGVsaW5lLzM0Mzk2NTA` |
+| ~~Done~~ | ~~`Z2lkOi8vcmFwdG9yL1BpcGVsaW5lLzM0Mzk2NTA`~~ (사용하지 않음) |
 
 ## BDD 시나리오 검증 패턴
 

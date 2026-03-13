@@ -58,8 +58,9 @@ mcp-servers: [zenhub]
 └──────────────────────┬───────────────────────────────────────┘
                        ↓
 ┌──────────────────────────────────────────────────────────────┐
-│  6. 완료 & 다음 이슈                                          │
-│     └─ PR 머지 시 자동 이슈 클로즈 (Closes # 키워드)          │
+│  6. 머지 & 다음 이슈                                          │
+│     └─ 스쿼시 머지 → GitHub "Closes #" 키워드로 이슈 자동 Close │
+│     └─ Done 파이프라인 이동 불필요                             │
 │     └─ git checkout development && git pull                  │
 │     └─ Step 1로 돌아가기                                     │
 └──────────────────────────────────────────────────────────────┘
@@ -72,7 +73,7 @@ mcp-servers: [zenhub]
 | New Issues | `Z2lkOi8vcmFwdG9yL1BpcGVsaW5lLzM0Mzk2NDM` |
 | In Progress | `Z2lkOi8vcmFwdG9yL1BpcGVsaW5lLzM0Mzk2NDg` |
 | Review/QA | `Z2lkOi8vcmFwdG9yL1BpcGVsaW5lLzM0Mzk2NDk` |
-| Done | `Z2lkOi8vcmFwdG9yL1BpcGVsaW5lLzM0Mzk2NTA` |
+| ~~Done~~ | ~~`Z2lkOi8vcmFwdG9yL1BpcGVsaW5lLzM0Mzk2NTA`~~ (사용하지 않음) |
 
 ## MCP 도구 사용
 

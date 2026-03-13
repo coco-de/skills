@@ -48,7 +48,7 @@ interface IssueStateResult {
 ### Petmedi 워크스페이스 Pipeline
 
 ```
-New Issues → Backlog → Sprint Backlog → In Progress → Review → Done
+New Issues → Backlog → Sprint Backlog → In Progress → Review/QA → [머지 시 자동 Close]
 ```
 
 | Pipeline | 설명 | 진입 조건 |
@@ -58,7 +58,7 @@ New Issues → Backlog → Sprint Backlog → In Progress → Review → Done
 | Sprint Backlog | 스프린트에 할당됨 | 스프린트 계획 시 |
 | In Progress | 작업 진행 중 | 브랜치 생성 시 |
 | Review | 리뷰 대기 중 | PR 생성 시 |
-| Done | 완료 | PR 머지 시 |
+| ~~Done~~ | ~~완료~~ | 사용하지 않음 (머지 시 GitHub 자동 Close) |
 
 ---
 
@@ -71,15 +71,14 @@ New Issues → Backlog → Sprint Backlog → In Progress → Review → Done
    → move_pipeline: "In Progress"
 
 2. PR 생성 완료
-   → move_pipeline: "Review"
+   → move_pipeline: "Review/QA"
 
 3. PR 머지 완료
-   → move_pipeline: "Done"
-   → close
+   → GitHub "Closes #" 키워드로 이슈 자동 Close
+   → Done 파이프라인 이동 불필요
 
-4. 자식 이슈 모두 완료
-   → 부모 이슈 move_pipeline: "Done"
-   → 부모 이슈 close
+4. 자식 이슈 모두 완료 (부모 이슈)
+   → 부모 이슈 close (Done 이동 없이)
 ```
 
 ---
@@ -231,7 +230,7 @@ const PIPELINE_NAMES = {
   'sprint': 'Sprint Backlog',
   'progress': 'In Progress',
   'review': 'Review',
-  'done': 'Done'
+  // 'done': 'Done'  // Done 파이프라인 사용하지 않음
 };
 
 function getPipelineId(shortName: string, pipelines: Pipeline[]) {
@@ -255,8 +254,7 @@ function getPipelineId(shortName: string, pipelines: Pipeline[]) {
 3. 모든 자식 이슈 상태 확인
    ↓
 4. 모두 CLOSED인 경우:
-   - 부모 이슈 → Done Pipeline
-   - 부모 이슈 클로즈
+   - 부모 이슈 클로즈 (Done 파이프라인 이동 없이)
 ```
 
 ### Epic 자동 완료 조건
@@ -274,8 +272,11 @@ async function checkAndCloseParent(childIssueId: string) {
   const allDone = siblings.every(s => s.state === 'CLOSED');
 
   if (allDone) {
-    // 부모 이슈 클로즈
-    await closeIssue(issue.parentIssue.id);
+    // 부모 이슈 클로즈 (Done 파이프라인 이동 없이 바로 Close)
+    await mcp__zenhub__updateIssue({
+      issueId: issue.parentIssue.id,
+      state: "CLOSED",
+    });
   }
 }
 ```
@@ -306,11 +307,9 @@ async function checkAndCloseParent(childIssueId: string) {
 ### PR 머지 후
 
 ```bash
-# Done으로 이동 및 클로즈
-/workflow:issue-state 25 --action move_pipeline --pipeline "Done"
-/workflow:issue-state 25 --action close
-
-# 부모 이슈 자동 확인됨
+# GitHub "Closes #" 키워드로 이슈 자동 Close
+# Done 파이프라인 이동 불필요 — 머지 = 완료
+# 부모 이슈는 모든 자식 Close 시 자동 확인됨
 ```
 
 ---

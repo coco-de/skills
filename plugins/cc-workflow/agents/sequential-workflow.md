@@ -102,7 +102,7 @@ mcp__zenhub__moveIssueToPipeline({
 | New Issues | `Z2lkOi8vcmFwdG9yL1BpcGVsaW5lLzM0Mzk2NDM` | 대기 중 |
 | In Progress | `Z2lkOi8vcmFwdG9yL1BpcGVsaW5lLzM0Mzk2NDg` | 작업 중 |
 | Review/QA | `Z2lkOi8vcmFwdG9yL1BpcGVsaW5lLzM0Mzk2NDk` | 리뷰 중 |
-| Done | `Z2lkOi8vcmFwdG9yL1BpcGVsaW5lLzM0Mzk2NTA` | 완료 |
+| ~~Done~~ | ~~`Z2lkOi8vcmFwdG9yL1BpcGVsaW5lLzM0Mzk2NTA`~~ | 사용하지 않음 (머지 시 자동 Close) |
 
 ## Repository IDs
 

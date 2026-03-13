@@ -82,7 +82,7 @@
 │  ├── 최종 상태 요약 표시                                            │
 │  ├── 사용자 승인 요청 (AskUserQuestion)                            │
 │  ├── 승인 시 스쿼시 머지 실행                                       │
-│  └── issue-state-agent → "Done" + 이슈 클로즈                     │
+│  └── GitHub "Closes #" 키워드로 이슈 자동 Close                    │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -343,26 +343,9 @@ const approval = await AskUserQuestion({
 });
 
 if (approval === "머지 승인") {
-  // 스쿼시 머지
+  // 스쿼시 머지 → GitHub "Closes #" 키워드로 이슈 자동 Close
+  // Done 파이프라인 이동 불필요 (머지 = 완료)
   await Bash(`gh pr merge --squash --delete-branch`);
-
-  // Pipeline 이동: Done
-  await mcp__zenhub__moveIssueToPipeline({
-    issueId: issueInfo.id,
-    pipelineId: donePipelineId,
-  });
-
-  // 이슈 클로즈
-  await mcp__zenhub__updateIssue({
-    issueId: issueInfo.id,
-    state: "CLOSED",
-  });
-
-  // 부모 이슈 자동 확인
-  if (issueInfo.parentIssue) {
-    console.log(`부모 이슈 #${issueInfo.parentIssue.number} 확인 중...`);
-    // issue-state-agent가 자동으로 부모 이슈 처리
-  }
 }
 ```
 
@@ -396,7 +379,7 @@ if (approval === "머지 승인") {
 ║    - Status: Merged ✅                                         ║
 ║                                                                ║
 ║  📊 Duration: 15m 32s                                          ║
-║  🏁 Final State: CLOSED                                        ║
+║  🏁 Final State: CLOSED (by merge)                             ║
 ║                                                                ║
 ╚════════════════════════════════════════════════════════════════╝
 ```

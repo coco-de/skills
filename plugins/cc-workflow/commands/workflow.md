@@ -192,7 +192,7 @@ mcp-servers: [zenhub]
 │  Step 12: 머지 승인 대기                                         │
 │  ├── 사용자 승인 요청                                            │
 │  ├── 승인 시 스쿼시 머지                                         │
-│  └── Pipeline: Done + 이슈 클로즈                               │
+│  └── GitHub "Closes #" 키워드로 이슈 자동 Close                 │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -478,17 +478,9 @@ const approval = await AskUserQuestion({
 });
 
 if (approval === "머지 승인") {
+  // 스쿼시 머지 → GitHub "Closes #" 키워드로 이슈 자동 Close
+  // Done 파이프라인 이동 불필요 (머지 = 완료)
   await Bash(`gh pr merge --squash --delete-branch`);
-
-  await mcp__zenhub__moveIssueToPipeline({
-    issueId: issue.id,
-    pipelineId: donePipelineId,
-  });
-
-  await mcp__zenhub__updateIssue({
-    issueId: issue.id,
-    state: "CLOSED",
-  });
 }
 ```
 
@@ -546,7 +538,7 @@ if (approval === "머지 승인") {
 ║  ✅ CI: All checks passed                                      ║
 ║                                                                ║
 ║  📊 Duration: 22m 15s                                          ║
-║  🏁 Final State: CLOSED                                        ║
+║  🏁 Final State: CLOSED (by merge)                             ║
 ║                                                                ║
 ╚════════════════════════════════════════════════════════════════╝
 ```

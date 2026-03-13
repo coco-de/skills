@@ -90,10 +90,10 @@
 │  ├── issue-state-agent → "Review"                              │
 │  └── 이슈 자동 연결 (Closes #{number})                          │
 │                                                                 │
-│  Step 7: 머지 및 클로즈 (--no-merge 없을 시)                     │
+│  Step 7: 머지 (--no-merge 없을 시)                               │
 │  ├── 리뷰 대기                                                   │
 │  ├── 스쿼시 머지                                                 │
-│  └── issue-state-agent → "Done"                                │
+│  └── GitHub "Closes #" 키워드로 이슈 자동 Close                  │
 │                                                                 │
 └─────────────────────────────────────────────────────────────────┘
 ```
@@ -218,23 +218,12 @@ await mcp__zenhub__moveIssueToPipeline({
 });
 ```
 
-### Step 7: 머지 및 클로즈
+### Step 7: 머지
 
 ```typescript
-// 스쿼시 머지
+// 스쿼시 머지 → GitHub "Closes #" 키워드로 이슈 자동 Close
+// Done 파이프라인 이동 불필요 (머지 = 완료)
 await Bash(`gh pr merge --squash --delete-branch`);
-
-// Pipeline 이동: Done
-await mcp__zenhub__moveIssueToPipeline({
-  issueId: bugInfo.id,
-  pipelineId: donePipelineId
-});
-
-// 이슈 클로즈
-await mcp__zenhub__updateIssue({
-  issueId: bugInfo.id,
-  state: "CLOSED"
-});
 ```
 
 ---
@@ -264,7 +253,7 @@ await mcp__zenhub__updateIssue({
 ║    - Status: Merged ✅                                         ║
 ║                                                                ║
 ║  📊 Duration: 8m 15s                                           ║
-║  🏁 Final State: CLOSED                                        ║
+║  🏁 Final State: CLOSED (by merge)                             ║
 ║                                                                ║
 ╚════════════════════════════════════════════════════════════════╝
 ```

@@ -46,8 +46,10 @@
 ### 이슈 처리 워크플로우
 
 ```
-New Issues → Product Backlog → Sprint Backlog → In Progress → Review/QA → Done
+New Issues → Product Backlog → Sprint Backlog → In Progress → Review/QA → [머지 시 자동 Close]
 ```
+
+> **Note**: Done 파이프라인은 사용하지 않습니다. PR 머지 시 GitHub `Closes #` 키워드로 이슈가 자동 Close됩니다.
 
 | 단계 | 트리거 | Pipeline |
 |------|--------|----------|
@@ -56,7 +58,7 @@ New Issues → Product Backlog → Sprint Backlog → In Progress → Review/QA 
 | 스프린트 할당 | 스프린트 계획 | Sprint Backlog |
 | **작업 시작** | 브랜치 생성 시 | **In Progress** |
 | **리뷰 요청** | PR 생성 후 | **Review/QA** |
-| **완료** | PR 머지 후 | **Done** |
+| **완료** | PR 머지 → GitHub 자동 Close | ~~Done~~ (사용하지 않음) |
 
 ### MCP 호출 예시
 
@@ -73,11 +75,9 @@ mcp__zenhub__moveIssueToPipeline({
   pipelineId: "Z2lkOi8vcmFwdG9yL1BpcGVsaW5lLzM0OTkyODQ"
 })
 
-// PR 머지 후 (Done으로 이동)
-mcp__zenhub__moveIssueToPipeline({
-  issueId: "{issue.graphqlId}",
-  pipelineId: "Z2lkOi8vcmFwdG9yL1BpcGVsaW5lLzM0OTkyODU"
-})
+// PR 머지 후: Done 파이프라인 이동 불필요
+// GitHub "Closes #" 키워드로 이슈 자동 Close
+// Reopen → Done 이동 같은 불필요한 동작 방지
 ```
 
 ---
