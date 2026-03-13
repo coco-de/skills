@@ -8,7 +8,9 @@
 1. 버그 리포트 생성 (옵션)
 2. 브랜치 생성
 3. 버그 수정 작업
-4. PR 생성 및 머지
+4. 단위 테스트 작성 (프론트엔드 + 백엔드)
+5. 테스트 실행 및 검증
+6. PR 생성 및 머지
 
 ---
 
@@ -80,17 +82,28 @@
 │  ├── 코드 수정                                                   │
 │  └── 증분 커밋 생성                                              │
 │                                                                 │
-│  Step 5: 테스트 실행                                             │
-│  ├── 관련 테스트 실행                                            │
-│  ├── 실패 시 자동 수정 시도                                      │
-│  └── 테스트 추가 (필요시)                                        │
+│  Step 5: 단위 테스트 작성 (필수)                                  │
+│  ├── 프론트엔드 테스트                                            │
+│  │   ├── State copyWith 테스트 (nullable 필드 클리어 등)          │
+│  │   ├── BLoC 이벤트 핸들러 테스트 (상태 전이 검증)               │
+│  │   └── UseCase 파라미터 전달 테스트                             │
+│  ├── 백엔드 테스트                                                │
+│  │   ├── 엔드포인트 인증/권한 테스트                              │
+│  │   ├── 필터 파라미터 전달 통합 테스트                            │
+│  │   └── 서비스 로직 단위 테스트 (해당 시)                        │
+│  └── 테스트 커밋 생성                                             │
 │                                                                 │
-│  Step 6: PR 생성                                                 │
+│  Step 6: 테스트 실행 및 검증                                      │
+│  ├── 전체 테스트 실행 (melos exec -- flutter test)               │
+│  ├── 실패 시 자동 수정 시도                                      │
+│  └── 모든 테스트 통과 확인                                        │
+│                                                                 │
+│  Step 7: PR 생성                                                 │
 │  ├── gh pr create                                               │
 │  ├── issue-state-agent → "Review"                              │
 │  └── 이슈 자동 연결 (Closes #{number})                          │
 │                                                                 │
-│  Step 7: 머지 (--no-merge 없을 시)                               │
+│  Step 8: 머지 (--no-merge 없을 시)                               │
 │  ├── 리뷰 대기                                                   │
 │  ├── 스쿼시 머지                                                 │
 │  └── GitHub "Closes #" 키워드로 이슈 자동 Close                  │
@@ -170,25 +183,87 @@ await mcp__zenhub__moveIssueToPipeline({
 await Bash(`git commit -m "fix(${scope}): 🐛 ${bugInfo.title}"`);
 ```
 
-### Step 5: 테스트 실행
+### Step 5: 단위 테스트 작성 (필수)
+
+**PR 생성 전에 반드시 프론트엔드 + 백엔드 단위 테스트를 작성합니다.**
+
+#### 5-1. 프론트엔드 테스트
+
+변경된 코드의 영역에 따라 아래 테스트를 작성합니다:
 
 ```typescript
-// 관련 테스트 실행
-await Bash(`melos run test:select -- --name "${relatedTestPattern}"`);
+// State 테스트: copyWith, nullable 필드 클리어, Equatable 등
+// 파일: test/presentation/bloc/{feature}_state_test.dart
+// - 초기 상태 기본값 검증
+// - copyWith 업데이트 검증
+// - nullable 필드 클리어 (clearXxx 플래그) 검증
+// - 값 보존 (copyWith() 호출 시 기존 값 유지) 검증
+
+// BLoC 테스트: 이벤트 핸들러 → 상태 전이
+// 파일: test/presentation/bloc/{feature}_bloc_test.dart
+// - blocTest()로 이벤트별 상태 전이 검증
+// - Mock Repository setUp
+// - seed()로 초기 상태 설정
+// - expect()로 순차적 상태 변화 검증
+
+// UseCase 테스트: 파라미터 전달 및 에러 핸들링
+// 파일: test/domain/usecase/{usecase}_test.dart
+// - Repository 호출 시 올바른 파라미터 전달 검증 (verify)
+// - 성공/실패 케이스 분리
+// - Params Equatable 검증
+```
+
+#### 5-2. 백엔드 테스트
+
+```typescript
+// 통합 테스트: withServerpod() 활용
+// 파일: backend/kobic_server/test/integration/{feature}_test.dart
+// - 인증 테스트: requireLogin 엔드포인트의 미인증 접근 거부
+// - 필터 파라미터 전달 테스트: 각 필터별 정상 호출 확인
+// - 조합 필터 테스트: 모든 필터 동시 적용
+// - 페이지네이션 테스트: limit/offset 파라미터 전달
+
+// 서비스 단위 테스트 (비즈니스 로직 변경 시)
+// 파일: backend/kobic_server/test/unit/{feature}/{service}_test.dart
+```
+
+#### 5-3. 테스트 fixture 작성 규칙
+
+```typescript
+// Serverpod 생성 DTO 클래스는 required 필드가 많음
+// → 헬퍼 함수로 테스트 fixture 생성
+// 예: _createTestBook(), _createCategory()
+
+// Mock 생성: @GenerateNiceMocks + build_runner
+// → 테스트 파일 작성 후 반드시 mock 재생성
+await Bash(`melos exec --scope=${package} -- dart run build_runner build -d`);
+```
+
+#### 5-4. 테스트 커밋
+
+```typescript
+await Bash(`git commit -m "test(${scope}): ✅ ${bugInfo.title} 테스트 추가"`);
+```
+
+### Step 6: 테스트 실행 및 검증
+
+```typescript
+// 전체 테스트 실행
+await Bash(`melos exec --scope=${package} -- flutter test`);
 
 // 실패 시 자동 수정 시도
 if (testFailed) {
-  // 테스트 코드 수정
+  // fixture 수정 (생성 클래스 시그니처 불일치 등)
+  // transitive dependency 빌드 (missing .g.dart, .module.dart)
+  // mock 재생성
   // 재실행
 }
 
-// 필요시 테스트 추가
-if (needsNewTest) {
-  // 버그 재발 방지 테스트 작성
-}
+// 모든 테스트 통과 확인 (필수)
+// 테스트 미통과 시 PR 생성 진행하지 않음
 ```
 
-### Step 6: PR 생성
+### Step 7: PR 생성
 
 ```typescript
 // PR 생성
@@ -218,7 +293,7 @@ await mcp__zenhub__moveIssueToPipeline({
 });
 ```
 
-### Step 7: 머지
+### Step 8: 머지
 
 ```typescript
 // 스쿼시 머지 → GitHub "Closes #" 키워드로 이슈 자동 Close
@@ -245,8 +320,10 @@ await Bash(`gh pr merge --squash --delete-branch`);
 ║    2. test(auth): ✅ 소셜 로그인 버튼 테스트 추가               ║
 ║                                                                ║
 ║  ✅ Tests:                                                     ║
-║    - Unit: 5/5 passed                                          ║
-║    - Widget: 3/3 passed                                        ║
+║    - FE State: 16/16 passed                                    ║
+║    - FE BLoC: 10/10 passed                                     ║
+║    - FE UseCase: 10/10 passed                                  ║
+║    - BE Integration: 10/10 passed                              ║
 ║                                                                ║
 ║  🔀 PR: #456                                                   ║
 ║    - URL: https://github.com/coco-de/kobic/pull/456            ║
@@ -297,7 +374,8 @@ TodoWrite([
   { content: "이슈 정보 조회", status: "in_progress", activeForm: "이슈 정보 조회 중" },
   { content: "브랜치 생성", status: "pending", activeForm: "브랜치 생성 대기" },
   { content: "버그 수정 작업", status: "pending", activeForm: "버그 수정 대기" },
-  { content: "테스트 실행", status: "pending", activeForm: "테스트 실행 대기" },
+  { content: "단위 테스트 작성 (FE+BE)", status: "pending", activeForm: "테스트 작성 대기" },
+  { content: "테스트 실행 및 검증", status: "pending", activeForm: "테스트 실행 대기" },
   { content: "PR 생성", status: "pending", activeForm: "PR 생성 대기" },
   { content: "머지 및 클로즈", status: "pending", activeForm: "머지 대기" },
 ]);
@@ -314,8 +392,9 @@ TodoWrite([
 | 버그 리포트 | 변경 없음 | `/bug-report` 재시도 |
 | 브랜치 생성 | 이슈 존재 | 재시도 |
 | 버그 수정 | 브랜치 존재 | 수동 수정 후 재시도 |
-| 테스트 | 코드 수정됨 | 수동 테스트 수정 또는 `--skip-tests` |
-| PR 생성 | 코드 완성 | `gh pr create` 수동 실행 |
+| 테스트 작성 | 코드 수정됨 | fixture 수정, mock 재생성, transitive dep 빌드 |
+| 테스트 실행 | 테스트 작성됨 | 수동 테스트 수정 또는 `--skip-tests` |
+| PR 생성 | 테스트 통과 | `gh pr create` 수동 실행 |
 | 머지 | PR 존재 | CI 통과 대기 후 재시도 |
 
 ---
@@ -325,9 +404,10 @@ TodoWrite([
 1. **버그 이슈 타입 확인**: Bug 타입 이슈만 처리
 2. **브랜치 명명**: `fix/{number}-{slug}` 형식 준수
 3. **커밋 메시지**: `fix({scope}): 🐛 {description}` 형식
-4. **테스트 필수**: 버그 재발 방지 테스트 추가 권장
-5. **이슈 연결**: PR에 `Closes #{number}` 포함
-6. **상태 추적**: 모든 단계에서 Pipeline 상태 업데이트
+4. **테스트 필수 (PR 전)**: 프론트엔드(State/BLoC/UseCase) + 백엔드(통합/단위) 테스트를 PR 생성 전에 반드시 작성하고 통과시킨다
+5. **테스트 커밋 분리**: 수정 커밋과 테스트 커밋을 분리하여 리뷰 용이성 확보
+6. **이슈 연결**: PR에 `Closes #{number}` 포함
+7. **상태 추적**: 모든 단계에서 Pipeline 상태 업데이트
 
 ---
 
