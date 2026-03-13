@@ -55,7 +55,7 @@ mcp-servers: [zenhub]
 2. **개별 Story 작성** (/bmad:create-story)
    - UX Spec 기반 화면별 Story
    - Architecture 기반 기술 Story
-   - BDD 시나리오를 AC로 연결
+   - BDD 시나리오를 Acceptance Criteria로 연결
    - 의존성 관계 설정
 
 3. **스프린트 계획** (/bmad:sprint-planning)
@@ -71,7 +71,7 @@ mcp-servers: [zenhub]
    - 스토리 포인트 산정
    - 라벨링 (type, scope, priority)
    - 의존성 검증
-   - AC 완전성 확인
+   - Acceptance Criteria 완전성 확인
 
 ### Phase 4: Planning Gate
 

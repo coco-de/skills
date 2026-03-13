@@ -198,8 +198,8 @@ AskUserQuestion({
 ║  ├── 🔍 Analyst 검토                                           ║
 ║  │   ├── ✅ 요구사항 명확성                                     ║
 ║  │   ├── ✅ 스코프 적절성                                       ║
-║  │   └── ✅ AC 테스트 가능성                                    ║
-║  └── 📋 결과: 승인 (AC 3개 확정)                                ║
+║  │   └── ✅ Acceptance Criteria 테스트 가능성                    ║
+║  └── 📋 결과: 승인 (Acceptance Criteria 3개 확정)               ║
 ║                                                                ║
 ║  Phase 2: PLANNING ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ✅          ║
 ║  ├── 📝 PM 검토                                                ║
@@ -267,7 +267,7 @@ AskUserQuestion({
 |--------|--------|------|
 | Analysis | 요구사항 명확성 | ⬜ |
 | Analysis | 스코프 적절성 | ⬜ |
-| Analysis | AC 테스트 가능성 | ⬜ |
+| Analysis | Acceptance Criteria 테스트 가능성 | ⬜ |
 | Planning | Epic/Story 구조 | ⬜ |
 | Planning | Story Point (1-8) | ⬜ |
 | Planning | 라벨링 | ⬜ |

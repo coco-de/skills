@@ -47,8 +47,8 @@ version: 1.0.0
 |------|----------|---------|
 | 요구사항 명확성 | 구체적이고 측정 가능한가? | 요구사항 재정의 필요 |
 | 스코프 적절성 | 단일 이슈로 적절한 크기인가? | 분할 또는 조정 필요 |
-| **AC BDD Gherkin 형식** | **모든 AC가 Given-When-Then 형식인가?** | **Gherkin 형식으로 재작성** |
-| AC 완성도 | happy-path + error-handling 각 1개 이상인가? | 시나리오 추가 필요 |
+| **Acceptance Criteria BDD Gherkin 형식** | **모든 Acceptance Criteria가 Given-When-Then 형식인가?** | **Gherkin 형식으로 재작성** |
+| Acceptance Criteria 완성도 | happy-path + error-handling 각 1개 이상인가? | 시나리오 추가 필요 |
 
 ### 검증 로직
 
@@ -61,7 +61,7 @@ interface AnalysisGateResult {
     acGherkinFormat: CheckResult;   // BDD Gherkin 형식 필수
     acCompleteness: CheckResult;    // happy-path + error-handling
   };
-  acceptanceCriteria: GherkinFeature;  // Gherkin 형식 AC
+  acceptanceCriteria: GherkinFeature;  // Gherkin 형식 Acceptance Criteria
   feedback?: string;
 }
 
@@ -110,7 +110,7 @@ function checkACGherkinFormat(analysis: AnalysisOutput): CheckResult {
   };
 }
 
-// AC 완성도 검증
+// Acceptance Criteria 완성도 검증
 function checkACCompleteness(analysis: AnalysisOutput): CheckResult {
   const scenarios = analysis.acceptanceCriteria.scenarios;
   const hasHappyPath = scenarios.some(s => s.tag === '@happy-path');
@@ -141,10 +141,10 @@ function checkACCompleteness(analysis: AnalysisOutput): CheckResult {
 ║     - 예상 복잡도: 중간 (3-5 SP)                               ║
 ║     - 단일 이슈로 적절                                         ║
 ║                                                                ║
-║  ✅ AC BDD Gherkin 형식: PASS                                   ║
+║  ✅ Acceptance Criteria BDD Gherkin 형식: PASS                   ║
 ║     - 모든 AC가 Given-When-Then 형식으로 작성됨                 ║
 ║                                                                ║
-║  ✅ AC 완성도: PASS                                             ║
+║  ✅ Acceptance Criteria 완성도: PASS                             ║
 ║     - @happy-path: 2개                                         ║
 ║     - @error-handling: 1개                                     ║
 ║                                                                ║
@@ -498,7 +498,7 @@ interface GateMetrics {
 ║  주요 실패 사유:                                               ║
 ║  1. Clean Architecture 위반 (25%)                              ║
 ║  2. 린트 오류 (20%)                                            ║
-║  3. AC 불명확 (15%)                                            ║
+║  3. Acceptance Criteria 불명확 (15%)                            ║
 ║                                                                ║
 ╚════════════════════════════════════════════════════════════════╝
 ```

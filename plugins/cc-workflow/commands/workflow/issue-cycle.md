@@ -119,7 +119,7 @@ const issueInfo = {
   id: issue.id,                    // GraphQL ID
   number: issue.number,            // GitHub 번호
   title: issue.title,              // 이슈 제목
-  body: issue.body,                // 이슈 본문 (AC 포함)
+  body: issue.body,                // 이슈 본문 (Acceptance Criteria 포함)
   type: issue.issueType?.name,     // Feature, Task, Bug, Sub-task
   pipeline: issue.pipelineIssue?.pipeline?.name,
   parentIssue: issue.parentIssue,  // 부모 이슈 정보

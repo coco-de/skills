@@ -419,7 +419,7 @@ ${tasksDetails}
 ### ZenHub Issue
 - [ ] Details 태그 템플릿 작성
 - [ ] Story 전체 내용 포함
-- [ ] AC 전체 내용 포함
+- [ ] Acceptance Criteria 전체 내용 포함
 - [ ] BDD 시나리오 전체 내용 포함
 - [ ] 구현 태스크 체크리스트 포함
 

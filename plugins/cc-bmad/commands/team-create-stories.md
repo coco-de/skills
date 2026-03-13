@@ -201,13 +201,13 @@ If zh_available:
 Stories Created: {count}/{total}
 
 Epic "{name}":
-  STORY-001: {title} ({points} pts, {criteria_count} AC)
-  STORY-002: {title} ({points} pts, {criteria_count} AC)
-  STORY-003: {title} ({points} pts, {criteria_count} AC)
+  STORY-001: {title} ({points} pts, {criteria_count} Acceptance Criteria)
+  STORY-002: {title} ({points} pts, {criteria_count} Acceptance Criteria)
+  STORY-003: {title} ({points} pts, {criteria_count} Acceptance Criteria)
 
 Epic "{name}":
-  STORY-004: {title} ({points} pts, {criteria_count} AC)
-  STORY-005: {title} ({points} pts, {criteria_count} AC)
+  STORY-004: {title} ({points} pts, {criteria_count} Acceptance Criteria)
+  STORY-005: {title} ({points} pts, {criteria_count} Acceptance Criteria)
 
 Total Story Points: {sum}
 Documents: docs/stories/

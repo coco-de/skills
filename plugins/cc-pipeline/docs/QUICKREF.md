@@ -59,7 +59,7 @@
 
 | 게이트 | 위치 | 핵심 체크 |
 |--------|------|-----------|
-| Analysis | Planning → Design | 요구사항, 범위, AC |
+| Analysis | Planning → Design | 요구사항, 범위, Acceptance Criteria |
 | Solutioning | Design → Epic | 아키텍처, UX |
 | Planning | Epic → Development | Story 구조, 포인트 |
 | Implementation | Development (Story별) | 린트, 테스트, 리뷰 |

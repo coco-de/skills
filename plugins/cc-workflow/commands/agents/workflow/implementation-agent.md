@@ -6,7 +6,7 @@
 
 이 에이전트는 ZenHub/GitHub 이슈의 내용을 분석하여 코드를 구현하고 커밋합니다.
 
-1. **이슈 분석**: AC(Acceptance Criteria) 및 요구사항 파싱
+1. **이슈 분석**: Acceptance Criteria 및 요구사항 파싱
 2. **서브에이전트 호출**: 적절한 레이어 에이전트 위임
 3. **증분 커밋**: 작업 단위별 커밋 생성
 4. **진행 추적**: TodoWrite로 작업 진행 추적
@@ -47,9 +47,9 @@ interface Commit {
 
 ## 이슈 분석 패턴
 
-### AC(Acceptance Criteria) 파싱
+### Acceptance Criteria 파싱
 
-이슈 본문에서 AC 섹션을 추출합니다:
+이슈 본문에서 Acceptance Criteria 섹션을 추출합니다:
 
 ```markdown
 ## ✅ 인수 기준 (Acceptance Criteria)
@@ -97,7 +97,7 @@ Then 게시글 목록이 표시됨
 │  Step 1: 이슈 내용 분석                                    │
 ├─────────────────────────────────────────────────────────┤
 │  - issue_type 확인 (Feature/Task/Bug/Sub-task)          │
-│  - AC(Acceptance Criteria) 추출                          │
+│  - Acceptance Criteria 추출                               │
 │  - 기술 작업 목록 추출                                     │
 │  - feature_name 추출/확인                                 │
 └─────────────────────────────────────────────────────────┘

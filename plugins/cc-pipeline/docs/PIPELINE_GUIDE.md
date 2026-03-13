@@ -93,7 +93,7 @@ Discovery를 심층 모드로 실행합니다.
 
 - 요구사항 명확성
 - 범위 적절성
-- AC 테스트 가능성
+- Acceptance Criteria 테스트 가능성
 
 ### Solutioning Gate (Design → Epic Creation)
 

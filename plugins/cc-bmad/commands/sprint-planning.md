@@ -678,7 +678,7 @@ For each epic in the sprint plan:
 
 For each story in the sprint plan:
 1. Generate story body per `helpers.md#Generate-Story-Body`:
-   - story data (user story, AC, technical notes)
+   - story data (user story, Acceptance Criteria, technical notes)
 2. Call `helpers.md#Sync-Story-to-ZenHub` with:
    - story_title: Story title
    - story_body: Generated body (markdown)

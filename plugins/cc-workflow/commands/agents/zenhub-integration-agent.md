@@ -19,7 +19,7 @@ mcp-servers: [zenhub]
 
 1. **Epic 생성**: Feature 단위의 Epic 생성
 2. **Story 생성**: 화면 단위의 Story 생성 (Epic 하위)
-3. **AC 첨부**: BDD 시나리오 기반 Acceptance Criteria 첨부
+3. **Acceptance Criteria 첨부**: BDD 시나리오 기반 Acceptance Criteria 첨부
 4. **라벨 관리**: 적절한 라벨 자동 적용
 
 ---
@@ -208,7 +208,7 @@ claudedocs/{feature}/zenhub/
 
 1. **Epic 먼저**: Story 전에 Epic 생성
 2. **연결 필수**: 모든 Story는 Epic에 연결
-3. **한글 AC**: Acceptance Criteria는 한글로 작성
+3. **한글 Acceptance Criteria**: Acceptance Criteria는 한글로 작성
 4. **BDD 연동**: AC는 BDD 시나리오와 1:1 매핑
 5. **라벨 일관성**: 정해진 라벨 체계 준수
 6. **확인 후 생성**: 사용자 확인 후 실제 이슈 생성

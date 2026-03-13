@@ -29,7 +29,7 @@
 ║     - 콘솔 앱, 저자 목록 화면                                   ║
 ║     - 스코프: feature/console 모듈                              ║
 ║                                                                ║
-║  ✅ AC BDD Gherkin 형식: PASS                                   ║
+║  ✅ Acceptance Criteria BDD Gherkin 형식: PASS                                   ║
 ║     - @happy-path: 2개                                         ║
 ║     - @error-handling: 1개                                     ║
 ║                                                                ║
@@ -159,7 +159,7 @@ Feature: 콘솔 저자 목록 화면
 ║  🎉 BMAD Workflow Complete                                     ║
 ╠════════════════════════════════════════════════════════════════╣
 ║                                                                ║
-║  ✅ Phase 1: ANALYSIS - 승인 (AC 3개 확정)                      ║
+║  ✅ Phase 1: ANALYSIS - 승인 (Acceptance Criteria 3개 확정)      ║
 ║  ✅ Phase 2: PLANNING - Issue #1810 생성                       ║
 ║  ✅ Phase 3: SOLUTIONING - 설계 승인                           ║
 ║  ✅ Phase 4: IMPLEMENTATION - PR #1815 머지됨                  ║
@@ -396,7 +396,7 @@ export 'src/route/route.dart';
 
 ---
 
-## 튜토리얼 5: AC(Acceptance Criteria) 작성 가이드
+## 튜토리얼 5: Acceptance Criteria 작성 가이드
 
 ### BDD Gherkin 형식 필수
 
@@ -483,14 +483,14 @@ Feature: 저자 등록 폼
     Then "이미 등록된 이메일입니다" 에러가 표시된다
 ```
 
-### AC 검증 실패 예시
+### Acceptance Criteria 검증 실패 예시
 
 ```
 ╔════════════════════════════════════════════════════════════════╗
 ║  🔍 Analyst Review: ❌ REJECTED                                 ║
 ╠════════════════════════════════════════════════════════════════╣
 ║                                                                ║
-║  ❌ AC BDD Gherkin 형식: FAIL                                   ║
+║  ❌ Acceptance Criteria BDD Gherkin 형식: FAIL                                   ║
 ║     - @error-handling 시나리오가 없습니다                       ║
 ║                                                                ║
 ║  필요한 조치:                                                   ║
