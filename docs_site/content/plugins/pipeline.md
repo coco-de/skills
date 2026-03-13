@@ -35,7 +35,7 @@ cc-pipeline은 다른 플러그인들을 오케스트레이션합니다:
 - **cc-pm-strategy** — 제품 전략
 - **cc-pm-analytics** — 데이터 분석
 - **cc-pm-gtm** — Go-to-Market
-- **cc-workflow** — 워크플로우 자동화
+- **cc-dev-cycle** — 개발 사이클 자동화
 
 ### 산출물
 

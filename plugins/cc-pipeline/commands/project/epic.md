@@ -41,7 +41,7 @@ mcp-servers: [zenhub]
 
 ### Phase 1: Epic 생성
 
-**소스**: cc-workflow
+**소스**: cc-dev-cycle
 
 1. **ZenHub Epic 생성** (/zenhub:create-epic)
    - Architecture Doc 기반 Epic 구조화

@@ -4,8 +4,8 @@ methodology:
     skills: 10
     commands: 18
     tags: bmad, agile, product-management
-  - name: cc-workflow
-    description: 개발 워크플로우 (Issue Cycle, Bug Cycle, Session, ZenHub)
+  - name: cc-dev-cycle
+    description: 개발 사이클 (Issue Cycle, Bug Cycle, Session, ZenHub)
     skills: 2
     commands: 8
     tags: workflow, zenhub, session

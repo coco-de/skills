@@ -34,18 +34,25 @@ Flutter + Serverpod + CoUI 기반의 Dart 풀스택 프로젝트를 위한 Claud
 
 ## Quick Start
 
-### 전체 설치
+### 마켓플레이스 등록
 
 ```bash
-claude plugins install coco-de/skills
+claude plugins marketplace add coco-de/skills
 ```
 
-### 개별 플러그인 설치
+### 플러그인 설치
 
 ```bash
-claude plugins install coco-de/skills/plugins/cc-flutter-dev
-claude plugins install coco-de/skills/plugins/cc-coui
-claude plugins install coco-de/skills/plugins/cc-serverpod
+claude plugins install cc-flutter-dev@cocode-skills
+claude plugins install cc-coui@cocode-skills
+claude plugins install cc-serverpod@cocode-skills
+```
+
+### 플러그인 업데이트
+
+```bash
+claude plugins marketplace update cocode-skills
+claude plugins update cc-workflow@cocode-skills
 ```
 
 ### 추천 조합
@@ -67,7 +74,7 @@ claude plugins install coco-de/skills/plugins/cc-serverpod
 | 플러그인 | 설명 | Skills | Commands | Agents |
 |---------|------|--------|----------|--------|
 | `cc-bmad` | BMAD 방법론 (10 skills, 18 commands) | 11 | 22 | — |
-| `cc-workflow` | 개발 워크플로우 (Issue/Bug Cycle, Session, ZenHub) | 2 | 7 | 2 |
+| `cc-dev-cycle` | 개발 사이클 (Issue/Bug Cycle, Session, ZenHub) | 2 | 7 | 2 |
 | `cc-code-quality` | 코드리뷰, 체크리스트, 버그리포트 | 3 | 3 | — |
 | `cc-pipeline` | 6단계 파이프라인 오케스트레이터 | 1 | 3 | — |
 
@@ -151,7 +158,7 @@ skills/
 │   ├── cc-backend/        # Serverpod 백엔드 심화
 │   ├── cc-aws-infrastructure/ # AWS 인프라 관리
 │   ├── cc-uiux-*/         # UI/UX 플러그인 (7개)
-│   └── cc-workflow/       # 워크플로우
+│   └── cc-dev-cycle/       # 개발 사이클
 ├── docs_site/             # 문서 사이트 (Jaspr)
 └── validate_plugins.py    # 플러그인 검증 스크립트
 ```

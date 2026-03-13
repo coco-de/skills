@@ -9,7 +9,7 @@ mcp-servers: [zenhub]
 
 # /project:develop
 
-> Stage 5: Development — Epic 내 Stories를 순회하며 cc-workflow 13단계 개발 사이클을 실행합니다.
+> Stage 5: Development — Epic 내 Stories를 순회하며 cc-dev-cycle 13단계 개발 사이클을 실행합니다.
 
 ## Triggers
 
@@ -68,7 +68,7 @@ mcp-servers: [zenhub]
       - 구현 계획 수립
       - 필요 파일/컴포넌트 식별
 
-   b. **13단계 개발 사이클** (cc-workflow: /workflow {issue_number})
+   b. **13단계 개발 사이클** (cc-dev-cycle: /workflow {issue_number})
       - Step 1: 이슈 분석
       - Step 2: BDD 시나리오 확인
       - Step 3: 구현 계획
@@ -93,7 +93,7 @@ mcp-servers: [zenhub]
 
 ### 단일 이슈 모드 (--issue)
 
-- 바로 cc-workflow 13단계 실행
+- 바로 cc-dev-cycle 13단계 실행
 - 파이프라인 상태 업데이트
 
 ### Implementation Gate
