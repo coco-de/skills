@@ -2,7 +2,7 @@
 name: bloc
 description: BLoC/Cubit 상태 관리 전문가. Freezed, Event/State 정의, UseCase 통합 작업 시 사용
 tools: Read, Edit, Write, Glob, Grep
-model: inherit
+model: sonnet
 skills: bloc
 ---
 

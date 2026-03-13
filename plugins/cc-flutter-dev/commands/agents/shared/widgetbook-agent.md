@@ -4,7 +4,7 @@ description: Widgetbook 컴포넌트 전시 전문가. UseCase 작성, 컴포넌
 invoke: /shared:widgetbook
 aliases: ["/widgetbook:add", "/catalog:create"]
 tools: Read, Edit, Write, Glob, Grep
-model: inherit
+model: sonnet
 skills: flutter-ui
 ---
 

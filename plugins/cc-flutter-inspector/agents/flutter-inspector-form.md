@@ -2,7 +2,7 @@
 name: flutter-inspector-form
 description: 폼 디버깅 전문가. 유효성 검사, 에러 메시지 확인 시 사용
 tools: Read, Glob, Grep
-model: inherit
+model: haiku
 skills: flutter-inspector
 ---
 

@@ -2,7 +2,7 @@
 name: flutter-inspector-image
 description: 이미지 디버깅 전문가. 캐시 분석, 메모리 사용량 확인 시 사용
 tools: Read, Glob, Grep
-model: inherit
+model: haiku
 skills: flutter-inspector
 ---
 

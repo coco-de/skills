@@ -2,7 +2,7 @@
 name: flutter-inspector-ui
 description: UI 디버깅 전문가. 위젯 트리, 레이아웃 오버플로우 검사 시 사용
 tools: Read, Glob, Grep
-model: inherit
+model: haiku
 skills: flutter-inspector
 ---
 

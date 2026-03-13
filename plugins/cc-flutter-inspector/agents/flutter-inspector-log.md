@@ -2,7 +2,7 @@
 name: flutter-inspector-log
 description: 로그 디버깅 전문가. 앱 로그 수집, 에러 추적 시 사용
 tools: Read, Glob, Grep
-model: inherit
+model: haiku
 skills: flutter-inspector
 ---
 

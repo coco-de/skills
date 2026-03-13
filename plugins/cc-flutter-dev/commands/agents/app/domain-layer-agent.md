@@ -4,7 +4,7 @@ description: Clean Architecture Domain Layer 전문가. Entity, UseCase, Reposit
 invoke: /feature:domain
 aliases: ["/domain:create", "/layer:domain"]
 tools: Read, Edit, Write, Glob, Grep
-model: inherit
+model: sonnet
 skills: feature
 ---
 

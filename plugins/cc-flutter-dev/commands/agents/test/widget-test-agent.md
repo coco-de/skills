@@ -4,7 +4,7 @@ description: Widget 렌더링 테스트 전문가. WidgetTester, pump 패턴, fi
 invoke: /test:widget
 aliases: ["/widget:test", "/test:ui"]
 tools: Read, Edit, Write, Glob, Grep
-model: inherit
+model: sonnet
 skills: test
 ---
 

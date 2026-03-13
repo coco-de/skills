@@ -4,7 +4,7 @@ description: UseCase, Repository 단위 테스트 전문가. Mockito 패턴, Eit
 invoke: /test:unit
 aliases: ["/unit:create", "/test:usecase"]
 tools: Read, Edit, Write, Glob, Grep
-model: inherit
+model: sonnet
 skills: test
 ---
 

@@ -4,7 +4,7 @@ description: Clean Architecture Data Layer 전문가. Repository 구현, 캐싱,
 invoke: /feature:data
 aliases: ["/data:create", "/layer:data"]
 tools: Read, Edit, Write, Glob, Grep
-model: inherit
+model: sonnet
 skills: feature
 ---
 

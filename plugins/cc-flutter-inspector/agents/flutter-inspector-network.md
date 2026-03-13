@@ -2,7 +2,7 @@
 name: flutter-inspector-network
 description: 네트워크 디버깅 전문가. HTTP 요청/응답 로깅, API 분석 시 사용
 tools: Read, Glob, Grep
-model: inherit
+model: haiku
 skills: flutter-inspector
 ---
 

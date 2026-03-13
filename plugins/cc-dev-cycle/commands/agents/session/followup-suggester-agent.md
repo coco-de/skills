@@ -2,7 +2,7 @@
 name: session-followup-suggester
 description: 세션 분석 후 후속 작업 제안. 미완료 TODO, 기술 부채 식별 시 사용
 tools: Read, Glob, Grep
-model: inherit
+model: haiku
 ---
 
 # Session Followup Suggester Agent

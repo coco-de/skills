@@ -2,7 +2,7 @@
 name: flutter-inspector-bloc
 description: BLoC 상태 디버깅 전문가. 상태 추적, 이벤트 히스토리 검사 시 사용
 tools: Read, Glob, Grep
-model: inherit
+model: haiku
 skills: flutter-inspector
 ---
 

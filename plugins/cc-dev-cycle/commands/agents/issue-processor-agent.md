@@ -3,6 +3,7 @@ name: issue-processor-agent
 description: "ZenHub 이슈 순차 처리 전문 에이전트"
 triggers: ["@issue-processor", "/workflow:issue-processor"]
 mcp-servers: [zenhub, sequential]
+model: sonnet
 ---
 
 # Issue Processor Agent

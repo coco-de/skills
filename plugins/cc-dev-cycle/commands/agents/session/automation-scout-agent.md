@@ -2,7 +2,7 @@
 name: session-automation-scout
 description: 자동화 가능한 반복 패턴 탐지. 새로운 스킬/에이전트 생성 제안 시 사용
 tools: Read, Glob, Grep
-model: inherit
+model: haiku
 ---
 
 # Session Automation Scout Agent

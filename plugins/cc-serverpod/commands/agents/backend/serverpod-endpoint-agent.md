@@ -4,7 +4,7 @@ description: Serverpod Endpoint 전문가. 엔드포인트, 서비스 클래스 
 invoke: /serverpod:endpoint
 aliases: ["/backend:endpoint", "/api:create"]
 tools: Read, Edit, Write, Glob, Grep
-model: inherit
+model: sonnet
 skills: serverpod
 ---
 

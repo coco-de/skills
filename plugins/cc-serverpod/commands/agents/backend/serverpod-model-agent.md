@@ -4,7 +4,7 @@ description: Serverpod Model 전문가. .spy.yaml 모델 정의, 필드 타입, 
 invoke: /serverpod:model
 aliases: ["/backend:model", "/model:create"]
 tools: Read, Edit, Write, Glob, Grep
-model: inherit
+model: sonnet
 skills: serverpod
 ---
 

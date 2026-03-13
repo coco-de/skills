@@ -4,7 +4,7 @@ description: BLoC 상태 전이 테스트 전문가. bloc_test 패키지, 상태
 invoke: /test:bloc
 aliases: ["/bloc:test", "/test:state"]
 tools: Read, Edit, Write, Glob, Grep
-model: inherit
+model: sonnet
 skills: test
 ---
 

@@ -2,7 +2,7 @@
 name: test
 description: Flutter 테스트 전문가. 단위/BLoC/위젯/골든 테스트 작성 시 사용
 tools: Read, Edit, Write, Bash, Glob, Grep
-model: inherit
+model: sonnet
 skills: test
 ---
 

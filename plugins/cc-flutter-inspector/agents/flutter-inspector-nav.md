@@ -2,7 +2,7 @@
 name: flutter-inspector-nav
 description: 네비게이션 디버깅 전문가. GoRouter 라우트, 히스토리 검사 시 사용
 tools: Read, Glob, Grep
-model: inherit
+model: haiku
 skills: flutter-inspector
 ---
 

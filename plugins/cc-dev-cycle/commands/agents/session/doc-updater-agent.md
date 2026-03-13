@@ -2,7 +2,7 @@
 name: session-doc-updater
 description: 세션 내용 기반 문서 업데이트 분석. CLAUDE.md, 규칙 파일 업데이트 시 사용
 tools: Read, Glob, Grep
-model: inherit
+model: haiku
 ---
 
 # Session Doc Updater Agent
