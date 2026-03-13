@@ -139,12 +139,17 @@ Then 게시글 목록이 표시됨
                           │
                           ▼
 ┌─────────────────────────────────────────────────────────┐
-│  Step 5: 테스트 생성 및 실행                                │
+│  Step 5: 단위 테스트 생성 (필수) ⚠️                        │
 ├─────────────────────────────────────────────────────────┤
-│  - UseCase 테스트 생성                                    │
-│  - BLoC 테스트 생성                                       │
-│  - Widget 테스트 생성 (BDD)                               │
+│  [프론트엔드]                                             │
+│  - UseCase 단위 테스트 생성 (unit-test-agent)             │
+│  - BLoC 단위 테스트 생성 (bloc-test-agent)                │
+│  [백엔드 - Backend 변경 시]                               │
+│  - 엔드포인트 단위 테스트 생성 (serverpod-test-agent)      │
+│  - 서비스 로직 단위 테스트 생성 (serverpod-test-agent)     │
+│  - 엔드포인트 통합 테스트 생성 (serverpod-test-agent)      │
 │  $ melos run test --scope={feature_name}                │
+│  ⚠️ 테스트 미작성 시 PR 생성 불가                          │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -172,6 +177,15 @@ Then 게시글 목록이 표시됨
 
 3. presentation-layer-agent (BLoC, Page, Widget)
    → 커밋: feat({feature}): ✨ presentation layer 구현
+
+4. 단위 테스트 생성 (필수)
+   → unit-test-agent (UseCase 테스트)
+   → bloc-test-agent (BLoC 상태 전이 테스트)
+   → 커밋: test({feature}): ✅ 프론트엔드 단위 테스트 작성
+
+   (Backend 변경 포함 시)
+   → serverpod-test-agent (엔드포인트/서비스 단위 테스트 + 통합 테스트)
+   → 커밋: test(backend): ✅ 백엔드 테스트 작성
 ```
 
 ⚠️ **Backend 변경 감지**: 이슈에 Backend/Serverpod/API 관련 작업이 포함된 경우,
@@ -196,6 +210,13 @@ Serverpod 백엔드만 구현하는 이슈
 4. (Entity 변경 시) 마이그레이션 생성/적용
    $ melos run backend:pod:create-migration
    $ melos run backend:pod:run-migration
+
+5. 백엔드 테스트 생성 (필수)
+   → serverpod-test-agent
+     - 엔드포인트별 단위 테스트
+     - 서비스 로직 단위 테스트
+     - 엔드포인트 통합 테스트 (withServerpod)
+   → 커밋: test(backend): ✅ 백엔드 테스트 작성
 ```
 
 ⚠️ **중요**: Step 3의 `backend:pod:generate`는 **반드시** 실행해야 합니다.
@@ -214,6 +235,12 @@ Serverpod 백엔드만 구현하는 이슈
 
 3. 회귀 테스트 추가
    → 커밋: test({scope}): ✅ {bug} 회귀 테스트 추가
+
+   (프론트엔드 버그 시)
+   → 관련 UseCase/BLoC 테스트 보강
+
+   (백엔드 버그 시)
+   → 관련 엔드포인트/서비스 테스트 보강
 ```
 
 ### Sub-task
@@ -308,7 +335,10 @@ Task({
 | BLoC, Page, Widget | presentation-layer-agent |
 | Serverpod 모델 | serverpod-model-agent |
 | Serverpod 엔드포인트 | serverpod-endpoint-agent |
-| 테스트 작성 | test-runner-agent 또는 직접 |
+| UseCase 단위 테스트 | unit-test-agent |
+| BLoC 단위 테스트 | bloc-test-agent |
+| Backend 테스트 | serverpod-test-agent |
+| 테스트 실행/검증 | test-runner-agent |
 
 ---
 
@@ -322,7 +352,8 @@ TodoWrite([
   { content: "Domain Layer 구현", status: "in_progress" },
   { content: "Data Layer 구현", status: "pending" },
   { content: "Presentation Layer 구현", status: "pending" },
-  { content: "테스트 작성", status: "pending" },
+  { content: "프론트엔드 단위 테스트 작성 (UseCase + BLoC)", status: "pending" },
+  { content: "백엔드 테스트 작성 (단위 + 통합)", status: "pending" },
   { content: "최종 검증", status: "pending" }
 ]);
 ```
@@ -360,6 +391,6 @@ TodoWrite([
 1. **증분 커밋**: 각 레이어 완료 시 즉시 커밋
 2. **이슈 참조**: 모든 커밋에 이슈 번호 참조
 3. **한글 메시지**: 커밋 메시지 한글로 작성
-4. **테스트 필수**: 코드 생성 시 테스트도 함께 생성
+4. **테스트 필수**: 모든 구현에 대해 단위 테스트 생성 필수 (프론트: UseCase+BLoC, 백엔드: 엔드포인트+서비스+통합)
 5. **진행 추적**: TodoWrite로 실시간 상태 업데이트
 6. **실패 허용**: 실패 시 스킵하고 로그 기록

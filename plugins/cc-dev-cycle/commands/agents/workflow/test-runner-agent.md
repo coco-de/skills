@@ -4,12 +4,14 @@
 
 ## 역할 및 책임
 
-이 에이전트는 Feature의 테스트를 실행하고 결과를 분석합니다.
+이 에이전트는 Feature의 테스트를 검증하고 실행합니다.
 
-1. **테스트 실행**: Unit, BLoC, BDD Widget 테스트 실행
-2. **결과 분석**: 실패 테스트 원인 분석
-3. **자동 수정**: 간단한 테스트 실패 자동 수정
-4. **커버리지 보고**: 테스트 커버리지 리포트 생성
+1. **테스트 존재 확인**: 필수 테스트 파일 존재 여부 검증
+2. **테스트 생성 위임**: 누락된 테스트가 있으면 전문 에이전트에 생성 위임
+3. **테스트 실행**: Unit, BLoC, BDD Widget, Backend 통합 테스트 실행
+4. **결과 분석**: 실패 테스트 원인 분석
+5. **자동 수정**: 간단한 테스트 실패 자동 수정
+6. **검증 게이트**: 모든 테스트 통과 확인 (PR 생성 전 필수 게이트)
 
 ---
 
@@ -18,9 +20,10 @@
 | 파라미터 | 필수 | 타입 | 설명 |
 |---------|------|------|------|
 | `feature_name` | ✅ | string | Feature 모듈명 |
-| `test_types` | ❌ | string[] | `unit` \| `bloc` \| `bdd` (기본: 모두) |
+| `test_types` | ❌ | string[] | `unit` \| `bloc` \| `bdd` \| `backend_unit` \| `backend_integration` (기본: 모두) |
 | `auto_fix` | ❌ | boolean | 자동 수정 시도 여부 (기본: true) |
 | `coverage` | ❌ | boolean | 커버리지 생성 여부 (기본: false) |
+| `require_tests` | ❌ | boolean | 테스트 미존재 시 생성 위임 (기본: true) |
 
 ---
 
@@ -32,6 +35,7 @@ interface TestResult {
   summary: TestSummary;
   failures: TestFailure[];
   coverage?: CoverageReport;
+  backend_tests?: BackendTestResult;
   fixed_tests: string[];
 }
 
@@ -55,6 +59,11 @@ interface CoverageReport {
   line_coverage: number;
   branch_coverage: number;
   uncovered_files: string[];
+}
+
+interface BackendTestResult {
+  unit_tests: { endpoint: number; service: number; passed: number; failed: number };
+  integration_tests: { total: number; passed: number; failed: number };
 }
 ```
 
@@ -115,6 +124,20 @@ melos exec --scope=feature_{feature_name} -- \
 
 ```
 ┌─────────────────────────────────────────────────────────┐
+│  Step 0: 테스트 존재 확인 (필수) ⚠️                        │
+├─────────────────────────────────────────────────────────┤
+│  [프론트엔드 테스트 확인]                                  │
+│  - UseCase 테스트 파일 존재? → 없으면 unit-test-agent 호출 │
+│  - BLoC 테스트 파일 존재? → 없으면 bloc-test-agent 호출    │
+│  [백엔드 테스트 확인 - Backend 변경 시]                     │
+│  - 엔드포인트 테스트 존재? → 없으면 serverpod-test-agent   │
+│  - 서비스 로직 테스트 존재? → 없으면 serverpod-test-agent  │
+│  - 통합 테스트 존재? → 없으면 serverpod-test-agent 호출    │
+│  ⚠️ 테스트 미작성 시 PR 생성 불가                          │
+└─────────────────────────────────────────────────────────┘
+                          │
+                          ▼
+┌─────────────────────────────────────────────────────────┐
 │  Step 1: 테스트 환경 준비                                  │
 ├─────────────────────────────────────────────────────────┤
 │  $ melos run build                                      │
@@ -144,6 +167,23 @@ melos exec --scope=feature_{feature_name} -- \
                           │
                           ▼
 ┌─────────────────────────────────────────────────────────┐
+│  Step 3.5: Backend Test 실행 (Backend 변경 시) ⚠️         │
+├─────────────────────────────────────────────────────────┤
+│  [단위 테스트]                                            │
+│  $ melos exec --scope=kobic_server --                   │
+│      dart test test/unit/{feature}/                     │
+│  - 엔드포인트 로직 검증                                    │
+│  - 서비스 비즈니스 로직 검증                                │
+│  [통합 테스트]                                            │
+│  $ melos exec --scope=kobic_server --                   │
+│      dart test test/integration/{feature}/              │
+│  - withServerpod 기반 E2E 검증                           │
+│  - 인증/권한 검증                                         │
+│  - CRUD 플로우 검증                                       │
+└─────────────────────────────────────────────────────────┘
+                          │
+                          ▼
+┌─────────────────────────────────────────────────────────┐
 │  Step 4: BDD Widget Test 실행                            │
 ├─────────────────────────────────────────────────────────┤
 │  $ melos exec --scope=feature_{name} --                 │
@@ -164,13 +204,50 @@ melos exec --scope=feature_{feature_name} -- \
                           │
                           ▼
 ┌─────────────────────────────────────────────────────────┐
-│  Step 6: 커버리지 생성 (선택)                               │
+│  Step 6: 검증 게이트 (PR 생성 전 필수) ⚠️                   │
 ├─────────────────────────────────────────────────────────┤
-│  $ melos run test:with-html-coverage                    │
-│  - lcov 파일 생성                                        │
-│  - HTML 리포트 생성                                       │
+│  - 프론트: UseCase 테스트 ≥ 1개 통과                       │
+│  - 프론트: BLoC 테스트 ≥ 1개 통과                          │
+│  - (Backend 변경 시) 백엔드 단위 테스트 통과                 │
+│  - (Backend 변경 시) 백엔드 통합 테스트 통과                 │
+│  ⚠️ 게이트 실패 시 PR 생성 차단                             │
 └─────────────────────────────────────────────────────────┘
 ```
+
+### Backend Test (엔드포인트/서비스)
+
+#### 단위 테스트
+
+```bash
+# 엔드포인트/서비스 단위 테스트 실행
+melos exec --scope=kobic_server -- \
+  dart test test/unit/{feature_name}/ --reporter expanded
+```
+
+**테스트 위치**: `backend/kobic_server/test/unit/{feature_name}/`
+
+**테스트 대상**:
+- `{feature}_endpoint_test.dart` (엔드포인트 단위 테스트)
+- `{feature}_service_test.dart` (서비스 로직 단위 테스트)
+
+#### 통합 테스트
+
+```bash
+# withServerpod 통합 테스트 실행
+melos exec --scope=kobic_server -- \
+  dart test test/integration/{feature_name}/ --reporter expanded
+```
+
+**테스트 위치**: `backend/kobic_server/test/integration/{feature_name}/`
+
+**테스트 대상**:
+- `{feature}_integration_test.dart`
+
+**검증 항목**:
+- 인증 필수 엔드포인트: `ServerpodUnauthenticatedException` 검증
+- 권한 체크: `ServerpodInsufficientAccessException` 검증
+- CRUD 플로우: 생성 → 조회 → 수정 → 삭제 시나리오
+- 에러 케이스: `NotFoundException`, `ValidationException` 검증
 
 ---
 
