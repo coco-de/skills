@@ -27,11 +27,11 @@ BMAD 프레임워크의 7개 페르소나별 책임 매트릭스입니다.
 
 | 책임 영역 | 상세 |
 |----------|------|
-| **주 책임** | 요구사항 분석, **BDD Gherkin AC 정의**, 타당성 검토 |
-| **검토 항목** | 요구사항 명확성, 스코프 적절성, **AC Gherkin 형식**, AC 완성도 |
-| **산출물** | 분석된 요구사항, **BDD Gherkin AC 목록**, 화면 타입 식별 |
+| **주 책임** | 요구사항 분석, **BDD Gherkin Acceptance Criteria 정의**, 타당성 검토 |
+| **검토 항목** | 요구사항 명확성, 스코프 적절성, **Acceptance Criteria Gherkin 형식**, Acceptance Criteria 완성도 |
+| **산출물** | 분석된 요구사항, **BDD Gherkin Acceptance Criteria 목록**, 화면 타입 식별 |
 | **연결 에이전트** | `commands/agents/figma-analyzer-agent`, `commands/agents/bdd-scenario-agent` |
-| **승인 기준** | 모든 검토 항목 PASS + AC @happy-path, @error-handling 각 1개 이상 |
+| **승인 기준** | 모든 검토 항목 PASS + Acceptance Criteria @happy-path, @error-handling 각 1개 이상 |
 
 ### Product Manager (PM)
 
@@ -104,7 +104,7 @@ BMAD 프레임워크의 7개 페르소나별 책임 매트릭스입니다.
 |----------|---------|
 | 요구사항 명확성 | ✅ 필수 |
 | 스코프 적절성 | ✅ 필수 |
-| AC 테스트 가능성 | ✅ 필수 |
+| Acceptance Criteria 테스트 가능성 | ✅ 필수 |
 | 의존성 분석 | ⚠️ 권장 |
 
 ### Planning Phase

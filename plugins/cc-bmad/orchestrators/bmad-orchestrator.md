@@ -41,10 +41,10 @@ BMAD(Breakthrough Method for Agile AI-Driven Development) 프레임워크의 메
 | 항목 | 내용 |
 |------|------|
 | 담당 페르소나 | Analyst |
-| 목적 | 요구사항 분석, AC 정의, 타당성 검토 |
+| 목적 | 요구사항 분석, Acceptance Criteria 정의, 타당성 검토 |
 | 입력 | 작업 내용 (텍스트) |
-| 출력 | 분석된 요구사항, AC 목록 |
-| 게이트 | 요구사항 명확성, 스코프 적절성, AC 테스트 가능성 |
+| 출력 | 분석된 요구사항, Acceptance Criteria 목록 |
+| 게이트 | 요구사항 명확성, 스코프 적절성, Acceptance Criteria 테스트 가능성 |
 
 ### Phase 2: Planning (계획)
 
@@ -91,7 +91,7 @@ BMAD(Breakthrough Method for Agile AI-Driven Development) 프레임워크의 메
 │ │ Analyst 검토                                                 │ │
 │ │ - 요구사항 명확성 ✅                                         │ │
 │ │ - 스코프 적절성 ✅                                           │ │
-│ │ - AC 테스트 가능성 ✅                                        │ │
+│ │ - Acceptance Criteria 테스트 가능성 ✅                        │ │
 │ └─────────────────────────────────────────────────────────────┘ │
 │                          GATE: PASS                             │
 └─────────────────────────────┬───────────────────────────────────┘
@@ -325,8 +325,8 @@ pending → in_progress → passed
 ║  ├── 🔍 Analyst 검토                                           ║
 ║  │   ├── ✅ 요구사항 명확성                                     ║
 ║  │   ├── ✅ 스코프 적절성                                       ║
-║  │   └── ✅ AC 테스트 가능성                                    ║
-║  └── 📋 결과: 승인 (AC 3개 확정)                                ║
+║  │   └── ✅ Acceptance Criteria 테스트 가능성                    ║
+║  └── 📋 결과: 승인 (Acceptance Criteria 3개 확정)               ║
 ║                                                                ║
 ║  Phase 2: PLANNING ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ✅          ║
 ║  ├── 📝 PM 검토                                                ║

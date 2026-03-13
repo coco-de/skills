@@ -235,7 +235,7 @@ claudedocs/{feature_name}/bdd/
 ```markdown
 ## Story 목록
 
-| 화면 | 제목 | Point | AC 수 |
+| 화면 | 제목 | Point | Acceptance Criteria 수 |
 |------|------|-------|-------|
 | 목록 | [Story] {feature} 목록 화면 | 3 | 8 |
 | 상세 | [Story] {feature} 상세 화면 | 3 | 9 |
@@ -247,7 +247,7 @@ claudedocs/{feature_name}/bdd/
 BDD 시나리오를 Story의 AC로 변환:
 
 ```markdown
-## 인수 기준 (AC)
+## 인수 기준 (Acceptance Criteria)
 
 ### AC1: 목록 로딩 성공
 ```gherkin
@@ -514,7 +514,7 @@ bdd_scenarios:
 1. **체계적 분석**: Sequential MCP로 단계별 분석
 2. **BDD 한글 작성**: Given-When-Then 키워드 + 한글 설명
 3. **ZenHub 연동**: Epic → Story 계층 구조
-4. **AC 매핑**: BDD 시나리오 = Story AC
+4. **Acceptance Criteria 매핑**: BDD 시나리오 = Story Acceptance Criteria
 5. **사용자 확인**: 생성 전 반드시 확인
 6. **문서화**: 분석 결과와 요구사항 문서 생성
 7. **점진적 진행**: 불확실한 부분은 질문으로 확인

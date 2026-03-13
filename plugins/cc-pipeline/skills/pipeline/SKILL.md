@@ -39,7 +39,7 @@ cc-bmad     cc-pm-*               cc-bmad         cc-bmad      cc-pm-analytics
 ### 4. 스테이지 간 데이터 전달
 - 이전 스테이지의 산출물 경로를 다음 스테이지에 자동 전달
 - Discovery → Planning: 리서치 결과, 비전
-- Planning → Design: PRD, 기술 사양, BDD AC
+- Planning → Design: PRD, 기술 사양, BDD Acceptance Criteria
 - Design → Epic: 아키텍처, UX 스펙
 - Epic → Development: Epic/Story 이슈 번호
 - Development → Launch: 배포된 기능 목록

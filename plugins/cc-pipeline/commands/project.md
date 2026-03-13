@@ -81,9 +81,9 @@ complexity: high
 
 - cc-bmad: /bmad:product-brief, /bmad:prd 또는 /bmad:tech-spec
 - cc-pm-strategy: 비즈니스 모델
-- cc-bmad Analyst: 요구사항 분석, BDD AC
+- cc-bmad Analyst: 요구사항 분석, BDD Acceptance Criteria
 - **게이트**: BMAD Analysis Gate
-- **산출물**: PRD/Tech Spec + BDD AC
+- **산출물**: PRD/Tech Spec + BDD Acceptance Criteria
 
 ### Step 4: Design (설계)
 

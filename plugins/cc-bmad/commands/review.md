@@ -73,7 +73,7 @@ mcp-servers: [zenhub]
 
 | 페르소나 | 페이즈 | 검토 항목 |
 |---------|--------|----------|
-| `analyst` | Analysis | 요구사항, 스코프, AC |
+| `analyst` | Analysis | 요구사항, 스코프, Acceptance Criteria |
 | `product-manager` | Planning | Epic/Story, Point, 라벨 |
 | `architect` | Solutioning | Architecture, DI, API |
 | `ux-designer` | Solutioning | CoUI, 레이아웃, 상호작용 |

@@ -367,7 +367,7 @@ mcp__zenhub__createZenhubIssue({
 ```markdown
 ## Story 생성
 
-| # | 화면 | 제목 | Point | AC 수 |
+| # | 화면 | 제목 | Point | Acceptance Criteria 수 |
 |---|------|------|-------|-------|
 | 1 | 목록 | [Story] {feature} 목록 화면 | 3 | 8 |
 | 2 | 상세 | [Story] {feature} 상세 화면 | 3 | 9 |
@@ -649,7 +649,7 @@ Then {expected_result_2}
 
 1. **Epic 먼저**: Story 전에 Epic 생성
 2. **연결 필수**: 모든 Story는 Epic에 연결
-3. **AC 포함**: 각 Story에 BDD 기반 AC 포함
+3. **Acceptance Criteria 포함**: 각 Story에 BDD 기반 Acceptance Criteria 포함
 4. **라벨 일관성**: 정해진 라벨 체계 준수
 5. **확인 후 생성**: 사용자 확인 후 실제 이슈 생성
 6. **문서화**: 생성 결과 claudedocs에 저장

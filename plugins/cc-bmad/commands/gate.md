@@ -137,8 +137,8 @@ sub_gates:
 ║     - 예상 복잡도: 중간 (3-5 SP)                               ║
 ║     - 단일 이슈로 적절                                         ║
 ║                                                                ║
-║  ✅ AC 테스트 가능성: PASS                                      ║
-║     - AC 3개 정의됨                                            ║
+║  ✅ Acceptance Criteria 테스트 가능성: PASS                      ║
+║     - Acceptance Criteria 3개 정의됨                            ║
 ║     - 모두 BDD 시나리오로 변환 가능                            ║
 ║                                                                ║
 ║  → Planning 페이즈로 진행 가능                                 ║

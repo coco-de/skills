@@ -73,7 +73,7 @@ BMAD uses 7 specialized personas across the 4 development phases:
 
 | Persona | Phase | Role |
 |---------|-------|------|
-| Analyst | Analysis | Requirements analysis, **BDD Gherkin AC authoring** |
+| Analyst | Analysis | Requirements analysis, **BDD Gherkin Acceptance Criteria authoring** |
 | Product Manager | Planning | Issue structuring, Story Point estimation |
 | Architect | Solutioning | Architecture design review |
 | UX Designer | Solutioning | UI/UX design review |
@@ -91,9 +91,9 @@ BMAD uses 7 specialized personas across the 4 development phases:
 ║  Phase 1: ANALYSIS                                             ║
 ║  ├── Analyst review                                            ║
 ║  │   ├── Requirements analysis                                 ║
-║  │   ├── BDD Gherkin AC authoring                              ║
+║  │   ├── BDD Gherkin Acceptance Criteria authoring              ║
 ║  │   └── Feasibility review                                    ║
-║  └── Gate: Requirements clarity, scope, AC format              ║
+║  └── Gate: Requirements clarity, scope, Acceptance Criteria format              ║
 ║                                                                ║
 ║  Phase 2: PLANNING                                             ║
 ║  ├── Product Manager review                                    ║
@@ -135,14 +135,14 @@ Gate PASSED → Automatic progression to next phase
 
 | Gate | Required Validations |
 |------|---------------------|
-| Analysis | Requirements clarity, scope appropriateness, **AC in BDD Gherkin format**, AC completeness (happy-path + error-handling) |
+| Analysis | Requirements clarity, scope appropriateness, **Acceptance Criteria in BDD Gherkin format**, Acceptance Criteria completeness (happy-path + error-handling) |
 | Planning | Epic/Story structure, Story Points (1-8), labeling, dependencies |
 | Solutioning | Clean Architecture, DI structure, API design, design system compliance, layout, interactions |
 | Implementation | Branch naming, lint passing, tests passing, code review completed |
 
 ### BDD Gherkin Acceptance Criteria
 
-Acceptance criteria **must** be written in BDD Gherkin Given-When-Then format. The Analysis Gate validates AC format compliance.
+Acceptance criteria **must** be written in BDD Gherkin Given-When-Then format. The Analysis Gate validates Acceptance Criteria format compliance.
 
 ```gherkin
 Feature: User Authentication

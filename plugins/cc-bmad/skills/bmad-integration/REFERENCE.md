@@ -11,8 +11,8 @@ BMAD 프레임워크의 상세 참조 문서입니다.
 | 항목 | 내용 |
 |------|------|
 | 페이즈 | Analysis |
-| 역할 | 요구사항 분석, AC 정의, 타당성 검토 |
-| 검토 항목 | 요구사항 명확성, 스코프 적절성, AC 테스트 가능성 |
+| 역할 | 요구사항 분석, Acceptance Criteria 정의, 타당성 검토 |
+| 검토 항목 | 요구사항 명확성, 스코프 적절성, Acceptance Criteria 테스트 가능성 |
 | 연결 에이전트 | figma-analyzer-agent, bdd-scenario-agent |
 
 ### Product Manager (PM)
@@ -98,8 +98,8 @@ required_checks:
       description: "단일 이슈로 적절한 크기인가?"
       failure_action: "분할 또는 조정"
   - ac_testability:
-      description: "AC가 자동 테스트 가능한가?"
-      failure_action: "AC 수정"
+      description: "Acceptance Criteria가 자동 테스트 가능한가?"
+      failure_action: "Acceptance Criteria 수정"
 ```
 
 ### Planning Gate
@@ -378,7 +378,7 @@ BMAD 설정은 별도의 설정 파일에서 관리됩니다:
 
 ### Do (권장)
 
-- ✅ 작업 시작 전 AC를 명확히 정의
+- ✅ 작업 시작 전 Acceptance Criteria를 명확히 정의
 - ✅ Story Point는 팀 합의에 따라 산정
 - ✅ 병렬 가능한 작업은 병렬로 실행
 - ✅ 게이트 실패 피드백을 꼼꼼히 확인

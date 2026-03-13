@@ -57,7 +57,7 @@ Analysis → Planning → Solutioning → Implementation
 - [ ] `@happy-path` 시나리오가 최소 1개 있는가?
 - [ ] `@error-handling` 시나리오가 최소 1개 있는가?
 
-**AC 예시** (필수 형식):
+**Acceptance Criteria 예시** (필수 형식):
 ```gherkin
 Feature: 저자 목록 화면
 

@@ -1,6 +1,6 @@
 ---
 name: project:plan
-description: "Stage 2: Planning — 제품 브리프, PRD, 기술 사양, BDD AC"
+description: "Stage 2: Planning — 제품 브리프, PRD, 기술 사양, BDD Acceptance Criteria"
 invoke: /project:plan
 category: pipeline
 complexity: moderate
@@ -28,7 +28,7 @@ complexity: moderate
 | 옵션 | 기본값 | 설명 |
 |------|--------|------|
 | `--doc` | `prd` | 문서 유형 (`prd`, `tech-spec`, `both`) |
-| `--bdd` | `true` | BDD Gherkin AC 포함 여부 |
+| `--bdd` | `true` | BDD Gherkin Acceptance Criteria 포함 여부 |
 
 ## 전제 조건
 
@@ -80,7 +80,7 @@ complexity: moderate
 **BMAD Analysis Gate 검증**:
 - [ ] 요구사항 명확성 (requirement_clarity)
 - [ ] 범위 적절성 (scope_appropriateness)
-- [ ] AC 테스트 가능성 (ac_testability)
+- [ ] Acceptance Criteria 테스트 가능성 (ac_testability)
 
 게이트 실패 시 피드백을 반영하여 문서를 수정합니다.
 

@@ -15,7 +15,7 @@ linked-agents: [figma-analyzer-agent, bdd-scenario-agent]
 |------|------|
 | 요구사항 분석 | 작업 내용에서 기능 요구사항 추출 |
 | 타당성 검토 | 기술적/비즈니스적 실현 가능성 평가 |
-| **AC 정의** | **BDD Gherkin 형식**으로 Acceptance Criteria 작성 |
+| **Acceptance Criteria 정의** | **BDD Gherkin 형식**으로 Acceptance Criteria 작성 |
 | 스코프 관리 | 범위 초과(scope creep) 방지 |
 
 ## 검토 체크리스트
@@ -41,7 +41,7 @@ linked-agents: [figma-analyzer-agent, bdd-scenario-agent]
 - [ ] 경계값/엣지 케이스가 식별되었는가?
 - [ ] 에러 케이스 시나리오가 포함되었는가?
 
-**AC 작성 규칙:**
+**Acceptance Criteria 작성 규칙:**
 ```gherkin
 Feature: {기능명}
 
@@ -57,9 +57,9 @@ Feature: {기능명}
 - [ ] 병렬 수행 가능한 작업이 분리되었는가?
 - [ ] 기술 스택/패키지 의존성이 파악되었는가?
 
-## BDD Gherkin AC 작성 가이드 ⭐
+## BDD Gherkin Acceptance Criteria 작성 가이드 ⭐
 
-### AC 출력 형식 (필수)
+### Acceptance Criteria 출력 형식 (필수)
 
 모든 AC는 반드시 다음 형식으로 작성합니다:
 
@@ -91,7 +91,7 @@ Feature: {기능명}
     Then {결과}
 ```
 
-### AC 예시
+### Acceptance Criteria 예시
 
 #### 예시 1: 목록 화면
 
@@ -200,7 +200,7 @@ Feature: 클립보드 복사 에러 처리
     And 앱이 크래시되지 않는다
 ```
 
-### AC 태그 규칙
+### Acceptance Criteria 태그 규칙
 
 | 태그 | 용도 | 필수 |
 |------|------|------|
@@ -224,11 +224,11 @@ criteria:
     required: true
     pass: "단일 이슈로 적절한 크기"
 
-  - name: "AC BDD Gherkin 형식"
+  - name: "Acceptance Criteria BDD Gherkin 형식"
     required: true
     pass: "모든 AC가 Given-When-Then 형식으로 작성됨"
 
-  - name: "AC 완성도"
+  - name: "Acceptance Criteria 완성도"
     required: true
     pass: "happy-path + error-handling 시나리오 최소 각 1개"
 ```
@@ -248,7 +248,7 @@ criteria:
 ### 제안
 - {대안 또는 개선 방향}
 
-### 예시 AC (참고용)
+### 예시 Acceptance Criteria (참고용)
 ```gherkin
 Scenario: {시나리오 이름}
   Given {전제 조건}
@@ -303,7 +303,7 @@ feature/
 ║     - 예상 복잡도: 중간 (3 SP)                                 ║
 ║     - 단일 이슈로 적절                                         ║
 ║                                                                ║
-║  ✅ AC BDD Gherkin 형식: PASS                                   ║
+║  ✅ Acceptance Criteria BDD Gherkin 형식: PASS                   ║
 ║     - Scenario 3개 정의됨                                      ║
 ║     - @happy-path: 2개                                         ║
 ║     - @error-handling: 1개                                     ║
