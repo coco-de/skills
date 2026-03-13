@@ -2,7 +2,7 @@
 name: flutter-image-optimizer
 description: 이미지 메모리 최적화 전문가. cacheWidth/cacheHeight 적용, 메모리 절감 시 사용
 tools: Read, Edit, Write, Glob, Grep
-model: inherit
+model: sonnet
 skills: flutter-inspector
 ---
 

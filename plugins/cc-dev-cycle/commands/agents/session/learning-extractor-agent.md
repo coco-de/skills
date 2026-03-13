@@ -2,7 +2,7 @@
 name: session-learning-extractor
 description: 세션에서 학습한 규칙/패턴 추출. 프로젝트 특화 규칙 문서화 시 사용
 tools: Read, Glob, Grep
-model: inherit
+model: haiku
 ---
 
 # Session Learning Extractor Agent

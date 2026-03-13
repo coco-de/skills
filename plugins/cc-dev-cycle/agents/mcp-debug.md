@@ -2,7 +2,7 @@
 name: mcp-debug
 description: MCP 연결 문제 해결 전문가. mcp_toolkit 초기화, 포트 설정 디버깅 시 사용
 tools: Read, Glob, Grep
-model: inherit
+model: haiku
 skills: mcp-debug
 ---
 

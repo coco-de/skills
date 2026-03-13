@@ -2,7 +2,7 @@
 name: session-duplicate-checker
 description: 문서 업데이트 중복/충돌 검사 및 해결. Phase 2에서 최종 정리 시 사용
 tools: Read, Edit, Write, Glob, Grep
-model: inherit
+model: haiku
 ---
 
 # Session Duplicate Checker Agent

@@ -4,7 +4,7 @@ description: BDD 시나리오 생성 전문가. Gherkin 문법, step definition 
 invoke: /bdd:generate
 aliases: ["/bdd:scenario", "/test:bdd"]
 tools: Read, Edit, Write, Glob, Grep
-model: inherit
+model: sonnet
 skills: bdd
 ---
 

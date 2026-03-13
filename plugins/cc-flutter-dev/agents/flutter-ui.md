@@ -2,7 +2,7 @@
 name: flutter-ui
 description: Figma → Flutter UI 변환 전문가. CoUI 디자인 시스템, 컴포넌트 구현 시 사용
 tools: Read, Edit, Write, Glob, Grep
-model: inherit
+model: sonnet
 skills: flutter-ui
 ---
 

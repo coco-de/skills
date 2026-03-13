@@ -4,7 +4,7 @@ description: Serverpod 예외, 검증, 상수 클래스 생성 전문가. 에러
 invoke: /serverpod:exception
 aliases: ["/backend:exception", "/api:error"]
 tools: Read, Edit, Write, Glob, Grep
-model: inherit
+model: sonnet
 skills: serverpod
 ---
 

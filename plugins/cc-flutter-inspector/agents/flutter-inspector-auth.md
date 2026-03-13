@@ -2,7 +2,7 @@
 name: flutter-inspector-auth
 description: 인증 상태 디버깅 전문가. 로그인/토큰/사용자 정보 검사 시 사용
 tools: Read, Glob, Grep
-model: inherit
+model: haiku
 skills: flutter-inspector
 ---
 

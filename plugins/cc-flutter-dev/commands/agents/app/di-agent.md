@@ -4,7 +4,7 @@ description: Dependency Injection 설정 생성 전문가. Injectable 모듈 등
 invoke: /app:di
 aliases: ["/di:create", "/inject:setup"]
 tools: Read, Edit, Write, Glob, Grep
-model: inherit
+model: sonnet
 skills: bloc
 ---
 

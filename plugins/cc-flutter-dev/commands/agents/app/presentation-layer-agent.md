@@ -4,7 +4,7 @@ description: Clean Architecture Presentation Layer 전문가. BLoC, Page, Widget
 invoke: /feature:presentation
 aliases: ["/presentation:create", "/layer:presentation"]
 tools: Read, Edit, Write, Glob, Grep
-model: inherit
+model: sonnet
 skills: feature
 ---
 

@@ -2,7 +2,7 @@
 name: flutter-inspector-config
 description: 설정 디버깅 전문가. 환경변수, 피처 플래그 검사 시 사용
 tools: Read, Glob, Grep
-model: inherit
+model: haiku
 skills: flutter-inspector
 ---
 

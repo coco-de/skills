@@ -4,7 +4,7 @@ description: 어드민 콘솔 전용 Presentation Layer 생성 전문가. 테이
 invoke: /console:presentation
 aliases: ["/admin:ui", "/console:page"]
 tools: Read, Edit, Write, Glob, Grep
-model: inherit
+model: sonnet
 skills: bloc, flutter-ui
 ---
 

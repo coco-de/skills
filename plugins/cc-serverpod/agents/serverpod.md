@@ -2,7 +2,7 @@
 name: serverpod
 description: Serverpod 백엔드 전문가. 모델, 엔드포인트, 마이그레이션 작업 시 사용
 tools: Read, Edit, Write, Bash, Glob, Grep
-model: inherit
+model: sonnet
 skills: serverpod
 ---
 
