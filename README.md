@@ -34,18 +34,25 @@ Flutter + Serverpod + CoUI 기반의 Dart 풀스택 프로젝트를 위한 Claud
 
 ## Quick Start
 
-### 전체 설치
+### 마켓플레이스 등록
 
 ```bash
-claude plugins install coco-de/skills
+claude plugins marketplace add coco-de/skills
 ```
 
-### 개별 플러그인 설치
+### 플러그인 설치
 
 ```bash
-claude plugins install coco-de/skills/plugins/cc-flutter-dev
-claude plugins install coco-de/skills/plugins/cc-coui
-claude plugins install coco-de/skills/plugins/cc-serverpod
+claude plugins install cc-flutter-dev@cocode-skills
+claude plugins install cc-coui@cocode-skills
+claude plugins install cc-serverpod@cocode-skills
+```
+
+### 플러그인 업데이트
+
+```bash
+claude plugins marketplace update cocode-skills
+claude plugins update cc-workflow@cocode-skills
 ```
 
 ### 추천 조합
