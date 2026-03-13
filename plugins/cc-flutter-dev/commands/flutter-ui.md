@@ -5,7 +5,7 @@ invoke: /flutter:ui
 aliases: ["/ui", "/21", "/coui"]
 category: petmedi-development
 complexity: moderate
-mcp-servers: [magic, figma-daisyui, serena]
+mcp-servers: [magic, figma, serena]
 ---
 
 # /flutter-ui
@@ -37,7 +37,7 @@ mcp-servers: [magic, figma-daisyui, serena]
 
 ```
 ┌─────────────────────────────────────────┐
-│  1. Figma 노드 분석 (MCP: figma-daisyui)  │
+│  1. Figma 노드 분석 (MCP: figma)           │
 ├─────────────────────────────────────────┤
 │  • get_selection / get_node_info        │
 │  • extract_tailwind                     │
@@ -48,7 +48,7 @@ mcp-servers: [magic, figma-daisyui, serena]
 ┌─────────────────────────────────────────┐
 │  2. CoUI 컴포넌트 매핑                    │
 ├─────────────────────────────────────────┤
-│  • DaisyUI 클래스 → CoUI 위젯           │
+│  • Figma 클래스 → CoUI 위젯              │
 │  • 색상 변수 → AppColors                │
 │  • 타이포그래피 → AppTextStyles         │
 └─────────────────────────────────────────┘
@@ -89,7 +89,7 @@ neutral      → AppColors.neutral
 
 ### 컴포넌트 매핑
 
-| Figma/DaisyUI | Flutter/CoUI |
+| Figma | Flutter/CoUI |
 |---------------|--------------|
 | btn | CoButton |
 | card | CoCard |
@@ -157,7 +157,7 @@ Widget buildDefault(BuildContext context) {
 
 | 단계 | MCP 서버 | 도구 |
 |------|----------|------|
-| Figma 분석 | figma-daisyui | get_node_info, extract_tailwind |
+| Figma 분석 | figma | get_node_info, extract_tailwind |
 | UI 생성 | magic | 21st_magic_component_builder |
 | 코드 검색 | serena | find_symbol, search_for_pattern |
 

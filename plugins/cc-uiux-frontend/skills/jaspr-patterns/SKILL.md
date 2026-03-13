@@ -11,7 +11,7 @@
 1. Jaspr 컴포넌트 구조를 설계한다
    - `StatelessComponent` 또는 `StatefulComponent` 선택
    - `build()` 메서드에서 HTML 요소 트리 구성 (`div`, `span`, `p`, `h1` 등)
-   - `classes` 파라미터로 DaisyUI/Tailwind CSS 클래스 적용
+   - `classes` 파라미터로 CoUI/Tailwind CSS 클래스 적용
    - `Styles(raw: {'key': 'value'})` 문법으로 인라인 스타일 적용
 2. jaspr_router를 활용한 라우팅을 구성한다
    - `Router` + `ShellRoute` + `Route` 계층 구조
@@ -22,7 +22,7 @@
    - 마크다운 frontmatter (title, description, layout) 지원
 4. CoUI 웹 컴포넌트를 통합한다
    - `coui_web` 패키지: Button, Badge, Alert, Card, Select, Toggle 등
-   - DaisyUI 시맨틱 클래스 활용: `btn-primary`, `badge-accent`, `alert-success`
+   - CoUI 시맨틱 클래스 활용: `btn-primary`, `badge-accent`, `alert-success`
 
 ## Jaspr 핵심 패턴
 
@@ -84,7 +84,7 @@ Router(routes: [
 ]);
 ```
 
-### DaisyUI 컴포넌트 클래스
+### CoUI 컴포넌트 클래스
 ```dart
 // 버튼
 div([], classes: 'btn btn-primary btn-sm')
@@ -100,12 +100,12 @@ Component.element(tag: 'table', classes: 'table table-zebra', children: [...])
 - Jaspr 컴포넌트 코드 (Dart)
 - jaspr_router 라우팅 설정 코드
 - jaspr_content 문서 사이트 설정
-- DaisyUI/CoUI 스타일이 적용된 HTML 구조
+- CoUI 스타일이 적용된 HTML 구조
 
 ## 참고
 - Jaspr는 Dart 기반 웹 프레임워크로, Flutter와 동일 언어를 사용하여 `coui_core` 토큰을 공유한다
 - Jaspr의 컴포넌트 모델은 Flutter와 유사하지만 HTML 요소를 직접 렌더링한다
-- `coui_web` 컴포넌트는 DaisyUI CSS 클래스를 Dart에서 타입 세이프하게 래핑한다
+- `coui_web` 컴포넌트는 CoUI CSS 클래스를 Dart에서 타입 세이프하게 래핑한다
 - `Document()` 위젯으로 `<head>` 설정 (CSS, 폰트, 스크립트 등)
 - `Style(styles: [...])` 컴포넌트로 인라인 `<style>` 태그 생성
 - `css('selector').styles(raw: {...})`로 CSS 규칙 정의

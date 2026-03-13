@@ -1,13 +1,13 @@
 ---
 name: coui-theme
-description: Activate when configuring CoUI theming across Flutter or Web — ThemeData, ColorScheme, Typography, RadiusScale, design tokens, light/dark mode, DaisyUI themes, ThemeController components, CSS variables, or adaptive scaling.
+description: Activate when configuring CoUI theming across Flutter or Web — ThemeData, ColorScheme, Typography, RadiusScale, design tokens, light/dark mode, CoUI themes, ThemeController components, CSS variables, or adaptive scaling.
 ---
 
 # CoUI Theme
 
 ## Overview
 
-CoUI provides a unified theming system across Flutter and Web platforms. Both share DaisyUI-inspired semantic color tokens and radius scales, but differ in implementation: Flutter uses a `Theme` widget with `ThemeData`, while Web uses DaisyUI CSS themes with `ThemeController` components.
+CoUI provides a unified theming system across Flutter and Web platforms. Both share CoUI semantic color tokens and radius scales, but differ in implementation: Flutter uses a `Theme` widget with `ThemeData`, while Web uses CoUI CSS themes with `ThemeController` components.
 
 ## Flutter (coui_flutter)
 
@@ -46,7 +46,7 @@ const ThemeData({
   ComponentThemeData? componentTheme,
   IconThemeProperties iconTheme = const IconThemeProperties(),
   TargetPlatform? platform,
-  RadiusScale radiusScale = const RadiusScale.daisyUI(),
+  RadiusScale radiusScale = const RadiusScale(),
   double scaling = 1,
   double? surfaceBlur,
   double? surfaceOpacity,
@@ -98,7 +98,7 @@ const Text('Hello').sm
 const Text('Hello').lg
 ```
 
-### RadiusScale (DaisyUI Semantic)
+### RadiusScale (CoUI Semantic)
 
 ```dart
 theme.radiusBox       // cards, dialogs, panels
@@ -214,7 +214,7 @@ enum CoTheme {
 }
 ```
 
-Each theme value maps to a DaisyUI theme name string via `CoTheme.value`.
+Each theme value maps to a CoUI theme name string via `CoTheme.value`.
 
 ### ThemeControllerCheckbox
 
@@ -320,7 +320,7 @@ ThemeControllerRadio(
 
 ### HTML Theme Integration
 
-DaisyUI themes work via the `data-theme` attribute on the HTML element. The ThemeController components set `data-toggle-theme` and `data-set-theme` attributes that integrate with DaisyUI's theme switching JavaScript.
+CoUI themes work via the `data-theme` attribute on the HTML element. The ThemeController components set `data-toggle-theme` and `data-set-theme` attributes that integrate with CoUI's theme switching JavaScript.
 
 Ensure your HTML root element has:
 
@@ -330,7 +330,7 @@ Ensure your HTML root element has:
 
 ### Theme CSS Variables
 
-DaisyUI themes define CSS variables like:
+CoUI themes define CSS variables like:
 - `--p` (primary), `--pf` (primary focus), `--pc` (primary content)
 - `--s` (secondary), `--a` (accent), `--n` (neutral)
 - `--b1` (base-100), `--b2` (base-200), `--b3` (base-300)
@@ -342,7 +342,7 @@ Use Tailwind classes that reference these: `bg-primary`, `text-primary-foregroun
 
 ### Semantic Color Tokens (shared across platforms)
 
-Both Flutter and Web use DaisyUI-inspired semantic color tokens:
+Both Flutter and Web use CoUI semantic color tokens:
 
 | Token | Flutter (`ColorScheme`) | Web (CSS Variable) | Purpose |
 |-------|------------------------|-------------------|---------|
@@ -367,9 +367,9 @@ Theme(data: const ThemeData.dark(), child: app)   // dark
 ThemeControllerCheckbox(value: CoTheme.dark, toggleTheme: CoTheme.light)
 ```
 
-### DaisyUI Radius Scale
+### CoUI Radius Scale
 
-Both platforms share the DaisyUI semantic radius scale with three levels:
+Both platforms share the CoUI semantic radius scale with three levels:
 - **Box** — cards, dialogs, panels
 - **Field** — inputs, form elements
 - **Selector** — buttons, interactive elements

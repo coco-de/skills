@@ -10,7 +10,7 @@ CoUI 기반 Dart 풀스택에 특화된 7개 UI/UX 전문 플러그인입니다.
 <Tabs>
   <TabItem label="cc-uiux-design">
 
-**UI/UX 디자인** — CoUI 디자인 토큰과 DaisyUI 테마를 활용한 디자인 시스템입니다.
+**UI/UX 디자인** — CoUI 디자인 토큰과 테마 시스템을 활용한 디자인 시스템입니다.
 
 | 항목 | 내용 |
 |------|------|
