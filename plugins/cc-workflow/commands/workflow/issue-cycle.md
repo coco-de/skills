@@ -62,9 +62,17 @@
 │  ├── 이슈 내용 분석 → 레이어 에이전트 위임                            │
 │  └── 증분 커밋 생성                                                │
 │                                                                 │
-│  Step 5: 테스트 실행                                              │
-│  ├── Task(subagent_type: "test-runner-agent")                   │
-│  ├── Unit → BLoC → BDD 순차 실행                                  │
+│  Step 5: 테스트 작성 및 검증 (필수 게이트) ⚠️                        │
+│  ├── [프론트엔드 테스트 - 필수]                                      │
+│  │   ├── UseCase 단위 테스트 (unit-test-agent)                     │
+│  │   └── BLoC 단위 테스트 (bloc-test-agent)                        │
+│  ├── [백엔드 테스트 - Backend 변경 시 필수]                           │
+│  │   ├── 엔드포인트 단위 테스트 (serverpod-test-agent)               │
+│  │   ├── 서비스 로직 단위 테스트 (serverpod-test-agent)              │
+│  │   └── 엔드포인트 통합 테스트 (serverpod-test-agent)               │
+│  ├── BDD Widget 테스트 (화면 기능 시)                                │
+│  ├── test-runner-agent 호출 (require_tests: true)                │
+│  ├── ⚠️ 모든 테스트 통과 필수 (게이트 실패 시 PR 생성 차단)            │
 │  └── 실패 시 자동 수정 시도 (최대 3회)                               │
 │                                                                 │
 │  Step 6: PR 생성                                                  │
@@ -216,29 +224,38 @@ console.log(`생성된 커밋: ${implResult.commits.length}개`);
 console.log(`변경된 파일: ${implResult.files_changed.length}개`);
 ```
 
-### Step 4: 테스트 실행
+### Step 5: 테스트 작성 및 검증 (필수 게이트)
 
 ```typescript
 // Feature명 추출 (이슈 제목 또는 스코프에서)
 const featureName = extractFeatureName(issueInfo);
 
-// 테스트 에이전트 호출
+// Backend 변경 감지
+const hasBackendChanges = detectBackendChanges(issueInfo);
+
+// 테스트 유형 결정
+const testTypes = ["unit", "bloc"];
+if (requiresBdd) testTypes.push("bdd");
+if (hasBackendChanges) testTypes.push("backend_unit", "backend_integration");
+
+// 테스트 에이전트 호출 (require_tests: true → 누락 시 자동 생성)
 const testResult = await Task({
   subagent_type: "test-runner-agent",
   prompt: `
     feature_name: ${featureName}
-    test_types: ["unit", "bloc", "bdd"]
+    test_types: ${JSON.stringify(testTypes)}
     auto_fix: true
+    require_tests: true
 
-    모든 테스트를 실행하고 결과를 보고해주세요.
+    테스트를 작성하고 실행한 후 결과를 보고해주세요.
+    ⚠️ 모든 테스트가 통과해야 PR 생성이 가능합니다.
   `
 });
 
-// 테스트 실패 시 처리
+// ⚠️ 테스트 실패 시 PR 생성 차단
 if (!testResult.success) {
-  // 자동 수정 불가능한 실패가 있는 경우
   if (testResult.failures.some(f => !f.fixable)) {
-    throw new Error(`테스트 실패: ${testResult.failures.length}개`);
+    throw new Error(`테스트 실패: ${testResult.failures.length}개 - PR 생성 차단`);
   }
 }
 ```
@@ -257,8 +274,11 @@ await Bash(`
 - ${issueInfo.title}
 
 ## Test Plan
-- [ ] 단위 테스트 통과
-- [ ] BLoC 테스트 통과
+- [ ] UseCase 단위 테스트 통과
+- [ ] BLoC 단위 테스트 통과
+${hasBackendChanges ? '- [ ] 백엔드 엔드포인트 단위 테스트 통과' : ''}
+${hasBackendChanges ? '- [ ] 백엔드 서비스 로직 단위 테스트 통과' : ''}
+${hasBackendChanges ? '- [ ] 백엔드 엔드포인트 통합 테스트 통과' : ''}
 ${requiresBdd ? '- [ ] BDD 시나리오 통과' : ''}
 
 Closes #${issueInfo.number}
@@ -369,8 +389,10 @@ if (approval === "머지 승인") {
 ║    3. feat(community): ✨ presentation layer 구현               ║
 ║                                                                ║
 ║  ✅ Tests:                                                     ║
-║    - Unit: 12/12 passed                                        ║
-║    - BLoC: 8/8 passed                                          ║
+║    - UseCase Unit: 12/12 passed                                ║
+║    - BLoC Unit: 8/8 passed                                     ║
+║    - Backend Unit: 6/6 (endpoint: 3, service: 3)               ║
+║    - Backend Integration: 4/4 passed                           ║
 ║    - BDD: 5/5 scenarios passed                                 ║
 ║                                                                ║
 ║  🔀 PR: #42                                                    ║
@@ -457,7 +479,7 @@ TodoWrite([
   { content: "이슈 정보 조회", status: "in_progress", activeForm: "이슈 정보 조회 중" },
   { content: "브랜치 생성", status: "pending", activeForm: "브랜치 생성 대기" },
   { content: "구현 작업", status: "pending", activeForm: "구현 작업 대기" },
-  { content: "테스트 실행", status: "pending", activeForm: "테스트 실행 대기" },
+  { content: "테스트 작성 및 검증 (필수 게이트)", status: "pending", activeForm: "테스트 작성/검증 대기" },
   { content: "PR 생성 및 머지", status: "pending", activeForm: "PR 생성 대기" },
   { content: "이슈 클로즈", status: "pending", activeForm: "이슈 클로즈 대기" },
 ]);

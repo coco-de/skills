@@ -160,11 +160,17 @@ mcp-servers: [zenhub]
 │  ├── melos run backend:pod:generate                             │
 │  └── 커밋: "chore(backend): 🔧 코드 생성"                        │
 │                                                                 │
-│  Step 8: 테스트 작성/실행                                         │
-│  ├── 단위 테스트 (UseCase)                                       │
-│  ├── BLoC 테스트                                                 │
+│  Step 8: 테스트 작성 및 검증 (필수 게이트) ⚠️                      │
+│  ├── [프론트엔드 테스트 - 필수]                                    │
+│  │   ├── UseCase 단위 테스트 (unit-test-agent)                   │
+│  │   └── BLoC 단위 테스트 (bloc-test-agent)                      │
+│  ├── [백엔드 테스트 - Backend 변경 시 필수]                        │
+│  │   ├── 엔드포인트 단위 테스트 (serverpod-test-agent)            │
+│  │   ├── 서비스 로직 단위 테스트 (serverpod-test-agent)           │
+│  │   └── 엔드포인트 통합 테스트 (serverpod-test-agent)            │
 │  ├── BDD Widget 테스트 (화면 기능 시)                             │
-│  ├── test-runner-agent 호출                                     │
+│  ├── test-runner-agent 호출 (require_tests: true)              │
+│  ├── ⚠️ 모든 테스트 통과 필수 (게이트 실패 시 PR 생성 차단)        │
 │  └── 커밋: "test({scope}): ✅ 테스트 작성"                        │
 │                                                                 │
 │  Step 8.5: Pre-push 검증 ⚠️ 필수                                 │
@@ -399,15 +405,37 @@ await Task({
   prompt: `이슈 #${issue.number} 구현`,
 });
 
-// 테스트 실행
+// Backend 변경 감지
+const hasBackendChanges = detectBackendChanges(issue);
+
+// 테스트 작성 및 검증 (필수 게이트) ⚠️
 if (!options.skipTests) {
+  const testTypes = ["unit", "bloc"];
+  if (analysis.requiresBdd) testTypes.push("bdd");
+  if (hasBackendChanges) testTypes.push("backend_unit", "backend_integration");
+
   await Task({
     subagent_type: "test-runner-agent",
     prompt: `
       feature_name: ${analysis.scope}
-      test_types: ["unit", "bloc", ${analysis.requiresBdd ? '"bdd"' : ''}]
+      test_types: ${JSON.stringify(testTypes)}
       auto_fix: true
+      require_tests: true
     `,
+  });
+
+  // ⚠️ 테스트 실패 시 PR 생성 차단
+} else {
+  // --skip-tests 사용 시 사용자 확인 필수
+  const confirm = await AskUserQuestion({
+    questions: [{
+      header: "테스트 스킵 확인",
+      question: "테스트를 스킵하면 검증 없이 PR이 생성됩니다. 계속하시겠습니까?",
+      options: [
+        { label: "스킵 확인", description: "테스트 없이 진행 (긴급 핫픽스용)" },
+        { label: "테스트 실행", description: "테스트를 실행합니다" },
+      ],
+    }],
   });
 }
 ```
@@ -423,8 +451,11 @@ await Bash(`
 - ${workContent}
 
 ## Test Plan
-- [ ] 단위 테스트 통과
-- [ ] BLoC 테스트 통과
+- [ ] UseCase 단위 테스트 통과
+- [ ] BLoC 단위 테스트 통과
+${hasBackendChanges ? '- [ ] 백엔드 엔드포인트 단위 테스트 통과' : ''}
+${hasBackendChanges ? '- [ ] 백엔드 서비스 로직 단위 테스트 통과' : ''}
+${hasBackendChanges ? '- [ ] 백엔드 엔드포인트 통합 테스트 통과' : ''}
 ${analysis.requiresBdd ? '- [ ] BDD 시나리오 통과' : ''}
 
 Closes #${issue.number}
@@ -528,9 +559,11 @@ if (approval === "머지 승인") {
 ║    - 12 files changed                                         ║
 ║    - +520 / -30 lines                                         ║
 ║                                                                ║
-║  ✅ Tests: 25/25 passed                                        ║
-║    - Unit: 10/10                                              ║
-║    - BLoC: 8/8                                                ║
+║  ✅ Tests: 35/35 passed                                        ║
+║    - UseCase Unit: 10/10                                      ║
+║    - BLoC Unit: 8/8                                           ║
+║    - Backend Unit: 6/6 (endpoint: 3, service: 3)              ║
+║    - Backend Integration: 4/4                                 ║
 ║    - BDD: 7/7 scenarios                                       ║
 ║                                                                ║
 ║  ✅ Review: All issues resolved                                ║
@@ -561,7 +594,7 @@ TodoWrite([
   { content: "Step 6: BDD 시나리오", status: "pending", activeForm: "BDD 작성 대기" },
   { content: "Step 7: 구현 작업", status: "pending", activeForm: "구현 대기" },
   { content: "Step 7.5: Backend 코드 생성", status: "pending", activeForm: "Backend 생성 대기" },
-  { content: "Step 8: 테스트 실행", status: "pending", activeForm: "테스트 대기" },
+  { content: "Step 8: 테스트 작성 및 검증 (필수 게이트)", status: "pending", activeForm: "테스트 대기" },
   { content: "Step 8.5: Pre-push 검증", status: "pending", activeForm: "검증 대기" },
   { content: "Step 9: PR 생성", status: "pending", activeForm: "PR 생성 대기" },
   { content: "Step 10-12: 리뷰/머지", status: "pending", activeForm: "리뷰 대기" },
