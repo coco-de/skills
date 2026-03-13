@@ -50,7 +50,7 @@
     {
       "name": "cc-workflow",
       "source": "./plugins/cc-workflow",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "description": "개발 워크플로우 (Issue Cycle, Bug Cycle, Session, ZenHub)",
       "category": "workflow",
       "keywords": ["workflow", "zenhub", "session", "issue-tracking"]
