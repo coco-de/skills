@@ -1,5 +1,5 @@
 {
   "name": "cc-code-quality",
-  "version": "1.0.0",
-  "description": "코드 품질 (코드리뷰, 체크리스트, 버그리포트)"
+  "version": "1.1.0",
+  "description": "코드 품질 (코드리뷰, 체크리스트, 버그리포트, QA Health Score)"
 }
