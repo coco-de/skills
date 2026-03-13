@@ -35,7 +35,7 @@ Cocode 팀 통합 스킬 레포지토리입니다. **Dart 풀스택** 개발 환
 
 전체 설치:
 
-```bash
+```
 # GitHub CLI 인증 (최초 1회)
 gh auth login
 
@@ -45,7 +45,7 @@ claude plugins install coco-de/skills
 
 개별 플러그인 설치:
 
-```bash
+```
 claude plugins install coco-de/skills/plugins/cc-flutter-dev
 claude plugins install coco-de/skills/plugins/cc-bmad
 ```

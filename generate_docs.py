@@ -208,6 +208,24 @@ def build_metadata_table(metadata: dict) -> str:
     return table + "\n"
 
 
+SUPPORTED_LANGUAGES = {"dart"}
+
+
+def strip_unsupported_languages(body: str) -> str:
+    """코드 블록에서 지원하지 않는 언어 태그를 제거.
+
+    syntax_highlight_lite는 dart만 지원하므로 그 외 언어 태그를 제거하여
+    Jaspr CodeBlock 빌드 에러를 방지한다.
+    """
+    def replace_fence(match: re.Match) -> str:
+        lang = match.group(1)
+        if lang and lang.lower() not in SUPPORTED_LANGUAGES:
+            return "```"
+        return match.group(0)
+
+    return re.sub(r'```([a-zA-Z_+-]+)', replace_fence, body)
+
+
 def generate_page(title: str, description: str, metadata_table: str, body: str) -> str:
     """Jaspr 호환 페이지 콘텐츠 생성."""
     # Frontmatter
@@ -221,8 +239,8 @@ def generate_page(title: str, description: str, metadata_table: str, body: str) 
     if metadata_table:
         content += metadata_table + "\n"
 
-    # 본문 추가
-    content += body + "\n"
+    # 본문 추가 (지원하지 않는 코드 블록 언어 태그 제거)
+    content += strip_unsupported_languages(body) + "\n"
 
     return content
 
@@ -344,7 +362,7 @@ def generate_plugin_index(plugin_name: str, plugin_data: dict, readme_content: s
 
     # 설치 안내
     content += "## 설치\n\n"
-    content += f"```bash\nclaude plugins install coco-de/skills/plugins/{plugin_name}\n```\n"
+    content += f"```\nclaude plugins install coco-de/skills/plugins/{plugin_name}\n```\n"
 
     output_path = DOCS_CONTENT_DIR / plugin_name / "index.md"
     output_path.parent.mkdir(parents=True, exist_ok=True)

@@ -17,7 +17,7 @@ description: 제품 발견, 전략, 데이터 분석, Go-to-Market 플러그인
 
 ### 설치
 
-```bash
+```
 claude plugins install coco-de/skills/plugins/cc-pm-discovery
 ```
 
@@ -35,7 +35,7 @@ claude plugins install coco-de/skills/plugins/cc-pm-discovery
 
 ### 설치
 
-```bash
+```
 claude plugins install coco-de/skills/plugins/cc-pm-strategy
 ```
 
@@ -53,7 +53,7 @@ claude plugins install coco-de/skills/plugins/cc-pm-strategy
 
 ### 설치
 
-```bash
+```
 claude plugins install coco-de/skills/plugins/cc-pm-analytics
 ```
 
@@ -71,7 +71,7 @@ claude plugins install coco-de/skills/plugins/cc-pm-analytics
 
 ### 설치
 
-```bash
+```
 claude plugins install coco-de/skills/plugins/cc-pm-gtm
 ```
 

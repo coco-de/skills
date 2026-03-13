@@ -22,7 +22,7 @@ description: 통합 프로젝트 파이프라인 오케스트레이터 — Disco
 
 ### 파이프라인 상태 확인
 
-```bash
+```
 /pipeline:status             # 현재 파이프라인 상태 확인
 ```
 
@@ -50,7 +50,7 @@ project/
 
 ### 설치
 
-```bash
+```
 claude plugins install coco-de/skills/plugins/cc-pipeline
 ```
 

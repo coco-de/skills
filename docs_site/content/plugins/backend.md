@@ -16,7 +16,7 @@ description: Serverpod 기초/심화, API·DB 설계, AWS 인프라, ClickHouse 
 
 ### 주요 커맨드
 
-```bash
+```
 /serverpod:endpoint          # Endpoint 생성
 /serverpod:model             # .spy.yaml 모델 파일 생성
 /serverpod:merge-migrations  # Migration 병합
@@ -24,7 +24,7 @@ description: Serverpod 기초/심화, API·DB 설계, AWS 인프라, ClickHouse 
 
 ### 설치
 
-```bash
+```
 claude plugins install coco-de/skills/plugins/cc-serverpod
 ```
 
@@ -56,7 +56,7 @@ claude plugins install coco-de/skills/plugins/cc-serverpod
 
 ### 설치
 
-```bash
+```
 claude plugins install coco-de/skills/plugins/cc-backend
 ```
 
@@ -74,7 +74,7 @@ claude plugins install coco-de/skills/plugins/cc-backend
 
 ### 설치
 
-```bash
+```
 claude plugins install coco-de/skills/plugins/cc-uiux-backend
 ```
 
@@ -92,7 +92,7 @@ claude plugins install coco-de/skills/plugins/cc-uiux-backend
 
 ### 주요 커맨드
 
-```bash
+```
 /terraform:plan              # Terraform Plan 실행
 /terraform:apply             # Terraform Apply 실행
 /dns:manage                  # Route53 DNS 관리
@@ -102,7 +102,7 @@ claude plugins install coco-de/skills/plugins/cc-uiux-backend
 
 ### 설치
 
-```bash
+```
 claude plugins install coco-de/skills/plugins/cc-aws-infrastructure
 ```
 
@@ -121,7 +121,7 @@ claude plugins install coco-de/skills/plugins/cc-aws-infrastructure
 
 ### 설치
 
-```bash
+```
 claude plugins install coco-de/skills/plugins/cc-clickhouse
 ```
 

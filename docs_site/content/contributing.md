@@ -23,7 +23,7 @@ plugins/cc-<name>/
 
 ## plugin.json 형식
 
-```json
+```
 {
   "name": "cc-<name>",
   "version": "1.0.0",

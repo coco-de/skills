@@ -18,7 +18,7 @@ description: BMAD 방법론, 개발 워크플로우, 코드 품질, 파이프라
 
 ### 주요 커맨드
 
-```bash
+```
 /bmad:prd                    # PRD 작성
 /bmad:architecture           # 아키텍처 설계
 /bmad:tech-spec              # 기술 스펙 작성
@@ -30,7 +30,7 @@ description: BMAD 방법론, 개발 워크플로우, 코드 품질, 파이프라
 
 ### 설치
 
-```bash
+```
 claude plugins install coco-de/skills/plugins/cc-bmad
 ```
 
@@ -50,7 +50,7 @@ claude plugins install coco-de/skills/plugins/cc-bmad
 
 ### 설치
 
-```bash
+```
 claude plugins install coco-de/skills/plugins/cc-workflow
 ```
 
@@ -69,7 +69,7 @@ claude plugins install coco-de/skills/plugins/cc-workflow
 
 ### 설치
 
-```bash
+```
 claude plugins install coco-de/skills/plugins/cc-code-quality
 ```
 
@@ -92,7 +92,7 @@ claude plugins install coco-de/skills/plugins/cc-code-quality
 
 ### 설치
 
-```bash
+```
 claude plugins install coco-de/skills/plugins/cc-pipeline
 ```
 

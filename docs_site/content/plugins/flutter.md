@@ -22,7 +22,7 @@ description: CoUI, Flutter 개발, Inspector, 국제화, Deep Link, 프론트엔
 
 ### 설치
 
-```bash
+```
 claude plugins install coco-de/skills/plugins/cc-coui
 ```
 
@@ -42,7 +42,7 @@ claude plugins install coco-de/skills/plugins/cc-coui
 
 ### 주요 커맨드
 
-```bash
+```
 /bloc                        # BLoC 생성
 /flutter-ui                  # Flutter UI 생성
 /feature:create              # Feature 스캐폴딩
@@ -52,7 +52,7 @@ claude plugins install coco-de/skills/plugins/cc-coui
 
 ### 설치
 
-```bash
+```
 claude plugins install coco-de/skills/plugins/cc-flutter-dev
 ```
 
@@ -81,7 +81,7 @@ claude plugins install coco-de/skills/plugins/cc-flutter-dev
 
 ### 설치
 
-```bash
+```
 claude plugins install coco-de/skills/plugins/cc-flutter-inspector
 ```
 
@@ -95,7 +95,7 @@ claude plugins install coco-de/skills/plugins/cc-flutter-inspector
 
 ### 설치
 
-```bash
+```
 claude plugins install coco-de/skills/plugins/cc-i18n
 ```
 
@@ -113,7 +113,7 @@ claude plugins install coco-de/skills/plugins/cc-i18n
 
 ### 주요 커맨드
 
-```bash
+```
 /deeplink:aasa               # Apple AASA 파일 관리
 /deeplink:app-links           # Android App Links 설정
 /deeplink:universal-links     # Universal Links 설정
@@ -122,7 +122,7 @@ claude plugins install coco-de/skills/plugins/cc-i18n
 
 ### 설치
 
-```bash
+```
 claude plugins install coco-de/skills/plugins/cc-deeplink
 ```
 
@@ -140,7 +140,7 @@ claude plugins install coco-de/skills/plugins/cc-deeplink
 
 ### 설치
 
-```bash
+```
 claude plugins install coco-de/skills/plugins/cc-uiux-frontend
 ```
 
